@@ -643,10 +643,8 @@
       <div class="gh-modal">
         <h3>Image storage on GitHub</h3>
         <p class="gh-desc">
-          Cover images you pick, and your whole collection (games/music/books), are committed straight into your GitHub
-          repo — images into an <code>imges</code> folder, your entries into <code>data/library.json</code> — so it's all
-          part of the live site, not just this browser. Open the site from any other PC and it will load the same data
-          from GitHub automatically. This needs a token with write access to that one repo.
+          Cover images you pick will be committed straight into an <code>imges</code> folder in your GitHub repo, so they're
+          part of the live site — not just this browser. This needs a token with write access to that one repo.
         </p>
         <div class="field full">
           <label>GitHub username / organization</label>
@@ -886,27 +884,6 @@ document.addEventListener('click', (e)=>{
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 
 async function loadData(){
-  let loadedFromGithub = false;
-  try{
-    const remote = await fetchLibraryFromGithub();
-    if(remote && (remote.games || remote.music || remote.books)){
-      data.games = remote.games || [];
-      data.music = remote.music || [];
-      data.books = remote.books || [];
-      if(remote.icon) currentIcon = remote.icon;
-      loadedFromGithub = true;
-      // Mirror into this browser's local storage too, so it still works
-      // offline or before GitHub is reachable again.
-      Promise.allSettled([
-        window.storage.set('library:games', JSON.stringify(data.games)),
-        window.storage.set('library:music', JSON.stringify(data.music)),
-        window.storage.set('library:books', JSON.stringify(data.books))
-      ]).catch(()=>{});
-    }
-  }catch(e){
-    console.error('github load error', e);
-  }
-
   try{
     const [g, m, b, sg, sm, sb, ic] = await Promise.allSettled([
       window.storage.get('library:games'),
@@ -917,11 +894,9 @@ async function loadData(){
       window.storage.get('ui:scale:books'),
       window.storage.get('ui:icon')
     ]);
-    if(!loadedFromGithub){
-      data.games = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : [];
-      data.music = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : [];
-      data.books = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : [];
-    }
+    data.games = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : [];
+    data.music = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : [];
+    data.books = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : [];
     const scaleResults = { games: sg, music: sm, books: sb };
     Object.keys(scaleResults).forEach(cat=>{
       const r = scaleResults[cat];
@@ -929,12 +904,12 @@ async function loadData(){
         layoutScale[cat] = normalizeScale(r.value.value);
       }
     });
-    if(!loadedFromGithub && ic.status==='fulfilled' && ic.value && ic.value.value){
+    if(ic.status==='fulfilled' && ic.value && ic.value.value){
       currentIcon = ic.value.value;
     }
   }catch(e){
     console.error('load error', e);
-    if(!loadedFromGithub) data = { games: [], music: [], books: [] };
+    data = { games: [], music: [], books: [] };
   }
   buildIconPicker();
   document.getElementById('titleIcon').textContent = currentIcon;
@@ -995,7 +970,6 @@ async function persist(cat){
     console.error('save error', e);
     showToast('Could not save — please try again.');
   }
-  scheduleGithubDataSync();
 }
 
 function parseCSV(text){
@@ -1375,23 +1349,6 @@ function updateCoverPreview(){
 // The token is only ever kept in this browser's storage (window.storage /
 // localStorage) — it is never written into index.html or committed anywhere.
 let ghConfig = null;
-const DATA_PATH = 'data/library.json';
-let ghDataSha = null; // sha of data/library.json on GitHub, cached after each read/write
-
-// If this file is being served from GitHub Pages (username.github.io), we can
-// figure out the owner/repo straight from the URL. That means ANY device that
-// opens the live site can read the shared data/library.json with no setup —
-// only editing (which needs a write token) requires configuring GitHub above.
-function detectRepoFromLocation(){
-  try{
-    const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
-    if(!m) return null;
-    const owner = m[1];
-    const parts = location.pathname.split('/').filter(Boolean);
-    const repo = parts.length ? parts[0] : (owner + '.github.io');
-    return { owner, repo };
-  }catch(e){ return null; }
-}
 
 async function loadGhConfig(){
   try{
@@ -1400,15 +1357,6 @@ async function loadGhConfig(){
   }catch(err){
     ghConfig = null;
   }
-}
-
-// A "read config" is enough to fetch data/library.json publicly — it doesn't
-// need a token. Prefer the saved config (has owner/repo/branch); otherwise
-// fall back to auto-detecting from the current URL.
-function getReadRepoConfig(){
-  if(ghConfig && ghConfig.owner && ghConfig.repo) return ghConfig;
-  const detected = detectRepoFromLocation();
-  return detected ? { owner: detected.owner, repo: detected.repo, branch: null } : null;
 }
 
 function openGithubSettings(){
@@ -1490,46 +1438,6 @@ function resizeImageFile(file, maxDim, quality){
   });
 }
 
-// Low-level: look up a file's current sha (needed to update, not create, a
-// file via the Contents API). Returns null if the file doesn't exist yet.
-async function ghGetFileSha(path){
-  const apiUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}?ref=${ghConfig.branch}&t=${Date.now()}`;
-  const res = await fetch(apiUrl, {
-    headers: {
-      'Authorization': `token ${ghConfig.token}`,
-      'Accept': 'application/vnd.github+json'
-    }
-  });
-  if(res.status === 404) return null;
-  if(!res.ok){
-    const errBody = await res.json().catch(()=>({}));
-    throw new Error(errBody.message || `GitHub lookup failed (${res.status})`);
-  }
-  const json = await res.json();
-  return json.sha || null;
-}
-
-// Low-level: create or update a file in the configured repo. Pass the sha of
-// the existing file to update it, or omit/null to create a new one.
-async function ghPutFile(path, base64Content, message, sha){
-  const apiUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}`;
-  const body = { message, content: base64Content, branch: ghConfig.branch };
-  if(sha) body.sha = sha;
-  const res = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `token ${ghConfig.token}`,
-      'Accept': 'application/vnd.github+json'
-    },
-    body: JSON.stringify(body)
-  });
-  if(!res.ok){
-    const errBody = await res.json().catch(()=>({}));
-    throw new Error(errBody.message || `GitHub save failed (${res.status})`);
-  }
-  return res.json();
-}
-
 async function uploadCoverToGithub(file){
   const dataUrl = await resizeImageFile(file, 600, 0.75);
   const base64 = dataUrl.split(',')[1];
@@ -1537,66 +1445,27 @@ async function uploadCoverToGithub(file){
   const namePart = slugify(titleEl ? titleEl.value : '');
   const filename = `${Date.now()}-${namePart}.jpg`;
   const path = `${ghConfig.folder}/${filename}`;
-  await ghPutFile(path, base64, `Add cover image ${filename}`, null);
+  const apiUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}`;
+
+  const res = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${ghConfig.token}`,
+      'Accept': 'application/vnd.github+json'
+    },
+    body: JSON.stringify({
+      message: `Add cover image ${filename}`,
+      content: base64,
+      branch: ghConfig.branch
+    })
+  });
+
+  if(!res.ok){
+    const errBody = await res.json().catch(()=>({}));
+    throw new Error(errBody.message || `GitHub upload failed (${res.status})`);
+  }
+
   return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
-}
-
-// ---------- GitHub data storage (games/music/books) ----------
-// Every add/edit/delete/reorder/import calls persist(), which writes to this
-// browser's local storage AND (if GitHub is configured) schedules a debounced
-// commit of the whole collection to data/library.json in the repo. Any device
-// that opens the live site reads that same file, so the collection — not just
-// cover images — travels with the site.
-function utf8ToBase64(str){
-  return btoa(unescape(encodeURIComponent(str)));
-}
-
-let ghSyncTimer = null;
-function scheduleGithubDataSync(){
-  if(!ghConfig) return;
-  clearTimeout(ghSyncTimer);
-  ghSyncTimer = setTimeout(()=>{ syncLibraryToGithub(); }, 1500);
-}
-
-async function syncLibraryToGithub(){
-  if(!ghConfig) return;
-  try{
-    const payload = {
-      games: data.games,
-      music: data.music,
-      books: data.books,
-      icon: currentIcon,
-      savedAt: Date.now()
-    };
-    const content = utf8ToBase64(JSON.stringify(payload, null, 2));
-    if(ghDataSha === null){
-      ghDataSha = await ghGetFileSha(DATA_PATH);
-    }
-    const result = await ghPutFile(DATA_PATH, content, 'Update collection data', ghDataSha);
-    ghDataSha = (result.content && result.content.sha) || null;
-  }catch(err){
-    console.error('github data sync error', err);
-    showToast('Saved on this device, but syncing to GitHub failed: ' + err.message);
-  }
-}
-
-// Reads data/library.json straight from GitHub (works with just owner/repo,
-// no token needed, since it's a plain public file fetch). Returns null if
-// the repo isn't reachable or the file hasn't been created yet.
-async function fetchLibraryFromGithub(){
-  const cfg = getReadRepoConfig();
-  if(!cfg) return null;
-  const branches = cfg.branch ? [cfg.branch] : ['main', 'master'];
-  for(const branch of branches){
-    try{
-      const url = `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${branch}/${DATA_PATH}?t=${Date.now()}`;
-      const res = await fetch(url);
-      if(res.status === 404) continue;
-      if(!res.ok) continue;
-      return await res.json();
-    }catch(e){ /* try next branch */ }
-  }
-  return null;
 }
 
 async function handleCoverFile(event){
@@ -1910,10 +1779,8 @@ function escapeHtml(str){
 
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
-(async function init(){
-  await loadGhConfig();
-  await loadData();
-})();
+loadData();
+loadGhConfig();
 </script>
 </body>
 </html>
