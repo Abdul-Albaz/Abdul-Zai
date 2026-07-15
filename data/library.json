@@ -2669,7 +2669,14 @@
       "addedAt": 1784126629284,
       "title": "spirited away",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784127248370-spirited-away.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnq2gwig",
@@ -2800,5 +2807,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784126817296
+  "savedAt": 1784127254003
 }
