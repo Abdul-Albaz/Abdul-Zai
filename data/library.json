@@ -34,12 +34,17 @@
       "addedAt": 1784125820678,
       "title": "spiritfarer",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784126009471-spiritfarer.jpg",
       "platform": "nintendo switch",
       "publisher": "thunder lotus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qime1xb",
@@ -2637,5 +2642,5 @@
   "music": [],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784125890207
+  "savedAt": 1784126014174
 }
