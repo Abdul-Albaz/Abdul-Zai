@@ -6,14 +6,11 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#171512">
 <title>The Home Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    color-scheme: dark;
     --bg:#171512;
     --bg-soft:#1E1B17;
     --paper:#EDE6D6;
@@ -596,9 +593,7 @@
     #statusFilter{flex:1 1 calc(50% - 4px);order:2;}
     #sortBy{flex:1 1 calc(50% - 4px);order:2;}
     .scale-slider-wrap{order:3;flex:1 1 100%;justify-content:space-between;height:44px;}
-    .scale-slider-wrap input[type=range]{flex:1;width:auto;height:20px;touch-action:pan-x;}
-    .scale-slider-wrap input[type=range]::-webkit-slider-thumb{width:24px;height:24px;margin-top:-11px;}
-    .scale-slider-wrap input[type=range]::-moz-range-thumb{width:24px;height:24px;}
+    .scale-slider-wrap input[type=range]{flex:1;width:auto;}
     .toolbar .btn, .toolbar .btn-ghost{flex:1 1 calc(50% - 4px);order:4;padding:12px 10px;text-align:center;}
     #addBtn{order:5;flex:1 1 100%;padding:14px;font-size:13px;}
     select, input[type=text], input[type=search], input[type=number], input[type=date]{font-size:16px;}
@@ -681,7 +676,7 @@
       </select>
       <div class="scale-slider-wrap" title="Card size">
         <span class="scale-label">Size</span>
-        <input type="range" id="scaleSlider" min="10" max="100" step="5" value="75"
+        <input type="range" id="scaleSlider" min="50" max="100" step="5" value="75"
           oninput="onScaleInput(this.value)" onchange="onScaleChange(this.value)">
         <span class="scale-value" id="scaleValue">75%</span>
       </div>
@@ -1046,7 +1041,7 @@ function normalizeScale(raw){
   const legacyMap = { small:60, normal:80, big:100 };
   if(raw in legacyMap) return legacyMap[raw];
   const n = Number(raw);
-  if(!isNaN(n)) return Math.min(100, Math.max(10, n));
+  if(!isNaN(n)) return Math.min(100, Math.max(50, n));
   return 60;
 }
 
@@ -2067,7 +2062,7 @@ function escapeHtml(str){
   return div.innerHTML;
 }
 
-// ---------- mobile: tap a card to reveal details, fade 1s after finger lifts ----------
+// ---------- mobile: tap a card to reveal details, fade 2s after finger lifts ----------
 (function setupMobileCardTap(){
   const isMobile = () => window.matchMedia('(max-width:768px)').matches;
   const fadeTimers = new WeakMap();
@@ -2093,7 +2088,7 @@ function escapeHtml(str){
     const timer = setTimeout(()=>{
       card.classList.remove('show-overlay');
       fadeTimers.delete(card);
-    }, 1000);
+    }, 2000);
     fadeTimers.set(card, timer);
   }
 
