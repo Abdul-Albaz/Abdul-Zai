@@ -2650,7 +2650,14 @@
       "addedAt": 1784126629285,
       "title": "clair obscur: expedition 33",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784126642350-clair-obscur-expedition-33.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqxnlg6",
@@ -2788,5 +2795,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784126630789
+  "savedAt": 1784126645992
 }
