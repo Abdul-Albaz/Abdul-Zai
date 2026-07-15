@@ -51,12 +51,17 @@
       "addedAt": 1784125820677,
       "title": "unmetal",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784126591438-unmetal.jpg",
       "platform": "nintendo switch",
       "publisher": "tesura",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qi3qatg",
@@ -2642,5 +2647,5 @@
   "music": [],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784126014174
+  "savedAt": 1784126595487
 }
