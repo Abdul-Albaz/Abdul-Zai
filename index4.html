@@ -886,63 +886,42 @@ document.addEventListener('click', (e)=>{
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 
 async function loadData(){
-  // On every page load we re-check both copies of the collection — the one
-  // committed to GitHub (so changes made from another device/browser show
-  // up here) and the one saved locally in this browser — and use whichever
-  // is actually newer. Without this, a quick refresh right after adding a
-  // card could load GitHub's still-stale copy (the sync to GitHub is
-  // debounced ~1.5s) and silently wipe out the card you just added.
   let loadedFromGithub = false;
-  let remote = null;
   try{
-    remote = await fetchLibraryFromGithub();
+    const remote = await fetchLibraryFromGithub();
+    if(remote && (remote.games || remote.music || remote.books)){
+      data.games = remote.games || [];
+      data.music = remote.music || [];
+      data.books = remote.books || [];
+      if(remote.icon) currentIcon = remote.icon;
+      loadedFromGithub = true;
+      // Mirror into this browser's local storage too, so it still works
+      // offline or before GitHub is reachable again.
+      Promise.allSettled([
+        window.storage.set('library:games', JSON.stringify(data.games)),
+        window.storage.set('library:music', JSON.stringify(data.music)),
+        window.storage.set('library:books', JSON.stringify(data.books))
+      ]).catch(()=>{});
+    }
   }catch(e){
     console.error('github load error', e);
   }
 
   try{
-    const [g, m, b, sg, sm, sb, ic, sa] = await Promise.allSettled([
+    const [g, m, b, sg, sm, sb, ic] = await Promise.allSettled([
       window.storage.get('library:games'),
       window.storage.get('library:music'),
       window.storage.get('library:books'),
       window.storage.get('ui:scale:games'),
       window.storage.get('ui:scale:music'),
       window.storage.get('ui:scale:books'),
-      window.storage.get('ui:icon'),
-      window.storage.get('library:savedAt')
+      window.storage.get('ui:icon')
     ]);
-
-    const localGames = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : null;
-    const localMusic = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : null;
-    const localBooks = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : null;
-    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null;
-    const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
-
-    const hasRemote = remote && (remote.games || remote.music || remote.books);
-    const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
-
-    if(hasRemote && !(hasLocal && localSavedAt > remoteSavedAt)){
-      // GitHub's copy is at least as new as (or there's no) local copy — use it.
-      data.games = remote.games || [];
-      data.music = remote.music || [];
-      data.books = remote.books || [];
-      if(remote.icon) currentIcon = remote.icon;
-      loadedFromGithub = true;
-      Promise.allSettled([
-        window.storage.set('library:games', JSON.stringify(data.games)),
-        window.storage.set('library:music', JSON.stringify(data.music)),
-        window.storage.set('library:books', JSON.stringify(data.books)),
-        window.storage.set('library:savedAt', String(remoteSavedAt || Date.now()))
-      ]).catch(()=>{});
-    } else if(hasLocal){
-      // This browser has changes GitHub hasn't caught up on yet (or GitHub
-      // isn't reachable/configured) — keep them and push them back up.
-      data.games = localGames || [];
-      data.music = localMusic || [];
-      data.books = localBooks || [];
-      if(hasRemote) scheduleGithubDataSync();
+    if(!loadedFromGithub){
+      data.games = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : [];
+      data.music = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : [];
+      data.books = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : [];
     }
-
     const scaleResults = { games: sg, music: sm, books: sb };
     Object.keys(scaleResults).forEach(cat=>{
       const r = scaleResults[cat];
@@ -1012,9 +991,6 @@ async function onScaleChange(val){
 async function persist(cat){
   try{
     await window.storage.set('library:'+cat, JSON.stringify(data[cat]));
-    // Stamp when this device last changed the collection, so a refresh can
-    // tell whether GitHub's copy is actually caught up yet (see loadData).
-    await window.storage.set('library:savedAt', String(Date.now()));
   }catch(e){
     console.error('save error', e);
     showToast('Could not save — please try again.');
@@ -1554,49 +1530,6 @@ async function ghPutFile(path, base64Content, message, sha){
   return res.json();
 }
 
-// Low-level: delete a file from the configured repo (needs its current sha).
-async function ghDeleteFile(path, sha, message){
-  const apiUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}`;
-  const res = await fetch(apiUrl, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `token ${ghConfig.token}`,
-      'Accept': 'application/vnd.github+json'
-    },
-    body: JSON.stringify({ message, sha, branch: ghConfig.branch })
-  });
-  if(!res.ok){
-    const errBody = await res.json().catch(()=>({}));
-    throw new Error(errBody.message || `GitHub delete failed (${res.status})`);
-  }
-  return res.json();
-}
-
-// If a cover URL points at an image we ourselves committed to the configured
-// repo, return its path within that repo; otherwise null (e.g. an external
-// URL the user pasted in, or a cover from a different repo/branch).
-function ghPathFromRawUrl(url){
-  if(!ghConfig || !url) return null;
-  const prefix = `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/`;
-  if(url.startsWith(prefix)) return url.slice(prefix.length);
-  return null;
-}
-
-// Best-effort cleanup: when a cover image gets replaced or removed, delete
-// the old file from the repo so uploads don't pile up. Never blocks the
-// save/upload flow — a cleanup failure is only logged.
-async function deleteCoverFromGithub(url){
-  if(!ghConfig) return;
-  const path = ghPathFromRawUrl(url);
-  if(!path) return;
-  try{
-    const sha = await ghGetFileSha(path);
-    if(sha) await ghDeleteFile(path, sha, `Remove replaced cover image ${path}`);
-  }catch(err){
-    console.error('github cover cleanup error', err);
-  }
-}
-
 async function uploadCoverToGithub(file){
   const dataUrl = await resizeImageFile(file, 600, 0.75);
   const base64 = dataUrl.split(',')[1];
@@ -1624,16 +1557,6 @@ function scheduleGithubDataSync(){
   clearTimeout(ghSyncTimer);
   ghSyncTimer = setTimeout(()=>{ syncLibraryToGithub(); }, 1500);
 }
-
-// If the page is closed/refreshed while a sync is still debouncing, fire it
-// right away instead of waiting out the timer (best-effort — the browser
-// may not wait for it, but it beats not trying).
-window.addEventListener('beforeunload', ()=>{
-  if(ghSyncTimer){
-    clearTimeout(ghSyncTimer);
-    syncLibraryToGithub();
-  }
-});
 
 async function syncLibraryToGithub(){
   if(!ghConfig) return;
@@ -1689,7 +1612,6 @@ async function handleCoverFile(event){
     return;
   }
 
-  const previousCover = currentCover;
   if(noteEl) noteEl.textContent = 'Uploading to GitHub…';
   try{
     const url = await uploadCoverToGithub(file);
@@ -1697,9 +1619,6 @@ async function handleCoverFile(event){
     document.getElementById('coverUrl').value = '';
     if(noteEl) noteEl.textContent = 'Cover image saved to your repo.';
     updateCoverPreview();
-    if(previousCover && previousCover !== url){
-      deleteCoverFromGithub(previousCover);
-    }
   }catch(err){
     showToast('Upload failed: ' + err.message);
     if(noteEl) noteEl.textContent = 'Upload failed — check your token/repo in "⚙ Image storage".';
@@ -1719,7 +1638,6 @@ function handleCoverUrl(event){
 }
 
 function clearCover(){
-  const previousCover = currentCover;
   currentCover = '';
   const fileInput = document.getElementById('coverFile');
   const urlInput = document.getElementById('coverUrl');
@@ -1731,7 +1649,6 @@ function clearCover(){
   if(linksEl) linksEl.innerHTML = '';
   updateCoverPreview();
   scheduleAutoFetchCover();
-  if(previousCover) deleteCoverFromGithub(previousCover);
 }
 
 function closeSlip(){
