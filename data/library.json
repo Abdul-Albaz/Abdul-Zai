@@ -80,12 +80,17 @@
       "addedAt": 1784125820675,
       "title": "blasphemous 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784126747248-blasphemous-2.jpg",
       "platform": "nintendo switch",
       "publisher": "team 17",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qinf05e",
@@ -2795,5 +2800,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784126645992
+  "savedAt": 1784126751258
 }
