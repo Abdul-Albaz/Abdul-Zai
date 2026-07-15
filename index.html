@@ -309,6 +309,42 @@
   .art-search-link:hover{color:var(--ink);border-color:var(--cart);}
   .cover-clear{align-self:flex-start;background:none;border:none;color:#a05a3a;font-size:11px;cursor:pointer;text-decoration:underline;padding:0;}
 
+  /* ---------- github settings modal ---------- */
+  .gh-overlay{
+    display:none;
+    position:fixed;inset:0;
+    background:rgba(10,9,7,0.65);
+    z-index:100;
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .gh-overlay.open{display:flex;}
+  .gh-modal{
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:8px;
+    padding:22px 24px;
+    max-width:460px;
+    width:100%;
+    max-height:88vh;
+    overflow-y:auto;
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  }
+  .gh-modal h3{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    margin:0 0 10px;
+    font-style:italic;
+  }
+  .gh-modal .field{margin-bottom:12px;}
+  .gh-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin:0 0 16px;}
+  .gh-desc code{background:rgba(34,31,26,0.08);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;}
+  .gh-help{font-size:11px;color:var(--ink-soft);line-height:1.6;margin:6px 0 0;}
+  .gh-help a{color:#8B4A5C;}
+  .gh-status{font-size:12px;margin:10px 0 0;min-height:16px;color:var(--ink-soft);}
+  .gh-status.err{color:#a05a3a;}
+  .gh-status.ok{color:#3F7068;}
+
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
   .grid-cards.cat-music{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
@@ -579,6 +615,7 @@
       <button class="btn btn-ghost" onclick="triggerImport()" title="Load a backup file to sync data from another browser">Import backup</button>
       <input type="file" id="backupInput" accept=".json,application/json" style="display:none" onchange="handleBackupImport(event)">
       <button class="btn btn-ghost" id="selectModeBtn" onclick="toggleSelectMode()">Select</button>
+      <button class="btn btn-ghost" onclick="openGithubSettings()" title="Configure saving cover images to your GitHub repo">⚙ Image storage</button>
       <button class="btn btn-primary" id="addBtn" onclick="openSlip()">+ Add game</button>
     </div>
     <p style="margin:-10px 0 16px;font-size:11px;color:#8f887c;font-family:'JetBrains Mono',monospace;" id="csvHint"></p>
@@ -599,6 +636,47 @@
       <div class="slip-actions">
         <button class="btn btn-ghost" onclick="closeSlip()">Cancel</button>
         <button class="btn btn-primary" id="saveBtn" onclick="saveEntry()">Save entry</button>
+      </div>
+    </div>
+
+    <div class="gh-overlay" id="ghOverlay" onclick="if(event.target===this) closeGithubSettings()">
+      <div class="gh-modal">
+        <h3>Image storage on GitHub</h3>
+        <p class="gh-desc">
+          Cover images you pick will be committed straight into an <code>imges</code> folder in your GitHub repo, so they're
+          part of the live site — not just this browser. This needs a token with write access to that one repo.
+        </p>
+        <div class="field full">
+          <label>GitHub username / organization</label>
+          <input type="text" id="ghOwner" placeholder="e.g. abdu">
+        </div>
+        <div class="field full">
+          <label>Repository name</label>
+          <input type="text" id="ghRepo" placeholder="e.g. home-collection">
+        </div>
+        <div class="field full">
+          <label>Branch</label>
+          <input type="text" id="ghBranch" placeholder="main">
+        </div>
+        <div class="field full">
+          <label>Folder for images</label>
+          <input type="text" id="ghFolder" placeholder="imges">
+        </div>
+        <div class="field full">
+          <label>Personal access token (kept only in this browser)</label>
+          <input type="password" id="ghToken" placeholder="github_pat_…">
+        </div>
+        <p class="gh-help">
+          Create one at <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>
+          → pick this repository → under Permissions set <strong>Contents: Read and write</strong> → Generate, then paste it above.
+          The token is saved only in this browser's storage; it is never written into the site's files.
+        </p>
+        <p class="gh-status" id="ghStatus"></p>
+        <div class="slip-actions">
+          <button class="btn btn-ghost" onclick="clearGithubSettings()">Disconnect</button>
+          <button class="btn btn-ghost" onclick="closeGithubSettings()">Cancel</button>
+          <button class="btn btn-primary games" onclick="saveGithubSettings()">Save</button>
+        </div>
       </div>
     </div>
 
@@ -1263,30 +1341,159 @@ function updateCoverPreview(){
   el.innerHTML = currentCover ? `<img src="${currentCover}" alt="">` : 'no image';
 }
 
-function handleCoverFile(event){
+// ---------- GitHub image storage ----------
+// Cover files the user picks are committed directly into an "imges" folder
+// in their own GitHub repo via the GitHub Contents API, so the image is a
+// real file living in the repo (and therefore on the live GitHub Pages
+// site) rather than something baked into localStorage on one browser.
+// The token is only ever kept in this browser's storage (window.storage /
+// localStorage) — it is never written into index.html or committed anywhere.
+let ghConfig = null;
+
+async function loadGhConfig(){
+  try{
+    const res = await window.storage.get('ghConfig');
+    ghConfig = res ? JSON.parse(res.value) : null;
+  }catch(err){
+    ghConfig = null;
+  }
+}
+
+function openGithubSettings(){
+  const o = ghConfig || {};
+  document.getElementById('ghOwner').value = o.owner || '';
+  document.getElementById('ghRepo').value = o.repo || '';
+  document.getElementById('ghBranch').value = o.branch || 'main';
+  document.getElementById('ghFolder').value = o.folder || 'imges';
+  document.getElementById('ghToken').value = o.token || '';
+  const statusEl = document.getElementById('ghStatus');
+  statusEl.textContent = ghConfig ? `Connected to ${o.owner}/${o.repo}.` : 'Not connected yet — cover images can\'t be saved until this is set up.';
+  statusEl.className = 'gh-status' + (ghConfig ? ' ok' : '');
+  document.getElementById('ghOverlay').classList.add('open');
+}
+
+function closeGithubSettings(){
+  document.getElementById('ghOverlay').classList.remove('open');
+}
+
+async function saveGithubSettings(){
+  const owner = document.getElementById('ghOwner').value.trim();
+  const repo = document.getElementById('ghRepo').value.trim();
+  const branch = document.getElementById('ghBranch').value.trim() || 'main';
+  const folder = document.getElementById('ghFolder').value.trim().replace(/^\/+|\/+$/g,'') || 'imges';
+  const token = document.getElementById('ghToken').value.trim();
+  const statusEl = document.getElementById('ghStatus');
+  if(!owner || !repo || !token){
+    statusEl.textContent = 'Please fill in username, repo, and token.';
+    statusEl.className = 'gh-status err';
+    return;
+  }
+  ghConfig = { owner, repo, branch, folder, token };
+  await window.storage.set('ghConfig', JSON.stringify(ghConfig));
+  statusEl.textContent = `Saved. Cover images will be committed to ${owner}/${repo}/${folder} on branch ${branch}.`;
+  statusEl.className = 'gh-status ok';
+  showToast('GitHub image storage connected.');
+  setTimeout(closeGithubSettings, 900);
+}
+
+async function clearGithubSettings(){
+  ghConfig = null;
+  await window.storage.delete('ghConfig');
+  document.getElementById('ghOwner').value = '';
+  document.getElementById('ghRepo').value = '';
+  document.getElementById('ghToken').value = '';
+  const statusEl = document.getElementById('ghStatus');
+  statusEl.textContent = 'Disconnected.';
+  statusEl.className = 'gh-status';
+  showToast('GitHub image storage disconnected.');
+}
+
+function slugify(str){
+  return (str||'')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-+|-+$/g,'')
+    .slice(0,40) || 'cover';
+}
+
+function resizeImageFile(file, maxDim, quality){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+      const img = new Image();
+      img.onload = ()=>{
+        let w = img.width, h = img.height;
+        if(w > h && w > maxDim){ h = Math.round(h*maxDim/w); w = maxDim; }
+        else if(h >= w && h > maxDim){ w = Math.round(w*maxDim/h); h = maxDim; }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = ()=> reject(new Error('Could not read that image file.'));
+      img.src = e.target.result;
+    };
+    reader.onerror = ()=> reject(new Error('Could not read that image file.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function uploadCoverToGithub(file){
+  const dataUrl = await resizeImageFile(file, 600, 0.75);
+  const base64 = dataUrl.split(',')[1];
+  const titleEl = document.querySelector('#slipFields [data-key="title"]');
+  const namePart = slugify(titleEl ? titleEl.value : '');
+  const filename = `${Date.now()}-${namePart}.jpg`;
+  const path = `${ghConfig.folder}/${filename}`;
+  const apiUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}`;
+
+  const res = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${ghConfig.token}`,
+      'Accept': 'application/vnd.github+json'
+    },
+    body: JSON.stringify({
+      message: `Add cover image ${filename}`,
+      content: base64,
+      branch: ghConfig.branch
+    })
+  });
+
+  if(!res.ok){
+    const errBody = await res.json().catch(()=>({}));
+    throw new Error(errBody.message || `GitHub upload failed (${res.status})`);
+  }
+
+  return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
+}
+
+async function handleCoverFile(event){
   const file = event.target.files[0];
   if(!file) return;
-  const reader = new FileReader();
-  reader.onload = (e)=>{
-    const img = new Image();
-    img.onload = ()=>{
-      const maxDim = 600;
-      let w = img.width, h = img.height;
-      if(w > h && w > maxDim){ h = Math.round(h*maxDim/w); w = maxDim; }
-      else if(h >= w && h > maxDim){ w = Math.round(w*maxDim/h); h = maxDim; }
-      const canvas = document.createElement('canvas');
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      currentCover = canvas.toDataURL('image/jpeg', 0.75);
-      document.getElementById('coverUrl').value = '';
-      const noteEl = document.getElementById('artAutoNote');
-      if(noteEl) noteEl.textContent = 'Cover art added.';
-      updateCoverPreview();
-    };
-    img.onerror = ()=> showToast('Could not read that image file.');
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
+  const noteEl = document.getElementById('artAutoNote');
+
+  if(!ghConfig){
+    showToast('Set up GitHub image storage first.');
+    if(noteEl) noteEl.textContent = 'Not connected to GitHub yet — click "⚙ Image storage" in the toolbar.';
+    event.target.value = '';
+    openGithubSettings();
+    return;
+  }
+
+  if(noteEl) noteEl.textContent = 'Uploading to GitHub…';
+  try{
+    const url = await uploadCoverToGithub(file);
+    currentCover = url;
+    document.getElementById('coverUrl').value = '';
+    if(noteEl) noteEl.textContent = 'Cover image saved to your repo.';
+    updateCoverPreview();
+  }catch(err){
+    showToast('Upload failed: ' + err.message);
+    if(noteEl) noteEl.textContent = 'Upload failed — check your token/repo in "⚙ Image storage".';
+  }finally{
+    event.target.value = '';
+  }
 }
 
 function handleCoverUrl(event){
@@ -1573,6 +1780,7 @@ function escapeHtml(str){
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
 loadData();
+loadGhConfig();
 </script>
 </body>
 </html>
