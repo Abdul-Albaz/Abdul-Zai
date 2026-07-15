@@ -2805,24 +2805,7 @@
       "cover": ""
     }
   ],
-  "books": [
-    {
-      "title": "Harry",
-      "owner": "",
-      "author": "",
-      "format": "Paperback",
-      "genre": "",
-      "status": "Backlog",
-      "dimensions": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784127298707-cover.jpg",
-      "id": "mrm7c0omvk91h",
-      "addedAt": 1784127307126
-    }
-  ],
+  "books": [],
   "icon": "🏠",
-  "savedAt": 1784157838504
+  "savedAt": 1784157927756
 }
