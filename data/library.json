@@ -2644,8 +2644,149 @@
       "rarity": "no"
     }
   ],
-  "music": [],
+  "music": [
+    {
+      "id": "mrm6xhnqcpc9r",
+      "addedAt": 1784126629285,
+      "title": "clair obscur: expedition 33",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqxnlg6",
+      "addedAt": 1784126629284,
+      "title": "spirited away",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnq2gwig",
+      "addedAt": 1784126629283,
+      "title": "harry potter and the philosopher's stone",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnq3b2kg",
+      "addedAt": 1784126629282,
+      "title": "twin peaks fire walk with me",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqwnr81",
+      "addedAt": 1784126629281,
+      "title": "spiderman across the spiderverse",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqxllev",
+      "addedAt": 1784126629280,
+      "title": "the rescuers",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqbm6mz",
+      "addedAt": 1784126629279,
+      "title": "hollow knight gods and nightmares",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqvex9l",
+      "addedAt": 1784126629278,
+      "title": "stardew valley collection seasons",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqsrq7w",
+      "addedAt": 1784126629277,
+      "title": "the girl is mine",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnq38zku",
+      "addedAt": 1784126629276,
+      "title": "my friend jack",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqg6f0v",
+      "addedAt": 1784126629275,
+      "title": "dancing queen",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnq1vk81",
+      "addedAt": 1784126629274,
+      "title": "smoke + mirrors ten",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnq4cfsd",
+      "addedAt": 1784126629273,
+      "title": "thriller",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqhyztm",
+      "addedAt": 1784126629272,
+      "title": "bad",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqds5og",
+      "addedAt": 1784126629271,
+      "title": "sinatra ultimate",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqlvyg9",
+      "addedAt": 1784126629270,
+      "title": "The Rise and Fall of a Midwest Princess",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqdtk2c",
+      "addedAt": 1784126629269,
+      "title": "jazz",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqdja0a",
+      "addedAt": 1784126629268,
+      "title": "the magic of boney m - 20 golden hits",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqy58rk",
+      "addedAt": 1784126629267,
+      "title": "best of beatles",
+      "rating": 0,
+      "cover": ""
+    },
+    {
+      "id": "mrm6xhnqh6707",
+      "addedAt": 1784126629266,
+      "title": "best of bee geez",
+      "rating": 0,
+      "cover": ""
+    }
+  ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784126595487
+  "savedAt": 1784126630789
 }
