@@ -17,12 +17,17 @@
       "addedAt": 1784125820679,
       "title": "prince of persia lost crown",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784125883469-prince-of-persia-lost-crown.jpg",
       "platform": "nintendo switch",
       "publisher": "ubisoft",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiah7aj",
@@ -2632,5 +2637,5 @@
   "music": [],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784125822187
+  "savedAt": 1784125890207
 }
