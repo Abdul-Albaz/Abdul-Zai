@@ -602,11 +602,7 @@
     .grid-cards.cat-music{grid-template-columns:repeat(2, 1fr) !important;gap:10px;}
 
     /* hover doesn't exist on touch — keep card details visible at all times */
-    /* touch devices can't hover — reveal card details only on tap, then fade after release */
-    .card.has-cover:hover .card-overlay,
-    .card.has-cover:focus-within .card-overlay{opacity:0;}
-    .card.has-cover .card-overlay{opacity:0;pointer-events:none;background:linear-gradient(to top, rgba(15,13,10,0.94) 0%, rgba(15,13,10,0.55) 55%, rgba(15,13,10,0.05) 85%, transparent 100%);}
-    .card.has-cover.show-overlay .card-overlay{opacity:1;pointer-events:auto;}
+    .card-overlay{opacity:1;background:linear-gradient(to top, rgba(15,13,10,0.94) 0%, rgba(15,13,10,0.55) 55%, rgba(15,13,10,0.05) 85%, transparent 100%);}
     .card-overlay h4{font-size:14px;}
     .card-overlay .sub{font-size:11px;}
     .placeholder-title h4{font-size:14px;}
@@ -2061,58 +2057,6 @@ function escapeHtml(str){
   div.textContent = str;
   return div.innerHTML;
 }
-
-// ---------- mobile: tap a card to reveal details, fade 2s after finger lifts ----------
-(function setupMobileCardTap(){
-  const isMobile = () => window.matchMedia('(max-width:768px)').matches;
-  const fadeTimers = new WeakMap();
-
-  function reveal(card){
-    if(!card) return;
-    const existing = fadeTimers.get(card);
-    if(existing) clearTimeout(existing);
-    document.querySelectorAll('.card.show-overlay').forEach(c=>{
-      if(c!==card){
-        c.classList.remove('show-overlay');
-        const t = fadeTimers.get(c);
-        if(t){ clearTimeout(t); fadeTimers.delete(c); }
-      }
-    });
-    card.classList.add('show-overlay');
-  }
-
-  function scheduleFade(card){
-    if(!card) return;
-    const existing = fadeTimers.get(card);
-    if(existing) clearTimeout(existing);
-    const timer = setTimeout(()=>{
-      card.classList.remove('show-overlay');
-      fadeTimers.delete(card);
-    }, 2000);
-    fadeTimers.set(card, timer);
-  }
-
-  document.addEventListener('pointerdown', function(e){
-    if(!isMobile()) return;
-    const card = e.target.closest('.card.has-cover');
-    if(!card) return;
-    reveal(card);
-  }, {passive:true});
-
-  document.addEventListener('pointerup', function(e){
-    if(!isMobile()) return;
-    const card = e.target.closest('.card.has-cover');
-    if(!card) return;
-    scheduleFade(card);
-  }, {passive:true});
-
-  document.addEventListener('pointercancel', function(e){
-    if(!isMobile()) return;
-    const card = e.target.closest('.card.has-cover');
-    if(!card) return;
-    scheduleFade(card);
-  }, {passive:true});
-})();
 
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
