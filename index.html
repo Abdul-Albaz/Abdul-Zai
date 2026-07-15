@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Home Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#171512;
+    --bg-soft:#1E1B17;
+    --paper:#EDE6D6;
+    --paper-dim:#E3DBC8;
+    --ink:#221F1A;
+    --ink-soft:#5b564c;
+    --cart:#C9622A;   /* games accent */
+    --tape:#3F7068;   /* music accent */
+    --book:#8B4A5C;   /* books accent */
+    --gold:#D6A24A;
+    --line: rgba(237,230,214,0.12);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,98,42,0.07), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(63,112,104,0.08), transparent 45%),
+      var(--bg);
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    padding:32px 20px 80px;
+  }
+  .wrap{max-width:920px;margin:0 auto;}
+
+  /* ---------- header ---------- */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:18px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:26px;
+  }
+  .title-block h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:42px;
+    letter-spacing:-0.5px;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .title-block{position:relative;}
+  .title-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;height:44px;
+    font-size:26px;
+    line-height:1;
+    border-radius:8px;
+    background:rgba(237,230,214,0.06);
+    border:1px solid var(--line);
+    cursor:pointer;
+    flex-shrink:0;
+    transition:background .15s, border-color .15s;
+  }
+  .title-icon:hover{background:rgba(237,230,214,0.12);border-color:#645d51;}
+  .icon-picker{
+    display:none;
+    position:absolute;
+    top:56px;left:0;
+    z-index:10;
+    background:var(--paper);
+    border-radius:8px;
+    padding:10px;
+    box-shadow:0 8px 28px rgba(0,0,0,0.4);
+    grid-template-columns:repeat(6, 1fr);
+    gap:6px;
+  }
+  .icon-picker.open{display:grid;}
+  .icon-picker button{
+    width:34px;height:34px;
+    font-size:19px;
+    border:1px solid transparent;
+    border-radius:6px;
+    background:transparent;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .12s;
+  }
+  .icon-picker button:hover{background:rgba(34,31,26,0.08);}
+  .icon-picker button.active{border-color:var(--cart);background:rgba(201,98,42,0.12);}
+  .title-block p{
+    margin:0;
+    color:#a9a196;
+    font-size:14px;
+    letter-spacing:0.3px;
+  }
+  .stats{
+    display:flex;
+    gap:22px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .stat{text-align:right;}
+  .stat .num{font-size:22px;font-weight:700;color:var(--paper);display:block;line-height:1.1;}
+  .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#8f887c;}
+
+  /* ---------- tabs (spine labels) ---------- */
+  .tabs{display:flex;gap:10px;margin-bottom:18px;}
+  .tab{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:10px 18px;
+    border-radius:3px 3px 0 0;
+    cursor:pointer;
+    border:1px solid var(--line);
+    border-bottom:none;
+    background:var(--bg-soft);
+    color:#8f887c;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:color .15s, background .15s;
+  }
+  .tab .dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.6;}
+  .tab[data-cat="games"].active{background:var(--cart);color:#1a0d05;border-color:var(--cart);}
+  .tab[data-cat="music"].active{background:var(--tape);color:#0a1615;border-color:var(--tape);}
+  .tab[data-cat="books"].active{background:var(--book);color:#221016;border-color:var(--book);}
+  .tab:not(.active):hover{color:var(--paper);}
+
+  .panel{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:0 8px 8px 8px;
+    padding:20px;
+  }
+
+  /* ---------- toolbar ---------- */
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center;}
+  input[type=text], input[type=search], select, input[type=number], input[type=date]{
+    background:var(--bg);
+    border:1px solid var(--line);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    padding:9px 11px;
+    border-radius:5px;
+    outline:none;
+  }
+  input:focus, select:focus{border-color:var(--gold);}
+  .toolbar input[type=search]{flex:1;min-width:160px;}
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding:10px 16px;
+    border-radius:5px;
+    border:1px solid transparent;
+    cursor:pointer;
+    font-weight:700;
+    transition:transform .1s, filter .15s;
+  }
+  .btn:hover{filter:brightness(1.1);}
+  .btn:active{transform:scale(.97);}
+  .btn-primary.games{background:var(--cart);color:#1a0d05;}
+  .btn-primary.music{background:var(--tape);color:#0a1615;}
+  .btn-primary.books{background:var(--book);color:#221016;}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
+  .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
+
+  .scale-slider-wrap{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:0 12px;
+    background:var(--bg);
+    height:38px;
+  }
+  .scale-slider-wrap .scale-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:#8f887c;
+  }
+  .scale-slider-wrap input[type=range]{
+    -webkit-appearance:none;
+    appearance:none;
+    width:110px;
+    height:3px;
+    background:var(--line);
+    border-radius:2px;
+    outline:none;
+    padding:0;
+    border:none;
+    cursor:pointer;
+  }
+  .scale-slider-wrap input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+    width:15px;height:15px;border-radius:50%;
+    background:var(--gold);
+    border:2px solid #171512;
+    cursor:pointer;
+    margin-top:-6px;
+  }
+  .scale-slider-wrap input[type=range]::-moz-range-thumb{
+    width:15px;height:15px;border-radius:50%;
+    background:var(--gold);
+    border:2px solid #171512;
+    cursor:pointer;
+  }
+  .scale-slider-wrap input[type=range]::-moz-range-track{
+    height:3px;background:var(--line);border-radius:2px;
+  }
+  .scale-slider-wrap .scale-value{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--paper);
+    min-width:34px;
+    text-align:right;
+  }
+
+  /* ---------- form slip ---------- */
+  .slip{
+    display:none;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:6px;
+    padding:18px 20px;
+    margin-bottom:20px;
+    position:relative;
+    box-shadow:0 6px 24px rgba(0,0,0,0.35);
+  }
+  .slip.open{display:block;}
+  .slip h3{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    margin:0 0 14px;
+    font-style:italic;
+  }
+  .slip .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .slip .grid .full{grid-column:1/-1;}
+  .field label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+    margin-bottom:5px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:#fff;
+    border:1px solid #cfc6b2;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    padding:8px 10px;
+    border-radius:4px;
+    outline:none;
+  }
+  .field textarea{resize:vertical;min-height:44px;font-family:inherit;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--cart);}
+  .stars-input{display:flex;gap:4px;font-size:20px;cursor:pointer;user-select:none;}
+  .stars-input span{opacity:.3;transition:opacity .1s;}
+  .stars-input span.on{opacity:1;}
+  .slip-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;}
+
+  .cover-field{display:flex;gap:12px;align-items:flex-start;}
+  .cover-preview{
+    width:80px;height:112px;flex-shrink:0;
+    border-radius:5px;
+    background:#fff repeating-conic-gradient(#e5ddc9 0% 25%, #fff 0% 50%) 50% / 12px 12px;
+    border:1px solid #cfc6b2;
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    font-size:9px;color:#a89f8c;text-align:center;
+  }
+  .cover-preview img{width:100%;height:100%;object-fit:contain;display:block;}
+  .cover-controls{flex:1;display:flex;flex-direction:column;gap:6px;}
+  .cover-controls input[type=file]{
+    font-size:11px;font-family:'Inter',sans-serif;color:var(--ink-soft);
+  }
+  .cover-controls .or{font-size:10px;color:#a89f8c;text-transform:uppercase;letter-spacing:1px;}
+  .art-auto-note{font-size:10px;color:#a89f8c;font-family:'Inter',sans-serif;}
+  .art-search-links{display:flex;gap:6px;flex-wrap:wrap;}
+  .art-search-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;letter-spacing:0.3px;
+    padding:5px 9px;border-radius:20px;
+    background:rgba(34,31,26,0.06);
+    color:var(--ink-soft);
+    text-decoration:none;
+    border:1px solid #cfc6b2;
+  }
+  .art-search-link:hover{color:var(--ink);border-color:var(--cart);}
+  .cover-clear{align-self:flex-start;background:none;border:none;color:#a05a3a;font-size:11px;cursor:pointer;text-decoration:underline;padding:0;}
+
+  /* ---------- grid & cards ---------- */
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+  .grid-cards.cat-music{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  .card{
+    display:flex;
+    flex-direction:column;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.25);
+    animation:rise .25s ease both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .cover-area{
+    width:100%;
+    aspect-ratio:5/7;
+    flex-shrink:0;
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--bg-soft);
+    overflow:hidden;
+  }
+  .cover-area.music{aspect-ratio:1/1;}
+  .cover-area.music:not(.placeholder)::after{
+    content:'';
+    position:absolute;
+    right:10px;bottom:10px;
+    width:15%;
+    aspect-ratio:1/1;
+    min-width:24px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at center, var(--gold) 0 16%, #12100c 17% 22%, #1c1a15 23% 100%);
+    box-shadow:0 2px 6px rgba(0,0,0,0.6);
+    pointer-events:none;
+  }
+  .cover-area img{
+    width:100%;height:100%;
+    object-fit:contain;
+    display:block;
+  }
+  .cover-area.placeholder{background:var(--ink-soft);}
+  .cover-area.placeholder.games{background:var(--cart);}
+  .cover-area.placeholder.music{background:var(--tape);}
+  .cover-area.placeholder.books{background:var(--book);}
+  .cover-area .hole{
+    position:absolute;top:12px;left:50%;transform:translateX(-50%);
+    width:11px;height:11px;border-radius:50%;
+    background:var(--bg-soft);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.5);
+  }
+  .cover-area .catno{
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:rgba(0,0,0,0.5);
+  }
+  .cover-area .catno-badge{
+    position:absolute;bottom:8px;left:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;font-weight:700;letter-spacing:1px;
+    background:rgba(0,0,0,0.6);color:#EDE6D6;
+    padding:2px 6px;border-radius:3px;
+  }
+  .placeholder-title{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:16px 12px 12px;
+    background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 70%, transparent 100%);
+    text-align:left;
+  }
+  .placeholder-title h4{
+    font-family:'Fraunces', serif;font-size:16px;font-weight:600;margin:0 0 2px;
+    color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.4);
+  }
+  .placeholder-title .sub{
+    font-size:12px;margin:0;color:rgba(255,255,255,0.82);text-shadow:0 1px 2px rgba(0,0,0,0.4);
+  }
+  .card-body{padding:12px 14px;flex:1;min-width:0;display:flex;flex-direction:column;}
+
+  /* cards with artwork: show only the art by default, reveal details on hover */
+  .card.has-cover{position:relative;cursor:default;}
+  .card.has-cover .cover-area{height:100%;}
+  .card-overlay{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:12px 14px;
+    background:linear-gradient(to top, rgba(15,13,10,0.92) 0%, rgba(15,13,10,0.72) 45%, rgba(15,13,10,0.05) 80%, transparent 100%);
+    opacity:0;
+    transition:opacity .18s ease;
+    color:var(--paper);
+  }
+  .card.has-cover:hover .card-overlay,
+  .card.has-cover:focus-within .card-overlay{opacity:1;}
+  .card-overlay h4{font-family:'Fraunces', serif;font-size:16px;font-weight:600;margin:0 0 2px;color:var(--paper);}
+  .card-overlay .sub{font-size:12px;color:#c9c2b4;margin:0 0 8px;}
+  .card-overlay .chip{background:rgba(237,230,214,0.16);color:#EDE6D6;}
+  .card-overlay .chip.chip-sealed{background:rgba(214,162,74,0.35);color:#f0cd8a;}
+  .card-overlay .stars-view{color:var(--gold);}
+  .card-overlay .price{color:#e3ddd0;}
+  .card-overlay .icon-btn{color:#EDE6D6;}
+  .card-overlay .icon-btn:hover{color:var(--gold);}
+  .card-overlay .confirm-text{color:#f0a875;}
+  .card-top{display:flex;justify-content:space-between;gap:6px;align-items:flex-start;}
+  .card-body h4{
+    font-family:'Fraunces', serif;
+    font-size:16px;
+    font-weight:600;
+    margin:0 0 2px;
+    line-height:1.25;
+  }
+  .card-body .sub{font-size:12px;color:var(--ink-soft);margin:0 0 8px;}
+  .card-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+  .chip{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    padding:2px 7px;
+    border-radius:20px;
+    background:rgba(34,31,26,0.08);
+    color:var(--ink-soft);
+  }
+  .chip.status-backlog{background:rgba(34,31,26,0.08);}
+  .chip.status-playing{background:rgba(63,112,104,0.18);color:#2c5852;}
+  .chip.status-reading{background:rgba(63,112,104,0.18);color:#2c5852;}
+  .chip.status-completed{background:rgba(201,98,42,0.18);color:#8f4319;}
+  .chip.chip-sealed{background:rgba(214,162,74,0.22);color:#8a6516;font-weight:700;}
+  .chip.chip-owner{background:rgba(63,112,104,0.18);color:#2c5852;font-weight:700;}
+  .card-overlay .chip.chip-owner{background:rgba(214,162,74,0.28);color:#f0cd8a;}
+  .stars-view{color:var(--gold);font-size:13px;letter-spacing:1px;}
+  .card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+  .price{font-family:'JetBrains Mono', monospace;font-size:12px;color:var(--ink-soft);}
+  .card-actions{display:flex;gap:8px;}
+  .icon-btn{
+    background:none;border:none;cursor:pointer;
+    font-size:13px;color:var(--ink-soft);
+    padding:2px;
+  }
+  .icon-btn:hover{color:var(--ink);}
+  .confirm-text{font-size:11px;color:#8f4319;font-family:'Inter',sans-serif;}
+  .icon-btn.confirm-yes{color:#a02a2a;font-weight:700;}
+  .icon-btn.confirm-yes:hover{color:#c93a3a;}
+
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:var(--paper);color:var(--ink);
+    padding:10px 18px;border-radius:6px;
+    font-size:13px;font-family:'Inter',sans-serif;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4);
+    opacity:0;pointer-events:none;
+    transition:opacity .2s, transform .2s;
+    z-index:50;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .card.selectable{cursor:pointer;}
+  .card.selected{outline:3px solid var(--gold);outline-offset:-3px;}
+  .select-check{
+    position:absolute;top:8px;right:8px;z-index:2;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(15,13,10,0.55);
+    border:2px solid rgba(237,230,214,0.7);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;color:transparent;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .card.selected .select-check{
+    background:var(--gold);border-color:var(--gold);color:#221016;
+  }
+  .drag-handle{
+    position:absolute;top:8px;left:8px;z-index:3;
+    width:24px;height:22px;border-radius:5px;
+    background:rgba(15,13,10,0.55);
+    color:rgba(237,230,214,0.85);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;letter-spacing:-2px;
+    cursor:grab;
+    line-height:1;
+  }
+  .drag-handle:active{cursor:grabbing;}
+  .card.placeholder-card .drag-handle,
+  .card:not(.has-cover) .drag-handle{
+    background:rgba(0,0,0,0.35);
+  }
+  .card.dragging{opacity:0.35;}
+  .card.drag-over{outline:3px dashed var(--gold);outline-offset:-3px;}
+  .card-actions .icon-btn.move-btn{font-size:12px;}
+
+  .bulk-bar{
+    display:none;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+    padding:10px 14px;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:#a9a196;
+  }
+  .bulk-bar.on{display:flex;flex-wrap:wrap;}
+  .bulk-bar .count{color:var(--paper);font-weight:700;}
+  .bulk-bar .spacer{flex:1;}
+  .btn-danger{background:#a02a2a;color:#fff;}
+
+  .empty{
+    text-align:center;
+    padding:50px 20px;
+    color:#8f887c;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:16px;
+  }
+  .loading{text-align:center;padding:40px;color:#8f887c;font-family:'JetBrains Mono',monospace;font-size:12px;}
+
+  @media (max-width:560px){
+    .stats{gap:14px;}
+    .slip .grid{grid-template-columns:1fr;}
+    header{align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title-block">
+      <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to change icon">🏠</span> The Home Collection</h1>
+      <p>your games &amp; music collection, catalogued</p>
+      <div class="icon-picker" id="iconPicker"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num" id="statGames">0</span><span class="lbl">Games</span></div>
+      <div class="stat"><span class="num" id="statMusic">0</span><span class="lbl">Music</span></div>
+      <div class="stat"><span class="num" id="statBooks">0</span><span class="lbl">Books</span></div>
+      <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games</div>
+    <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music</div>
+    <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books</div>
+  </div>
+
+  <div class="panel">
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search title, artist, platform, owner…" oninput="render()">
+      <select id="statusFilter" onchange="render()"></select>
+      <select id="sortBy" onchange="render()">
+        <option value="added">Sort: Recently added</option>
+        <option value="title">Sort: Title A–Z</option>
+        <option value="rating">Sort: Rating</option>
+        <option value="price">Sort: Price</option>
+        <option value="custom">Sort: My order</option>
+      </select>
+      <div class="scale-slider-wrap" title="Card size">
+        <span class="scale-label">Size</span>
+        <input type="range" id="scaleSlider" min="50" max="100" step="5" value="75"
+          oninput="onScaleInput(this.value)" onchange="onScaleChange(this.value)">
+        <span class="scale-value" id="scaleValue">75%</span>
+      </div>
+      <button class="btn btn-ghost" onclick="document.getElementById('csvInput').click()">Import CSV</button>
+      <input type="file" id="csvInput" accept=".csv,text/csv" style="display:none" onchange="handleCsvImport(event)">
+      <button class="btn btn-ghost" onclick="exportBackup()" title="Save all your data as a file">Export backup</button>
+      <button class="btn btn-ghost" onclick="triggerImport()" title="Load a backup file to sync data from another browser">Import backup</button>
+      <input type="file" id="backupInput" accept=".json,application/json" style="display:none" onchange="handleBackupImport(event)">
+      <button class="btn btn-ghost" id="selectModeBtn" onclick="toggleSelectMode()">Select</button>
+      <button class="btn btn-primary" id="addBtn" onclick="openSlip()">+ Add game</button>
+    </div>
+    <p style="margin:-10px 0 16px;font-size:11px;color:#8f887c;font-family:'JetBrains Mono',monospace;" id="csvHint"></p>
+    <p style="margin:-10px 0 16px;font-size:11px;color:#8f887c;font-family:'JetBrains Mono',monospace;display:none;" id="reorderHint">Drag the ⠿ handle to reorder cards, or use the ↑ / ↓ buttons.</p>
+
+    <div class="bulk-bar" id="bulkBar">
+      <span><span class="count" id="selectedCount">0</span> selected</span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost" onclick="selectAllVisible()">Select all</button>
+      <button class="btn btn-ghost" onclick="clearSelection()">Clear</button>
+      <button class="btn btn-danger" onclick="confirmDeleteSelected()">Delete selected</button>
+      <button class="btn btn-ghost" onclick="toggleSelectMode()">Done</button>
+    </div>
+
+    <div class="slip" id="slip">
+      <h3 id="slipTitle">Add to the archive</h3>
+      <div class="grid" id="slipFields"></div>
+      <div class="slip-actions">
+        <button class="btn btn-ghost" onclick="closeSlip()">Cancel</button>
+        <button class="btn btn-primary" id="saveBtn" onclick="saveEntry()">Save entry</button>
+      </div>
+    </div>
+
+    <div id="loading" class="loading">loading your collection…</div>
+    <div class="grid-cards" id="cards" style="display:none;"></div>
+    <div class="empty" id="emptyMsg" style="display:none;"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- storage polyfill ----------
+// This file may be opened directly (file://) rather than as a Claude
+// artifact, in which case window.storage does not exist. This polyfill
+// makes the same get/set/list API work using the browser's localStorage,
+// so your data (entries, sizes, icon) is saved automatically on THIS
+// browser/device. Use the Export/Import buttons in the toolbar to carry
+// your data to a different browser or device.
+if(!window.storage){
+  window.storage = {
+    async get(key){
+      const raw = localStorage.getItem('hc:'+key);
+      if(raw===null) return null;
+      return { key, value: raw };
+    },
+    async set(key, value){
+      localStorage.setItem('hc:'+key, value);
+      return { key, value };
+    },
+    async delete(key){
+      const existed = localStorage.getItem('hc:'+key)!==null;
+      localStorage.removeItem('hc:'+key);
+      return { key, deleted: existed };
+    },
+    async list(prefix){
+      const keys = [];
+      for(let i=0;i<localStorage.length;i++){
+        const k = localStorage.key(i);
+        if(k && k.startsWith('hc:') ){
+          const shortK = k.slice(3);
+          if(!prefix || shortK.startsWith(prefix)) keys.push(shortK);
+        }
+      }
+      return { keys };
+    }
+  };
+}
+
+async function exportBackup(){
+  const backup = {
+    exportedAt: new Date().toISOString(),
+    data,
+    layoutScale,
+    icon: currentIcon
+  };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'home-collection-backup-' + new Date().toISOString().slice(0,10) + '.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function triggerImport(){
+  document.getElementById('backupInput').click();
+}
+
+async function handleBackupImport(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  try{
+    const text = await file.text();
+    const backup = JSON.parse(text);
+    const incoming = backup.data || backup; // tolerate a raw {games,music,books} file too
+    if(!incoming.games && !incoming.music && !incoming.books){
+      throw new Error('This file does not look like a Home Collection backup.');
+    }
+    data.games = incoming.games || [];
+    data.music = incoming.music || [];
+    data.books = incoming.books || [];
+    if(backup.layoutScale){
+      Object.keys(layoutScale).forEach(cat=>{
+        if(backup.layoutScale[cat]) layoutScale[cat] = normalizeScale(backup.layoutScale[cat]);
+      });
+    }
+    if(backup.icon){
+      currentIcon = backup.icon;
+      document.getElementById('titleIcon').textContent = currentIcon;
+      buildIconPicker();
+    }
+    await Promise.all([persist('games'), persist('music'), persist('books')]);
+    await Promise.all(Object.keys(layoutScale).map(cat=>window.storage.set('ui:scale:'+cat, String(layoutScale[cat]))));
+    if(backup.icon) await window.storage.set('ui:icon', currentIcon);
+    updateScaleUI();
+    populateStatusFilter();
+    render();
+    showToast('Backup imported — your archive is up to date on this browser.');
+  }catch(err){
+    console.error('import error', err);
+    showToast('Could not import that file: ' + err.message);
+  }finally{
+    event.target.value = '';
+  }
+}
+
+let activeCat = 'games';
+let editingId = null;
+let currentRating = 0;
+let currentCover = '';
+let data = { games: [], music: [], books: [] };
+let selectMode = false;
+let selectedIds = new Set();
+let dragSrcId = null;
+let layoutScale = { games:75, music:75, books:75 };
+const ICON_OPTIONS = ['🏠','🗃','📦','🎮','🎵','📚','🕹️','💿','📀','🎧','🧸','⭐','🗂️','🏆','🎯','🛍️','🧩','🔖'];
+let currentIcon = '🏠';
+
+const FIELDS = {
+  games: [
+    {key:'title', label:'Title', type:'text', full:true, required:true},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'platform', label:'Platform', type:'text', placeholder:'e.g. Switch, PC, PS5'},
+    {key:'publisher', label:'Publisher', type:'text', placeholder:'e.g. Yacht Club Games'},
+    {key:'genre', label:'Genre', type:'text', placeholder:'e.g. RPG, Platformer'},
+    {key:'sealed', label:'Sealed?', type:'select', options:['Not sealed','Sealed']},
+    {key:'rarity', label:'Rarity', type:'text', placeholder:'e.g. Common, Limited Run'},
+    {key:'status', label:'Finished', type:'select', options:['Backlog','Playing','Completed']},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ],
+  music: [
+    {key:'title', label:'Album / Title', type:'text', full:true, required:true},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'artist', label:'Artist', type:'text'},
+    {key:'format', label:'Format', type:'select', options:['Vinyl','CD','Cassette','Digital']},
+    {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Jazz, Indie'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ],
+  books: [
+    {key:'title', label:'Title', type:'text', full:true, required:true},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'author', label:'Author', type:'text'},
+    {key:'format', label:'Format', type:'select', options:['Paperback','Hardcover','Ebook','Audiobook']},
+    {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Sci-Fi, Memoir'},
+    {key:'status', label:'Status', type:'select', options:['Backlog','Reading','Completed']},
+    {key:'dimensions', label:'Size', type:'text', placeholder:'e.g. 12.7 × 17.8 cm'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ]
+};
+
+const STATUS_FILTERS = {
+  games: ['All','Backlog','Playing','Completed'],
+  music: ['All'],
+  books: ['All','Backlog','Reading','Completed']
+};
+
+function buildIconPicker(){
+  const picker = document.getElementById('iconPicker');
+  picker.innerHTML = ICON_OPTIONS.map(ic=>
+    `<button class="${ic===currentIcon?'active':''}" onclick="selectIcon('${ic}')">${ic}</button>`
+  ).join('');
+}
+
+function toggleIconPicker(){
+  document.getElementById('iconPicker').classList.toggle('open');
+}
+
+async function selectIcon(icon){
+  currentIcon = icon;
+  document.getElementById('titleIcon').textContent = icon;
+  buildIconPicker();
+  document.getElementById('iconPicker').classList.remove('open');
+
+  const trySave = ()=> window.storage.set('ui:icon', icon);
+  try{
+    await trySave();
+  }catch(e1){
+    console.error('icon save error', e1);
+    try{
+      await new Promise(r=>setTimeout(r,600));
+      await trySave();
+    }catch(e2){
+      console.error('icon save retry error', e2);
+      showToast('Icon applied, but couldn\'t save your preference — it may reset next time.');
+    }
+  }
+}
+
+document.addEventListener('click', (e)=>{
+  const picker = document.getElementById('iconPicker');
+  const iconBtn = document.getElementById('titleIcon');
+  if(picker && picker.classList.contains('open') && !picker.contains(e.target) && e.target !== iconBtn){
+    picker.classList.remove('open');
+  }
+});
+
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+
+async function loadData(){
+  try{
+    const [g, m, b, sg, sm, sb, ic] = await Promise.allSettled([
+      window.storage.get('library:games'),
+      window.storage.get('library:music'),
+      window.storage.get('library:books'),
+      window.storage.get('ui:scale:games'),
+      window.storage.get('ui:scale:music'),
+      window.storage.get('ui:scale:books'),
+      window.storage.get('ui:icon')
+    ]);
+    data.games = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : [];
+    data.music = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : [];
+    data.books = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : [];
+    const scaleResults = { games: sg, music: sm, books: sb };
+    Object.keys(scaleResults).forEach(cat=>{
+      const r = scaleResults[cat];
+      if(r.status==='fulfilled' && r.value && r.value.value){
+        layoutScale[cat] = normalizeScale(r.value.value);
+      }
+    });
+    if(ic.status==='fulfilled' && ic.value && ic.value.value){
+      currentIcon = ic.value.value;
+    }
+  }catch(e){
+    console.error('load error', e);
+    data = { games: [], music: [], books: [] };
+  }
+  buildIconPicker();
+  document.getElementById('titleIcon').textContent = currentIcon;
+  updateScaleUI();
+  document.getElementById('loading').style.display='none';
+  document.getElementById('cards').style.display='grid';
+  populateStatusFilter();
+  render();
+}
+
+function normalizeScale(raw){
+  const legacyMap = { small:60, normal:80, big:100 };
+  if(raw in legacyMap) return legacyMap[raw];
+  const n = Number(raw);
+  if(!isNaN(n)) return Math.min(100, Math.max(50, n));
+  return 60;
+}
+
+function updateScaleUI(){
+  const val = layoutScale[activeCat];
+  const slider = document.getElementById('scaleSlider');
+  const label = document.getElementById('scaleValue');
+  if(slider) slider.value = val;
+  if(label) label.textContent = val + '%';
+  const cardsEl = document.getElementById('cards');
+  if(cardsEl) cardsEl.style.zoom = (val/100);
+}
+
+function onScaleInput(val){
+  const n = Number(val);
+  layoutScale[activeCat] = n;
+  document.getElementById('scaleValue').textContent = n + '%';
+  document.getElementById('cards').style.zoom = (n/100);
+}
+
+async function onScaleChange(val){
+  const n = Number(val);
+  const cat = activeCat;
+  const trySave = ()=> window.storage.set('ui:scale:'+cat, String(n));
+  try{
+    await trySave();
+  }catch(e1){
+    console.error('scale save error', e1);
+    try{
+      await new Promise(r=>setTimeout(r,600));
+      await trySave();
+    }catch(e2){
+      console.error('scale save retry error', e2);
+      showToast('Size applied, but couldn\'t save your preference — it may reset next time.');
+    }
+  }
+}
+
+async function persist(cat){
+  try{
+    await window.storage.set('library:'+cat, JSON.stringify(data[cat]));
+  }catch(e){
+    console.error('save error', e);
+    showToast('Could not save — please try again.');
+  }
+}
+
+function parseCSV(text){
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for(let i=0;i<text.length;i++){
+    const c = text[i];
+    if(inQuotes){
+      if(c === '"'){
+        if(text[i+1] === '"'){ field += '"'; i++; }
+        else inQuotes = false;
+      } else field += c;
+    } else {
+      if(c === '"') inQuotes = true;
+      else if(c === ','){ row.push(field); field=''; }
+      else if(c === '\n' || c === '\r'){
+        if(c === '\r' && text[i+1] === '\n') i++;
+        row.push(field); field='';
+        rows.push(row); row=[];
+      } else field += c;
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r => !(r.length===1 && r[0].trim()===''));
+}
+
+const CSV_ALIASES = {
+  title:['title','name','album','game','book'],
+  owner:['owner','whose','belongsto'],
+  platform:['platform','system','console'],
+  publisher:['publisher'],
+  artist:['artist','band','musician'],
+  author:['author','writer'],
+  genre:['genre','category'],
+  status:['status','finished'],
+  sealed:['sealed','sealed?'],
+  rarity:['rarity','rare'],
+  format:['format'],
+  price:['price','cost','amount'],
+  purchaseDate:['purchasedate','date','purchased','datebought'],
+  rating:['rating','stars','score'],
+  dimensions:['dimensions','size'],
+  notes:['notes','note','comment','comments']
+};
+
+const CSV_HINTS = {
+  games: 'CSV columns: title, owner, platform, publisher, sealed?, rarity, finished, price, purchaseDate, rating, notes',
+  music: 'CSV columns: title, owner, artist, format, genre, price, purchaseDate, rating, notes',
+  books: 'CSV columns: title, owner, author, format, genre, status, dimensions, price, purchaseDate, rating, notes'
+};
+
+function updateCsvHint(){
+  const el = document.getElementById('csvHint');
+  if(el) el.textContent = CSV_HINTS[activeCat] || '';
+}
+
+function toYesNo(raw){
+  const v = raw.trim().toLowerCase();
+  if(['yes','y','true','1','sealed','new'].includes(v)) return true;
+  if(['no','n','false','0','opened','used','open'].includes(v)) return false;
+  return null;
+}
+
+function normalizeSelectValue(fieldDef, raw){
+  const match = fieldDef.options.find(o => o.toLowerCase() === raw.trim().toLowerCase());
+  if(match) return match;
+  const yn = toYesNo(raw);
+  if(yn !== null){
+    if(fieldDef.key === 'sealed') return yn ? 'Sealed' : 'Not sealed';
+    if(fieldDef.key === 'status') return yn ? 'Completed' : 'Backlog';
+  }
+  return null; // unrecognized — leave field unset rather than guess
+}
+
+async function handleCsvImport(event){
+  const file = event.target.files[0];
+  event.target.value = '';
+  if(!file) return;
+  const text = await file.text();
+  const rows = parseCSV(text);
+  if(rows.length < 2){ showToast('That CSV looks empty.'); return; }
+
+  const headers = rows[0].map(h => h.trim().toLowerCase());
+  const colIndex = {};
+  Object.keys(CSV_ALIASES).forEach(key=>{
+    const idx = headers.findIndex(h => CSV_ALIASES[key].includes(h));
+    if(idx>-1) colIndex[key] = idx;
+  });
+  if(colIndex.title === undefined){
+    showToast('CSV needs a "title" (or name/album/game/book) column.');
+    return;
+  }
+
+  const validKeys = FIELDS[activeCat].map(f=>f.key);
+  const baseTime = Date.now();
+  const newEntries = [];
+  let skipped = 0;
+
+  for(let r=1; r<rows.length; r++){
+    const row = rows[r];
+    if(!row || row.every(c=>c.trim()==='')) continue;
+    const title = (row[colIndex.title]||'').trim();
+    if(!title){ skipped++; continue; }
+
+    const entry = { id: uid(), addedAt: baseTime - r, title, rating: 0, cover: '' };
+    Object.keys(colIndex).forEach(key=>{
+      if(key==='title') return;
+      if(key!=='rating' && !validKeys.includes(key)) return;
+      const raw = (row[colIndex[key]]||'').trim();
+      if(!raw) return;
+      if(key==='rating'){
+        const n = parseInt(raw,10);
+        entry.rating = isNaN(n) ? 0 : Math.max(0, Math.min(5,n));
+      } else {
+        const fieldDef = FIELDS[activeCat].find(f=>f.key===key);
+        if(fieldDef && fieldDef.type==='select'){
+          const normalized = normalizeSelectValue(fieldDef, raw);
+          if(normalized) entry[key] = normalized;
+        } else {
+          entry[key] = raw;
+        }
+      }
+    });
+    if((activeCat==='games' || activeCat==='books') && !entry.status) entry.status = 'Backlog';
+    newEntries.push(entry);
+  }
+
+  if(newEntries.length){
+    data[activeCat] = newEntries.concat(data[activeCat]);
+    await persist(activeCat);
+  }
+  render();
+  const n = newEntries.length;
+  showToast(`Imported ${n} ${activeCat} entr${n===1?'y':'ies'}.` + (skipped ? ` Skipped ${skipped} row(s) with no title.` : '') + (n ? ' Add artwork anytime by editing an entry.' : ''));
+}
+
+const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book' };
+
+function switchTab(cat){
+  activeCat = cat;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===cat));
+  document.getElementById('addBtn').className = 'btn btn-primary ' + cat;
+  document.getElementById('addBtn').textContent = ADD_LABELS[cat];
+  document.getElementById('saveBtn').className = 'btn btn-primary ' + cat;
+  closeSlip();
+  exitSelectMode();
+  populateStatusFilter();
+  updateScaleUI();
+  render();
+}
+
+function toggleSelectMode(){
+  if(selectMode){
+    exitSelectMode();
+  } else {
+    selectMode = true;
+    selectedIds.clear();
+    document.getElementById('selectModeBtn').classList.add('btn-primary');
+    document.getElementById('selectModeBtn').textContent = 'Cancel';
+    document.getElementById('bulkBar').classList.add('on');
+  }
+  render();
+}
+
+function exitSelectMode(){
+  selectMode = false;
+  selectedIds.clear();
+  const btn = document.getElementById('selectModeBtn');
+  if(btn){ btn.classList.remove('btn-primary'); btn.textContent = 'Select'; }
+  const bar = document.getElementById('bulkBar');
+  if(bar) bar.classList.remove('on');
+}
+
+function toggleSelect(id){
+  if(selectedIds.has(id)) selectedIds.delete(id);
+  else selectedIds.add(id);
+  render();
+}
+
+function selectAllVisible(){
+  document.querySelectorAll('#cards .card[data-id]').forEach(el=>{
+    selectedIds.add(el.dataset.id);
+  });
+  render();
+}
+
+function clearSelection(){
+  selectedIds.clear();
+  render();
+}
+
+function confirmDeleteSelected(){
+  if(selectedIds.size===0){
+    showToast('Nothing selected yet.');
+    return;
+  }
+  const bar = document.getElementById('bulkBar');
+  bar.innerHTML = `
+    <span>Remove <span class="count">${selectedIds.size}</span> item${selectedIds.size===1?'':'s'} from your archive?</span>
+    <span class="spacer"></span>
+    <button class="btn btn-ghost" onclick="render()">Cancel</button>
+    <button class="btn btn-danger" onclick="deleteSelected()">Yes, delete</button>`;
+}
+
+async function deleteSelected(){
+  data[activeCat] = data[activeCat].filter(e=>!selectedIds.has(e.id));
+  const n = selectedIds.size;
+  selectedIds.clear();
+  await persist(activeCat);
+  showToast(`Removed ${n} item${n===1?'':'s'} from your archive.`);
+  exitSelectMode();
+  render();
+}
+
+function populateStatusFilter(){
+  const sel = document.getElementById('statusFilter');
+  sel.innerHTML = STATUS_FILTERS[activeCat].map(s=>`<option value="${s}">${s==='All'?'All statuses':s}</option>`).join('');
+  sel.style.display = (activeCat==='games' || activeCat==='books') ? 'block' : 'none';
+  updateCsvHint();
+}
+
+function openSlip(entry){
+  editingId = entry ? entry.id : null;
+  currentRating = entry ? (entry.rating||0) : 0;
+  currentCover = entry ? (entry.cover||'') : '';
+  document.getElementById('slipTitle').textContent = entry ? 'Edit entry' : 'Add to the archive';
+  const container = document.getElementById('slipFields');
+  container.innerHTML = '';
+
+  const coverWrap = document.createElement('div');
+  coverWrap.className = 'field full';
+  const initialNote = currentCover ? 'Cover art added.' : 'Cover art is found automatically once you type a title.';
+  coverWrap.innerHTML = `
+    <label>Cover artwork (optional)</label>
+    <div class="cover-field">
+      <div class="cover-preview" id="coverPreview">no image</div>
+      <div class="cover-controls">
+        <input type="file" accept="image/*" id="coverFile" onchange="handleCoverFile(event)">
+        <span class="or">or paste an image URL</span>
+        <input type="text" id="coverUrl" placeholder="https://…" oninput="handleCoverUrl(event)">
+        <button type="button" class="cover-clear" onclick="clearCover()">Remove image</button>
+        <span class="art-auto-note" id="artAutoNote">${initialNote}</span>
+        <div class="art-search-links" id="artSearchLinks"></div>
+      </div>
+    </div>`;
+  container.appendChild(coverWrap);
+
+  FIELDS[activeCat].forEach(f=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'field' + (f.full ? ' full' : '');
+    const val = entry ? (entry[f.key] ?? '') : '';
+    let inner = `<label>${f.label}</label>`;
+    if(f.type==='select'){
+      inner += `<select data-key="${f.key}">${f.options.map(o=>`<option ${o===val?'selected':''}>${o}</option>`).join('')}</select>`;
+    } else if(f.type==='textarea'){
+      inner += `<textarea data-key="${f.key}" placeholder="${f.placeholder||''}">${val}</textarea>`;
+    } else if(f.list){
+      const listId = f.key + 'List';
+      inner += `<input type="text" data-key="${f.key}" list="${listId}" placeholder="${f.placeholder||''}" value="${val}">
+        <datalist id="${listId}">${f.list.map(o=>`<option value="${o}">`).join('')}</datalist>`;
+    } else {
+      inner += `<input type="${f.type}" data-key="${f.key}" placeholder="${f.placeholder||''}" value="${val}">`;
+    }
+    wrap.innerHTML = inner;
+    container.appendChild(wrap);
+  });
+
+  const ratingWrap = document.createElement('div');
+  ratingWrap.className = 'field full';
+  ratingWrap.innerHTML = `<label>Rating</label><div class="stars-input" id="starsInput"></div>`;
+  container.appendChild(ratingWrap);
+  renderStarInput();
+
+  if(currentCover && !currentCover.startsWith('data:')){
+    document.getElementById('coverUrl').value = currentCover;
+  }
+  updateCoverPreview();
+
+  const titleInput = container.querySelector('[data-key="title"]');
+  if(titleInput){
+    titleInput.addEventListener('input', scheduleAutoFetchCover);
+  }
+
+  document.getElementById('slip').classList.add('open');
+  document.getElementById('slip').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function currentTitleValue(){
+  const el = document.querySelector('#slipFields [data-key="title"]');
+  return el ? el.value.trim() : '';
+}
+
+let coverAutoFetchTimer = null;
+function scheduleAutoFetchCover(){
+  clearTimeout(coverAutoFetchTimer);
+  coverAutoFetchTimer = setTimeout(autoFetchCoverArt, 900);
+}
+
+async function autoFetchCoverArt(){
+  if(currentCover) return; // never override art that's already set
+  const title = currentTitleValue();
+  if(!title || title.length < 3) return;
+  const noteEl = document.getElementById('artAutoNote');
+  const linksEl = document.getElementById('artSearchLinks');
+  if(linksEl) linksEl.innerHTML = '';
+  const hint = activeCat==='games' ? ' video game' : (activeCat==='music' ? ' album' : ' book');
+  if(noteEl) noteEl.textContent = 'Looking for cover art…';
+  try{
+    const resp = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+hint)}&gsrlimit=1&prop=pageimages&pithumbsize=600&format=json&origin=*`);
+    if(!resp.ok) throw new Error('lookup failed');
+    const json = await resp.json();
+    const pages = json.query && json.query.pages;
+    const page = pages ? Object.values(pages)[0] : null;
+    // Bail if the title changed while we were fetching, or art got added another way meanwhile.
+    if(currentTitleValue() !== title || currentCover) return;
+    if(page && page.thumbnail && page.thumbnail.source){
+      currentCover = page.thumbnail.source;
+      const coverUrlEl = document.getElementById('coverUrl');
+      if(coverUrlEl) coverUrlEl.value = currentCover;
+      updateCoverPreview();
+      if(noteEl) noteEl.textContent = 'Cover art found automatically.';
+    } else {
+      if(noteEl) noteEl.textContent = 'No cover art found automatically — search any of these instead:';
+      renderArtSearchLinks(title);
+    }
+  }catch(e){
+    if(currentTitleValue()===title && !currentCover){
+      if(noteEl) noteEl.textContent = 'Couldn\'t look up cover art automatically — search any of these instead:';
+      renderArtSearchLinks(title);
+    }
+  }
+}
+
+function renderArtSearchLinks(title){
+  const linksEl = document.getElementById('artSearchLinks');
+  if(!linksEl) return;
+  const q = encodeURIComponent(title);
+  const links = [
+    {label:'🔍 Google Images', url:`https://www.google.com/search?tbm=isch&q=${q}`},
+    {label:'🔍 Wikipedia', url:`https://en.wikipedia.org/w/index.php?search=${q}`},
+  ];
+  if(activeCat==='games') links.push({label:'🔍 IGDB', url:`https://www.igdb.com/search?q=${q}`});
+  if(activeCat==='music') links.push({label:'🔍 Discogs', url:`https://www.discogs.com/search/?q=${q}&type=release`});
+  if(activeCat==='books') links.push({label:'🔍 Open Library', url:`https://openlibrary.org/search?q=${q}`});
+  linksEl.innerHTML = links.map(l=>`<a class="art-search-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+}
+
+function openImageSearch(){
+  const title = currentTitleValue();
+  if(!title){ showToast('Type a title first.'); return; }
+  renderArtSearchLinks(title);
+}
+
+function renderStarInput(){
+  const el = document.getElementById('starsInput');
+  el.innerHTML = '';
+  for(let i=1;i<=5;i++){
+    const s = document.createElement('span');
+    s.textContent = '★';
+    if(i<=currentRating) s.classList.add('on');
+    s.onclick = ()=>{ currentRating = i; renderStarInput(); };
+    el.appendChild(s);
+  }
+}
+
+function updateCoverPreview(){
+  const el = document.getElementById('coverPreview');
+  if(!el) return;
+  el.innerHTML = currentCover ? `<img src="${currentCover}" alt="">` : 'no image';
+}
+
+function handleCoverFile(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (e)=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const maxDim = 600;
+      let w = img.width, h = img.height;
+      if(w > h && w > maxDim){ h = Math.round(h*maxDim/w); w = maxDim; }
+      else if(h >= w && h > maxDim){ w = Math.round(w*maxDim/h); h = maxDim; }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      currentCover = canvas.toDataURL('image/jpeg', 0.75);
+      document.getElementById('coverUrl').value = '';
+      const noteEl = document.getElementById('artAutoNote');
+      if(noteEl) noteEl.textContent = 'Cover art added.';
+      updateCoverPreview();
+    };
+    img.onerror = ()=> showToast('Could not read that image file.');
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleCoverUrl(event){
+  const val = event.target.value.trim();
+  currentCover = val;
+  const noteEl = document.getElementById('artAutoNote');
+  const linksEl = document.getElementById('artSearchLinks');
+  if(noteEl) noteEl.textContent = val ? 'Cover art added.' : 'Cover art is found automatically once you type a title.';
+  if(val && linksEl) linksEl.innerHTML = '';
+  updateCoverPreview();
+}
+
+function clearCover(){
+  currentCover = '';
+  const fileInput = document.getElementById('coverFile');
+  const urlInput = document.getElementById('coverUrl');
+  const noteEl = document.getElementById('artAutoNote');
+  const linksEl = document.getElementById('artSearchLinks');
+  if(fileInput) fileInput.value = '';
+  if(urlInput) urlInput.value = '';
+  if(noteEl) noteEl.textContent = 'Cover art is found automatically once you type a title.';
+  if(linksEl) linksEl.innerHTML = '';
+  updateCoverPreview();
+  scheduleAutoFetchCover();
+}
+
+function closeSlip(){
+  document.getElementById('slip').classList.remove('open');
+  editingId = null;
+  currentRating = 0;
+}
+
+async function saveEntry(){
+  const fields = {};
+  document.querySelectorAll('#slipFields [data-key]').forEach(el=>{
+    fields[el.dataset.key] = el.value.trim();
+  });
+  if(!fields.title){
+    showToast('Please enter a title.');
+    return;
+  }
+  fields.rating = currentRating;
+  fields.cover = currentCover;
+
+  if(editingId){
+    const idx = data[activeCat].findIndex(e=>e.id===editingId);
+    if(idx>-1) data[activeCat][idx] = {...data[activeCat][idx], ...fields};
+  } else {
+    fields.id = uid();
+    fields.addedAt = Date.now();
+    if((activeCat==='games' || activeCat==='books') && !fields.status) fields.status = 'Backlog';
+    data[activeCat].unshift(fields);
+  }
+  await persist(activeCat);
+  closeSlip();
+  render();
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=> t.classList.remove('show'), 2600);
+}
+
+function askDelete(cat, id){
+  const actions = document.getElementById('actions-'+id);
+  if(!actions) return;
+  actions.innerHTML = `
+    <span class="confirm-text">Remove?</span>
+    <button class="icon-btn confirm-yes" onclick="deleteEntry('${cat}','${id}')">Yes</button>
+    <button class="icon-btn" onclick="render()">No</button>`;
+}
+
+async function deleteEntry(cat, id){
+  data[cat] = data[cat].filter(e=>e.id!==id);
+  await persist(cat);
+  showToast('Removed from your archive.');
+  render();
+}
+
+function editEntry(id){
+  const entry = data[activeCat].find(e=>e.id===id);
+  if(entry) openSlip(entry);
+}
+
+function moveCard(id, dir){
+  const arr = data[activeCat];
+  const idx = arr.findIndex(x=>x.id===id);
+  if(idx===-1) return;
+  const newIdx = dir==='up' ? idx-1 : idx+1;
+  if(newIdx<0 || newIdx>=arr.length) return;
+  [arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]];
+  persist(activeCat);
+  render();
+}
+
+function handleDragStart(e, id){
+  dragSrcId = id;
+  e.dataTransfer.effectAllowed = 'move';
+  try{ e.dataTransfer.setData('text/plain', id); }catch(err){}
+  const card = e.target.closest('.card');
+  if(card) card.classList.add('dragging');
+}
+
+function handleDragOver(e){
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  const card = e.currentTarget;
+  if(dragSrcId && card.dataset.id !== dragSrcId) card.classList.add('drag-over');
+}
+
+function handleDragLeave(e){
+  e.currentTarget.classList.remove('drag-over');
+}
+
+function handleDrop(e, targetId){
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  const srcId = dragSrcId;
+  dragSrcId = null;
+  if(!srcId || srcId===targetId) return;
+  const arr = data[activeCat];
+  const fromIdx = arr.findIndex(x=>x.id===srcId);
+  const toIdx = arr.findIndex(x=>x.id===targetId);
+  if(fromIdx===-1 || toIdx===-1) return;
+  const [moved] = arr.splice(fromIdx,1);
+  arr.splice(toIdx,0,moved);
+  persist(activeCat);
+  render();
+}
+
+function handleDragEnd(e){
+  document.querySelectorAll('.card.dragging').forEach(el=>el.classList.remove('dragging'));
+  document.querySelectorAll('.card.drag-over').forEach(el=>el.classList.remove('drag-over'));
+  dragSrcId = null;
+}
+
+function catNo(cat, index){
+  const prefix = cat==='games' ? 'G' : (cat==='music' ? 'M' : 'B');
+  return prefix + '-' + String(index+1).padStart(3,'0');
+}
+
+function render(){
+  const list = [...data[activeCat]];
+  const q = document.getElementById('search').value.toLowerCase();
+  const statusF = document.getElementById('statusFilter').value;
+  const sortBy = document.getElementById('sortBy').value;
+
+  let filtered = list.filter(e=>{
+    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')).toLowerCase();
+    const matchesQ = hay.includes(q);
+    const hasStatus = activeCat==='games' || activeCat==='books';
+    const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
+    return matchesQ && matchesStatus;
+  });
+
+  if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
+  else if(sortBy==='rating') filtered.sort((a,b)=>(b.rating||0)-(a.rating||0));
+  else if(sortBy==='price') filtered.sort((a,b)=>(parseFloat(b.price)||0)-(parseFloat(a.price)||0));
+  else if(sortBy==='custom'){ /* keep data[activeCat] order as-is, already preserved by filter() */ }
+  else filtered.sort((a,b)=>(b.addedAt||0)-(a.addedAt||0));
+
+  const reorderHintEl = document.getElementById('reorderHint');
+  if(reorderHintEl) reorderHintEl.style.display = (sortBy==='custom' && !selectMode) ? 'block' : 'none';
+
+  const cardsEl = document.getElementById('cards');
+  const emptyEl = document.getElementById('emptyMsg');
+  cardsEl.className = 'grid-cards cat-' + activeCat;
+  cardsEl.style.zoom = (layoutScale[activeCat]/100);
+
+  const bar = document.getElementById('bulkBar');
+  if(selectMode){
+    bar.classList.add('on');
+    bar.innerHTML = `
+      <span><span class="count" id="selectedCount">${selectedIds.size}</span> selected</span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost" onclick="selectAllVisible()">Select all</button>
+      <button class="btn btn-ghost" onclick="clearSelection()">Clear</button>
+      <button class="btn btn-danger" onclick="confirmDeleteSelected()">Delete selected</button>
+      <button class="btn btn-ghost" onclick="toggleSelectMode()">Done</button>`;
+  } else {
+    bar.classList.remove('on');
+  }
+
+  if(filtered.length===0){
+    cardsEl.innerHTML = '';
+    emptyEl.style.display = 'block';
+    const emptyByCat = {
+      games: 'No games yet — add the first one you bought.',
+      music: 'No music yet — add your first album.',
+      books: 'No books yet — add the first one you bought.'
+    };
+    emptyEl.textContent = list.length===0 ? emptyByCat[activeCat] : 'Nothing matches your search.';
+  } else {
+    emptyEl.style.display = 'none';
+    cardsEl.innerHTML = filtered.map((e)=>{
+      const origIndex = data[activeCat].findIndex(x=>x.id===e.id);
+      const stars = '★'.repeat(e.rating||0) + '☆'.repeat(5-(e.rating||0));
+      const sub = activeCat==='games' ? (e.platform||'') : (activeCat==='music' ? (e.artist||'') : (e.author||''));
+      const chips = [];
+      if(e.owner) chips.push(`<span class="chip chip-owner">${escapeHtml(e.owner)}</span>`);
+      if((activeCat==='games' || activeCat==='books') && e.status) chips.push(`<span class="chip status-${e.status.toLowerCase()}">${e.status}</span>`);
+      if((activeCat==='music' || activeCat==='books') && e.format) chips.push(`<span class="chip">${e.format}</span>`);
+      if(activeCat==='games' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
+      if(activeCat==='games' && e.publisher) chips.push(`<span class="chip">${e.publisher}</span>`);
+      if(activeCat==='games' && e.rarity) chips.push(`<span class="chip">${e.rarity}</span>`);
+      if(e.genre) chips.push(`<span class="chip">${e.genre}</span>`);
+      if(activeCat==='books' && e.dimensions) chips.push(`<span class="chip">${e.dimensions}</span>`);
+      const catnoTag = `<span class="chip" style="font-family:'JetBrains Mono',monospace;">${catNo(activeCat, origIndex)}</span>`;
+      const price = e.price ? `$${parseFloat(e.price).toFixed(2)}` : '';
+      const titleBlock = `<h4>${escapeHtml(e.title)}</h4>${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}`;
+      const metaBlock = `<div class="card-meta">${catnoTag}${chips.join('')}</div><div class="stars-view">${stars}</div>`;
+      const isReorderable = sortBy==='custom' && !selectMode;
+      const moveBtns = isReorderable ? `
+            <button class="icon-btn move-btn" onclick="moveCard('${e.id}','up')" title="Move up">↑</button>
+            <button class="icon-btn move-btn" onclick="moveCard('${e.id}','down')" title="Move down">↓</button>` : '';
+      const actionsBlock = selectMode ? `
+        <div class="card-bottom">
+          <span class="price">${price}</span>
+        </div>` : `
+        <div class="card-bottom">
+          <span class="price">${price}</span>
+          <div class="card-actions" id="actions-${e.id}">
+            ${moveBtns}
+            <button class="icon-btn" onclick="editEntry('${e.id}')" title="Edit">✎</button>
+            <button class="icon-btn" onclick="askDelete('${activeCat}','${e.id}')" title="Remove">✕</button>
+          </div>
+        </div>`;
+
+      const isSelected = selectedIds.has(e.id);
+      const cardClass = 'card has-cover' + (selectMode ? ' selectable' : '') + (isSelected ? ' selected' : '');
+      const cardClickAttr = selectMode ? ` onclick="toggleSelect('${e.id}')"` : '';
+      const checkboxHtml = selectMode ? `<div class="select-check">${isSelected ? '✓' : ''}</div>` : '';
+      const dragHandleHtml = isReorderable ? `<span class="drag-handle" draggable="true" ondragstart="handleDragStart(event,'${e.id}')" ondragend="handleDragEnd(event)" title="Drag to reorder">⠿⠿</span>` : '';
+      const dragAttrs = isReorderable ? ` ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event,'${e.id}')"` : '';
+
+      if(e.cover){
+        return `
+          <div class="${cardClass}" data-id="${e.id}" tabindex="0"${cardClickAttr}${dragAttrs}>
+            ${checkboxHtml}
+            ${dragHandleHtml}
+            <div class="cover-area ${activeCat}">
+              <img src="${e.cover}" alt="">
+            </div>
+            <div class="card-overlay">
+              ${titleBlock}
+              ${metaBlock}
+              ${actionsBlock}
+            </div>
+          </div>`;
+      }
+      return `
+        <div class="${cardClass}" data-id="${e.id}" tabindex="0"${cardClickAttr}${dragAttrs}>
+          ${checkboxHtml}
+          ${dragHandleHtml}
+          <div class="cover-area ${activeCat} placeholder">
+            <div class="hole"></div>
+            <div class="catno">${catNo(activeCat, origIndex)}</div>
+            <div class="placeholder-title">${titleBlock}</div>
+          </div>
+          <div class="card-overlay">
+            ${metaBlock}
+            ${actionsBlock}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  document.getElementById('statGames').textContent = data.games.length;
+  document.getElementById('statMusic').textContent = data.music.length;
+  document.getElementById('statBooks').textContent = data.books.length;
+  const totalSpent = [...data.games, ...data.music, ...data.books].reduce((sum,e)=>sum+(parseFloat(e.price)||0),0);
+  document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.getElementById('addBtn').className = 'btn btn-primary games';
+document.getElementById('saveBtn').className = 'btn btn-primary games';
+loadData();
+</script>
+</body>
+</html>
