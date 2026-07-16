@@ -2081,12 +2081,17 @@
       "addedAt": 1784125820558,
       "title": "sly cooper thieves in time",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193718547-sly-cooper-thieves-in-time.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj4zcfj",
@@ -3399,5 +3404,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193562961
+  "savedAt": 1784193723693
 }
