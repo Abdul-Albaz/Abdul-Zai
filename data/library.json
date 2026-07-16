@@ -1217,7 +1217,12 @@
       "publisher": "fangamer",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjlp9gs",
@@ -3147,5 +3152,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187426897
+  "savedAt": 1784187468977
 }
