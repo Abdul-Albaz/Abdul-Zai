@@ -1314,12 +1314,17 @@
       "addedAt": 1784125820603,
       "title": "resident evil collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187943720-resident-evil-collection.jpg",
       "platform": "nintendo switch",
       "publisher": "Capcom",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj4sbmx",
@@ -3172,5 +3177,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187794805
+  "savedAt": 1784187948259
 }
