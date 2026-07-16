@@ -1758,12 +1758,17 @@
       "addedAt": 1784125820577,
       "title": "folklore",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192477188-folklore.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjmdfh9",
@@ -3304,5 +3309,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192434685
+  "savedAt": 1784192481067
 }
