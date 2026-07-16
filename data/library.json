@@ -1059,12 +1059,17 @@
       "addedAt": 1784125820618,
       "title": "fatal frame",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180821430-fatal-frame.jpg",
       "platform": "nintendo switch",
       "publisher": "KT",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qja454g",
@@ -3097,5 +3102,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180797304
+  "savedAt": 1784180824466
 }
