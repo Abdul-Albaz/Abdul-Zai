@@ -388,39 +388,15 @@
     overflow-y:auto;
     box-shadow:0 12px 40px rgba(0,0,0,0.5);
   }
-  .detail-body{padding:18px 20px 4px;}
-  .detail-title-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:2px;}
-  .detail-icon-box{
-    position:relative;
-    width:56px;height:56px;flex-shrink:0;
-    border-radius:10px;
-    overflow:visible;
-  }
-  .detail-icon-box .icon-inner{
-    width:100%;height:100%;
-    border-radius:10px;
+  .detail-cover{
+    width:100%;aspect-ratio:1/1;
+    background:var(--bg-soft);
+    display:flex;align-items:center;justify-content:center;
     overflow:hidden;
-    border:1.5px dashed #cfc6b2;
-    background:#fff repeating-conic-gradient(#e5ddc9 0% 25%, #fff 0% 50%) 50% / 10px 10px;
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;
-    transition:border-color .15s;
+    border-radius:8px 8px 0 0;
   }
-  .detail-icon-box .icon-inner:hover{border-color:var(--cart);}
-  .detail-icon-box img{width:100%;height:100%;object-fit:cover;display:block;}
-  .detail-icon-box .plus{font-size:22px;line-height:1;color:var(--cart);}
-  .detail-icon-remove{
-    position:absolute;top:-6px;right:-6px;
-    width:18px;height:18px;border-radius:50%;
-    background:var(--ink);color:var(--paper);
-    font-size:10px;line-height:1;
-    display:flex;align-items:center;justify-content:center;
-    border:1.5px solid var(--paper);
-    cursor:pointer;
-  }
-  .detail-title-text{flex:1;min-width:0;}
-  .detail-title-text h3{margin:0;}
-  .detail-title-text .sub{margin:2px 0 0;}
+  .detail-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+  .detail-body{padding:18px 20px 4px;}
   .detail-body h3{font-family:'Fraunces', serif;font-size:20px;font-style:italic;margin:0 0 2px;}
   .detail-body .sub{margin:0 0 10px;color:var(--ink-soft);font-size:13px;}
   .detail-stars{color:var(--cart);font-size:16px;margin-bottom:12px;letter-spacing:2px;}
@@ -438,9 +414,30 @@
     margin-bottom:16px;white-space:pre-wrap;
   }
   .detail-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 20px 18px;}
+  .detail-square-section{padding:0 20px 16px;}
+  .detail-square-section .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;text-transform:uppercase;letter-spacing:1px;
+    color:var(--ink-soft);display:block;margin-bottom:8px;
+  }
+  .detail-square-row{display:flex;align-items:center;gap:10px;}
+  .detail-square-box{
+    width:84px;height:84px;flex-shrink:0;
+    border-radius:6px;
+    border:1.5px dashed #cfc6b2;
+    background:#fff repeating-conic-gradient(#e5ddc9 0% 25%, #fff 0% 50%) 50% / 10px 10px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;
+    cursor:pointer;overflow:hidden;
+    color:#a89f8c;font-size:9.5px;text-align:center;
+    transition:border-color .15s, color .15s;
+  }
+  .detail-square-box:hover{border-color:var(--cart);color:var(--ink-soft);}
+  .detail-square-box img{width:100%;height:100%;object-fit:cover;display:block;}
+  .detail-square-box .plus{font-size:22px;line-height:1;color:var(--cart);}
   @media (max-width:480px){
     .detail-overlay{padding:0;align-items:flex-end;}
     .detail-modal{max-width:100%;border-radius:12px 12px 0 0;max-height:92vh;}
+    .detail-cover{border-radius:12px 12px 0 0;}
   }
 
   /* ---------- grid & cards ---------- */
@@ -2035,31 +2032,30 @@ function openDetail(id){
     + (entry.purchaseDate ? `<div class="detail-row"><span class="k">Purchased</span><span class="v">${escapeHtml(entry.purchaseDate)}</span></div>` : '');
 
   const notesHtml = entry.notes ? `<div class="detail-notes">${escapeHtml(entry.notes)}</div>` : '';
-  const iconInner = entry.squareImage
+  const squareBoxInner = entry.squareImage
     ? `<img src="${entry.squareImage}" alt="">`
-    : `<span class="plus">+</span>`;
-  const iconRemoveBtn = entry.squareImage
-    ? `<span class="detail-icon-remove" onclick="event.stopPropagation();removeSquareImage('${entry.id}')" title="Remove image">✕</span>`
+    : `<span class="plus">+</span><span>Add square<br>image</span>`;
+  const squareRemoveBtn = entry.squareImage
+    ? `<button class="icon-btn" onclick="removeSquareImage('${entry.id}')" title="Remove square image">✕</button>`
     : '';
 
   document.getElementById('detailModal').innerHTML = `
     <div class="detail-body">
-      <div class="detail-title-row">
-        <div class="detail-icon-box">
-          <div class="icon-inner" onclick="document.getElementById('squareImgInput').click()" title="${entry.squareImage ? 'Click to replace image' : 'Click to add an image'}">
-            ${iconInner}
-          </div>
-          ${iconRemoveBtn}
-        </div>
-        <div class="detail-title-text">
-          <h3>${escapeHtml(entry.title)}</h3>
-          ${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}
-        </div>
-      </div>
-      <input type="file" id="squareImgInput" accept="image/*" style="display:none" onchange="handleSquareImageFile(event,'${entry.id}')">
+      <h3>${escapeHtml(entry.title)}</h3>
+      ${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}
       <div class="detail-stars">${stars}</div>
       <div class="detail-rows">${rows}</div>
       ${notesHtml}
+    </div>
+    <div class="detail-square-section">
+      <span class="k">Extra square image</span>
+      <div class="detail-square-row">
+        <div class="detail-square-box" onclick="document.getElementById('squareImgInput').click()" title="${entry.squareImage ? 'Click to replace' : 'Click to add a square image'}">
+          ${squareBoxInner}
+        </div>
+        ${squareRemoveBtn}
+      </div>
+      <input type="file" id="squareImgInput" accept="image/*" style="display:none" onchange="handleSquareImageFile(event,'${entry.id}')">
     </div>
     <div class="detail-actions">
       <button class="btn btn-ghost" onclick="closeDetail()">Close</button>
