@@ -1571,12 +1571,17 @@
       "addedAt": 1784125820588,
       "title": "cyberpunk",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191925918-cyberpunk.jpg",
       "platform": "nintendo switch 2",
       "publisher": "CD Projekt Red",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjhxsjr",
@@ -3249,5 +3254,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191889136
+  "savedAt": 1784191929984
 }
