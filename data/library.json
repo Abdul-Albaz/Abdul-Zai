@@ -243,12 +243,17 @@
       "addedAt": 1784125820666,
       "title": "super mario 3d all stars",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176300909-super-mario-3d-all-stars.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiq2nor",
@@ -2857,5 +2862,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176293599
+  "savedAt": 1784176304581
 }
