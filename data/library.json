@@ -33,7 +33,7 @@
       "price": "",
       "purchaseDate": "",
       "notes": "",
-      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784190551645-prince-of-persia-lost-crown-square.jpg"
+      "squareImage": ""
     },
     {
       "id": "mrm6g5qiah7aj",
@@ -3223,5 +3223,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784190554709
+  "savedAt": 1784190561893
 }
