@@ -260,12 +260,17 @@
       "addedAt": 1784125820665,
       "title": "animal crossing",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176311991-animal-crossing.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qij60d9",
@@ -2862,5 +2867,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176304581
+  "savedAt": 1784176316769
 }
