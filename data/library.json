@@ -1639,12 +1639,17 @@
       "addedAt": 1784125820584,
       "title": "metal gear 1",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192183206-metal-gear-1.jpg",
       "platform": "playstation 1",
       "publisher": "konami",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj9y74p",
@@ -3269,5 +3274,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192147467
+  "savedAt": 1784192187899
 }
