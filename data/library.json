@@ -1741,7 +1741,7 @@
       "addedAt": 1784125820578,
       "title": "hitman",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192431075-hitman.jpg",
       "platform": "playstation 3",
       "publisher": "square enix",
       "status": "Completed",
@@ -3304,5 +3304,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192423183
+  "savedAt": 1784192434685
 }
