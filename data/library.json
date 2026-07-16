@@ -1025,12 +1025,17 @@
       "addedAt": 1784125820620,
       "title": "haven",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180762327-haven.jpg",
       "platform": "nintendo switch",
       "publisher": "limited run",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjmss56",
@@ -3087,5 +3092,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180717886
+  "savedAt": 1784180766487
 }
