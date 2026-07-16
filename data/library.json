@@ -1280,12 +1280,17 @@
       "addedAt": 1784125820605,
       "title": "death's door",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187729669-death-s-door.jpg",
       "platform": "nintendo switch",
       "publisher": "devolver",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjffxve",
@@ -3162,5 +3167,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187649335
+  "savedAt": 1784187734485
 }
