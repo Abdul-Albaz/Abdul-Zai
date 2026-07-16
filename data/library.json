@@ -1399,12 +1399,17 @@
       "addedAt": 1784125820598,
       "title": "shin megami tensei v",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188331602-shin-megami-tensei-v.jpg",
       "platform": "nintendo switch",
       "publisher": "atlus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj07vu4",
@@ -3197,5 +3202,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188231286
+  "savedAt": 1784188336020
 }
