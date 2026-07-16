@@ -102,7 +102,7 @@
       "addedAt": 1784125820674,
       "title": "hades",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176031958-hades.jpg",
       "platform": "nintendo switch",
       "publisher": "supergiant",
       "status": "Backlog",
@@ -2817,5 +2817,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176021851
+  "savedAt": 1784176036068
 }
