@@ -1537,12 +1537,17 @@
       "addedAt": 1784125820590,
       "title": "mario kart world",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191825078-mario-kart-world.jpg",
       "platform": "nintendo switch 2",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjncpjt",
@@ -3239,5 +3244,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191770549
+  "savedAt": 1784191829765
 }
