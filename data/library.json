@@ -1826,12 +1826,17 @@
       "addedAt": 1784125820573,
       "title": "infamous collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192682325-infamous-collection.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj2zr9c",
@@ -3324,5 +3329,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192640753
+  "savedAt": 1784192686804
 }
