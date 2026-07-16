@@ -5,12 +5,17 @@
       "addedAt": 1784125820680,
       "title": "disco elysium the final cut",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176109177-disco-elysium-the-final-cut.jpg",
       "platform": "nintendo switch",
       "publisher": "za/um",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qi542oc",
@@ -2832,5 +2837,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176082203
+  "savedAt": 1784176113085
 }
