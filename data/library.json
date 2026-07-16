@@ -1229,12 +1229,17 @@
       "addedAt": 1784125820608,
       "title": "hollow knight",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187491888-hollow-knight.jpg",
       "platform": "nintendo switch",
       "publisher": "fangamer",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjlu6hw",
@@ -3152,5 +3157,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187486445
+  "savedAt": 1784187495613
 }
