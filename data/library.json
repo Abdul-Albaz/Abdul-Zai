@@ -838,12 +838,17 @@
       "addedAt": 1784125820631,
       "title": "zelda echoes of wisdom",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179930214-zelda-echoes-of-wisdom.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjmw6k2",
@@ -3032,5 +3037,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179925141
+  "savedAt": 1784179933770
 }
