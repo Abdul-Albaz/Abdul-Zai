@@ -583,12 +583,17 @@
       "addedAt": 1784125820646,
       "title": "pikmin 4",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179084715-pikmin-4.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj5y6wr",
@@ -2957,5 +2962,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179041162
+  "savedAt": 1784179087930
 }
