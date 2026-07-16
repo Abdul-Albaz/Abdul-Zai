@@ -991,12 +991,17 @@
       "addedAt": 1784125820622,
       "title": "Blade runner",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180579158-blade-runner.jpg",
       "platform": "nintendo switch",
       "publisher": "limited run",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjo6hbl",
@@ -3077,5 +3082,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180526023
+  "savedAt": 1784180583140
 }
