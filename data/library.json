@@ -1520,12 +1520,17 @@
       "addedAt": 1784125820591,
       "title": "donkey kong bananza",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191765236-donkey-kong-bananza.jpg",
       "platform": "nintendo switch 2",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj5gj7z",
@@ -3234,5 +3239,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191392531
+  "savedAt": 1784191770549
 }
