@@ -226,12 +226,17 @@
       "addedAt": 1784125820667,
       "title": "adventure time",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176289428-adventure-time.jpg",
       "platform": "nintendo switch",
       "publisher": "og",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiv78sw",
@@ -2852,5 +2857,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176269883
+  "savedAt": 1784176293599
 }
