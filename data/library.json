@@ -549,12 +549,17 @@
       "addedAt": 1784125820648,
       "title": "nintendo switch sport",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784178911865-nintendo-switch-sport.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj5l4i3",
@@ -2947,5 +2952,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784177992701
+  "savedAt": 1784178915896
 }
