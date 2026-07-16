@@ -396,12 +396,17 @@
       "addedAt": 1784125820657,
       "title": "kirby and the forgotten land",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176776934-kirby-and-the-forgotten-land.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qixwp1p",
@@ -2902,5 +2907,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176732731
+  "savedAt": 1784176781031
 }
