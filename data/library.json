@@ -872,12 +872,17 @@
       "addedAt": 1784125820629,
       "title": "zelda skyword sword",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179992937-zelda-skyword-sword.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjn8i1i",
@@ -3047,5 +3052,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179959937
+  "savedAt": 1784179996935
 }
