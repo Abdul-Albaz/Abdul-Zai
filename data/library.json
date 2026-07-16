@@ -1967,7 +1967,12 @@
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjfi15e",
@@ -3364,5 +3369,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193208788
+  "savedAt": 1784193253322
 }
