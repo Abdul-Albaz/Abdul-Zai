@@ -1622,12 +1622,17 @@
       "addedAt": 1784125820585,
       "title": "starfield premium edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192143045-starfield-premium-edition.jpg",
       "platform": "PC",
       "publisher": "Bethesda",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjlsjl9",
@@ -3264,5 +3269,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192050066
+  "savedAt": 1784192147467
 }
