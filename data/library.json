@@ -1911,12 +1911,17 @@
       "addedAt": 1784125820568,
       "title": "demon souls",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193112774-demon-souls.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj8sdhg",
@@ -3349,5 +3354,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192999188
+  "savedAt": 1784193118556
 }
