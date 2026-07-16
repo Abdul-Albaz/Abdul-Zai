@@ -413,12 +413,17 @@
       "addedAt": 1784125820656,
       "title": "live a live",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176839191-live-a-live.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiaiti3",
@@ -2907,5 +2912,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176781031
+  "savedAt": 1784176843011
 }
