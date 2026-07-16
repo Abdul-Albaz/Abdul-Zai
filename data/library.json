@@ -775,7 +775,12 @@
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjqksdw",
@@ -3012,5 +3017,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179578883
+  "savedAt": 1784179594180
 }
