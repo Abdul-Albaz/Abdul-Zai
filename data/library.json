@@ -107,7 +107,12 @@
       "publisher": "supergiant",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qi35ers",
@@ -2812,5 +2817,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176010519
+  "savedAt": 1784176021851
 }
