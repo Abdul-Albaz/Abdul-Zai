@@ -153,12 +153,17 @@
       "addedAt": 1784125820671,
       "title": "cuphead",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176078498-cuphead.jpg",
       "platform": "nintendo switch",
       "publisher": "studio mdhr inc",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qi80vqe",
@@ -2827,5 +2832,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176064118
+  "savedAt": 1784176082203
 }
