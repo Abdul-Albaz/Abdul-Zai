@@ -1093,7 +1093,7 @@
       "addedAt": 1784125820616,
       "title": "ori the collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784181406634-ori-the-collection.jpg",
       "platform": "nintendo switch",
       "publisher": "iam8bit",
       "status": "Completed",
@@ -3112,5 +3112,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784181400542
+  "savedAt": 1784181410094
 }
