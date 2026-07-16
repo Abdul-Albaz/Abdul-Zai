@@ -1098,7 +1098,12 @@
       "publisher": "iam8bit",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjetpk4",
@@ -3107,5 +3112,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784181390462
+  "savedAt": 1784181400542
 }
