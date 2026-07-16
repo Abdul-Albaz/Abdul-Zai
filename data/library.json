@@ -2030,12 +2030,17 @@
       "addedAt": 1784125820561,
       "title": "ratchet and clank tools of destruction",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193416556-ratchet-and-clank-tools-of-destruction.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj5ktc4",
@@ -3384,5 +3389,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193374840
+  "savedAt": 1784193421526
 }
