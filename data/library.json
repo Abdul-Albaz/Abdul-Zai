@@ -2064,12 +2064,17 @@
       "addedAt": 1784125820559,
       "title": "resistance 3 special edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193559023-resistance-3-special-edition.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjx9x8h",
@@ -3394,5 +3399,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193551641
+  "savedAt": 1784193562961
 }
