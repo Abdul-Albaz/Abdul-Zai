@@ -1110,12 +1110,17 @@
       "addedAt": 1784125820615,
       "title": "signalis",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784181487603-signalis.jpg",
       "platform": "nintendo switch",
       "publisher": "humble games",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjecy3k",
@@ -3112,5 +3117,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784181410094
+  "savedAt": 1784181491512
 }
