@@ -1792,12 +1792,17 @@
       "addedAt": 1784125820575,
       "title": "god of war original collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192603747-god-of-war-original-collection.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjqp1q6",
@@ -3314,5 +3319,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192514667
+  "savedAt": 1784192609332
 }
