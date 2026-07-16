@@ -1433,12 +1433,17 @@
       "addedAt": 1784125820596,
       "title": "sayonara wild hearts",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188444630-sayonara-wild-hearts.jpg",
       "platform": "nintendo switch",
       "publisher": "anapurna",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjqe448",
@@ -3207,5 +3212,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188397669
+  "savedAt": 1784188448739
 }
