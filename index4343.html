@@ -185,19 +185,6 @@
   .btn-primary.books{background:var(--book);color:#221016;}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
   .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
-  .btn-ghost.active-toggle{color:var(--gold);border-color:var(--gold);}
-
-  .toolbar-extra{
-    display:none;
-    gap:10px;
-    flex-wrap:wrap;
-    align-items:center;
-    width:100%;
-    margin-top:2px;
-    padding-top:12px;
-    border-top:1px dashed var(--line);
-  }
-  .toolbar-extra.open{display:flex;}
 
   .scale-slider-wrap{
     display:flex;
@@ -367,59 +354,6 @@
   .gh-status{font-size:12px;margin:10px 0 0;min-height:16px;color:var(--ink-soft);}
   .gh-status.err{color:#a05a3a;}
   .gh-status.ok{color:#3F7068;}
-
-  /* ---------- card detail modal ---------- */
-  .detail-overlay{
-    display:none;
-    position:fixed;inset:0;
-    background:rgba(10,9,7,0.65);
-    z-index:110;
-    align-items:center;justify-content:center;
-    padding:20px;
-  }
-  .detail-overlay.open{display:flex;}
-  .detail-modal{
-    background:var(--paper);
-    color:var(--ink);
-    border-radius:8px;
-    max-width:420px;
-    width:100%;
-    max-height:88vh;
-    overflow-y:auto;
-    box-shadow:0 12px 40px rgba(0,0,0,0.5);
-  }
-  .detail-cover{
-    width:100%;aspect-ratio:5/7;
-    background:var(--bg-soft);
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-    border-radius:8px 8px 0 0;
-  }
-  .detail-cover.music{aspect-ratio:1/1;}
-  .detail-cover img{width:100%;height:100%;object-fit:contain;display:block;}
-  .detail-body{padding:18px 20px 4px;}
-  .detail-body h3{font-family:'Fraunces', serif;font-size:20px;font-style:italic;margin:0 0 2px;}
-  .detail-body .sub{margin:0 0 10px;color:var(--ink-soft);font-size:13px;}
-  .detail-stars{color:var(--cart);font-size:16px;margin-bottom:12px;letter-spacing:2px;}
-  .detail-rows{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-bottom:14px;}
-  .detail-row .k{
-    font-family:'JetBrains Mono', monospace;
-    font-size:9.5px;text-transform:uppercase;letter-spacing:1px;
-    color:var(--ink-soft);display:block;margin-bottom:2px;
-  }
-  .detail-row .v{font-size:13px;}
-  .detail-notes{
-    font-size:13px;line-height:1.5;
-    background:rgba(34,31,26,0.06);
-    padding:10px 12px;border-radius:5px;
-    margin-bottom:16px;white-space:pre-wrap;
-  }
-  .detail-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 20px 18px;}
-  @media (max-width:480px){
-    .detail-overlay{padding:0;align-items:flex-end;}
-    .detail-modal{max-width:100%;border-radius:12px 12px 0 0;max-height:92vh;}
-    .detail-cover{border-radius:12px 12px 0 0;}
-  }
 
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
@@ -669,15 +603,8 @@
     #addBtn{order:5;flex:1 1 100%;padding:14px;font-size:13px;}
     select, input[type=text], input[type=search], input[type=number], input[type=date]{font-size:16px;}
 
-    .grid-cards{grid-template-columns:repeat(3, 1fr) !important;gap:8px;zoom:1 !important;}
-    .grid-cards.cat-music{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
-    .card-overlay{padding:8px;}
-    .card-overlay h4{font-size:12px;}
-    .card-overlay .sub{font-size:9.5px;margin:0 0 4px;}
-    .card-overlay .chip{font-size:9px;padding:2px 6px;}
-    .icon-btn{padding:6px;font-size:13px;}
-    .drag-handle{width:24px;height:20px;font-size:12px;}
-    .select-check{width:20px;height:20px;font-size:11px;}
+    .grid-cards{grid-template-columns:repeat(2, 1fr) !important;gap:10px;zoom:1 !important;}
+    .grid-cards.cat-music{grid-template-columns:repeat(2, 1fr) !important;gap:10px;}
 
     /* hover doesn't exist on touch — keep card details visible at all times */
     /* touch devices can't hover — reveal card details only on tap, then fade after release */
@@ -713,11 +640,9 @@
   }
 
   @media (max-width:420px){
-    .grid-cards, .grid-cards.cat-music{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
+    .grid-cards, .grid-cards.cat-music{grid-template-columns:1fr !important;}
     .title-block h1{font-size:24px;}
     .stat .num{font-size:17px;}
-    .card-overlay h4{font-size:11px;}
-    .card-overlay .sub{font-size:9px;}
   }
 </style>
 </head>
@@ -754,22 +679,19 @@
         <option value="price">Sort: Price</option>
         <option value="custom">Sort: My order</option>
       </select>
-      <button class="btn btn-ghost" id="toolbarEditBtn" onclick="toggleToolbarExtra()" title="Show import/export, select, size and storage options">⚙ Edit</button>
-      <div class="toolbar-extra" id="toolbarExtra">
-        <div class="scale-slider-wrap" title="Card size">
-          <span class="scale-label">Size</span>
-          <input type="range" id="scaleSlider" min="10" max="100" step="5" value="75"
-            oninput="onScaleInput(this.value)" onchange="onScaleChange(this.value)">
-          <span class="scale-value" id="scaleValue">75%</span>
-        </div>
-        <button class="btn btn-ghost" onclick="document.getElementById('csvInput').click()">Import CSV</button>
-        <input type="file" id="csvInput" accept=".csv,text/csv" style="display:none" onchange="handleCsvImport(event)">
-        <button class="btn btn-ghost" onclick="exportBackup()" title="Save all your data as a file">Export backup</button>
-        <button class="btn btn-ghost" onclick="triggerImport()" title="Load a backup file to sync data from another browser">Import backup</button>
-        <input type="file" id="backupInput" accept=".json,application/json" style="display:none" onchange="handleBackupImport(event)">
-        <button class="btn btn-ghost" id="selectModeBtn" onclick="toggleSelectMode()">Select</button>
-        <button class="btn btn-ghost" onclick="openGithubSettings()" title="Configure saving cover images to your GitHub repo">⚙ Image storage</button>
+      <div class="scale-slider-wrap" title="Card size">
+        <span class="scale-label">Size</span>
+        <input type="range" id="scaleSlider" min="10" max="100" step="5" value="75"
+          oninput="onScaleInput(this.value)" onchange="onScaleChange(this.value)">
+        <span class="scale-value" id="scaleValue">75%</span>
       </div>
+      <button class="btn btn-ghost" onclick="document.getElementById('csvInput').click()">Import CSV</button>
+      <input type="file" id="csvInput" accept=".csv,text/csv" style="display:none" onchange="handleCsvImport(event)">
+      <button class="btn btn-ghost" onclick="exportBackup()" title="Save all your data as a file">Export backup</button>
+      <button class="btn btn-ghost" onclick="triggerImport()" title="Load a backup file to sync data from another browser">Import backup</button>
+      <input type="file" id="backupInput" accept=".json,application/json" style="display:none" onchange="handleBackupImport(event)">
+      <button class="btn btn-ghost" id="selectModeBtn" onclick="toggleSelectMode()">Select</button>
+      <button class="btn btn-ghost" onclick="openGithubSettings()" title="Configure saving cover images to your GitHub repo">⚙ Image storage</button>
       <button class="btn btn-primary" id="addBtn" onclick="openSlip()">+ Add game</button>
     </div>
     <p style="margin:-10px 0 16px;font-size:11px;color:#8f887c;font-family:'JetBrains Mono',monospace;" id="csvHint"></p>
@@ -834,10 +756,6 @@
           <button class="btn btn-primary games" onclick="saveGithubSettings()">Save</button>
         </div>
       </div>
-    </div>
-
-    <div class="detail-overlay" id="detailOverlay" onclick="if(event.target===this) closeDetail()">
-      <div class="detail-modal" id="detailModal"></div>
     </div>
 
     <div id="loading" class="loading">loading your collection…</div>
@@ -905,14 +823,6 @@ async function exportBackup(){
 
 function triggerImport(){
   document.getElementById('backupInput').click();
-}
-
-function toggleToolbarExtra(){
-  const el = document.getElementById('toolbarExtra');
-  const btn = document.getElementById('toolbarEditBtn');
-  const willOpen = !el.classList.contains('open');
-  el.classList.toggle('open', willOpen);
-  btn.classList.toggle('active-toggle', willOpen);
 }
 
 async function handleBackupImport(event){
@@ -1945,8 +1855,8 @@ function askDelete(cat, id){
   if(!actions) return;
   actions.innerHTML = `
     <span class="confirm-text">Remove?</span>
-    <button class="icon-btn confirm-yes" onclick="event.stopPropagation();deleteEntry('${cat}','${id}')">Yes</button>
-    <button class="icon-btn" onclick="event.stopPropagation();render()">No</button>`;
+    <button class="icon-btn confirm-yes" onclick="deleteEntry('${cat}','${id}')">Yes</button>
+    <button class="icon-btn" onclick="render()">No</button>`;
 }
 
 async function deleteEntry(cat, id){
@@ -1959,46 +1869,6 @@ async function deleteEntry(cat, id){
 function editEntry(id){
   const entry = data[activeCat].find(e=>e.id===id);
   if(entry) openSlip(entry);
-}
-
-function openDetail(id){
-  const entry = data[activeCat].find(e=>e.id===id);
-  if(!entry) return;
-  const cat = activeCat;
-  const subKey = cat==='games' ? 'platform' : (cat==='music' ? 'artist' : 'author');
-  const sub = entry[subKey] || '';
-  const stars = '★'.repeat(entry.rating||0) + '☆'.repeat(5-(entry.rating||0));
-  const price = entry.price ? '$' + parseFloat(entry.price).toFixed(2) : '';
-
-  const skipKeys = new Set(['title', subKey, 'notes', 'price', 'purchaseDate']);
-  const rows = FIELDS[cat]
-    .filter(f=>!skipKeys.has(f.key) && entry[f.key])
-    .map(f=>`<div class="detail-row"><span class="k">${escapeHtml(f.label)}</span><span class="v">${escapeHtml(String(entry[f.key]))}</span></div>`)
-    .join('')
-    + (price ? `<div class="detail-row"><span class="k">Price</span><span class="v">${price}</span></div>` : '')
-    + (entry.purchaseDate ? `<div class="detail-row"><span class="k">Purchased</span><span class="v">${escapeHtml(entry.purchaseDate)}</span></div>` : '');
-
-  const coverHtml = entry.cover ? `<div class="detail-cover ${cat}"><img src="${entry.cover}" alt=""></div>` : '';
-  const notesHtml = entry.notes ? `<div class="detail-notes">${escapeHtml(entry.notes)}</div>` : '';
-
-  document.getElementById('detailModal').innerHTML = `
-    ${coverHtml}
-    <div class="detail-body">
-      <h3>${escapeHtml(entry.title)}</h3>
-      ${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}
-      <div class="detail-stars">${stars}</div>
-      <div class="detail-rows">${rows}</div>
-      ${notesHtml}
-    </div>
-    <div class="detail-actions">
-      <button class="btn btn-ghost" onclick="closeDetail()">Close</button>
-      <button class="btn btn-primary ${cat}" onclick="closeDetail();editEntry('${entry.id}')">Edit</button>
-    </div>`;
-  document.getElementById('detailOverlay').classList.add('open');
-}
-
-function closeDetail(){
-  document.getElementById('detailOverlay').classList.remove('open');
 }
 
 function moveCard(id, dir){
@@ -2130,8 +2000,8 @@ function render(){
       const metaBlock = `<div class="card-meta">${catnoTag}${chips.join('')}</div><div class="stars-view">${stars}</div>`;
       const isReorderable = sortBy==='custom' && !selectMode;
       const moveBtns = isReorderable ? `
-            <button class="icon-btn move-btn" onclick="event.stopPropagation();moveCard('${e.id}','up')" title="Move up">↑</button>
-            <button class="icon-btn move-btn" onclick="event.stopPropagation();moveCard('${e.id}','down')" title="Move down">↓</button>` : '';
+            <button class="icon-btn move-btn" onclick="moveCard('${e.id}','up')" title="Move up">↑</button>
+            <button class="icon-btn move-btn" onclick="moveCard('${e.id}','down')" title="Move down">↓</button>` : '';
       const actionsBlock = selectMode ? `
         <div class="card-bottom">
           <span class="price">${price}</span>
@@ -2140,16 +2010,16 @@ function render(){
           <span class="price">${price}</span>
           <div class="card-actions" id="actions-${e.id}">
             ${moveBtns}
-            <button class="icon-btn" onclick="event.stopPropagation();editEntry('${e.id}')" title="Edit">✎</button>
-            <button class="icon-btn" onclick="event.stopPropagation();askDelete('${activeCat}','${e.id}')" title="Remove">✕</button>
+            <button class="icon-btn" onclick="editEntry('${e.id}')" title="Edit">✎</button>
+            <button class="icon-btn" onclick="askDelete('${activeCat}','${e.id}')" title="Remove">✕</button>
           </div>
         </div>`;
 
       const isSelected = selectedIds.has(e.id);
       const cardClass = 'card has-cover' + (selectMode ? ' selectable' : '') + (isSelected ? ' selected' : '');
-      const cardClickAttr = selectMode ? ` onclick="toggleSelect('${e.id}')"` : ` onclick="openDetail('${e.id}')"`;
+      const cardClickAttr = selectMode ? ` onclick="toggleSelect('${e.id}')"` : '';
       const checkboxHtml = selectMode ? `<div class="select-check">${isSelected ? '✓' : ''}</div>` : '';
-      const dragHandleHtml = isReorderable ? `<span class="drag-handle" draggable="true" onclick="event.stopPropagation()" ondragstart="handleDragStart(event,'${e.id}')" ondragend="handleDragEnd(event)" title="Drag to reorder">⠿⠿</span>` : '';
+      const dragHandleHtml = isReorderable ? `<span class="drag-handle" draggable="true" ondragstart="handleDragStart(event,'${e.id}')" ondragend="handleDragEnd(event)" title="Drag to reorder">⠿⠿</span>` : '';
       const dragAttrs = isReorderable ? ` ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event,'${e.id}')"` : '';
 
       if(e.cover){
