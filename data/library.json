@@ -1263,12 +1263,17 @@
       "addedAt": 1784125820606,
       "title": "cult of the lamb",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187644707-cult-of-the-lamb.jpg",
       "platform": "nintendo switch",
       "publisher": "devolver",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj4lm8g",
@@ -3157,5 +3162,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187495613
+  "savedAt": 1784187649335
 }
