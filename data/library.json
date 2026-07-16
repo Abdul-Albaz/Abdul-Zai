@@ -1450,12 +1450,17 @@
       "addedAt": 1784125820595,
       "title": "stray",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188643608-stray.jpg",
       "platform": "nintendo switch",
       "publisher": "anapurna",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjxdnwd",
@@ -3212,5 +3217,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188448739
+  "savedAt": 1784188649196
 }
