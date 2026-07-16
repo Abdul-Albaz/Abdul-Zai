@@ -1588,12 +1588,17 @@
       "addedAt": 1784125820587,
       "title": "little nightmares 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191977223-little-nightmares-3.jpg",
       "platform": "nintendo switch 2",
       "publisher": "bandai namco",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjeodlb",
@@ -3254,5 +3259,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191929984
+  "savedAt": 1784191982218
 }
