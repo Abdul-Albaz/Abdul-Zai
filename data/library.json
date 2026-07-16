@@ -1690,12 +1690,17 @@
       "addedAt": 1784125820581,
       "title": "saints row 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192308816-saints-row-3.jpg",
       "platform": "playstation 3",
       "publisher": "thq",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj9spi3",
@@ -3284,5 +3289,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192261716
+  "savedAt": 1784192312801
 }
