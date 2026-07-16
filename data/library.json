@@ -464,12 +464,17 @@
       "addedAt": 1784125820653,
       "title": "mario kart 8 deluxe",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784177236805-mario-kart-8-deluxe.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiitu65",
@@ -2922,5 +2927,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784177145135
+  "savedAt": 1784177241019
 }
