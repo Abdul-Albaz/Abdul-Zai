@@ -821,12 +821,17 @@
       "addedAt": 1784125820632,
       "title": "zelda breath of the wild",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179921217-zelda-breath-of-the-wild.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjzwbxb",
@@ -3027,5 +3032,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179774685
+  "savedAt": 1784179925141
 }
