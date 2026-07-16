@@ -1042,12 +1042,17 @@
       "addedAt": 1784125820619,
       "title": "fatal frame mask of lunar",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180793761-fatal-frame-mask-of-lunar.jpg",
       "platform": "nintendo switch",
       "publisher": "KT",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj2qo5d",
@@ -3092,5 +3097,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180766487
+  "savedAt": 1784180797304
 }
