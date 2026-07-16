@@ -940,12 +940,17 @@
       "addedAt": 1784125820625,
       "title": "dead cells castlevania",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180214792-dead-cells-castlevania.jpg",
       "platform": "nintendo switch",
       "publisher": "Merge",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjcra0a",
@@ -3062,5 +3067,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180093547
+  "savedAt": 1784180219727
 }
