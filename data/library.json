@@ -515,12 +515,17 @@
       "addedAt": 1784125820650,
       "title": "metroid prime",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784177933477-metroid-prime.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjeb5bo",
@@ -2937,5 +2942,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784177831452
+  "savedAt": 1784177937318
 }
