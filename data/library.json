@@ -1945,12 +1945,17 @@
       "addedAt": 1784125820566,
       "title": "heavenly sword",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193205155-heavenly-sword.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjf80v1",
@@ -3359,5 +3364,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193175889
+  "savedAt": 1784193208788
 }
