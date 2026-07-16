@@ -923,12 +923,17 @@
       "addedAt": 1784125820626,
       "title": "sifu vengance edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180088825-sifu-vengance-edition.jpg",
       "platform": "nintendo switch",
       "publisher": "microids",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjusoup",
@@ -3057,5 +3062,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180043163
+  "savedAt": 1784180093547
 }
