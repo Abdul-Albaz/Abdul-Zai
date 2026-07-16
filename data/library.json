@@ -906,12 +906,17 @@
       "addedAt": 1784125820627,
       "title": "Hot Wheels Unleached Challenge Accepted Edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180039401-hot-wheels-unleached-challenge-accepted-.jpg",
       "platform": "nintendo switch",
       "publisher": "Millstone",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjg8pmr",
@@ -3052,5 +3057,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180011200
+  "savedAt": 1784180043163
 }
