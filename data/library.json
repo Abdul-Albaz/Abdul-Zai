@@ -1486,12 +1486,17 @@
       "addedAt": 1784125820593,
       "title": "hogwarts legacy",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191256884-hogwarts-legacy.jpg",
       "platform": "nintendo switch 2",
       "publisher": "WB",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjn59zc",
@@ -3224,5 +3229,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784190825924
+  "savedAt": 1784191286663
 }
