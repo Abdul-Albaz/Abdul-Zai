@@ -753,12 +753,17 @@
       "addedAt": 1784125820636,
       "title": "super smash bros",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179574602-super-smash-bros.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjzhk0u",
@@ -3007,5 +3012,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179569334
+  "savedAt": 1784179578883
 }
