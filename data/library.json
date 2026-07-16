@@ -192,7 +192,7 @@
       "addedAt": 1784125820669,
       "title": "octopath traveller 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176154468-octopath-traveller-2.jpg",
       "platform": "nintendo switch",
       "publisher": "square enix",
       "status": "Backlog",
@@ -2847,5 +2847,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176149214
+  "savedAt": 1784176158097
 }
