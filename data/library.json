@@ -1236,12 +1236,17 @@
       "addedAt": 1784125820607,
       "title": "stardew valley",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187422735-stardew-valley.jpg",
       "platform": "nintendo switch",
       "publisher": "fangamer",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjku4re",
@@ -3142,5 +3147,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187029955
+  "savedAt": 1784187426897
 }
