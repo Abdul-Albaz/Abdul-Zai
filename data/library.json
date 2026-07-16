@@ -1331,12 +1331,17 @@
       "addedAt": 1784125820602,
       "title": "ender lilies",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187990415-ender-lilies.jpg",
       "platform": "nintendo switch",
       "publisher": "binary haze interactive",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjdzqsk",
@@ -3177,5 +3182,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187948259
+  "savedAt": 1784187994911
 }
