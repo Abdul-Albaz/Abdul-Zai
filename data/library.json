@@ -1843,12 +1843,17 @@
       "addedAt": 1784125820572,
       "title": "journey collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192735898-journey-collector-edition.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj5fwx6",
@@ -3329,5 +3334,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192686804
+  "savedAt": 1784192739973
 }
