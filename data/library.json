@@ -1673,12 +1673,17 @@
       "addedAt": 1784125820582,
       "title": "conan the barbarian",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192257814-conan-the-barbarian.jpg",
       "platform": "playstation 3",
       "publisher": "thq",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj9ekh7",
@@ -3279,5 +3284,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192234650
+  "savedAt": 1784192261716
 }
