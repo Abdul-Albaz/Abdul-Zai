@@ -1008,12 +1008,17 @@
       "addedAt": 1784125820621,
       "title": "divinity original sin",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180713283-divinity-original-sin.jpg",
       "platform": "nintendo switch",
       "publisher": "limited run",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj4m60b",
@@ -3082,5 +3087,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180583140
+  "savedAt": 1784180717886
 }
