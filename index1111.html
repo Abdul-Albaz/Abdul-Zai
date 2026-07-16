@@ -389,13 +389,14 @@
     box-shadow:0 12px 40px rgba(0,0,0,0.5);
   }
   .detail-cover{
-    width:100%;aspect-ratio:1/1;
+    width:100%;aspect-ratio:5/7;
     background:var(--bg-soft);
     display:flex;align-items:center;justify-content:center;
     overflow:hidden;
     border-radius:8px 8px 0 0;
   }
-  .detail-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+  .detail-cover.music{aspect-ratio:1/1;}
+  .detail-cover img{width:100%;height:100%;object-fit:contain;display:block;}
   .detail-body{padding:18px 20px 4px;}
   .detail-body h3{font-family:'Fraunces', serif;font-size:20px;font-style:italic;margin:0 0 2px;}
   .detail-body .sub{margin:0 0 10px;color:var(--ink-soft);font-size:13px;}
