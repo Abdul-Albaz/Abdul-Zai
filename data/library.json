@@ -1416,12 +1416,17 @@
       "addedAt": 1784125820597,
       "title": "white neon",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188392842-white-neon.jpg",
       "platform": "nintendo switch",
       "publisher": "anapurna",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj384hh",
@@ -3202,5 +3207,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188336020
+  "savedAt": 1784188397669
 }
