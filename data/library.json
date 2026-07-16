@@ -209,12 +209,17 @@
       "addedAt": 1784125820668,
       "title": "rain code",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176172395-rain-code.jpg",
       "platform": "nintendo switch",
       "publisher": "spike chunsoft",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiq0ljj",
@@ -2847,5 +2852,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176158097
+  "savedAt": 1784176176165
 }
