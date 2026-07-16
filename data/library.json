@@ -1962,7 +1962,7 @@
       "addedAt": 1784125820565,
       "title": "heavy rain",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193262973-heavy-rain.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
@@ -3369,5 +3369,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193253322
+  "savedAt": 1784193266791
 }
