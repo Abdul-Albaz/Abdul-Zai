@@ -2031,6 +2031,7 @@ function openDetail(id){
     + (price ? `<div class="detail-row"><span class="k">Price</span><span class="v">${price}</span></div>` : '')
     + (entry.purchaseDate ? `<div class="detail-row"><span class="k">Purchased</span><span class="v">${escapeHtml(entry.purchaseDate)}</span></div>` : '');
 
+  const coverHtml = entry.cover ? `<div class="detail-cover ${cat}"><img src="${entry.cover}" alt=""></div>` : '';
   const notesHtml = entry.notes ? `<div class="detail-notes">${escapeHtml(entry.notes)}</div>` : '';
   const squareBoxInner = entry.squareImage
     ? `<img src="${entry.squareImage}" alt="">`
@@ -2040,6 +2041,7 @@ function openDetail(id){
     : '';
 
   document.getElementById('detailModal').innerHTML = `
+    ${coverHtml}
     <div class="detail-body">
       <h3>${escapeHtml(entry.title)}</h3>
       ${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}
