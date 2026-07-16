@@ -430,12 +430,17 @@
       "addedAt": 1784125820655,
       "title": "luigi mansion 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784177132930-luigi-mansion-2.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qi04jgd",
@@ -2912,5 +2917,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176843011
+  "savedAt": 1784177137239
 }
