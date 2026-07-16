@@ -1297,12 +1297,17 @@
       "addedAt": 1784125820604,
       "title": "the doinksoft collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187790397-the-doinksoft-collection.jpg",
       "platform": "nintendo switch",
       "publisher": "devolver",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjnl862",
@@ -3167,5 +3172,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784187734485
+  "savedAt": 1784187794805
 }
