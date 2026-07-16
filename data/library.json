@@ -1656,12 +1656,17 @@
       "addedAt": 1784125820583,
       "title": "farcry 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192229859-farcry-3.jpg",
       "platform": "playstation 3",
       "publisher": "ubisoft",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj3e7hx",
@@ -3274,5 +3279,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192187899
+  "savedAt": 1784192234650
 }
