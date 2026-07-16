@@ -197,7 +197,12 @@
       "publisher": "square enix",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiwxaq1",
@@ -2842,5 +2847,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176141561
+  "savedAt": 1784176149214
 }
