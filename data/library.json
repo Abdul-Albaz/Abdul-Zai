@@ -1928,12 +1928,17 @@
       "addedAt": 1784125820567,
       "title": "god of war ascension special edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193171950-god-of-war-ascension-special-edition.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjk936r",
@@ -3354,5 +3359,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193118556
+  "savedAt": 1784193175889
 }
