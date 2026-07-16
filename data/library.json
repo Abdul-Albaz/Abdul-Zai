@@ -15,7 +15,8 @@
       "genre": "",
       "price": "",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784190822864-disco-elysium-the-final-cut-square.jpg"
     },
     {
       "id": "mrm6g5qi542oc",
@@ -3223,5 +3224,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784190561893
+  "savedAt": 1784190825924
 }
