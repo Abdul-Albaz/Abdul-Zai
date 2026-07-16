@@ -32,7 +32,8 @@
       "genre": "",
       "price": "",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "squareImage": ""
     },
     {
       "id": "mrm6g5qiah7aj",
@@ -3222,5 +3223,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188789476
+  "savedAt": 1784190561893
 }
