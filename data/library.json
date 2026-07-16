@@ -1809,12 +1809,17 @@
       "addedAt": 1784125820574,
       "title": "ico and shadow of the colossus collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192635968-ico-and-shadow-of-the-colossus-collectio.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj09bjj",
@@ -3319,5 +3324,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192609332
+  "savedAt": 1784192640753
 }
