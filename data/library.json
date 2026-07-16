@@ -1996,12 +1996,17 @@
       "addedAt": 1784125820563,
       "title": "killzone 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784193324677-killzone-3.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjlv11f",
@@ -3374,5 +3379,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784193315725
+  "savedAt": 1784193328375
 }
