@@ -1724,12 +1724,17 @@
       "addedAt": 1784125820579,
       "title": "final fantasy XII collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192392424-final-fantasy-xii-collector-edition.jpg",
       "platform": "playstation 3",
       "publisher": "Square Enix",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qject7z",
@@ -3294,5 +3299,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784192346168
+  "savedAt": 1784192396167
 }
