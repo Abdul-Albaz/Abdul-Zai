@@ -974,12 +974,17 @@
       "addedAt": 1784125820623,
       "title": "Animal well",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180522167-animal-well.jpg",
       "platform": "nintendo switch",
       "publisher": "limited run",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjn6pnq",
@@ -3072,5 +3077,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180272461
+  "savedAt": 1784180526023
 }
