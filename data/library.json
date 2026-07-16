@@ -1127,24 +1127,34 @@
       "addedAt": 1784125820614,
       "title": "darq",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784181539701-darq.jpg",
       "platform": "nintendo switch",
       "publisher": "feardemic",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjgqb9b",
       "addedAt": 1784125820613,
       "title": "celeste collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784182028430-celeste-collector-edition.jpg",
       "platform": "nintendo switch",
       "publisher": "fangamer",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj834kw",
@@ -3117,5 +3127,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784181491512
+  "savedAt": 1784182033010
 }
