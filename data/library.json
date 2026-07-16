@@ -498,12 +498,17 @@
       "addedAt": 1784125820651,
       "title": "metroid dread",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784177826751-metroid-dread.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj4req1",
@@ -2932,5 +2937,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784177297152
+  "savedAt": 1784177831452
 }
