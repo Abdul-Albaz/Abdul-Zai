@@ -1605,12 +1605,17 @@
       "addedAt": 1784125820586,
       "title": "persona 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192044795-persona-3.jpg",
       "platform": "nintendo switch 2",
       "publisher": "atlus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjf68iy",
@@ -3259,5 +3264,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191982218
+  "savedAt": 1784192050066
 }
