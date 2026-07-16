@@ -1503,12 +1503,17 @@
       "addedAt": 1784125820592,
       "title": "hades 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191378074-hades-2.jpg",
       "platform": "nintendo switch 2",
       "publisher": "supergiant",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj7y3e5",
@@ -3229,5 +3234,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191286663
+  "savedAt": 1784191392531
 }
