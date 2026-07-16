@@ -1161,12 +1161,17 @@
       "addedAt": 1784125820612,
       "title": "hollow knight collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784182100743-hollow-knight-collector-edition.jpg",
       "platform": "nintendo switch",
       "publisher": "fangamer",
       "status": "Completed",
       "sealed": "Sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjd8org",
@@ -3127,5 +3132,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784182033010
+  "savedAt": 1784182105274
 }
