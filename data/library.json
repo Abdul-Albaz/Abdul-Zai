@@ -787,12 +787,17 @@
       "addedAt": 1784125820634,
       "title": "tomodachi life living the dream",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179724516-tomodachi-life-living-the-dream.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj2z6tu",
@@ -3017,5 +3022,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179608632
+  "savedAt": 1784179728888
 }
