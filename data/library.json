@@ -175,12 +175,17 @@
       "addedAt": 1784125820670,
       "title": "nier automata",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176137711-nier-automata.jpg",
       "platform": "nintendo switch",
       "publisher": "square enix",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qisp1mp",
@@ -2837,5 +2842,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784176113085
+  "savedAt": 1784176141561
 }
