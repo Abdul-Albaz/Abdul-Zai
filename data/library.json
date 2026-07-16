@@ -68,12 +68,17 @@
       "addedAt": 1784125820676,
       "title": "Blasphemous deluxe edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176005522-blasphemous-deluxe-edition.jpg",
       "platform": "nintendo switch",
       "publisher": "team 17",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qiilimn",
@@ -2807,5 +2812,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784157927756
+  "savedAt": 1784176010519
 }
