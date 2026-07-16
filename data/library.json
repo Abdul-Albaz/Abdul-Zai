@@ -668,12 +668,17 @@
       "addedAt": 1784125820641,
       "title": "splatoon 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179334034-splatoon-3.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjtcjsm",
@@ -2982,5 +2987,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179296564
+  "savedAt": 1784179338614
 }
