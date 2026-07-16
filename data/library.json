@@ -957,12 +957,17 @@
       "addedAt": 1784125820624,
       "title": "sakuna of rice and ruin",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180268491-sakuna-of-rice-and-ruin.jpg",
       "platform": "nintendo switch",
       "publisher": "marvelous",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjzt9rv",
@@ -3067,5 +3072,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784180219727
+  "savedAt": 1784180272461
 }
