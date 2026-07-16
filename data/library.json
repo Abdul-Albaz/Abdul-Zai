@@ -1365,12 +1365,17 @@
       "addedAt": 1784125820600,
       "title": "catherine full body",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188138824-catherine-full-body.jpg",
       "platform": "nintendo switch",
       "publisher": "atlus",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjb6feq",
@@ -3187,5 +3192,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188039644
+  "savedAt": 1784188145352
 }
