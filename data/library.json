@@ -1382,12 +1382,17 @@
       "addedAt": 1784125820599,
       "title": "persona 5 royal",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784188226335-persona-5-royal.jpg",
       "platform": "nintendo switch",
       "publisher": "atlus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj7na1t",
@@ -3192,5 +3197,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784188145352
+  "savedAt": 1784188231286
 }
