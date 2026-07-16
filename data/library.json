@@ -770,7 +770,7 @@
       "addedAt": 1784125820635,
       "title": "super smash bros",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179604439-super-smash-bros.jpg",
       "platform": "nintendo switch",
       "publisher": "nintendo",
       "status": "Backlog",
@@ -3017,5 +3017,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784179594180
+  "savedAt": 1784179608632
 }
