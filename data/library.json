@@ -1554,12 +1554,17 @@
       "addedAt": 1784125820589,
       "title": "metroid prime 4",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784191884385-metroid-prime-4.jpg",
       "platform": "nintendo switch 2",
       "publisher": "nintendo",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj7malv",
@@ -3244,5 +3249,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784191829765
+  "savedAt": 1784191889136
 }
