@@ -1195,12 +1195,17 @@
       "addedAt": 1784125820610,
       "title": "Stardew Valley Deluxe Edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187024965-stardew-valley-deluxe-edition.jpg",
       "platform": "nintendo switch",
       "publisher": "fangamer",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjk59wd",
@@ -3137,5 +3142,5 @@
   ],
   "books": [],
   "icon": "🏠",
-  "savedAt": 1784182217039
+  "savedAt": 1784187029955
 }
