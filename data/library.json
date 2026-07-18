@@ -3805,9 +3805,16 @@
       "addedAt": 1784413001341,
       "title": "Holding Up the Universe",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81EKU-xpRSL._AC_UF350,350_QL50_.jpg",
       "author": "Jennifer Niven",
-      "status": "Backlog"
+      "status": "Completed",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "dimensions": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru9dbjp",
@@ -6506,5 +6513,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1784414586530
+  "savedAt": 1784414679477
 }
