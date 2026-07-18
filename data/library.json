@@ -3821,9 +3821,16 @@
       "addedAt": 1784413001340,
       "title": "The Grownup",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1441679582i/26025580.jpg",
       "author": "Gillian Flynn",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "dimensions": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru2fwxt",
@@ -6513,5 +6520,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1784414679477
+  "savedAt": 1784414711450
 }
