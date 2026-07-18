@@ -3773,9 +3773,16 @@
       "addedAt": 1784413001343,
       "title": "A Little Life",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRySz7BUK8TptetAw-8H-lEvcUCm3qAt6ezNK93RqGN1ruiMRfAliNz7BI8&s=10",
       "author": "Hanya Yanagihara",
-      "status": "Backlog"
+      "status": "Completed",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "dimensions": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrug5l1t",
@@ -6492,5 +6499,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1784414444445
+  "savedAt": 1784414489140
 }
