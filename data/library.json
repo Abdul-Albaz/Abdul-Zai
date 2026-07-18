@@ -3789,9 +3789,16 @@
       "addedAt": 1784413001342,
       "title": "The Goldfinch",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784414579073-the-goldfinch.jpg",
       "author": "Donna Tartt",
-      "status": "Backlog"
+      "status": "Completed",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "dimensions": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrue0e2c",
@@ -6499,5 +6506,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1784414489140
+  "savedAt": 1784414586530
 }
