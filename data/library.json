@@ -2387,12 +2387,17 @@
       "addedAt": 1784125820540,
       "title": "shadow of the damned",
       "rating": 0,
-      "cover": "",
+      "cover": "https://cdn.mobygames.com/a38bd7dc-ac08-11ed-9899-02420a000134.webp",
       "platform": "playstation 3",
       "publisher": "Grasshopper",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkuueoe",
@@ -6612,5 +6617,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695867132
+  "savedAt": 1791696002396
 }
