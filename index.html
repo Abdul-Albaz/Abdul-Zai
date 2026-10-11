@@ -819,6 +819,7 @@
         <option value="title">Sort: Title A–Z</option>
         <option value="rating">Sort: Rating</option>
         <option value="price">Sort: Price</option>
+        <option value="platform" id="sortPlatformOpt">Sort: Platform</option>
         <option value="custom">Sort: My order</option>
       </select>
       <button class="btn btn-ghost" id="toolbarEditBtn" onclick="toggleToolbarExtra()" title="Show import/export, select, size and storage options">⚙ Edit</button>
@@ -2330,6 +2331,13 @@ function catNo(cat, index){
 
 function render(){
   populatePlatformFilter();
+  const platOpt = document.getElementById('sortPlatformOpt');
+  if(platOpt){
+    const isGames = activeCat==='games';
+    platOpt.hidden = !isGames;
+    platOpt.disabled = !isGames;
+    if(!isGames && document.getElementById('sortBy').value==='platform') document.getElementById('sortBy').value = 'added';
+  }
   const list = [...data[activeCat]];
   const q = document.getElementById('search').value.toLowerCase();
   const statusF = document.getElementById('statusFilter').value;
@@ -2347,6 +2355,16 @@ function render(){
   if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
   else if(sortBy==='rating') filtered.sort((a,b)=>(b.rating||0)-(a.rating||0));
   else if(sortBy==='price') filtered.sort((a,b)=>(parseFloat(b.price)||0)-(parseFloat(a.price)||0));
+  else if(sortBy==='platform') filtered.sort((a,b)=>{
+    // Group by platform A–Z (PS5 / ps5 count as one), no-platform last, then by title inside each group.
+    const pa = platformKey(a.platform), pb = platformKey(b.platform);
+    if(pa!==pb){
+      if(!pa) return 1;
+      if(!pb) return -1;
+      return pa.localeCompare(pb);
+    }
+    return a.title.localeCompare(b.title);
+  });
   else if(sortBy==='custom'){ /* keep data[activeCat] order as-is, already preserved by filter() */ }
   else filtered.sort((a,b)=>(b.addedAt||0)-(a.addedAt||0));
 
