@@ -3101,12 +3101,17 @@
       "addedAt": 1784125820498,
       "title": "signalis",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791697731773-signalis.jpg",
       "platform": "playstation 4",
       "publisher": "Humble Games",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkhwqgw",
@@ -6822,5 +6827,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697681848
+  "savedAt": 1791697736560
 }
