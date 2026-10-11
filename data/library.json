@@ -3356,12 +3356,17 @@
       "addedAt": 1784125820483,
       "title": "guardians of the galaxy special edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN0vl_zbYC56lC3YNBOxni1KyNGgXJ6gfTLuwv42ExuvBOzyS5ftqIqTES&s=10",
       "platform": "playstation 5",
       "publisher": "Square Enix",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk46tz6",
@@ -6897,5 +6902,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698701928
+  "savedAt": 1791698735184
 }
