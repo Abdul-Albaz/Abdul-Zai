@@ -3016,12 +3016,17 @@
       "addedAt": 1784125820503,
       "title": "red dead redemption 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://videogamesplus.ca/cdn/shop/products/ps4_red_dead_redemption_2_350x436.jpg?v=1618107291",
       "platform": "playstation 4",
       "publisher": "Rockstar Games",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkw0gw0",
@@ -6797,5 +6802,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697497978
+  "savedAt": 1791697517094
 }
