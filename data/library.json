@@ -2914,12 +2914,17 @@
       "addedAt": 1784125820509,
       "title": "god of war 2018",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmSHgUF2SsOjIVIT4abM64hBCjcPjGQ8kUnn76bzAehOsey2XMsuc3LVo&s=10",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkz3wjc",
@@ -6767,5 +6772,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697057949
+  "savedAt": 1791697134398
 }
