@@ -2285,12 +2285,17 @@
       "addedAt": 1784125820546,
       "title": "metal gear solid v special edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://s.pacn.ws/1/p/ff/metal-gear-solid-v-the-phantom-pain-277547.13.jpg?v=nu16vn",
       "platform": "playstation 3",
       "publisher": "Konami",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkqjj8l",
@@ -6582,5 +6587,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695503823
+  "savedAt": 1791695601837
 }
