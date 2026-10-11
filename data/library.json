@@ -2251,12 +2251,17 @@
       "addedAt": 1784125820548,
       "title": "castlevania lord of shadow",
       "rating": 0,
-      "cover": "",
+      "cover": "https://static.wikia.nocookie.net/castlevania/images/0/0e/PS3LOSFinalBoxArt.jpg/revision/latest?cb=20230416153539",
       "platform": "playstation 3",
       "publisher": "konami",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjpk57r",
@@ -6572,5 +6577,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695158038
+  "savedAt": 1791695464621
 }
