@@ -2897,12 +2897,17 @@
       "addedAt": 1784125820510,
       "title": "bloodborne game of the year edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i5.walmartimages.com/seo/Sony-Bloodborne-Game-of-The-Year-Edition-PlayStation-4-Video-Game_6f20565a-2b0e-49f9-a818-cd4216f010ce.46e1177eddfbcdb1c3609a24df9276ff.jpeg",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk5drd1",
@@ -6762,5 +6767,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697026899
+  "savedAt": 1791697057949
 }
