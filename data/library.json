@@ -2506,12 +2506,17 @@
       "addedAt": 1784125820533,
       "title": "the saboteur",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/7163WEbMWvL.jpg",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk64qmp",
@@ -6647,5 +6652,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696245730
+  "savedAt": 1791696293367
 }
