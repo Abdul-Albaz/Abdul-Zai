@@ -2846,12 +2846,17 @@
       "addedAt": 1784125820513,
       "title": "sackboy a big adventure",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLyTO3YKY6aAMItx-hrRyEqkgiwMaAXSszthxU6-H976-qtjqLbouWvqth&s=10",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk04hdj",
@@ -6747,5 +6752,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696957322
+  "savedAt": 1791696978649
 }
