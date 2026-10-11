@@ -2761,12 +2761,17 @@
       "addedAt": 1784125820518,
       "title": "disco elysium",
       "rating": 0,
-      "cover": "",
+      "cover": "https://media.gamestop.com/i/gamestop/11160795/Disco-Elysium-The-Final-Cut---PlayStation-4",
       "platform": "playstation 4",
       "publisher": "ZA/UM",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk5ax0n",
@@ -6722,5 +6727,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696700302
+  "savedAt": 1791696836719
 }
