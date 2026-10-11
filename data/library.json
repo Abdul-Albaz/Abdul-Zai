@@ -2608,12 +2608,17 @@
       "addedAt": 1784125820527,
       "title": "rage",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.cityofgames.com.au/cdn/shop/files/rage_eabcc834-203c-40d2-a037-8cece392fe20.jpg?v=1749556371",
       "platform": "playstation 3",
       "publisher": "bethesda",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkjlzwx",
@@ -6677,5 +6682,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696439726
+  "savedAt": 1791696460147
 }
