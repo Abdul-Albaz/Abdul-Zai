@@ -2574,12 +2574,17 @@
       "addedAt": 1784125820529,
       "title": "resident evil revelations",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShNKMEP-URPJnrXar9vQHGxv6w4eCF5ULuqguuswUJc1KKFz75eO-aUQeY&s=10",
       "platform": "playstation 3",
       "publisher": "capcom",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkak4f6",
@@ -6667,5 +6672,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696397546
+  "savedAt": 1791696420490
 }
