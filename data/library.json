@@ -3118,12 +3118,17 @@
       "addedAt": 1784125820497,
       "title": "Untitled Goose Game",
       "rating": 0,
-      "cover": "",
+      "cover": "https://videogamesplus.ca/cdn/shop/products/e650fee317ba69c9ab15f85a8b801118_549x700.jpg?v=1618122837",
       "platform": "playstation 4",
       "publisher": "House House",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk4vl0g",
@@ -6827,5 +6832,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697736560
+  "savedAt": 1791697756608
 }
