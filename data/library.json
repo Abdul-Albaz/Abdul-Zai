@@ -2234,12 +2234,17 @@
       "addedAt": 1784125820549,
       "title": "enslaved",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP1SV5jIuQP8jrBfsch27W1CDjO0bdoVIBu9wtU_CTp9P5twsHYYNcAlir&s=10",
       "platform": "playstation 3",
       "publisher": "namco",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjhz84f",
@@ -6567,5 +6572,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791694359944
+  "savedAt": 1791695158038
 }
