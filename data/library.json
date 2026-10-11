@@ -3135,12 +3135,17 @@
       "addedAt": 1784125820496,
       "title": "it takes two",
       "rating": 0,
-      "cover": "",
+      "cover": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6444/6444455_sd.jpg;maxHeight=750;maxWidth=345?format=webp",
       "platform": "playstation 4",
       "publisher": "Electronic Arts",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qki64kx",
@@ -6832,5 +6837,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697756608
+  "savedAt": 1791697791574
 }
