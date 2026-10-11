@@ -3696,12 +3696,17 @@
       "addedAt": 1784125820463,
       "title": "sunset overdrive",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ0Vb_PyghGxw8qB7qnGpo4w0Rv1pj0GUqECyhYSIcUA&s",
       "platform": "xbox one",
       "publisher": "Microsoft Studios",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkrtbt1",
@@ -6997,5 +7002,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705403423
+  "savedAt": 1791705429662
 }
