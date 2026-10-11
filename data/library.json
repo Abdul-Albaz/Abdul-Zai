@@ -3560,12 +3560,17 @@
       "addedAt": 1784125820471,
       "title": "alan wake 2 deluxe edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTErvqYTpL_gOcPXwjgY2gOj3fAcpXnUt8ibMItsdz_xw&s=10",
       "platform": "playstation 5",
       "publisher": "Epic Games Publishing",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk143hm",
@@ -6957,5 +6962,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705173185
+  "savedAt": 1791705201437
 }
