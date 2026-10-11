@@ -2455,12 +2455,17 @@
       "addedAt": 1784125820536,
       "title": "battlefield 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71i+afxv2UL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk60rks",
@@ -6632,5 +6637,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696144446
+  "savedAt": 1791696165728
 }
