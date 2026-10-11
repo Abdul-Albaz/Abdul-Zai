@@ -152,6 +152,23 @@
     padding:20px;
   }
 
+  /* ---------- accounts / view-only mode ---------- */
+  .account-bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#a9a196;}
+  .acct-name{color:var(--gold);}
+  .acct-link{background:none;border:none;color:#a9a196;font:inherit;text-decoration:underline;cursor:pointer;padding:0;}
+  .acct-link:hover{color:var(--paper);}
+  #loginOverlay, #pwOverlay{z-index:140;}
+  body.guest #addBtn,
+  body.guest #bulkBar,
+  body.guest #reorderHint,
+  body.guest #csvHint,
+  body.guest .card-actions,
+  body.guest .drag-handle,
+  body.guest .detail-actions .btn-primary,
+  body.guest #toolbarExtra .btn,
+  body.guest #toolbarExtra input[type=file]{display:none !important;}
+  body.guest .title-icon{cursor:default;}
+
   /* ---------- toolbar ---------- */
   .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center;}
   input[type=text], input[type=search], select, input[type=number], input[type=date]{
@@ -775,6 +792,7 @@
     <div class="title-block">
       <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to change icon">🏠</span> The Home Collection</h1>
       <p>your games &amp; music collection, catalogued</p>
+      <div class="account-bar" id="accountBar"></div>
       <div class="icon-picker" id="iconPicker"></div>
     </div>
     <div class="stats">
@@ -891,6 +909,49 @@
       <div class="detail-modal" id="detailModal"></div>
     </div>
 
+    <div class="gh-overlay" id="loginOverlay" onclick="if(event.target===this) closeLogin()">
+      <div class="gh-modal">
+        <h3>Log in to edit</h3>
+        <p class="gh-desc">Anyone can browse the collection. Only the two owner accounts can add, edit or delete things.</p>
+        <div class="field full">
+          <label>Username</label>
+          <input type="text" id="loginUser" placeholder="username" autocapitalize="none" autocomplete="username" onkeydown="if(event.key==='Enter') document.getElementById('loginPass').focus()">
+        </div>
+        <div class="field full">
+          <label>Password</label>
+          <input type="password" id="loginPass" placeholder="password" autocomplete="current-password" onkeydown="if(event.key==='Enter') submitLogin()">
+        </div>
+        <p class="gh-status" id="loginStatus"></p>
+        <div class="slip-actions">
+          <button class="btn btn-ghost" onclick="closeLogin()">Cancel</button>
+          <button class="btn btn-primary games" onclick="submitLogin()">Log in</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gh-overlay" id="pwOverlay" onclick="if(event.target===this) closeChangePassword()">
+      <div class="gh-modal">
+        <h3>Change password</h3>
+        <div class="field full">
+          <label>Current password</label>
+          <input type="password" id="pwCurrent" autocomplete="current-password">
+        </div>
+        <div class="field full">
+          <label>New password (at least 8 characters)</label>
+          <input type="password" id="pwNew" autocomplete="new-password">
+        </div>
+        <div class="field full">
+          <label>Repeat new password</label>
+          <input type="password" id="pwConfirm" autocomplete="new-password" onkeydown="if(event.key==='Enter') submitChangePassword()">
+        </div>
+        <p class="gh-status" id="pwStatus"></p>
+        <div class="slip-actions">
+          <button class="btn btn-ghost" onclick="closeChangePassword()">Cancel</button>
+          <button class="btn btn-primary games" onclick="submitChangePassword()">Change password</button>
+        </div>
+      </div>
+    </div>
+
     <div id="loading" class="loading">loading your collection…</div>
     <div class="grid-cards" id="cards" style="display:none;"></div>
     <div class="empty" id="emptyMsg" style="display:none;"></div>
@@ -955,6 +1016,7 @@ async function exportBackup(){
 }
 
 function triggerImport(){
+  if(!requireAuth()) return;
   document.getElementById('backupInput').click();
 }
 
@@ -967,6 +1029,7 @@ function toggleToolbarExtra(){
 }
 
 async function handleBackupImport(event){
+  if(!requireAuth()){ event.target.value=''; return; }
   const file = event.target.files[0];
   if(!file) return;
   try{
@@ -1068,10 +1131,12 @@ function buildIconPicker(){
 }
 
 function toggleIconPicker(){
+  if(!requireAuth()) return;
   document.getElementById('iconPicker').classList.toggle('open');
 }
 
 async function selectIcon(icon){
+  if(!requireAuth()) return;
   currentIcon = icon;
   document.getElementById('titleIcon').textContent = icon;
   buildIconPicker();
@@ -1138,7 +1203,7 @@ async function loadData(){
     const hasRemote = remote && (remote.games || remote.music || remote.books);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
 
-    if(hasRemote && !(hasLocal && localSavedAt > remoteSavedAt)){
+    if(hasRemote && (!currentUser || !(hasLocal && localSavedAt > remoteSavedAt))){
       // GitHub's copy is at least as new as (or there's no) local copy — use it.
       data.games = remote.games || [];
       data.music = remote.music || [];
@@ -1231,6 +1296,7 @@ async function onScaleChange(val){
 }
 
 async function persist(cat){
+  if(!currentUser) return; // view-only: nothing is ever saved
   try{
     await window.storage.set('library:'+cat, JSON.stringify(data[cat]));
     // Stamp when this device last changed the collection, so a refresh can
@@ -1316,6 +1382,7 @@ function normalizeSelectValue(fieldDef, raw){
 }
 
 async function handleCsvImport(event){
+  if(!requireAuth()){ event.target.value=''; return; }
   const file = event.target.files[0];
   event.target.value = '';
   if(!file) return;
@@ -1393,6 +1460,7 @@ function switchTab(cat){
 }
 
 function toggleSelectMode(){
+  if(!requireAuth()) return;
   if(selectMode){
     exitSelectMode();
   } else {
@@ -1433,6 +1501,7 @@ function clearSelection(){
 }
 
 function confirmDeleteSelected(){
+  if(!requireAuth()) return;
   if(selectedIds.size===0){
     showToast('Nothing selected yet.');
     return;
@@ -1490,6 +1559,7 @@ function populateStatusFilter(){
 }
 
 function openSlip(entry){
+  if(!requireAuth()) return;
   editingId = entry ? entry.id : null;
   currentRating = entry ? (entry.rating||0) : 0;
   currentCover = entry ? (entry.cover||'') : '';
@@ -1685,6 +1755,7 @@ function getReadRepoConfig(){
 }
 
 function openGithubSettings(){
+  if(!requireAuth()) return;
   const o = ghConfig || {};
   document.getElementById('ghOwner').value = o.owner || '';
   document.getElementById('ghRepo').value = o.repo || '';
@@ -1903,7 +1974,7 @@ function utf8ToBase64(str){
 
 let ghSyncTimer = null;
 function scheduleGithubDataSync(){
-  if(!ghConfig) return;
+  if(!ghConfig || !currentUser) return;
   clearTimeout(ghSyncTimer);
   ghSyncTimer = setTimeout(()=>{ syncLibraryToGithub(); }, 1500);
 }
@@ -1919,7 +1990,7 @@ window.addEventListener('beforeunload', ()=>{
 });
 
 async function syncLibraryToGithub(){
-  if(!ghConfig) return;
+  if(!ghConfig || !currentUser) return;
   try{
     const payload = {
       games: data.games,
@@ -2038,6 +2109,7 @@ function focusCard(id){
 }
 
 async function saveEntry(){
+  if(!requireAuth()) return;
   const fields = {};
   document.querySelectorAll('#slipFields [data-key]').forEach(el=>{
     fields[el.dataset.key] = el.value.trim();
@@ -2075,6 +2147,7 @@ function showToast(msg){
 }
 
 function askDelete(cat, id){
+  if(!requireAuth()) return;
   const actions = document.getElementById('actions-'+id);
   if(!actions) return;
   actions.innerHTML = `
@@ -2084,6 +2157,7 @@ function askDelete(cat, id){
 }
 
 async function deleteEntry(cat, id){
+  if(!requireAuth()) return;
   data[cat] = data[cat].filter(e=>e.id!==id);
   await persist(cat);
   showToast('Removed from your archive.');
@@ -2123,12 +2197,12 @@ function openDetail(id){
   document.getElementById('detailModal').innerHTML = `
     <div class="detail-body">
       <div class="detail-title-row">
-        <div class="detail-icon-box">
-          <div class="icon-inner" onclick="document.getElementById('squareImgInput').click()" title="${entry.squareImage ? 'Click to replace image' : 'Click to add an image'}">
+        ${(currentUser || entry.squareImage) ? `<div class="detail-icon-box">
+          <div class="icon-inner" ${currentUser ? `onclick="document.getElementById('squareImgInput').click()"` : 'style="pointer-events:none;cursor:default"'} title="${currentUser ? (entry.squareImage ? 'Click to replace image' : 'Click to add an image') : ''}">
             ${iconInner}
           </div>
-          ${iconRemoveBtn}
-        </div>
+          ${currentUser ? iconRemoveBtn : ''}
+        </div>` : ''}
         <div class="detail-title-text">
           <h3>${escapeHtml(entry.title)}</h3>
           ${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}
@@ -2151,6 +2225,7 @@ function closeDetail(){
 }
 
 async function handleSquareImageFile(event, id){
+  if(!requireAuth()){ event.target.value=''; return; }
   const file = event.target.files[0];
   if(!file) return;
 
@@ -2182,6 +2257,7 @@ async function handleSquareImageFile(event, id){
 }
 
 async function removeSquareImage(id){
+  if(!requireAuth()) return;
   const entry = data[activeCat].find(e=>e.id===id);
   if(!entry || !entry.squareImage) return;
   const previous = entry.squareImage;
@@ -2193,6 +2269,7 @@ async function removeSquareImage(id){
 }
 
 function moveCard(id, dir){
+  if(!requireAuth()) return;
   const arr = data[activeCat];
   const idx = arr.findIndex(x=>x.id===id);
   if(idx===-1) return;
@@ -2204,6 +2281,7 @@ function moveCard(id, dir){
 }
 
 function handleDragStart(e, id){
+  if(!currentUser){ e.preventDefault(); return; }
   dragSrcId = id;
   e.dataTransfer.effectAllowed = 'move';
   try{ e.dataTransfer.setData('text/plain', id); }catch(err){}
@@ -2223,6 +2301,7 @@ function handleDragLeave(e){
 }
 
 function handleDrop(e, targetId){
+  if(!currentUser){ e.preventDefault(); return; }
   e.preventDefault();
   e.currentTarget.classList.remove('drag-over');
   const srcId = dragSrcId;
@@ -2442,10 +2521,203 @@ function escapeHtml(str){
   }, {passive:true});
 })();
 
+
+// =====================================================================
+// ACCOUNTS — only these two people can log in and change anything.
+// Everyone else browses the collection in view-only mode.
+//
+// How this is protected (be aware of the limits): this is a static site, so
+// the login screen itself is a front-end lock. Passwords are never stored in
+// the page — only salted PBKDF2-SHA256 hashes (200,000 rounds). The real
+// guard on your data is the GitHub token: without it nobody can write to
+// data/library.json or the images folder, whatever they do to this page.
+// =====================================================================
+const AUTH_ITERATIONS = 200000;
+const ALLOWED_USERS = ['abdul', 'zai'];
+const USERS_PATH = 'data/users.json';
+const ACCOUNTS = {
+  abdul: { salt: 'ghm5iGh/sF6O+1fQfpClag==', hash: 'BvfG7jg8dIrIiu+SDosGFvaFk7mQ7Wm6TZ9t2zpTP+M=' },
+  zai:   { salt: 'P6MqcLBWaGJohH06MXs3SQ==', hash: 'pqsRFehe+pY2cnTrRzh6/pRrA9+W2c2NvXKmWsxdbmM=' }
+};
+let currentUser = null;
+let accountsReady = Promise.resolve();
+let loginFails = 0, loginLockUntil = 0;
+
+async function pbkdf2(password, saltB64){
+  const salt = Uint8Array.from(atob(saltB64), c=>c.charCodeAt(0));
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', salt, iterations:AUTH_ITERATIONS, hash:'SHA-256'}, key, 256);
+  return btoa(String.fromCharCode(...new Uint8Array(bits)));
+}
+function safeEqual(a, b){
+  if(typeof a!=='string' || typeof b!=='string' || a.length!==b.length) return false;
+  let diff = 0;
+  for(let i=0;i<a.length;i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff===0;
+}
+
+// Passwords changed from the app are stored (as hashes only) in data/users.json
+// in your repo; load them over the built-in ones so a change works everywhere.
+async function loadAccounts(){
+  const cfg = getReadRepoConfig();
+  if(!cfg) return;
+  const branches = cfg.branch ? [cfg.branch] : ['main', 'master'];
+  for(const branch of branches){
+    try{
+      const url = `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${branch}/${USERS_PATH}?t=${Date.now()}`;
+      const res = await fetch(url, {cache:'no-store'});
+      if(!res.ok) continue;
+      const j = await res.json();
+      ALLOWED_USERS.forEach(n=>{
+        const a = j && j[n];
+        if(a && typeof a.salt==='string' && typeof a.hash==='string') ACCOUNTS[n] = { salt:a.salt, hash:a.hash };
+      });
+      return;
+    }catch(e){ /* try next branch */ }
+  }
+}
+
+async function restoreSession(){
+  try{
+    const r = await window.storage.get('auth:session');
+    if(!r || !r.value) return;
+    const sess = JSON.parse(r.value);
+    if(sess && ALLOWED_USERS.includes(sess.user) && sess.exp > Date.now()) currentUser = sess.user;
+  }catch(e){ /* no saved session */ }
+}
+
+function requireAuth(){
+  if(currentUser) return true;
+  showToast('Log in to make changes.');
+  openLogin();
+  return false;
+}
+
+function applyAuthUI(){
+  document.body.classList.toggle('guest', !currentUser);
+  const bar = document.getElementById('accountBar');
+  bar.innerHTML = currentUser
+    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
+    : `<span>👁 View only</span><button class="acct-link" onclick="openLogin()">Log in</button>`;
+  document.getElementById('toolbarEditBtn').textContent = currentUser ? '⚙ Edit' : '⚙ Size';
+}
+
+function openLogin(){
+  if(currentUser) return;
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginStatus').textContent = '';
+  document.getElementById('loginOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('loginUser').focus(), 50);
+}
+function closeLogin(){
+  document.getElementById('loginOverlay').classList.remove('open');
+  document.getElementById('loginPass').value = '';
+}
+
+async function submitLogin(){
+  const status = document.getElementById('loginStatus');
+  const wait = loginLockUntil - Date.now();
+  if(wait > 0){ status.textContent = `Too many tries — wait ${Math.ceil(wait/1000)}s.`; return; }
+  const name = document.getElementById('loginUser').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  if(!name || !pass){ status.textContent = 'Enter your username and password.'; return; }
+  if(!(window.crypto && crypto.subtle)){ status.textContent = "This browser can't check logins here (the site needs https)."; return; }
+  status.textContent = 'Checking…';
+  await accountsReady;
+  let ok = false;
+  try{
+    const acct = ALLOWED_USERS.includes(name) ? ACCOUNTS[name] : null;
+    // Hash even for unknown names so the response time doesn't reveal which usernames exist.
+    const h = await pbkdf2(pass, (acct || ACCOUNTS.abdul).salt);
+    ok = !!acct && safeEqual(h, acct.hash);
+  }catch(e){ console.error('login error', e); }
+  if(!ok){
+    loginFails++;
+    if(loginFails >= 5){ loginLockUntil = Date.now() + 30000; loginFails = 0; status.textContent = 'Too many tries — wait 30 seconds.'; }
+    else status.textContent = 'Wrong username or password.';
+    return;
+  }
+  loginFails = 0;
+  currentUser = name;
+  try{ await window.storage.set('auth:session', JSON.stringify({ user:name, exp: Date.now() + 30*24*3600*1000 })); }catch(e){}
+  closeLogin();
+  applyAuthUI();
+  render();
+  showToast('Welcome, ' + name + '.');
+}
+
+async function logout(){
+  currentUser = null;
+  try{ await window.storage.delete('auth:session'); }catch(e){}
+  closeSlip();
+  closeDetail();
+  closeGithubSettings();
+  closeChangePassword();
+  if(selectMode) exitSelectMode();
+  applyAuthUI();
+  render();
+  showToast('Logged out.');
+}
+
+function openChangePassword(){
+  if(!requireAuth()) return;
+  ['pwCurrent','pwNew','pwConfirm'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('pwStatus').textContent = '';
+  document.getElementById('pwOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('pwCurrent').focus(), 50);
+}
+function closeChangePassword(){
+  document.getElementById('pwOverlay').classList.remove('open');
+  ['pwCurrent','pwNew','pwConfirm'].forEach(id=>document.getElementById(id).value='');
+}
+
+async function submitChangePassword(){
+  if(!currentUser) return;
+  const status = document.getElementById('pwStatus');
+  const cur = document.getElementById('pwCurrent').value;
+  const next = document.getElementById('pwNew').value;
+  const again = document.getElementById('pwConfirm').value;
+  if(next.length < 8){ status.textContent = 'New password must be at least 8 characters.'; return; }
+  if(next !== again){ status.textContent = "The two new passwords don't match."; return; }
+  if(!ghConfig || !ghConfig.token){
+    status.textContent = 'Connect GitHub first (⚙ Edit → ⚙ Image storage) so the new password works on every device.';
+    return;
+  }
+  status.textContent = 'Saving…';
+  try{
+    const okCur = safeEqual(await pbkdf2(cur, ACCOUNTS[currentUser].salt), ACCOUNTS[currentUser].hash);
+    if(!okCur){ status.textContent = 'Current password is wrong.'; return; }
+    const saltBytes = crypto.getRandomValues(new Uint8Array(16));
+    const salt = btoa(String.fromCharCode(...saltBytes));
+    const hash = await pbkdf2(next, salt);
+    const payload = {};
+    ALLOWED_USERS.forEach(n=>{ payload[n] = { salt: ACCOUNTS[n].salt, hash: ACCOUNTS[n].hash }; });
+    payload[currentUser] = { salt, hash };
+    const sha = await ghGetFileSha(USERS_PATH);
+    await ghPutFile(USERS_PATH, utf8ToBase64(JSON.stringify(payload, null, 2)), 'Update account password', sha);
+    ACCOUNTS[currentUser] = { salt, hash };
+    closeChangePassword();
+    showToast('Password changed.');
+  }catch(err){
+    console.error('change password error', err);
+    status.textContent = 'Could not save: ' + err.message;
+  }
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Escape') return;
+  if(document.getElementById('loginOverlay').classList.contains('open')) closeLogin();
+  if(document.getElementById('pwOverlay').classList.contains('open')) closeChangePassword();
+});
+
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
 (async function init(){
   await loadGhConfig();
+  accountsReady = loadAccounts();   // runs alongside the data load
+  await restoreSession();
+  applyAuthUI();
   await loadData();
 })();
 </script>
