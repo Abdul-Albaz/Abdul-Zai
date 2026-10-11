@@ -2625,12 +2625,17 @@
       "addedAt": 1784125820526,
       "title": "skyrim",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.thevideogamecompany.com/cdn/shop/products/the-elder-scrolls-v-skyrim-sony-playstation-3-ps3-093155117624-cover-art.jpg?v=1658254410",
       "platform": "playstation 3",
       "publisher": "bethesda",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkheyly",
@@ -6682,5 +6687,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696460147
+  "savedAt": 1791696481339
 }
