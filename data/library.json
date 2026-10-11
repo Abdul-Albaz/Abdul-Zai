@@ -3237,12 +3237,17 @@
       "addedAt": 1784125820490,
       "title": "elden ring collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71YQPZWjZgL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 4",
       "publisher": "Bandai Namco Entertainment",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk9vfzv",
@@ -6862,5 +6867,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698503018
+  "savedAt": 1791698537719
 }
