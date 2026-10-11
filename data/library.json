@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "baldur's gate 3",
+      "owner": "Abdul",
+      "platform": "playstation 5",
+      "publisher": "Larian Studios",
+      "genre": "RPG",
+      "sealed": "Sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "50",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl_NZdFq25XpKU_Jih_3h-x5Zn7ommcx2x3wAygT11HtblHTF-Wbw5Ftw&s=10",
+      "id": "mv3l49u33x8tb",
+      "addedAt": 1791708732363
+    },
+    {
       "title": "Killer is Dead",
       "owner": "Abdul",
       "platform": "playstation 3",
@@ -7024,5 +7041,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791708626700
+  "savedAt": 1791708733867
 }
