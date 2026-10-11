@@ -2676,12 +2676,17 @@
       "addedAt": 1784125820523,
       "title": "deadpool",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/91n9WHUp2xL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "Activation",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk5s7e6",
@@ -6697,5 +6702,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696538596
+  "savedAt": 1791696556992
 }
