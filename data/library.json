@@ -2829,12 +2829,17 @@
       "addedAt": 1784125820514,
       "title": "kingdom hearts all in 1 package",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81RiInSdgoL._AC_UF894,1000_QL80_.jpg",
       "platform": "playstation 4",
       "publisher": "Square Enix",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk1wrr5",
@@ -6742,5 +6747,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696934509
+  "savedAt": 1791696957322
 }
