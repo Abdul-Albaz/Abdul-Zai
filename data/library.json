@@ -2421,12 +2421,17 @@
       "addedAt": 1784125820538,
       "title": "dante inferno",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPp-oCgAzRceRU5ibWaFPfuqq0YC88V8DBFXom3OcCKC2rI3q-TsATk_o&s=10",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkru7fr",
@@ -6622,5 +6627,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696062154
+  "savedAt": 1791696096349
 }
