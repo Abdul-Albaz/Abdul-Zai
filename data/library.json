@@ -2642,12 +2642,17 @@
       "addedAt": 1784125820525,
       "title": "wet",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBxY5RmULKtCSK-sSLgA5L7RpxuhE5cCZ45CS_JdMCmryCKiybWHiZj4&s=10",
       "platform": "playstation 3",
       "publisher": "bethesda",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkld0u6",
@@ -6687,5 +6692,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696481339
+  "savedAt": 1791696504002
 }
