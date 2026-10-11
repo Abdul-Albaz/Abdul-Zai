@@ -2268,12 +2268,17 @@
       "addedAt": 1784125820547,
       "title": "never dead",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81UZLQT9AlL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "konami",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj1q221",
@@ -6577,5 +6582,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695464621
+  "savedAt": 1791695503823
 }
