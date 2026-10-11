@@ -3628,12 +3628,17 @@
       "addedAt": 1784125820467,
       "title": "monster hunter wild steelbook",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC5MP0L-LzQPBhXBLikrCPTV-DIqfYb3e_7DaisnSRVg&s=10",
       "platform": "playstation 5",
       "publisher": "Capcom",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkxna46",
@@ -6977,5 +6982,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705273814
+  "savedAt": 1791705292285
 }
