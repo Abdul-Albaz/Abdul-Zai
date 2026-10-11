@@ -2302,12 +2302,17 @@
       "addedAt": 1784125820545,
       "title": "metal gear hd collection",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjuFySu_TL5zDy69dUF8SgsCG_lmqyhPSYIkE2Ztnfg&s=10",
       "platform": "playstation 3",
       "publisher": "Konami",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkeixdq",
@@ -6587,5 +6592,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695601837
+  "savedAt": 1791695626355
 }
