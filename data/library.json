@@ -2982,12 +2982,17 @@
       "addedAt": 1784125820505,
       "title": "the order 1886 collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.gamecash.fr/thumbnail-400-450/the-order-1886-steelbook-e179912.jpg",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkxiqj1",
@@ -6787,5 +6792,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697270711
+  "savedAt": 1791697455511
 }
