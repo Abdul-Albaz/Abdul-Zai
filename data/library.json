@@ -1392,7 +1392,7 @@
       "rarity": "yes",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "5",
       "purchaseDate": "",
       "notes": ""
     },
@@ -7041,5 +7041,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791709558913
+  "savedAt": 1791709572612
 }
