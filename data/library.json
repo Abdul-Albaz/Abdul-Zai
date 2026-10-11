@@ -3594,12 +3594,17 @@
       "addedAt": 1784125820469,
       "title": "the plucky squire collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Bk_ADZQ2uuLdZK_nwGCynKVejWcI10Pv73dJg0qyWA&s=10",
       "platform": "playstation 5",
       "publisher": "Devolver Digital",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkpwesp",
@@ -6967,5 +6972,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705220764
+  "savedAt": 1791705241734
 }
