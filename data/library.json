@@ -3611,12 +3611,17 @@
       "addedAt": 1784125820468,
       "title": "dragon's dogma 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnMz1gHDcFAfiVsQ3dcVP5CNB5fqWRMdzgTNR3CPu3JQ&s=10",
       "platform": "playstation 5",
       "publisher": "Capcom",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qka241z",
@@ -6972,5 +6977,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705241734
+  "savedAt": 1791705273814
 }
