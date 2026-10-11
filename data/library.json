@@ -2880,12 +2880,17 @@
       "addedAt": 1784125820511,
       "title": "dreams",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCE9kv5nFJmXKKB4-IGq8Uv8sdyhcFaNyaLoisE3sgoCHBsMGZc1LCwvY7&s=10",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkjq3s0",
@@ -6757,5 +6762,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696996248
+  "savedAt": 1791697026899
 }
