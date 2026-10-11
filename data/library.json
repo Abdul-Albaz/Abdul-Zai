@@ -2336,12 +2336,17 @@
       "addedAt": 1784125820543,
       "title": "metal gear 4",
       "rating": 0,
-      "cover": "",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/4/4b/Mgs4us_cover_small.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
       "platform": "playstation 3",
       "publisher": "kojima",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk97iqk",
@@ -6597,5 +6602,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695651019
+  "savedAt": 1791695695185
 }
