@@ -2727,12 +2727,17 @@
       "addedAt": 1784125820520,
       "title": "spec ops the link",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i.ebayimg.com/images/g/kn8AAOSwOnZl1yiU/s-l1200.png",
       "platform": "playstation 3",
       "publisher": "2k",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk658tc",
@@ -6712,5 +6717,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696615827
+  "savedAt": 1791696664520
 }
