@@ -3186,12 +3186,17 @@
       "addedAt": 1784125820493,
       "title": "dishonored 2 steelbook",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81zrlHBwUvL._AC_UF894,1000_QL80_.jpg",
       "platform": "playstation 4",
       "publisher": "Bethesda Softworks",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkfzsn2",
@@ -6847,5 +6852,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697943518
+  "savedAt": 1791698413869
 }
