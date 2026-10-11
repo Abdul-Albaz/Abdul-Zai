@@ -3322,12 +3322,17 @@
       "addedAt": 1784125820485,
       "title": "sekiro shadows die twice",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVQT6VhDj8Uc-JhVNhU1ZiStjcR9EWcGy5NjdqHUj8trnicpvrYegpwCi&s=10",
       "platform": "playstation 4",
       "publisher": "Activision",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkqnynp",
@@ -6887,5 +6892,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698657217
+  "savedAt": 1791698678284
 }
