@@ -3509,12 +3509,17 @@
       "addedAt": 1784125820474,
       "title": "balatro special edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpPsXpb0lv09y2j4Srywf7bdeFVjuNojxnIVU4w4MMAjMGiPMYwaAGxe8&s=10",
       "platform": "playstation 5",
       "publisher": "Playstack",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkzrcxq",
@@ -6942,5 +6947,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705101830
+  "savedAt": 1791705120797
 }
