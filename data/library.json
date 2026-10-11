@@ -2999,12 +2999,17 @@
       "addedAt": 1784125820504,
       "title": "puyo puyo tetris",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71urxADVnLL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 4",
       "publisher": "Sega",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkny5vf",
@@ -6792,5 +6797,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697455511
+  "savedAt": 1791697497978
 }
