@@ -2540,12 +2540,17 @@
       "addedAt": 1784125820531,
       "title": "asura's wrath",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/916otF3OLhL._AC_UF894,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "capcom",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkcmri0",
@@ -6657,5 +6662,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696344611
+  "savedAt": 1791696364757
 }
