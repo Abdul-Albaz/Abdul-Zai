@@ -131,10 +131,10 @@
       "publisher": "team 17",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no",
+      "rarity": "yes",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "40",
       "purchaseDate": "",
       "notes": ""
     },
@@ -7041,5 +7041,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791709619744
+  "savedAt": 1791709635154
 }
