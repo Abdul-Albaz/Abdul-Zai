@@ -3050,12 +3050,17 @@
       "addedAt": 1784125820501,
       "title": "Wonderful 101",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/913si8fsQCL._AC_UF894,1000_QL80_.jpg",
       "platform": "playstation 4",
       "publisher": "Platinum",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk1ezyx",
@@ -6807,5 +6812,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697542567
+  "savedAt": 1791697587643
 }
