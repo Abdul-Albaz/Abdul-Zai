@@ -2795,12 +2795,17 @@
       "addedAt": 1784125820516,
       "title": "life is strange 2 collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/91VKlpoCQ6L._AC_UL450_SY450_QL70_.jpg",
       "platform": "playstation 4",
       "publisher": "Square Enix",
       "status": "Backlog",
       "sealed": "Sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk7hdx1",
@@ -6732,5 +6737,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696854783
+  "savedAt": 1791696894683
 }
