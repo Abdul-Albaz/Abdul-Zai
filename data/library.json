@@ -3288,12 +3288,17 @@
       "addedAt": 1784125820487,
       "title": "persona 5 royal steel book",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7UzrXY1fMqc5PVCOdnrF-WUfoGpwdsN9XAu7sxMayN9qlc61cE-Cl8KM&s=10",
       "platform": "playstation 4",
       "publisher": "Atlus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkiyfuu",
@@ -6877,5 +6882,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698619351
+  "savedAt": 1791698637019
 }
