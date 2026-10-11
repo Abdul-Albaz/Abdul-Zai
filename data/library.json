@@ -3390,12 +3390,17 @@
       "addedAt": 1784125820481,
       "title": "Final Fantasy 16",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.gamescard.net/wp-content/uploads/2023/06/Final-Fantasy-XVI-Ps5.jpg",
       "platform": "playstation 5",
       "publisher": "Square Enix",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkq2cjh",
@@ -6907,5 +6912,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698806451
+  "savedAt": 1791698824091
 }
