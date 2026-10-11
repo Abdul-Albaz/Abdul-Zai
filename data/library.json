@@ -3441,12 +3441,17 @@
       "addedAt": 1784125820478,
       "title": "marvel spiderman 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791705018350-marvel-spiderman-2.jpg",
       "platform": "playstation 5",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk7sfrs",
@@ -6922,5 +6927,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791704922482
+  "savedAt": 1791705023432
 }
