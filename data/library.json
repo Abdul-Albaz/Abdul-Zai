@@ -2965,12 +2965,17 @@
       "addedAt": 1784125820506,
       "title": "shadow of the colossus",
       "rating": 0,
-      "cover": "",
+      "cover": "https://static.wikia.nocookie.net/t__/images/e/e5/Shadow_of_the_Colossus_PS4_cover.png/revision/latest?cb=20180208223613&path-prefix=teamico",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk5j5au",
@@ -6782,5 +6787,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697252745
+  "savedAt": 1791697270711
 }
