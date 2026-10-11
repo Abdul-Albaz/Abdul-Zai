@@ -3339,12 +3339,17 @@
       "addedAt": 1784125820484,
       "title": "hogwarts legacy",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDlMxOXOzAacGr6ybRSVDvrfYpimEvW_9wdsi3mOMvQUk1A-g4hrtdZii&s=10",
       "platform": "playstation 5",
       "publisher": "Warner Bros. Games",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk56q1k",
@@ -6892,5 +6897,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698678284
+  "savedAt": 1791698701928
 }
