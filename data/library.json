@@ -3645,12 +3645,17 @@
       "addedAt": 1784125820466,
       "title": "tekken 8",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i.redd.it/x5b75q93675a1.jpg",
       "platform": "playstation 5",
       "publisher": "Bandai Namco Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk622cn",
@@ -6982,5 +6987,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705292285
+  "savedAt": 1791705343515
 }
