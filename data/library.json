@@ -3152,12 +3152,17 @@
       "addedAt": 1784125820495,
       "title": "saints row collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://toyorgame.com.sg/cdn/shop/products/CoverPS42_d246a8c0-70c4-4fb2-a445-9fcf05fda406_1024x.jpg?v=1635832991",
       "platform": "playstation 4",
       "publisher": "Deep Silver",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkvw5pl",
@@ -6837,5 +6842,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697791574
+  "savedAt": 1791697844391
 }
