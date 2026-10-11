@@ -2098,36 +2098,51 @@
       "addedAt": 1784125820557,
       "title": "uncharted 1",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcw9Q45AKOPt7qsKD8A9HddVVEeU5dTpvzfEemHGrhnGYnAvLCvo3fZ20&s=10",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjl2nqf",
       "addedAt": 1784125820556,
       "title": "uncharted 2 limited edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://cdn.mobygames.com/covers/6055686-uncharted-2-among-thieves-collectors-limited-edition-playstation.jpg",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjw6ilj",
       "addedAt": 1784125820555,
       "title": "uncharted 3 japanese",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSihzHY_0F1d8LRwvDmMb_MF4jMWF5o7usHeVGiX0_6wSwFBHX35H1NTZND&s=10",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjq2laa",
@@ -6527,5 +6542,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1784422132254
+  "savedAt": 1791694031198
 }
