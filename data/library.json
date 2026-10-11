@@ -3203,12 +3203,17 @@
       "addedAt": 1784125820492,
       "title": "doom",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQ8cm7g6TPf3WrxS1xjcaN0yR6ZCxCwSrfaTk_7Wgqcp8MYaGbyeOJlVq&s=10",
       "platform": "playstation 4",
       "publisher": "Bethesda Softworks",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk89mra",
@@ -6852,5 +6857,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698413869
+  "savedAt": 1791698436661
 }
