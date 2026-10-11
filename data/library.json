@@ -2166,12 +2166,17 @@
       "addedAt": 1784125820553,
       "title": "little big planet",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV3Uk1RXEPXA5_gYIpWWVDPwLlWoVX7zxRxa5max8xizP0V2qU4NjZGeKJ&s=10",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjgt8d5",
@@ -6547,5 +6552,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791694082090
+  "savedAt": 1791694191964
 }
