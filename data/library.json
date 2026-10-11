@@ -3662,12 +3662,17 @@
       "addedAt": 1784125820465,
       "title": "metaphor refantazio",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfHHFdSSS56fLp2GDfovwzsrfxkfz-nPJKWglOElY7Hg&s=10",
       "platform": "playstation 5",
       "publisher": "Atlus",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk28nr4",
@@ -6987,5 +6992,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705343515
+  "savedAt": 1791705367936
 }
