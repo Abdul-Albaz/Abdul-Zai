@@ -3543,12 +3543,17 @@
       "addedAt": 1784125820472,
       "title": "expedition 33",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6VKEcq1DU9kzeKuFg2eazqMjhW-T29eE-BhO0AiZQIA&s=10",
       "platform": "playstation 5",
       "publisher": "Kepler Interactive",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkbfvbm",
@@ -6952,5 +6957,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705144197
+  "savedAt": 1791705173185
 }
