@@ -2489,12 +2489,17 @@
       "addedAt": 1784125820534,
       "title": "mass effect 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71Ez-BiHH3L._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk4sevh",
@@ -6642,5 +6647,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696193067
+  "savedAt": 1791696245730
 }
