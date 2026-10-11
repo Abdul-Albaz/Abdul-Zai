@@ -3373,12 +3373,17 @@
       "addedAt": 1784125820482,
       "title": "final fantasy 7 rebirth",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/8139kZStJ6L._AC_UF350,350_QL50_.jpg",
       "platform": "playstation 5",
       "publisher": "Square Enix",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkt1h9x",
@@ -6902,5 +6907,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698778471
+  "savedAt": 1791698806451
 }
