@@ -2931,12 +2931,17 @@
       "addedAt": 1784125820508,
       "title": "god of war ragnarok",
       "rating": 0,
-      "cover": "",
+      "cover": "https://videogamesplus.ca/cdn/shop/products/81mspxmJwxL._AC_SL1500_548x700.jpg?v=1700839115",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkxxuot",
@@ -6772,5 +6777,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697202795
+  "savedAt": 1791697220495
 }
