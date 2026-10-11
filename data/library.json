@@ -2948,12 +2948,17 @@
       "addedAt": 1784125820507,
       "title": "the last guardian",
       "rating": 0,
-      "cover": "",
+      "cover": "https://s.pacn.ws/1/p/n3/the-last-guardian-415951.17.jpg?v=oggf4h",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkrehw9",
@@ -6777,5 +6782,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697220495
+  "savedAt": 1791697252745
 }
