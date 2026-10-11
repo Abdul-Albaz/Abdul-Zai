@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Killer is Dead",
+      "owner": "Abdul",
+      "platform": "ps3",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "5",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://s.pacn.ws/1/p/ff/killerisdeadpremiumedition-277899.7.jpg?v=mqsrrx",
+      "id": "mv3ks4h9puzqi",
+      "addedAt": 1791708165549
+    },
+    {
       "id": "mrm6g5qiqlpfy",
       "addedAt": 1784125820680,
       "title": "disco elysium the final cut",
@@ -7007,5 +7024,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791706283789
+  "savedAt": 1791708167051
 }
