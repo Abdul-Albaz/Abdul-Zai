@@ -2863,12 +2863,17 @@
       "addedAt": 1784125820512,
       "title": "little big planet 3",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6NkXKVJbOZFj0g0RlcPOeLCBInq0tLP86RRSIIMjixrjkLW-YP7DIY4&s=10",
       "platform": "playstation 4",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkcp3h9",
@@ -6752,5 +6757,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696978649
+  "savedAt": 1791696996248
 }
