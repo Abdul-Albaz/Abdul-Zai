@@ -2659,12 +2659,17 @@
       "addedAt": 1784125820524,
       "title": "dark souls",
       "rating": 0,
-      "cover": "",
+      "cover": "https://cdn.mobygames.com/covers/6987557-dark-souls-playstation-3-front-cover.jpg",
       "platform": "playstation 3",
       "publisher": "bandai namco",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkjolya",
@@ -6692,5 +6697,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696504002
+  "savedAt": 1791696538596
 }
