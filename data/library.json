@@ -3084,12 +3084,17 @@
       "addedAt": 1784125820499,
       "title": "bloodstained curse of the moon 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7PwUfDIJNXMoZbzJ-Iyn_ZAxOKTqLC7TJmwmsAWvMAMF2YpmEE62uYJQ&s=10",
       "platform": "playstation 4",
       "publisher": "Inti Creates",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkag7ep",
@@ -6817,5 +6822,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697641271
+  "savedAt": 1791697681848
 }
