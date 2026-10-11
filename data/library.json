@@ -3220,12 +3220,17 @@
       "addedAt": 1784125820491,
       "title": "yuppie psycho",
       "rating": 0,
-      "cover": "",
+      "cover": "https://ir.ozone.ru/s3/multimedia-1-o/c500/7931601996.jpg",
       "platform": "playstation 4",
       "publisher": "Baroque Decay",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qky8iss",
@@ -6857,5 +6862,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698436661
+  "savedAt": 1791698503018
 }
