@@ -3526,12 +3526,17 @@
       "addedAt": 1784125820473,
       "title": "crimson desert day 1 edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMCJjuq6fhDJ0WYYkcGN67B0RIyTVEfg_l45s3Xq5nZA&s",
       "platform": "playstation 5",
       "publisher": "Pearl Abyss",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkaw7vw",
@@ -6947,5 +6952,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705120797
+  "savedAt": 1791705144197
 }
