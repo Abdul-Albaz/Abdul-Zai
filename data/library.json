@@ -3407,12 +3407,17 @@
       "addedAt": 1784125820480,
       "title": "astro bot",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.gamers-stop.com/cdn/shop/files/81M-NPlVi9L.-AC_SL1500__resize_68_800x.jpg?v=1725790248",
       "platform": "playstation 5",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkc74hl",
@@ -6912,5 +6917,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698824091
+  "savedAt": 1791704896437
 }
