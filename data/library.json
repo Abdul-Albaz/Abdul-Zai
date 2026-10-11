@@ -2217,12 +2217,17 @@
       "addedAt": 1784125820550,
       "title": "LA Noire",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ZnJ_hA3HTAL4Zs7C5Hy7MY1Mk3V6xlRnjrLyclzQmqDEI4kFdBGR4Jzb&s=10",
       "platform": "playstation 3",
       "publisher": "rockstar",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjyskuu",
@@ -6562,5 +6567,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791694330637
+  "savedAt": 1791694359944
 }
