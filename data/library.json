@@ -2778,12 +2778,17 @@
       "addedAt": 1784125820517,
       "title": "citadel",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/61ud4xmOOSL.jpg",
       "platform": "playstation 4",
       "publisher": "Top Hat Studios",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkn7isj",
@@ -6727,5 +6732,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696836719
+  "savedAt": 1791696854783
 }
