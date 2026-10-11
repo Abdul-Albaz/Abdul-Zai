@@ -3458,12 +3458,17 @@
       "addedAt": 1784125820477,
       "title": "death stranding 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://now.estarland.com/images/products/22/72122/PS5-Death-Stranding-2-large-image.jpg",
       "platform": "playstation 5",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkk76ws",
@@ -6927,5 +6932,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705023432
+  "savedAt": 1791705047105
 }
