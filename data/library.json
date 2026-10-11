@@ -2438,12 +2438,17 @@
       "addedAt": 1784125820537,
       "title": "dead space collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://acgamesonline.com/cdn/shop/products/b3505526898ac8bad68fbd1e434948f53cc456cd_grande.jpg?v=1734212375",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk7dei4",
@@ -6627,5 +6632,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696096349
+  "savedAt": 1791696144446
 }
