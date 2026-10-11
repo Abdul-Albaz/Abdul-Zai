@@ -2149,12 +2149,17 @@
       "addedAt": 1784125820554,
       "title": "gran turismo",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0F_LwKEQQeXzwcBG-yawG7y6l5cbKDTURolgjdQsXgQ&s=10",
       "platform": "playstation 3",
       "publisher": "sony",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qj7sppn",
@@ -6542,5 +6547,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791694031198
+  "savedAt": 1791694082090
 }
