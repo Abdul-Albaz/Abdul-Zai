@@ -3169,12 +3169,17 @@
       "addedAt": 1784125820494,
       "title": "the evil within collector edition",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxpTOPK3cESuE6KlMeTtZ-WEH09OR2R7b61L8wcSw-Rwth3YoTfqNWjM&s=10",
       "platform": "playstation 4",
       "publisher": "Bethesda Softworks",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkax0ky",
@@ -6842,5 +6847,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791697914296
+  "savedAt": 1791697943518
 }
