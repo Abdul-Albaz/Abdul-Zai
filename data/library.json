@@ -2523,12 +2523,17 @@
       "addedAt": 1784125820532,
       "title": "saints row 4",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i.redd.it/pke6dy27smbh1.jpg",
       "platform": "playstation 3",
       "publisher": "deep silver",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk6m3ws",
@@ -6652,5 +6657,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696293367
+  "savedAt": 1791696315426
 }
