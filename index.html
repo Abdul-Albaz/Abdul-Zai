@@ -256,17 +256,38 @@
   }
 
   /* ---------- form slip ---------- */
-  .slip{
+  /* The add/edit form is a pop-up that opens right where you are, so you
+     never have to scroll back up to the top of the page to edit a card. */
+  .slip-overlay{
     display:none;
+    position:fixed;inset:0;
+    background:rgba(10,9,7,0.65);
+    z-index:120;
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .slip-overlay.open{display:flex;}
+  .slip{
+    display:block;
     background:var(--paper);
     color:var(--ink);
-    border-radius:6px;
-    padding:18px 20px;
-    margin-bottom:20px;
+    border-radius:8px;
+    padding:18px 20px 0;
+    width:100%;
+    max-width:640px;
+    max-height:90vh;
+    overflow-y:auto;
     position:relative;
-    box-shadow:0 6px 24px rgba(0,0,0,0.35);
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
   }
-  .slip.open{display:block;}
+  /* Save / Cancel stay visible while you scroll through the fields */
+  .slip .slip-actions{
+    position:sticky;bottom:0;
+    background:var(--paper);
+    margin:16px -20px 0;
+    padding:12px 20px 16px;
+    border-top:1px solid #e0d8c4;
+  }
   .slip h3{
     font-family:'Fraunces', serif;
     font-size:19px;
@@ -456,6 +477,8 @@
     box-shadow:0 3px 10px rgba(0,0,0,0.25);
     animation:rise .25s ease both;
   }
+  @keyframes cardflash{0%,60%{box-shadow:0 0 0 3px var(--gold);}100%{box-shadow:0 0 0 0 transparent;}}
+  .card.flash{animation:cardflash 1.6s ease-out;}
   @keyframes rise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
   .cover-area{
     width:100%;
@@ -719,7 +742,10 @@
     .bulk-bar{font-size:11px;padding:10px;gap:8px;}
     .bulk-bar .btn{padding:8px 10px;font-size:11px;}
 
-    .slip{padding:16px;}
+    .slip-overlay{padding:10px;}
+    .slip{padding:16px 16px 0;max-height:94vh;}
+    .slip .slip-actions{margin:16px -16px 0;padding:12px 16px 14px;}
+    #platformFilter{flex:1 1 calc(50% - 4px);order:2;}
     .slip .grid{grid-template-columns:1fr;}
     .cover-field{flex-wrap:wrap;}
     .cover-preview{width:64px;height:90px;}
@@ -769,6 +795,7 @@
     <div class="toolbar">
       <input type="search" id="search" placeholder="Search title, artist, platform, owner…" oninput="render()">
       <select id="statusFilter" onchange="render()"></select>
+      <select id="platformFilter" onchange="onPlatformChange()" title="Show only one platform"></select>
       <select id="sortBy" onchange="render()">
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
@@ -806,12 +833,14 @@
       <button class="btn btn-ghost" onclick="toggleSelectMode()">Done</button>
     </div>
 
-    <div class="slip" id="slip">
-      <h3 id="slipTitle">Add to the archive</h3>
-      <div class="grid" id="slipFields"></div>
-      <div class="slip-actions">
-        <button class="btn btn-ghost" onclick="closeSlip()">Cancel</button>
-        <button class="btn btn-primary" id="saveBtn" onclick="saveEntry()">Save entry</button>
+    <div class="slip-overlay" id="slipOverlay">
+      <div class="slip" id="slip">
+        <h3 id="slipTitle">Add to the archive</h3>
+        <div class="grid" id="slipFields"></div>
+        <div class="slip-actions">
+          <button class="btn btn-ghost" onclick="closeSlip()">Cancel</button>
+          <button class="btn btn-primary" id="saveBtn" onclick="saveEntry()">Save entry</button>
+        </div>
       </div>
     </div>
 
@@ -1145,6 +1174,10 @@ async function loadData(){
     console.error('load error', e);
     if(!loadedFromGithub) data = { games: [], music: [], books: [] };
   }
+  try{
+    const pf = await window.storage.get('ui:platform');
+    if(pf && pf.value) platformFilter = pf.value;
+  }catch(e){ /* no saved platform yet */ }
   buildIconPicker();
   document.getElementById('titleIcon').textContent = currentIcon;
   updateScaleUI();
@@ -1422,6 +1455,33 @@ async function deleteSelected(){
   render();
 }
 
+// ---- Platform filter (games only): show just one platform at a time ----
+let platformFilter = 'All';
+function platformKey(p){ return (p||'').trim().toLowerCase(); }
+
+function populatePlatformFilter(){
+  const sel = document.getElementById('platformFilter');
+  if(!sel) return;
+  if(activeCat!=='games'){ sel.style.display='none'; return; }
+  const seen = new Map(); // "ps5" -> "PS5" (PS5 / ps5 count as one platform)
+  data.games.forEach(e=>{
+    const k = platformKey(e.platform);
+    if(k && !seen.has(k)) seen.set(k, e.platform.trim());
+  });
+  const options = [...seen.entries()].sort((a,b)=>a[1].localeCompare(b[1]));
+  if(platformFilter!=='All' && !seen.has(platformFilter)) platformFilter = 'All';
+  sel.innerHTML = '<option value="All">All platforms</option>' +
+    options.map(([k,l])=>`<option value="${escapeHtml(k)}">${escapeHtml(l)}</option>`).join('');
+  sel.value = platformFilter;
+  sel.style.display = options.length ? 'block' : 'none';
+}
+
+function onPlatformChange(){
+  platformFilter = document.getElementById('platformFilter').value;
+  try{ window.storage.set('ui:platform', platformFilter); }catch(e){}
+  render();
+}
+
 function populateStatusFilter(){
   const sel = document.getElementById('statusFilter');
   sel.innerHTML = STATUS_FILTERS[activeCat].map(s=>`<option value="${s}">${s==='All'?'All statuses':s}</option>`).join('');
@@ -1491,8 +1551,9 @@ function openSlip(entry){
     titleInput.addEventListener('input', scheduleAutoFetchCover);
   }
 
-  document.getElementById('slip').classList.add('open');
-  document.getElementById('slip').scrollIntoView({behavior:'smooth', block:'nearest'});
+  document.getElementById('slipOverlay').classList.add('open');
+  document.getElementById('slip').scrollTop = 0;
+  document.body.style.overflow = 'hidden'; // page stays exactly where it was
 }
 
 function currentTitleValue(){
@@ -1957,9 +2018,23 @@ function clearCover(){
 }
 
 function closeSlip(){
-  document.getElementById('slip').classList.remove('open');
+  document.getElementById('slipOverlay').classList.remove('open');
+  document.body.style.overflow = '';
   editingId = null;
   currentRating = 0;
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && document.getElementById('slipOverlay').classList.contains('open')) closeSlip();
+});
+
+// After saving, keep the person on the card they just edited/added.
+function focusCard(id){
+  const el = document.querySelector('#cards .card[data-id="'+id+'"]');
+  if(!el) return;
+  el.scrollIntoView({block:'nearest'}); // no jump if it's already on screen
+  el.classList.add('flash');
+  setTimeout(()=>el.classList.remove('flash'), 1700);
 }
 
 async function saveEntry(){
@@ -1974,11 +2049,13 @@ async function saveEntry(){
   fields.rating = currentRating;
   fields.cover = currentCover;
 
+  let savedId = editingId;
   if(editingId){
     const idx = data[activeCat].findIndex(e=>e.id===editingId);
     if(idx>-1) data[activeCat][idx] = {...data[activeCat][idx], ...fields};
   } else {
     fields.id = uid();
+    savedId = fields.id;
     fields.addedAt = Date.now();
     if((activeCat==='games' || activeCat==='books') && !fields.status) fields.status = 'Backlog';
     data[activeCat].unshift(fields);
@@ -1986,6 +2063,7 @@ async function saveEntry(){
   await persist(activeCat);
   closeSlip();
   render();
+  focusCard(savedId);
 }
 
 function showToast(msg){
@@ -2172,6 +2250,7 @@ function catNo(cat, index){
 }
 
 function render(){
+  populatePlatformFilter();
   const list = [...data[activeCat]];
   const q = document.getElementById('search').value.toLowerCase();
   const statusF = document.getElementById('statusFilter').value;
@@ -2182,7 +2261,8 @@ function render(){
     const matchesQ = hay.includes(q);
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
-    return matchesQ && matchesStatus;
+    const matchesPlatform = activeCat!=='games' || platformFilter==='All' || platformKey(e.platform)===platformFilter;
+    return matchesQ && matchesStatus && matchesPlatform;
   });
 
   if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
