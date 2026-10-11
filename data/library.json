@@ -2353,24 +2353,34 @@
       "addedAt": 1784125820542,
       "title": "resistance: fall of man",
       "rating": 0,
-      "cover": "",
+      "cover": "https://static.wikia.nocookie.net/resistancefallofman/images/a/a8/Resistance_Fall_of_Man.jpg/revision/latest?cb=20250405161528",
       "platform": "playstation 3",
       "publisher": "Insomniac Games",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk8f1rv",
       "addedAt": 1784125820541,
       "title": "lollipop chainsword",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/91cP7idNsIL._AC_UF350,350_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "Grasshopper",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qklhn9x",
@@ -6602,5 +6612,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791695695185
+  "savedAt": 1791695771526
 }
