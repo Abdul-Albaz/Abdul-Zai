@@ -3492,12 +3492,17 @@
       "addedAt": 1784125820475,
       "title": "yakuza ishin",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRAObil3qf85DEHTyfb-0XSia5aUn8tK-QPOR07IDxepCMrYi58srGKtAV&s=10",
       "platform": "playstation 5",
       "publisher": "Sega",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkpjhbb",
@@ -6937,5 +6942,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705080514
+  "savedAt": 1791705101830
 }
