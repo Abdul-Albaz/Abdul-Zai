@@ -3475,12 +3475,17 @@
       "addedAt": 1784125820476,
       "title": "ratchet and clank rift apart",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlOe7wyurtH7Kc4rcAeqxE4XZpAA4PkE0ZDmRaq6tgiIB_wx9ZlKqjehNe&s=10",
       "platform": "playstation 5",
       "publisher": "Sony Interactive Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkkrnnm",
@@ -6932,5 +6937,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791705047105
+  "savedAt": 1791705080514
 }
