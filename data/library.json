@@ -2710,12 +2710,17 @@
       "addedAt": 1784125820521,
       "title": "duke nukem forever",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfFWIfVFx9tc_W5NmjLPpMEM23ThoRPn64vXHH069yR0ZQrD3wQBXnOJOO&s=10",
       "platform": "playstation 3",
       "publisher": "2k",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkny6og",
@@ -6707,5 +6712,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696573088
+  "savedAt": 1791696615827
 }
