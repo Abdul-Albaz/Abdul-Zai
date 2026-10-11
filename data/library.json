@@ -3254,12 +3254,17 @@
       "addedAt": 1784125820489,
       "title": "ni no kuni remastered",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81Z-xFX+2xL._AC_UL450_SY450_QL70_.jpg",
       "platform": "playstation 4",
       "publisher": "Bandai Namco Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qknx0hg",
@@ -6867,5 +6872,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698537719
+  "savedAt": 1791698590637
 }
