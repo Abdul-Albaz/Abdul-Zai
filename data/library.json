@@ -2744,12 +2744,17 @@
       "addedAt": 1784125820519,
       "title": "mafia ii",
       "rating": 0,
-      "cover": "",
+      "cover": "https://cdn.alky.eu/images/0/63a67781257c8998/2/mafia-ii-special-extended-edition-ps3-pouzite.jpg?hash=-472384621",
       "platform": "playstation 3",
       "publisher": "2k",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk8fx4z",
@@ -6717,5 +6722,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696664520
+  "savedAt": 1791696700302
 }
