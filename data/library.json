@@ -2404,12 +2404,17 @@
       "addedAt": 1784125820539,
       "title": "thief",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i.ebayimg.com/images/g/q5QAAOSwVgdl0XHK/s-l1200.jpg",
       "platform": "playstation 3",
       "publisher": "Eidos Interactive",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qko23zh",
@@ -6617,5 +6622,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696002396
+  "savedAt": 1791696062154
 }
