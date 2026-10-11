@@ -3271,12 +3271,17 @@
       "addedAt": 1784125820488,
       "title": "ni no kuni ii",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.gamelife.it/web/image/product.product/20366/image_1024/",
       "platform": "playstation 4",
       "publisher": "Bandai Namco Entertainment",
       "status": "Backlog",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkoref1",
@@ -6872,5 +6877,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791698590637
+  "savedAt": 1791698619351
 }
