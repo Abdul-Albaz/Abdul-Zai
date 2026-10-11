@@ -2200,12 +2200,17 @@
       "addedAt": 1784125820551,
       "title": "batman arkam city steel book",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIVSUYrd7sJ6T4jMoa-iO0zk0iqsIXMwu8AxA0GD09Hw&s=10",
       "platform": "playstation 3",
       "publisher": "Rocksteady",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "yes"
+      "rarity": "yes",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qjl6a4s",
@@ -6557,5 +6562,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791694227162
+  "savedAt": 1791694330637
 }
