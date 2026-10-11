@@ -2693,12 +2693,17 @@
       "addedAt": 1784125820522,
       "title": "darkness 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71ZaAk+EMFL._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "2k",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qk82nef",
@@ -6702,5 +6707,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696556992
+  "savedAt": 1791696573088
 }
