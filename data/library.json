@@ -2472,12 +2472,17 @@
       "addedAt": 1784125820535,
       "title": "battlefield bad company 2",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/71HVn631o1L._AC_UF1000,1000_QL80_.jpg",
       "platform": "playstation 3",
       "publisher": "ea",
       "status": "Completed",
       "sealed": "Not sealed",
-      "rarity": "no"
+      "rarity": "no",
+      "owner": "",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6g5qkocken",
@@ -6637,5 +6642,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791696165728
+  "savedAt": 1791696193067
 }
