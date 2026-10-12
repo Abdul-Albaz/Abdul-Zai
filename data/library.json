@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "El Shaddai: Ascension of the Metatron HD Remaster",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791782293295-el-shaddai-ascension-of-the-metatron-hd-.jpg",
+      "id": "mv4sxdgd5xkjd",
+      "addedAt": 1791782313565
+    },
+    {
       "title": "Lunark",
       "owner": "Zai",
       "platform": "nintendo switch",
@@ -7330,5 +7347,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791782216618
+  "savedAt": 1791782315067
 }
