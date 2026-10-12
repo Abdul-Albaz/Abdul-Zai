@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "natsu mon",
+      "owner": "Zai",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791783452534-cover.jpg",
+      "id": "mv4tme9jezw6t",
+      "addedAt": 1791783481015
+    },
+    {
       "title": "Tetris",
       "owner": "Zai",
       "platform": "Gameboy",
@@ -7398,5 +7415,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791783326986
+  "savedAt": 1791783482516
 }
