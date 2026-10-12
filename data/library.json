@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Fantasy Life i: The Girl Who Steals Time",
+      "owner": "Zai",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "rpg",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "50",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTxHLRW_8_CB538GwVHT6ope74l8MAyCWmy8z2EX_OzA&s=10",
+      "id": "mv4ql35h7hw89",
+      "addedAt": 1791778381109
+    },
+    {
       "title": "Orbitals",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -7109,5 +7126,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791778310829
+  "savedAt": 1791778382612
 }
