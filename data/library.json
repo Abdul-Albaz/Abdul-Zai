@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "lollipop chainsaw repop",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWLdhxSd7gUC_yCYFPRA5rowJQcTTvCvMw7U0W3dNAXB743dZt95LdCpM&s=10",
+      "id": "mv4r8moyeamw4",
+      "addedAt": 1791779479522
+    },
+    {
       "title": "Cocoon",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7143,5 +7160,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791778513695
+  "savedAt": 1791779481026
 }
