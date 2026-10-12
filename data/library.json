@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Legacy of Kain: Soul Reaver 1 & 2 Remastered",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791782099999-legacy-of-kain-soul-reaver-1-2-remastere.jpg",
+      "id": "mv4stcrmpi69p",
+      "addedAt": 1791782126050
+    },
+    {
       "title": "No More Heros 3",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7296,5 +7313,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791782033969
+  "savedAt": 1791782127552
 }
