@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Castlevania Advance Collection",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791779796998-cover.jpg",
+      "id": "mv4rg5je7kzs4",
+      "addedAt": 1791779830538
+    },
+    {
       "title": "Castlevania: Anniversary Collection",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7177,5 +7194,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791779773954
+  "savedAt": 1791779832041
 }
