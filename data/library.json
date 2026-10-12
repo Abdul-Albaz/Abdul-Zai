@@ -149,7 +149,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://itemdrop.co.uk/image/cache/catalog/OFF-Switch-1080x1759.jpg.webp",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780415832-off.jpg",
       "id": "mv4aw0byzbdln",
       "addedAt": 1791752016814
     },
@@ -7228,5 +7228,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791780364227
+  "savedAt": 1791780420274
 }
