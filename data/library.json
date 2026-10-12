@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Cyberpunk 2077 Phantom Liberty",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791794846212-cover.jpg",
+      "id": "mv50elfqegnpm",
+      "addedAt": 1791794874374
+    },
+    {
       "title": "Death Stranding 2",
       "owner": "",
       "artist": "",
@@ -7613,5 +7627,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791792326158
+  "savedAt": 1791794875908
 }
