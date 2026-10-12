@@ -4297,7 +4297,14 @@
       "addedAt": 1784126629274,
       "title": "smoke + mirrors ten",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791272191-smoke-mirrors-ten.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnq4cfsd",
@@ -7487,5 +7494,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791231958
+  "savedAt": 1791791276778
 }
