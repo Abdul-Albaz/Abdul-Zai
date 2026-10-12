@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Persona 4 Megamix",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791584403-persona-4-megamix.jpg",
+      "id": "mv4yg5dcug1mj",
+      "addedAt": 1791791587632
+    },
+    {
       "title": "Blurryface",
       "owner": "",
       "artist": "Twenty One Pilots",
@@ -7543,5 +7557,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791519406
+  "savedAt": 1791791589134
 }
