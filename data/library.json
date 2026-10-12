@@ -4346,7 +4346,14 @@
       "addedAt": 1784126629270,
       "title": "The Rise and Fall of a Midwest Princess",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791415533-the-rise-and-fall-of-a-midwest-princess.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqdtk2c",
@@ -7508,5 +7515,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791321275
+  "savedAt": 1791791421177
 }
