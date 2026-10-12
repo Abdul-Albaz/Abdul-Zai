@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Blurryface",
+      "owner": "",
+      "artist": "Twenty One Pilots",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791503123-cover.jpg",
+      "id": "mv4yenkgktxm3",
+      "addedAt": 1791791517904
+    },
+    {
       "title": "Twin Peaks",
       "owner": "",
       "artist": "",
@@ -7529,5 +7543,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791475019
+  "savedAt": 1791791519406
 }
