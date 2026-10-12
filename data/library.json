@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Twin Peaks",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "",
+      "id": "mv4yd6gfi29jo",
+      "addedAt": 1791791449071
+    },
+    {
       "id": "mrm6xhnqcpc9r",
       "addedAt": 1784126629285,
       "title": "clair obscur: expedition 33",
@@ -7515,5 +7529,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791421177
+  "savedAt": 1791791450571
 }
