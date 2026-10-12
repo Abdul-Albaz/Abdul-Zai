@@ -4311,7 +4311,14 @@
       "addedAt": 1784126629273,
       "title": "thriller",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791296615-thriller.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqhyztm",
@@ -7494,5 +7501,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791276778
+  "savedAt": 1791791301668
 }
