@@ -574,7 +574,7 @@
       "status": "Backlog",
       "sealed": "Sealed",
       "rarity": "yes",
-      "owner": "",
+      "owner": "Zai",
       "genre": "",
       "price": "",
       "purchaseDate": "",
@@ -7438,5 +7438,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791784729212
+  "savedAt": 1791784744744
 }
