@@ -169,6 +169,34 @@
   body.guest #toolbarExtra input[type=file]{display:none !important;}
   body.guest .title-icon{cursor:default;}
 
+  /* ---------- site look (custom background / icon) ---------- */
+  #bgLayer{position:fixed;inset:0;z-index:-1;display:none;background-size:cover;background-position:center;background-repeat:no-repeat;}
+  .title-icon{overflow:hidden;}
+  .title-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+  body.has-bg-image header, body.has-bg-image .tabs{text-shadow:0 1px 8px rgba(0,0,0,0.7);}
+  body.theme-light{color:var(--ink);}
+  body.theme-light .title-block p,
+  body.theme-light .account-bar,
+  body.theme-light .acct-link{color:#4a453b;}
+  body.theme-light .acct-link:hover{color:#000;}
+  body.theme-light .acct-name{color:#8a5a12;}
+  body.theme-light .stat .num{color:var(--ink);}
+  body.theme-light .stat .lbl{color:#5b564c;}
+  body.theme-light header{border-bottom-color:rgba(0,0,0,0.18);}
+  body.theme-light .title-icon{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.2);}
+  #lookOverlay{z-index:140;}
+  .look-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px;}
+  .look-swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+  .look-swatch{width:28px;height:28px;border-radius:50%;border:2px solid rgba(0,0,0,0.25);cursor:pointer;padding:0;}
+  .look-swatch:hover{transform:scale(1.1);}
+  #lookColor{width:46px;height:34px;padding:2px;border:1px solid #c9c0aa;border-radius:5px;background:#fff;cursor:pointer;}
+  .look-icon-preview{width:44px;height:44px;border-radius:8px;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;font-size:26px;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.15);}
+  .look-icon-preview img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gh-modal .btn-ghost{color:var(--ink-soft);border-color:#c9c0aa;}
+  .gh-modal .btn-ghost:hover{color:var(--ink);border-color:#8f887c;}
+  .look-section{margin-top:14px;padding-top:12px;border-top:1px solid #e0d8c4;}
+  .look-section:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+
   /* ---------- toolbar ---------- */
   .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center;}
   input[type=text], input[type=search], select, input[type=number], input[type=date]{
@@ -762,7 +790,7 @@
     .slip-overlay{padding:10px;}
     .slip{padding:16px 16px 0;max-height:94vh;}
     .slip .slip-actions{margin:16px -16px 0;padding:12px 16px 14px;}
-    #platformFilter{flex:1 1 calc(50% - 4px);order:2;}
+    #platformFilter, #ownerFilter{flex:1 1 calc(50% - 4px);order:2;}
     .slip .grid{grid-template-columns:1fr;}
     .cover-field{flex-wrap:wrap;}
     .cover-preview{width:64px;height:90px;}
@@ -787,6 +815,7 @@
 </style>
 </head>
 <body>
+<div id="bgLayer"></div>
 <div class="wrap">
   <header>
     <div class="title-block">
@@ -813,8 +842,9 @@
     <div class="toolbar">
       <input type="search" id="search" placeholder="Search title, artist, platform, owner…" oninput="render()">
       <select id="statusFilter" onchange="render()"></select>
+      <select id="ownerFilter" onchange="onOwnerChange()" title="Show only one person's items"></select>
       <select id="platformFilter" onchange="onPlatformChange()" title="Show only one platform"></select>
-      <select id="sortBy" onchange="render()">
+      <select id="sortBy" onchange="onSortChange()">
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
         <option value="rating">Sort: Rating</option>
@@ -953,6 +983,57 @@
       </div>
     </div>
 
+    <div class="gh-overlay" id="lookOverlay" onclick="if(event.target===this) closeLook()">
+      <div class="gh-modal">
+        <h3>Customize the site</h3>
+        <p class="gh-desc">Changes apply to everyone who opens the site.</p>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Background color</label>
+            <div class="look-swatches" id="lookSwatches"></div>
+            <div class="look-row">
+              <input type="color" id="lookColor" value="#171512" oninput="setLookColor(this.value)" title="Pick any color">
+              <button type="button" class="btn btn-ghost" onclick="clearLookColor()">Default color</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Background image</label>
+            <div class="look-row">
+              <button type="button" class="btn btn-ghost" onclick="document.getElementById('lookBgFile').click()">Upload image</button>
+              <button type="button" class="btn btn-ghost" id="lookBgRemove" onclick="removeLookBg()">Remove image</button>
+            </div>
+            <input type="file" id="lookBgFile" accept="image/*" hidden onchange="handleLookBgFile(event)">
+            <p class="gh-help" id="lookBgState">No background image.</p>
+            <label style="margin-top:8px;display:block;">Darken image: <span id="lookDimVal">40</span>%</label>
+            <input type="range" id="lookDim" min="0" max="80" value="40" style="width:100%;" oninput="onLookDim(this.value)">
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Site icon</label>
+            <div class="look-row">
+              <span class="look-icon-preview" id="lookIconPreview">🏠</span>
+              <button type="button" class="btn btn-ghost" onclick="document.getElementById('lookIconFile').click()">Upload icon</button>
+              <button type="button" class="btn btn-ghost" id="lookIconRemove" onclick="removeLookIcon()">Use emoji instead</button>
+            </div>
+            <input type="file" id="lookIconFile" accept="image/*" hidden onchange="handleLookIconFile(event)">
+            <p class="gh-help">Shown next to the title and in the browser tab. To pick an emoji instead, click the icon beside the title.</p>
+          </div>
+        </div>
+
+        <p class="gh-status" id="lookStatus"></p>
+        <div class="slip-actions">
+          <button class="btn btn-ghost" onclick="resetLook()">Reset to default</button>
+          <button class="btn btn-primary games" onclick="closeLook()">Done</button>
+        </div>
+      </div>
+    </div>
+
     <div id="loading" class="loading">loading your collection…</div>
     <div class="grid-cards" id="cards" style="display:none;"></div>
     <div class="empty" id="emptyMsg" style="display:none;"></div>
@@ -1050,7 +1131,7 @@ async function handleBackupImport(event){
     }
     if(backup.icon){
       currentIcon = backup.icon;
-      document.getElementById('titleIcon').textContent = currentIcon;
+      renderTitleIcon();
       buildIconPicker();
     }
     await Promise.all([persist('games'), persist('music'), persist('books')]);
@@ -1139,9 +1220,11 @@ function toggleIconPicker(){
 async function selectIcon(icon){
   if(!requireAuth()) return;
   currentIcon = icon;
-  document.getElementById('titleIcon').textContent = icon;
+  if(siteIconImage){ const oldImg = siteIconImage; siteIconImage = ''; deleteCoverFromGithub(oldImg); }
+  renderTitleIcon();
   buildIconPicker();
   document.getElementById('iconPicker').classList.remove('open');
+  saveSiteLook();   // keeps the choice + syncs it to GitHub with the rest of the site
 
   const trySave = ()=> window.storage.set('ui:icon', icon);
   try{
@@ -1184,7 +1267,7 @@ async function loadData(){
   }
 
   try{
-    const [g, m, b, sg, sm, sb, ic, sa] = await Promise.allSettled([
+    const [g, m, b, sg, sm, sb, ic, sa, th, ii] = await Promise.allSettled([
       window.storage.get('library:games'),
       window.storage.get('library:music'),
       window.storage.get('library:books'),
@@ -1192,7 +1275,9 @@ async function loadData(){
       window.storage.get('ui:scale:music'),
       window.storage.get('ui:scale:books'),
       window.storage.get('ui:icon'),
-      window.storage.get('library:savedAt')
+      window.storage.get('library:savedAt'),
+      window.storage.get('ui:theme'),
+      window.storage.get('ui:iconImage')
     ]);
 
     const localGames = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : null;
@@ -1200,6 +1285,9 @@ async function loadData(){
     const localBooks = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : null;
     const hasLocal = localGames!==null || localMusic!==null || localBooks!==null;
     const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
+    // This browser's copy of the site look (replaced below if GitHub's copy is the one we use).
+    try{ if(th.status==='fulfilled' && th.value && th.value.value) siteTheme = JSON.parse(th.value.value) || null; }catch(e){}
+    if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImage = ii.value.value;
 
     const hasRemote = remote && (remote.games || remote.music || remote.books);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
@@ -1210,12 +1298,16 @@ async function loadData(){
       data.music = remote.music || [];
       data.books = remote.books || [];
       if(remote.icon) currentIcon = remote.icon;
+      if('theme' in remote) siteTheme = remote.theme || null;
+      if('iconImage' in remote) siteIconImage = remote.iconImage || '';
       loadedFromGithub = true;
       Promise.allSettled([
         window.storage.set('library:games', JSON.stringify(data.games)),
         window.storage.set('library:music', JSON.stringify(data.music)),
         window.storage.set('library:books', JSON.stringify(data.books)),
-        window.storage.set('library:savedAt', String(remoteSavedAt || Date.now()))
+        window.storage.set('library:savedAt', String(remoteSavedAt || Date.now())),
+        window.storage.set('ui:theme', JSON.stringify(siteTheme)),
+        window.storage.set('ui:iconImage', siteIconImage || '')
       ]).catch(()=>{});
     } else if(hasLocal){
       // This browser has changes GitHub hasn't caught up on yet (or GitHub
@@ -1245,7 +1337,8 @@ async function loadData(){
     if(pf && pf.value) platformFilter = pf.value;
   }catch(e){ /* no saved platform yet */ }
   buildIconPicker();
-  document.getElementById('titleIcon').textContent = currentIcon;
+  applyTheme();
+  renderTitleIcon();
   updateScaleUI();
   document.getElementById('loading').style.display='none';
   document.getElementById('cards').style.display='grid';
@@ -1998,6 +2091,8 @@ async function syncLibraryToGithub(){
       music: data.music,
       books: data.books,
       icon: currentIcon,
+      theme: siteTheme,
+      iconImage: siteIconImage,
       savedAt: Date.now()
     };
     const content = utf8ToBase64(JSON.stringify(payload, null, 2));
@@ -2331,12 +2426,14 @@ function catNo(cat, index){
 
 function render(){
   populatePlatformFilter();
+  populateOwnerFilter();
   const platOpt = document.getElementById('sortPlatformOpt');
   if(platOpt){
     const isGames = activeCat==='games';
     platOpt.hidden = !isGames;
     platOpt.disabled = !isGames;
     if(!isGames && document.getElementById('sortBy').value==='platform') document.getElementById('sortBy').value = 'added';
+    else if(isGames && userSort==='platform') document.getElementById('sortBy').value = 'platform';
   }
   const list = [...data[activeCat]];
   const q = document.getElementById('search').value.toLowerCase();
@@ -2349,7 +2446,8 @@ function render(){
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
     const matchesPlatform = activeCat!=='games' || platformFilter==='All' || platformKey(e.platform)===platformFilter;
-    return matchesQ && matchesStatus && matchesPlatform;
+    const matchesOwner = ownerFilter==='all' || ownerKey(e.owner)===ownerFilter;
+    return matchesQ && matchesStatus && matchesPlatform && matchesOwner;
   });
 
   if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
@@ -2615,7 +2713,7 @@ function applyAuthUI(){
   document.body.classList.toggle('guest', !currentUser);
   const bar = document.getElementById('accountBar');
   bar.innerHTML = currentUser
-    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
+    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span><button class="acct-link" onclick="openLook()">Customize</button><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
     : `<span>👁 View only</span><button class="acct-link" onclick="openLogin()">Log in</button>`;
   document.getElementById('toolbarEditBtn').textContent = currentUser ? '⚙ Edit' : '⚙ Size';
 }
@@ -2661,7 +2759,9 @@ async function submitLogin(){
   try{ await window.storage.set('auth:session', JSON.stringify({ user:name, exp: Date.now() + 30*24*3600*1000 })); }catch(e){}
   closeLogin();
   applyAuthUI();
+  await applyLocalPrefs();
   render();
+  loadAccountPrefs();      // pull this account's saved view from GitHub (other devices)
   showToast('Welcome, ' + name + '.');
 }
 
@@ -2672,8 +2772,10 @@ async function logout(){
   closeDetail();
   closeGithubSettings();
   closeChangePassword();
+  closeLook();
   if(selectMode) exitSelectMode();
   applyAuthUI();
+  resetViewPrefs();
   render();
   showToast('Logged out.');
 }
@@ -2729,6 +2831,427 @@ document.addEventListener('keydown', e=>{
   if(document.getElementById('pwOverlay').classList.contains('open')) closeChangePassword();
 });
 
+
+// =====================================================================
+// PER-ACCOUNT VIEW SETTINGS (sort order + whose items to show)
+// Saved for the logged-in account on this device straight away, and in
+// data/prefs.json in the repo so the same account gets the same view on
+// any other device. Each account only ever writes its own entry.
+// =====================================================================
+const PREFS_PATH = 'data/prefs.json';
+let userSort = 'added';      // the sort the person chose (kept even when its option is hidden on another tab)
+let ownerFilter = 'all';     // 'all' or a lowercase owner name such as 'abdul'
+let prefsTimer = null;
+
+function ownerKey(o){ return (o||'').trim().toLowerCase(); }
+
+function populateOwnerFilter(){
+  const sel = document.getElementById('ownerFilter');
+  if(!sel) return;
+  const names = new Map([['abdul','Abdul'], ['zai','Zai']]);   // always offered
+  data[activeCat].forEach(e=>{
+    const k = ownerKey(e.owner);
+    if(k && !names.has(k)) names.set(k, e.owner.trim());
+  });
+  if(ownerFilter!=='all' && !names.has(ownerFilter)) ownerFilter = 'all';
+  sel.innerHTML = '<option value="all">All owners</option>' +
+    [...names.entries()].map(([k,l])=>`<option value="${escapeHtml(k)}">${escapeHtml(l)}</option>`).join('');
+  sel.value = ownerFilter;
+}
+
+function onSortChange(){
+  userSort = document.getElementById('sortBy').value;
+  render();
+  savePrefsNow();
+}
+function onOwnerChange(){
+  ownerFilter = document.getElementById('ownerFilter').value;
+  render();
+  savePrefsNow();
+}
+
+function currentPrefs(){
+  return { sortBy: userSort, owner: ownerFilter, updatedAt: Date.now() };
+}
+function applyPrefs(p){
+  if(!p) return;
+  const sel = document.getElementById('sortBy');
+  if(p.sortBy && [...sel.options].some(o=>o.value===p.sortBy)){
+    userSort = p.sortBy;
+    sel.value = p.sortBy;
+  }
+  ownerFilter = (p.owner && typeof p.owner==='string') ? p.owner : 'all';
+}
+function resetViewPrefs(){
+  userSort = 'added';
+  ownerFilter = 'all';
+  document.getElementById('sortBy').value = 'added';
+}
+
+async function readLocalPrefs(user){
+  try{
+    const r = await window.storage.get('ui:prefs:'+user);
+    return r && r.value ? JSON.parse(r.value) : null;
+  }catch(e){ return null; }
+}
+async function applyLocalPrefs(){
+  if(!currentUser) return;
+  applyPrefs(await readLocalPrefs(currentUser));
+}
+
+async function savePrefsNow(){
+  if(!currentUser) return;                 // visitors can look around, nothing is saved for them
+  try{ await window.storage.set('ui:prefs:'+currentUser, JSON.stringify(currentPrefs())); }catch(e){}
+  scheduleSavePrefs();
+}
+
+function scheduleSavePrefs(){
+  if(!currentUser || !ghConfig || !ghConfig.token) return;
+  clearTimeout(prefsTimer);
+  prefsTimer = setTimeout(pushPrefsToGithub, 1200);
+}
+window.addEventListener('beforeunload', ()=>{
+  if(prefsTimer){ clearTimeout(prefsTimer); pushPrefsToGithub(); }
+});
+
+// Read a file's text + sha with the token (always fresh, unlike the raw CDN).
+async function ghReadFile(path){
+  const res = await fetch(`https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${path}?ref=${ghConfig.branch}&t=${Date.now()}`, {
+    headers: { 'Authorization': `token ${ghConfig.token}`, 'Accept': 'application/vnd.github+json' },
+    cache: 'no-store'
+  });
+  if(res.status===404) return null;
+  if(!res.ok){
+    const errBody = await res.json().catch(()=>({}));
+    throw new Error(errBody.message || `GitHub read failed (${res.status})`);
+  }
+  const j = await res.json();
+  const text = new TextDecoder().decode(Uint8Array.from(atob((j.content||'').replace(/\n/g,'')), c=>c.charCodeAt(0)));
+  return { sha: j.sha, text };
+}
+
+async function pushPrefsToGithub(){
+  prefsTimer = null;
+  const user = currentUser;
+  if(!user || !ghConfig || !ghConfig.token) return;
+  const mine = currentPrefs();
+  let lastErr = null;
+  for(let attempt=0; attempt<2; attempt++){
+    try{
+      // Re-read the file each time so the other account's settings are kept as they are.
+      const f = await ghReadFile(PREFS_PATH);
+      let all = {};
+      if(f){ try{ all = JSON.parse(f.text) || {}; }catch(e){ all = {}; } }
+      all[user] = mine;
+      await ghPutFile(PREFS_PATH, utf8ToBase64(JSON.stringify(all, null, 2)), `Save ${user}'s view settings`, f ? f.sha : null);
+      return;
+    }catch(err){ lastErr = err; }
+  }
+  console.error('prefs sync error', lastErr);
+  showToast('Saved on this device, but syncing your view settings to GitHub failed: ' + (lastErr && lastErr.message));
+}
+
+// Fetch the shared prefs file (works for anyone who can read the repo).
+async function fetchPrefsFromGithub(){
+  const cfg = getReadRepoConfig();
+  if(!cfg) return null;
+  const branches = cfg.branch ? [cfg.branch] : ['main', 'master'];
+  for(const branch of branches){
+    try{
+      const headers = { 'Accept': 'application/vnd.github+json' };
+      if(ghConfig && ghConfig.token) headers['Authorization'] = `token ${ghConfig.token}`;
+      const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${PREFS_PATH}?ref=${branch}&t=${Date.now()}`, { headers, cache:'no-store' });
+      if(res.ok){
+        const j = await res.json();
+        if(j && typeof j.content==='string'){
+          return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(j.content.replace(/\n/g,'')), c=>c.charCodeAt(0))));
+        }
+      }
+    }catch(e){ /* fall back to the plain file below */ }
+    try{
+      const res = await fetch(`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${branch}/${PREFS_PATH}?t=${Date.now()}`, { cache:'no-store' });
+      if(res.ok) return await res.json();
+    }catch(e){ /* try next branch */ }
+  }
+  return null;
+}
+
+// Use whichever copy of this account's settings is newer: this device's or GitHub's.
+async function loadAccountPrefs(){
+  const user = currentUser;
+  if(!user) return;
+  const local = await readLocalPrefs(user);
+  const all = await fetchPrefsFromGithub();
+  if(currentUser!==user) return;           // logged out / switched while we waited
+  const remote = all && all[user];
+  if(remote && (!local || (remote.updatedAt||0) > (local.updatedAt||0))){
+    applyPrefs(remote);
+    try{ await window.storage.set('ui:prefs:'+user, JSON.stringify(remote)); }catch(e){}
+    render();
+  } else if(local && (!remote || (local.updatedAt||0) > (remote.updatedAt||0))){
+    scheduleSavePrefs();                   // this device is ahead: push it up
+  }
+}
+
+// =====================================================================
+// SITE LOOK — background colour / image and a custom site icon.
+// Shared by everyone who opens the site; only the logged-in accounts can
+// change it. Saved with the collection (data/library.json) and mirrored
+// in this browser so it appears instantly on the next visit.
+// =====================================================================
+let siteTheme = null;        // {color:'#rrggbb'|'', image:'https://…'|'', dim:0-80} — null = the original look
+let siteIconImage = '';      // URL of an uploaded site icon; '' = use the emoji icon
+let lookSaveTimer = null;
+
+const LOOK_PRESETS = ['#171512','#0f1a2b','#14261c','#2a1620','#2b2b2b','#efe6d2','#dce8f2'];
+
+function lookLuminance(hex){
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+  if(!m) return 0;
+  const n = parseInt(m[1], 16);
+  return (0.2126*((n>>16)&255) + 0.7152*((n>>8)&255) + 0.0722*(n&255)) / 255;
+}
+function safeImageUrl(u){
+  return (typeof u==='string' && /^https?:\/\//i.test(u)) ? u.replace(/["'()\\\s]/g, c=>encodeURIComponent(c)) : '';
+}
+
+function applyTheme(){
+  const t = siteTheme || {};
+  const layer = document.getElementById('bgLayer');
+  const img = safeImageUrl(t.image);
+  const color = /^#[0-9a-f]{6}$/i.test(t.color || '') ? t.color : '';
+  document.body.style.backgroundColor = color;
+  if(layer){
+    if(img){
+      const d = Math.min(0.8, Math.max(0, (Number(t.dim)||0)/100));
+      layer.style.backgroundImage = `linear-gradient(rgba(0,0,0,${d}),rgba(0,0,0,${d})), url("${img}")`;
+      layer.style.display = 'block';
+    }else{
+      layer.style.display = 'none';
+      layer.style.backgroundImage = '';
+    }
+  }
+  document.body.classList.toggle('has-bg-image', !!img);
+  // Light backgrounds need dark heading text (the cards/panel keep their own colours).
+  document.body.classList.toggle('theme-light', !img && !!color && lookLuminance(color) > 0.55);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute('content', color || '#171512');
+}
+
+function updateFavicon(){
+  let link = document.getElementById('siteFavicon');
+  if(!link){
+    link = document.createElement('link');
+    link.id = 'siteFavicon';
+    link.rel = 'icon';
+    document.head.appendChild(link);
+  }
+  const img = safeImageUrl(siteIconImage);
+  link.href = img || ('data:image/svg+xml,' + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="52" font-size="80" text-anchor="middle" dominant-baseline="central">${currentIcon}</text></svg>`));
+}
+
+function renderTitleIcon(){
+  const el = document.getElementById('titleIcon');
+  const img = safeImageUrl(siteIconImage);
+  if(img){
+    el.textContent = '';
+    const im = document.createElement('img');
+    im.src = img; im.alt = '';
+    el.appendChild(im);
+  }else{
+    el.textContent = currentIcon;
+  }
+  updateFavicon();
+}
+
+async function applyLocalLook(){
+  try{
+    const th = await window.storage.get('ui:theme');
+    if(th && th.value) siteTheme = JSON.parse(th.value) || null;
+  }catch(e){}
+  try{
+    const ii = await window.storage.get('ui:iconImage');
+    if(ii && ii.value) siteIconImage = ii.value;
+  }catch(e){}
+  applyTheme();
+  renderTitleIcon();
+}
+
+// Save to this browser and queue the sync to GitHub (same path as a collection edit).
+async function saveSiteLook(){
+  if(!currentUser) return;
+  try{
+    await window.storage.set('ui:theme', JSON.stringify(siteTheme));
+    await window.storage.set('ui:iconImage', siteIconImage || '');
+    await window.storage.set('library:savedAt', String(Date.now()));
+  }catch(e){ console.error('look save error', e); }
+  scheduleGithubDataSync();
+}
+function saveSiteLookSoon(){
+  clearTimeout(lookSaveTimer);
+  lookSaveTimer = setTimeout(saveSiteLook, 700);
+}
+
+// ----- uploads -----
+function resizeImageFileSquarePng(file, size){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+      const img = new Image();
+      img.onload = ()=>{
+        const side = Math.min(img.width, img.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = size; canvas.height = size;
+        canvas.getContext('2d').drawImage(img, (img.width-side)/2, (img.height-side)/2, side, side, 0, 0, size, size);
+        resolve(canvas.toDataURL('image/png'));
+      };
+      img.onerror = ()=> reject(new Error('Could not read that image file.'));
+      img.src = e.target.result;
+    };
+    reader.onerror = ()=> reject(new Error('Could not read that image file.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function uploadSiteImage(file, kind){
+  const stamp = Date.now();
+  const isBg = kind==='bg';
+  const dataUrl = isBg ? await resizeImageFile(file, 1920, 0.8) : await resizeImageFileSquarePng(file, 256);
+  const filename = isBg ? `site-background-${stamp}.jpg` : `site-icon-${stamp}.png`;
+  const path = `${ghConfig.folder}/${filename}`;
+  await ghPutFile(path, dataUrl.split(',')[1], `Add site ${isBg ? 'background' : 'icon'} image ${filename}`, null);
+  return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
+}
+
+function lookNote(msg){ const el = document.getElementById('lookStatus'); if(el) el.textContent = msg || ''; }
+function lookNeedsGithub(){
+  if(ghConfig && ghConfig.token) return false;
+  lookNote('Connect GitHub first (⚙ Edit → ⚙ Image storage) to upload images.');
+  return true;
+}
+
+async function handleLookBgFile(ev){
+  const file = ev.target.files[0];
+  ev.target.value = '';
+  if(!file || !requireAuth() || lookNeedsGithub()) return;
+  lookNote('Uploading background…');
+  try{
+    const url = await uploadSiteImage(file, 'bg');
+    const old = siteTheme && siteTheme.image;
+    siteTheme = { ...(siteTheme || {}), image: url, dim: (siteTheme && siteTheme.dim!=null) ? siteTheme.dim : 40 };
+    applyTheme(); syncLookControls();
+    await saveSiteLook();
+    if(old && old!==url) deleteCoverFromGithub(old);
+    lookNote('Background saved.');
+  }catch(e){ lookNote('Upload failed: ' + e.message); }
+}
+async function removeLookBg(){
+  if(!requireAuth() || !siteTheme || !siteTheme.image) return;
+  const old = siteTheme.image;
+  siteTheme = { ...siteTheme, image: '' };
+  applyTheme(); syncLookControls();
+  await saveSiteLook();
+  deleteCoverFromGithub(old);
+  lookNote('Background image removed.');
+}
+async function handleLookIconFile(ev){
+  const file = ev.target.files[0];
+  ev.target.value = '';
+  if(!file || !requireAuth() || lookNeedsGithub()) return;
+  lookNote('Uploading icon…');
+  try{
+    const url = await uploadSiteImage(file, 'icon');
+    const old = siteIconImage;
+    siteIconImage = url;
+    renderTitleIcon(); syncLookControls();
+    await saveSiteLook();
+    if(old && old!==url) deleteCoverFromGithub(old);
+    lookNote('Icon saved.');
+  }catch(e){ lookNote('Upload failed: ' + e.message); }
+}
+async function removeLookIcon(){
+  if(!requireAuth() || !siteIconImage) return;
+  const old = siteIconImage;
+  siteIconImage = '';
+  renderTitleIcon(); syncLookControls();
+  await saveSiteLook();
+  deleteCoverFromGithub(old);
+  lookNote('Using the emoji icon again.');
+}
+
+// ----- colour / darkness controls -----
+function setLookColor(hex){
+  if(!requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}), color: hex };
+  applyTheme(); syncLookControls();
+  saveSiteLookSoon();
+}
+function clearLookColor(){
+  if(!requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}), color: '' };
+  applyTheme(); syncLookControls();
+  saveSiteLookSoon();
+}
+function onLookDim(v){
+  if(!requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}), dim: Number(v) || 0 };
+  document.getElementById('lookDimVal').textContent = Math.round(Number(v)||0);
+  applyTheme();
+  saveSiteLookSoon();
+}
+async function resetLook(){
+  if(!requireAuth()) return;
+  const oldBg = siteTheme && siteTheme.image, oldIcon = siteIconImage;
+  siteTheme = null; siteIconImage = '';
+  applyTheme(); renderTitleIcon(); syncLookControls();
+  await saveSiteLook();
+  if(oldBg) deleteCoverFromGithub(oldBg);
+  if(oldIcon) deleteCoverFromGithub(oldIcon);
+  lookNote('Back to the original look.');
+}
+
+function syncLookControls(){
+  const t = siteTheme || {};
+  const colorEl = document.getElementById('lookColor');
+  if(colorEl) colorEl.value = /^#[0-9a-f]{6}$/i.test(t.color||'') ? t.color : '#171512';
+  const dim = t.dim!=null ? t.dim : 40;
+  const dimEl = document.getElementById('lookDim');
+  if(dimEl) dimEl.value = dim;
+  const dimVal = document.getElementById('lookDimVal');
+  if(dimVal) dimVal.textContent = Math.round(dim);
+  const bgState = document.getElementById('lookBgState');
+  if(bgState) bgState.textContent = t.image ? 'A background image is set.' : 'No background image.';
+  const rm = document.getElementById('lookBgRemove');
+  if(rm) rm.style.display = t.image ? '' : 'none';
+  const prev = document.getElementById('lookIconPreview');
+  if(prev){
+    const img = safeImageUrl(siteIconImage);
+    if(img){ prev.textContent = ''; const im = document.createElement('img'); im.src = img; im.alt = ''; prev.appendChild(im); }
+    else prev.textContent = currentIcon;
+  }
+  const rmi = document.getElementById('lookIconRemove');
+  if(rmi) rmi.style.display = siteIconImage ? '' : 'none';
+  const sw = document.getElementById('lookSwatches');
+  if(sw && !sw.dataset.built){
+    sw.innerHTML = LOOK_PRESETS.map(c=>`<button type="button" class="look-swatch" style="background:${c}" title="${c}" onclick="setLookColor('${c}')"></button>`).join('');
+    sw.dataset.built = '1';
+  }
+}
+function openLook(){
+  if(!requireAuth()) return;
+  syncLookControls();
+  lookNote(ghConfig && ghConfig.token ? '' : 'Colours work right away. To upload images, connect GitHub first (⚙ Edit → ⚙ Image storage).');
+  document.getElementById('lookOverlay').classList.add('open');
+}
+function closeLook(){
+  const o = document.getElementById('lookOverlay');
+  if(o) o.classList.remove('open');
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && document.getElementById('lookOverlay').classList.contains('open')) closeLook();
+});
+
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
 (async function init(){
@@ -2736,7 +3259,10 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
   accountsReady = loadAccounts();   // runs alongside the data load
   await restoreSession();
   applyAuthUI();
+  await applyLocalPrefs();   // this account's saved sort, before the first draw
+  await applyLocalLook();    // last-seen background / icon, so there's no flash of the old look
   await loadData();
+  loadAccountPrefs();        // then check GitHub for a newer one saved on another device
 })();
 </script>
 </body>
