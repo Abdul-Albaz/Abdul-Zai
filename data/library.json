@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Doki Doki Literature Club Plus",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791781792073-cover.jpg",
+      "id": "mv4snbtxp8fop",
+      "addedAt": 1791781844901
+    },
+    {
       "title": "Little Kitty, Big City - A Lost Kitten's City Stroll",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7262,5 +7279,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791781079921
+  "savedAt": 1791781846405
 }
