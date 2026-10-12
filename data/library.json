@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Half Life: Alyx",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791794966368-half-life-alyx.jpg",
+      "id": "mv50gonraur3l",
+      "addedAt": 1791794971863
+    },
+    {
       "title": "Age of the Synth: Bloodborne",
       "owner": "",
       "artist": "",
@@ -7641,5 +7655,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791794894525
+  "savedAt": 1791794973364
 }
