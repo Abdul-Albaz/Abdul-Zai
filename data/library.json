@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Mega Man Battle Network Legacy Collection Vol. 1 and Vol. 2",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "30",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791782481189-cover.jpg",
+      "id": "mv4t24lnjbmee",
+      "addedAt": 1791782535371
+    },
+    {
       "title": "El Shaddai: Ascension of the Metatron HD Remaster",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7347,5 +7364,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791782315067
+  "savedAt": 1791782536873
 }
