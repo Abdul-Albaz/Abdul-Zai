@@ -4162,7 +4162,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791470988-twin-peaks.jpg",
       "id": "mv4yd6gfi29jo",
       "addedAt": 1791791449071
     },
@@ -7529,5 +7529,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791450571
+  "savedAt": 1791791475019
 }
