@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Age of the Synth: Bloodborne",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791794882840-cover.jpg",
+      "id": "mv50ezttgftw2",
+      "addedAt": 1791794893025
+    },
+    {
       "title": "Cyberpunk 2077 Phantom Liberty",
       "owner": "",
       "artist": "",
@@ -7627,5 +7641,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791794875908
+  "savedAt": 1791794894525
 }
