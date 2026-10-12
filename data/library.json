@@ -24,7 +24,7 @@
       "publisher": "",
       "genre": "",
       "sealed": "Not sealed",
-      "rarity": "",
+      "rarity": "yes",
       "status": "Backlog",
       "price": "20",
       "purchaseDate": "",
@@ -7262,5 +7262,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791781072573
+  "savedAt": 1791781079921
 }
