@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "Death Stranding 2",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791792321948-death-stranding-2.jpg",
+      "id": "mv4yvy2ancphb",
+      "addedAt": 1791792324658
+    },
+    {
       "title": "Death Stranding",
       "owner": "",
       "artist": "",
@@ -7599,5 +7613,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791792310511
+  "savedAt": 1791792326158
 }
