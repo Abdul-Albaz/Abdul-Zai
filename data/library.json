@@ -4213,7 +4213,14 @@
       "addedAt": 1784126629281,
       "title": "spiderman across the spiderverse",
       "rating": 0,
-      "cover": ""
+      "cover": "",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqxllev",
@@ -7452,5 +7459,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791790715101
+  "savedAt": 1791790739116
 }
