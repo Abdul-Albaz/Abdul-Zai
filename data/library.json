@@ -4269,7 +4269,14 @@
       "addedAt": 1784126629277,
       "title": "the girl is mine",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791227795-the-girl-is-mine.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnq38zku",
@@ -7480,5 +7487,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791189740
+  "savedAt": 1791791231958
 }
