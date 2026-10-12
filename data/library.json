@@ -4153,6 +4153,20 @@
   ],
   "music": [
     {
+      "title": "The Witches of Eastwick",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791699644-the-witches-of-eastwick.jpg",
+      "id": "mv4yio7oqjk87",
+      "addedAt": 1791791705364
+    },
+    {
       "title": "Persona 4 Megamix",
       "owner": "",
       "artist": "",
@@ -7557,5 +7571,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791791589134
+  "savedAt": 1791791706865
 }
