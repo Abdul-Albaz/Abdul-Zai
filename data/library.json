@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "inKONBINI",
+      "owner": "Zai",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780763596-cover.jpg",
+      "id": "mv4s0wee7qh1p",
+      "addedAt": 1791780798470
+    },
+    {
       "title": "Absolum",
       "owner": "Zai",
       "platform": "nintendo switch 2",
@@ -7228,5 +7245,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791780636839
+  "savedAt": 1791780799979
 }
