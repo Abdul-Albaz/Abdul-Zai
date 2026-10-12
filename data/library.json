@@ -4521,7 +4521,14 @@
       "addedAt": 1784126629268,
       "title": "the magic of boney m - 20 golden hits",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791798549534-the-magic-of-boney-m-20-golden-hits.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqy58rk",
@@ -7669,5 +7676,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791798480167
+  "savedAt": 1791798558914
 }
