@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Cocoon",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791778475083-cover.jpg",
+      "id": "mv4qnwap6c32q",
+      "addedAt": 1791778512193
+    },
+    {
       "title": "Fantasy Life i: The Girl Who Steals Time",
       "owner": "Zai",
       "platform": "nintendo switch 2",
@@ -7126,5 +7143,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791778382612
+  "savedAt": 1791778513695
 }
