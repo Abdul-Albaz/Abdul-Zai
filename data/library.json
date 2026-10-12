@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Absolum",
+      "owner": "Zai",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "35",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780322780-cover.jpg",
+      "id": "mv4rrk6btusdo",
+      "addedAt": 1791780362723
+    },
+    {
       "title": "Castlevania Dominus Collection",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -30,7 +47,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791779796998-cover.jpg",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780190721-castlevania-advance-collection.jpg",
       "id": "mv4rg5je7kzs4",
       "addedAt": 1791779830538
     },
@@ -7211,5 +7228,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791779998891
+  "savedAt": 1791780364227
 }
