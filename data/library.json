@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Castlevania: Anniversary Collection",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Sealed",
+      "rarity": "yes",
+      "status": "Backlog",
+      "price": "30",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://cdn.mobygames.com/covers/10395050-castlevania-anniversary-collection-nintendo-switch-front-cover.jpg",
+      "id": "mv4refy81hcv7",
+      "addedAt": 1791779750720
+    },
+    {
       "title": "lollipop chainsaw repop",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -7160,5 +7177,5 @@
     }
   ],
   "icon": "🏠",
-  "savedAt": 1791779481026
+  "savedAt": 1791779752222
 }
