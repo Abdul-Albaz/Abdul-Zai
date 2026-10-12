@@ -4197,9 +4197,16 @@
     {
       "id": "mrm6xhnq3b2kg",
       "addedAt": 1784126629282,
-      "title": "twin peaks fire walk with me",
+      "title": "Twin Peaks Fire Walk with Me",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791790687838-twin-peaks-fire-walk-with-me.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqwnr81",
@@ -7445,5 +7452,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791790628345
+  "savedAt": 1791790715101
 }
