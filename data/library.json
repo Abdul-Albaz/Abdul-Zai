@@ -4692,7 +4692,14 @@
       "addedAt": 1784126629266,
       "title": "best of bee geez",
       "rating": 0,
-      "cover": ""
+      "cover": "https://upload.wikimedia.org/wikipedia/en/9/9b/Bee_Gees-Their_Greatest_Hits-The_Record.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     }
   ],
   "books": [
@@ -8062,5 +8069,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791921185366
+  "savedAt": 1791921218832
 }
