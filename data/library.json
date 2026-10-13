@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "Wii",
+      "owner": "Abdul",
+      "manufacturer": "Nintendo",
+      "model": "",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "Good",
+      "boxed": "No box",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvQD7HdoYKSMEAGKmyqlX8PgS7nOsiEMN8fNGZg-wNxA&s=10",
+      "id": "mv678e9253ggv",
+      "addedAt": 1791866808615
+    },
+    {
       "title": "Playstation 2",
       "owner": "Zai",
       "manufacturer": "Sony",
@@ -7750,5 +7768,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791866767318
+  "savedAt": 1791866810117
 }
