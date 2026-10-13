@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Rhythm Heaven Groove",
+      "owner": "Zai",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791920605551-rhythm-heaven-groove.jpg",
+      "id": "mv739k6zel3w4",
+      "addedAt": 1791920610683
+    },
+    {
       "title": "Hello Kitty Island Adventure",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -7980,5 +7997,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791920462251
+  "savedAt": 1791920612185
 }
