@@ -7684,7 +7684,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://media.gamestop.com/i/gamestop/20019700/Nintendo-Switch-2?$pdp$",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3TqWZ8aNMmtxuR9lEt2PQof9oSIxFHEKXz04GYtuwFTv9dLeXO6GZgtIo&s=10",
       "id": "mv67l4rf3xw7n",
       "addedAt": 1791867402843
     },
@@ -7804,5 +7804,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791867428428
+  "savedAt": 1791867508229
 }
