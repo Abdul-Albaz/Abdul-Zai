@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "Playstation 2",
+      "owner": "Zai",
+      "manufacturer": "Sony",
+      "model": "Slim",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "New",
+      "boxed": "No box",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/616kP0w8feL.jpg",
+      "id": "mv677h8719eeg",
+      "addedAt": 1791866765815
+    },
+    {
       "title": "Playstation Vita OLED",
       "owner": "Abdul",
       "manufacturer": "Sony",
@@ -7732,5 +7750,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791866701069
+  "savedAt": 1791866767318
 }
