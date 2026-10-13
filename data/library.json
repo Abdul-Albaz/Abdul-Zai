@@ -1,23 +1,6 @@
 {
   "games": [
     {
-      "title": "Brain Training",
-      "owner": "Abdul",
-      "platform": "Nintendo Ds",
-      "publisher": "",
-      "genre": "",
-      "sealed": "Not sealed",
-      "rarity": "",
-      "status": "Backlog",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://www-konga-com-res.cloudinary.com/media/catalog/product/U/A/111769_1525296662.jpg",
-      "id": "mv73rcl28e988",
-      "addedAt": 1791921440630
-    },
-    {
       "title": "xenoblade chronicles 3",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -8093,5 +8076,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791921442133
+  "savedAt": 1791921524735
 }
