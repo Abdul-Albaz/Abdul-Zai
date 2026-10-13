@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "Steam Deck",
+      "owner": "Zai",
+      "manufacturer": "Valve",
+      "model": "",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "New",
+      "boxed": "Boxed",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://elektroskup.pl/2693-large_default/steam-deck-512gb-nvme-ssd.jpg",
+      "id": "mv72tak75655t",
+      "addedAt": 1791919851703
+    },
+    {
       "title": "PlayDate",
       "owner": "Abdul",
       "manufacturer": "Panic",
@@ -7894,5 +7912,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791919726104
+  "savedAt": 1791919853204
 }
