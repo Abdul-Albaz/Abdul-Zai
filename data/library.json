@@ -7756,7 +7756,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/515Ceao0c3L.jpg",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB3ZgSq9ghjR-ny9mSCimAtA9YksSFcwtvKWcuEek_3n8OqpWkJOfPckQ&s=10",
       "id": "mv677h8719eeg",
       "addedAt": 1791866765815
     },
@@ -7822,5 +7822,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791897426242
+  "savedAt": 1791897519775
 }
