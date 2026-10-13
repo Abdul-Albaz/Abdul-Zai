@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "PlayDate",
+      "owner": "Abdul",
+      "manufacturer": "Panic",
+      "model": "",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "New",
+      "boxed": "Boxed",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://groov.store/cdn/shop/files/2_c9e9adfd-5a54-4949-b6bb-dd328ef1a9b6.png?v=1707902505",
+      "id": "mv72qkhngrtde",
+      "addedAt": 1791919724603
+    },
+    {
       "title": "new 2ds XL",
       "owner": "Zai",
       "manufacturer": "Nintendo",
@@ -7876,5 +7894,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791919681587
+  "savedAt": 1791919726104
 }
