@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "Playstation Vita OLED",
+      "owner": "Abdul",
+      "manufacturer": "Sony",
+      "model": "OLED",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "Good",
+      "boxed": "No box",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://www.cashexpress.fr/uploaded/product-1080x1080/00/00/02/04/32/56/ps-vita-fat-wifi.jpg",
+      "id": "mv67623zv5nlr",
+      "addedAt": 1791866699567
+    },
+    {
       "title": "PlayStation 3 METAL GEAR SOLID 4 WELCOME BOX",
       "owner": "Abdul",
       "manufacturer": "Sony",
@@ -7714,5 +7732,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791866554486
+  "savedAt": 1791866701069
 }
