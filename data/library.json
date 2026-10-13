@@ -7671,6 +7671,24 @@
   ],
   "consoles": [
     {
+      "title": "new 2ds XL",
+      "owner": "Zai",
+      "manufacturer": "Nintendo",
+      "model": "",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "New",
+      "boxed": "Boxed",
+      "serial": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/71DDnw-VJnL.jpg",
+      "id": "mv72pignhyljl",
+      "addedAt": 1791919675319
+    },
+    {
       "title": "new 3ds",
       "owner": "",
       "manufacturer": "Nintendo",
@@ -7858,5 +7876,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791919641106
+  "savedAt": 1791919676821
 }
