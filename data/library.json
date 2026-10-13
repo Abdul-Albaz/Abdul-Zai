@@ -7684,7 +7684,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Game-Boy-FL.png/960px-Game-Boy-FL.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "cover": "https://guide-images.cdn.ifixit.com/igi/CbGZEBGdw52JMsnB.medium",
       "id": "mv6m6uxfigaxs",
       "addedAt": 1791891931155
     },
@@ -7822,5 +7822,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791896707812
+  "savedAt": 1791897370192
 }
