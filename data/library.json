@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "xenoblade chronicles 1",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791920835434-cover.jpg",
+      "id": "mv73f350aj01o",
+      "addedAt": 1791920868516
+    },
+    {
       "title": "xenoblade chronicles x",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -8014,5 +8031,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791920830619
+  "savedAt": 1791920870020
 }
