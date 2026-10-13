@@ -23,6 +23,7 @@
     --cart:#C9622A;   /* games accent */
     --tape:#3F7068;   /* music accent */
     --book:#8B4A5C;   /* books accent */
+    --console:#4C6FA5;   /* consoles accent */
     --gold:#D6A24A;
     --line: rgba(237,230,214,0.12);
   }
@@ -143,6 +144,7 @@
   .tab[data-cat="games"].active{background:var(--cart);color:#1a0d05;border-color:var(--cart);}
   .tab[data-cat="music"].active{background:var(--tape);color:#0a1615;border-color:var(--tape);}
   .tab[data-cat="books"].active{background:var(--book);color:#221016;border-color:var(--book);}
+  .tab[data-cat="consoles"].active{background:var(--console);color:#08111f;border-color:var(--console);}
   .tab:not(.active):hover{color:var(--paper);}
 
   .panel{
@@ -228,6 +230,7 @@
   .btn-primary.games{background:var(--cart);color:#1a0d05;}
   .btn-primary.music{background:var(--tape);color:#0a1615;}
   .btn-primary.books{background:var(--book);color:#221016;}
+  .btn-primary.consoles{background:var(--console);color:#08111f;}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
   .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
   .btn-ghost.active-toggle{color:var(--gold);border-color:var(--gold);}
@@ -312,6 +315,17 @@
     padding:20px;
   }
   .slip-overlay.open{display:flex;}
+  /* Artwork shown beside the add/edit pop-up (wide screens; the form keeps its small preview everywhere) */
+  .slip-art{display:none;flex:0 0 auto;width:340px;max-width:30vw;margin-right:24px;align-self:center;}
+  @media (min-width:1080px){ .slip-art{display:block;} }
+  .slip-art img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);}
+  .slip-art .art-empty{aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);background:var(--ink-soft);color:#fff;}
+  .slip-art .art-empty h4{margin:0;font-size:22px;line-height:1.2;}
+  .slip-art .art-empty p{margin:0;font-size:12px;opacity:.75;letter-spacing:1px;text-transform:uppercase;}
+  .slip-art .art-empty.games{background:var(--cart);color:#1a0d05;}
+  .slip-art .art-empty.music{background:var(--tape);color:#0a1615;aspect-ratio:1/1;}
+  .slip-art .art-empty.books{background:var(--book);color:#221016;}
+  .slip-art .art-empty.consoles{background:var(--console);color:#08111f;aspect-ratio:1/1;}
   .slip{
     display:block;
     background:var(--paper);
@@ -511,7 +525,7 @@
 
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
-  .grid-cards.cat-music{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
   .card{
     display:flex;
     flex-direction:column;
@@ -534,7 +548,7 @@
     background:var(--bg-soft);
     overflow:hidden;
   }
-  .cover-area.music{aspect-ratio:1/1;}
+  .cover-area.music, .cover-area.consoles{aspect-ratio:1/1;}
   .cover-area.music:not(.placeholder)::after{
     content:'';
     position:absolute;
@@ -557,6 +571,7 @@
   .cover-area.placeholder.games{background:var(--cart);}
   .cover-area.placeholder.music{background:var(--tape);}
   .cover-area.placeholder.books{background:var(--book);}
+  .cover-area.placeholder.consoles{background:var(--console);}
   .cover-area .hole{
     position:absolute;top:12px;left:50%;transform:translateX(-50%);
     width:11px;height:11px;border-radius:50%;
@@ -760,7 +775,7 @@
     select, input[type=text], input[type=search], input[type=number], input[type=date]{font-size:16px;}
 
     .grid-cards{grid-template-columns:repeat(3, 1fr) !important;gap:8px;zoom:1 !important;}
-    .grid-cards.cat-music{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
+    .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
     .card-overlay{padding:8px;}
     .card-overlay h4{font-size:12px;}
     .card-overlay .sub{font-size:9.5px;margin:0 0 4px;}
@@ -806,7 +821,8 @@
   }
 
   @media (max-width:420px){
-    .grid-cards, .grid-cards.cat-music{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
+    .grid-cards, .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
+    .tab .dot{display:none;}
     .title-block h1{font-size:24px;}
     .stat .num{font-size:17px;}
     .card-overlay h4{font-size:11px;}
@@ -828,6 +844,7 @@
       <div class="stat"><span class="num" id="statGames">0</span><span class="lbl">Games</span></div>
       <div class="stat"><span class="num" id="statMusic">0</span><span class="lbl">Music</span></div>
       <div class="stat"><span class="num" id="statBooks">0</span><span class="lbl">Books</span></div>
+      <div class="stat"><span class="num" id="statConsoles">0</span><span class="lbl">Consoles</span></div>
       <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
@@ -836,6 +853,7 @@
     <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games</div>
     <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music</div>
     <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books</div>
+    <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles</div>
   </div>
 
   <div class="panel">
@@ -883,6 +901,7 @@
     </div>
 
     <div class="slip-overlay" id="slipOverlay">
+      <div class="slip-art" id="slipArt" aria-hidden="true"></div>
       <div class="slip" id="slip">
         <h3 id="slipTitle">Add to the archive</h3>
         <div class="grid" id="slipFields"></div>
@@ -897,7 +916,7 @@
       <div class="gh-modal">
         <h3>Image storage on GitHub</h3>
         <p class="gh-desc">
-          Cover images you pick, and your whole collection (games/music/books), are committed straight into your GitHub
+          Cover images you pick, and your whole collection (games/music/books/consoles), are committed straight into your GitHub
           repo — images into an <code>imges</code> folder, your entries into <code>data/library.json</code> — so it's all
           part of the live site, not just this browser. Open the site from any other PC and it will load the same data
           from GitHub automatically. This needs a token with write access to that one repo.
@@ -1118,12 +1137,13 @@ async function handleBackupImport(event){
     const text = await file.text();
     const backup = JSON.parse(text);
     const incoming = backup.data || backup; // tolerate a raw {games,music,books} file too
-    if(!incoming.games && !incoming.music && !incoming.books){
+    if(!incoming.games && !incoming.music && !incoming.books && !incoming.consoles){
       throw new Error('This file does not look like a Home Collection backup.');
     }
     data.games = incoming.games || [];
     data.music = incoming.music || [];
     data.books = incoming.books || [];
+    data.consoles = incoming.consoles || [];
     if(backup.layoutScale){
       Object.keys(layoutScale).forEach(cat=>{
         if(backup.layoutScale[cat]) layoutScale[cat] = normalizeScale(backup.layoutScale[cat]);
@@ -1134,7 +1154,7 @@ async function handleBackupImport(event){
       renderTitleIcon();
       buildIconPicker();
     }
-    await Promise.all([persist('games'), persist('music'), persist('books')]);
+    await Promise.all([persist('games'), persist('music'), persist('books'), persist('consoles')]);
     await Promise.all(Object.keys(layoutScale).map(cat=>window.storage.set('ui:scale:'+cat, String(layoutScale[cat]))));
     if(backup.icon) await window.storage.set('ui:icon', currentIcon);
     updateScaleUI();
@@ -1153,11 +1173,11 @@ let activeCat = 'games';
 let editingId = null;
 let currentRating = 0;
 let currentCover = '';
-let data = { games: [], music: [], books: [] };
+let data = { games: [], music: [], books: [], consoles: [] };
 let selectMode = false;
 let selectedIds = new Set();
 let dragSrcId = null;
-let layoutScale = { games:75, music:75, books:75 };
+let layoutScale = { games:75, music:75, books:75, consoles:75 };
 const ICON_OPTIONS = ['🏠','🗃','📦','🎮','🎵','📚','🕹️','💿','📀','🎧','🧸','⭐','🗂️','🏆','🎯','🛍️','🧩','🔖'];
 let currentIcon = '🏠';
 
@@ -1196,13 +1216,28 @@ const FIELDS = {
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ],
+  consoles: [
+    {key:'title', label:'Console', type:'text', full:true, required:true, placeholder:'e.g. PlayStation 5, Nintendo Switch'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'manufacturer', label:'Manufacturer', type:'text', list:['Sony','Nintendo','Microsoft','Sega','Atari','Valve'], placeholder:'e.g. Sony, Nintendo'},
+    {key:'model', label:'Model', type:'text', placeholder:'e.g. Slim, OLED, CUH-1215A'},
+    {key:'edition', label:'Edition / Color', type:'text', placeholder:'e.g. Limited Edition, White'},
+    {key:'region', label:'Region', type:'select', options:['NTSC-U (US)','PAL (EU)','NTSC-J (Japan)','Region free','Other']},
+    {key:'condition', label:'Condition', type:'select', options:['New','Like new','Good','Fair','For parts']},
+    {key:'boxed', label:'Box', type:'select', options:['Boxed','No box']},
+    {key:'serial', label:'Serial number', type:'text'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'controllers, cables, mods…'},
   ]
 };
 
 const STATUS_FILTERS = {
   games: ['All','Backlog','Playing','Completed'],
   music: ['All'],
-  books: ['All','Backlog','Reading','Completed']
+  books: ['All','Backlog','Reading','Completed'],
+  consoles: ['All']
 };
 
 function buildIconPicker(){
@@ -1267,7 +1302,7 @@ async function loadData(){
   }
 
   try{
-    const [g, m, b, sg, sm, sb, ic, sa, th, ii] = await Promise.allSettled([
+    const [g, m, b, sg, sm, sb, ic, sa, th, ii, lc, sc] = await Promise.allSettled([
       window.storage.get('library:games'),
       window.storage.get('library:music'),
       window.storage.get('library:books'),
@@ -1277,19 +1312,22 @@ async function loadData(){
       window.storage.get('ui:icon'),
       window.storage.get('library:savedAt'),
       window.storage.get('ui:theme'),
-      window.storage.get('ui:iconImage')
+      window.storage.get('ui:iconImage'),
+      window.storage.get('library:consoles'),
+      window.storage.get('ui:scale:consoles')
     ]);
 
     const localGames = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : null;
     const localMusic = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : null;
     const localBooks = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : null;
-    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null;
+    const localConsoles = lc.status==='fulfilled' && lc.value ? JSON.parse(lc.value.value) : null;
+    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null || localConsoles!==null;
     const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
     // This browser's copy of the site look (replaced below if GitHub's copy is the one we use).
     try{ if(th.status==='fulfilled' && th.value && th.value.value) siteTheme = JSON.parse(th.value.value) || null; }catch(e){}
     if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImage = ii.value.value;
 
-    const hasRemote = remote && (remote.games || remote.music || remote.books);
+    const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
 
     if(hasRemote && (!currentUser || !(hasLocal && localSavedAt > remoteSavedAt))){
@@ -1297,6 +1335,7 @@ async function loadData(){
       data.games = remote.games || [];
       data.music = remote.music || [];
       data.books = remote.books || [];
+      data.consoles = remote.consoles || [];
       if(remote.icon) currentIcon = remote.icon;
       if('theme' in remote) siteTheme = remote.theme || null;
       if('iconImage' in remote) siteIconImage = remote.iconImage || '';
@@ -1305,6 +1344,7 @@ async function loadData(){
         window.storage.set('library:games', JSON.stringify(data.games)),
         window.storage.set('library:music', JSON.stringify(data.music)),
         window.storage.set('library:books', JSON.stringify(data.books)),
+        window.storage.set('library:consoles', JSON.stringify(data.consoles)),
         window.storage.set('library:savedAt', String(remoteSavedAt || Date.now())),
         window.storage.set('ui:theme', JSON.stringify(siteTheme)),
         window.storage.set('ui:iconImage', siteIconImage || '')
@@ -1315,10 +1355,11 @@ async function loadData(){
       data.games = localGames || [];
       data.music = localMusic || [];
       data.books = localBooks || [];
+      data.consoles = localConsoles || [];
       if(hasRemote) scheduleGithubDataSync();
     }
 
-    const scaleResults = { games: sg, music: sm, books: sb };
+    const scaleResults = { games: sg, music: sm, books: sb, consoles: sc };
     Object.keys(scaleResults).forEach(cat=>{
       const r = scaleResults[cat];
       if(r.status==='fulfilled' && r.value && r.value.value){
@@ -1330,7 +1371,7 @@ async function loadData(){
     }
   }catch(e){
     console.error('load error', e);
-    if(!loadedFromGithub) data = { games: [], music: [], books: [] };
+    if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [] };
   }
   try{
     const pf = await window.storage.get('ui:platform');
@@ -1432,6 +1473,13 @@ const CSV_ALIASES = {
   owner:['owner','whose','belongsto'],
   platform:['platform','system','console'],
   publisher:['publisher'],
+  manufacturer:['manufacturer','maker','brand'],
+  model:['model'],
+  edition:['edition','color','colour'],
+  region:['region'],
+  condition:['condition'],
+  boxed:['box','boxed'],
+  serial:['serial','serialnumber','serial number'],
   artist:['artist','band','musician'],
   author:['author','writer'],
   genre:['genre','category'],
@@ -1449,7 +1497,8 @@ const CSV_ALIASES = {
 const CSV_HINTS = {
   games: 'CSV columns: title, owner, platform, publisher, sealed?, rarity, finished, price, purchaseDate, rating, notes',
   music: 'CSV columns: title, owner, artist, format, genre, price, purchaseDate, rating, notes',
-  books: 'CSV columns: title, owner, author, format, genre, status, dimensions, price, purchaseDate, rating, notes'
+  books: 'CSV columns: title, owner, author, format, genre, status, dimensions, price, purchaseDate, rating, notes',
+  consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, price, purchaseDate, rating, notes'
 };
 
 function updateCsvHint(){
@@ -1490,6 +1539,7 @@ async function handleCsvImport(event){
     const idx = headers.findIndex(h => CSV_ALIASES[key].includes(h));
     if(idx>-1) colIndex[key] = idx;
   });
+  if(activeCat==='consoles' && colIndex.title===undefined && colIndex.platform!==undefined) colIndex.title = colIndex.platform;
   if(colIndex.title === undefined){
     showToast('CSV needs a "title" (or name/album/game/book) column.');
     return;
@@ -1538,7 +1588,7 @@ async function handleCsvImport(event){
   showToast(`Imported ${n} ${activeCat} entr${n===1?'y':'ies'}.` + (skipped ? ` Skipped ${skipped} row(s) with no title.` : '') + (n ? ' Add artwork anytime by editing an entry.' : ''));
 }
 
-const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book' };
+const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console' };
 
 function switchTab(cat){
   activeCat = cat;
@@ -1712,6 +1762,7 @@ function openSlip(entry){
 
   const titleInput = container.querySelector('[data-key="title"]');
   if(titleInput){
+    titleInput.addEventListener('input', ()=>{ if(!currentCover) updateSlipArt(); });
     titleInput.addEventListener('input', scheduleAutoFetchCover);
   }
 
@@ -1738,7 +1789,7 @@ async function autoFetchCoverArt(){
   const noteEl = document.getElementById('artAutoNote');
   const linksEl = document.getElementById('artSearchLinks');
   if(linksEl) linksEl.innerHTML = '';
-  const hint = activeCat==='games' ? ' video game' : (activeCat==='music' ? ' album' : ' book');
+  const hint = {games:' video game', music:' album', books:' book', consoles:' video game console'}[activeCat] || '';
   if(noteEl) noteEl.textContent = 'Looking for cover art…';
   try{
     const resp = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+hint)}&gsrlimit=1&prop=pageimages&pithumbsize=600&format=json&origin=*`);
@@ -1798,7 +1849,38 @@ function renderStarInput(){
   }
 }
 
+// Big artwork beside the add/edit pop-up: follows the cover as it changes
+// (uploaded, pasted link, or found automatically), or shows a coloured
+// placeholder with the title when there isn't any yet.
+function updateSlipArt(){
+  const el = document.getElementById('slipArt');
+  if(!el) return;
+  el.innerHTML = '';
+  const showEmpty = ()=>{
+    el.innerHTML = '';
+    const box = document.createElement('div');
+    box.className = 'art-empty ' + activeCat;
+    const h = document.createElement('h4');
+    h.textContent = currentTitleValue() || 'New entry';
+    const p = document.createElement('p');
+    p.textContent = 'No artwork yet';
+    box.appendChild(h);
+    box.appendChild(p);
+    el.appendChild(box);
+  };
+  if(currentCover){
+    const img = document.createElement('img');
+    img.alt = '';
+    img.onerror = showEmpty;      // broken link -> placeholder instead of a broken image
+    img.src = currentCover;
+    el.appendChild(img);
+  } else {
+    showEmpty();
+  }
+}
+
 function updateCoverPreview(){
+  updateSlipArt();
   const el = document.getElementById('coverPreview');
   if(!el) return;
   el.innerHTML = currentCover ? `<img src="${currentCover}" alt="">` : 'no image';
@@ -2090,6 +2172,7 @@ async function syncLibraryToGithub(){
       games: data.games,
       music: data.music,
       books: data.books,
+      consoles: data.consoles,
       icon: currentIcon,
       theme: siteTheme,
       iconImage: siteIconImage,
@@ -2269,7 +2352,7 @@ function openDetail(id){
   const entry = data[activeCat].find(e=>e.id===id);
   if(!entry) return;
   const cat = activeCat;
-  const subKey = cat==='games' ? 'platform' : (cat==='music' ? 'artist' : 'author');
+  const subKey = SUB_KEYS[cat];
   const sub = entry[subKey] || '';
   const stars = '★'.repeat(entry.rating||0) + '☆'.repeat(5-(entry.rating||0));
   const price = entry.price ? '$' + parseFloat(entry.price).toFixed(2) : '';
@@ -2419,8 +2502,11 @@ function handleDragEnd(e){
   dragSrcId = null;
 }
 
+// The line of small text under each title, per tab.
+const SUB_KEYS = { games:'platform', music:'artist', books:'author', consoles:'manufacturer' };
+
 function catNo(cat, index){
-  const prefix = cat==='games' ? 'G' : (cat==='music' ? 'M' : 'B');
+  const prefix = {games:'G', music:'M', books:'B', consoles:'C'}[cat] || 'X';
   return prefix + '-' + String(index+1).padStart(3,'0');
 }
 
@@ -2441,7 +2527,7 @@ function render(){
   const sortBy = document.getElementById('sortBy').value;
 
   let filtered = list.filter(e=>{
-    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')).toLowerCase();
+    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')+' '+(e.manufacturer||'')+' '+(e.model||'')+' '+(e.edition||'')).toLowerCase();
     const matchesQ = hay.includes(q);
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
@@ -2494,7 +2580,8 @@ function render(){
     const emptyByCat = {
       games: 'No games yet — add the first one you bought.',
       music: 'No music yet — add your first album.',
-      books: 'No books yet — add the first one you bought.'
+      books: 'No books yet — add the first one you bought.',
+      consoles: 'No consoles yet — add the first one you own.'
     };
     emptyEl.textContent = list.length===0 ? emptyByCat[activeCat] : 'Nothing matches your search.';
   } else {
@@ -2502,7 +2589,7 @@ function render(){
     cardsEl.innerHTML = filtered.map((e)=>{
       const origIndex = data[activeCat].findIndex(x=>x.id===e.id);
       const stars = '★'.repeat(e.rating||0) + '☆'.repeat(5-(e.rating||0));
-      const sub = activeCat==='games' ? (e.platform||'') : (activeCat==='music' ? (e.artist||'') : (e.author||''));
+      const sub = e[SUB_KEYS[activeCat]] || '';
       const chips = [];
       if(e.owner) chips.push(`<span class="chip chip-owner">${escapeHtml(e.owner)}</span>`);
       if((activeCat==='games' || activeCat==='books') && e.status) chips.push(`<span class="chip status-${e.status.toLowerCase()}">${e.status}</span>`);
@@ -2512,6 +2599,10 @@ function render(){
       if(activeCat==='games' && e.rarity) chips.push(`<span class="chip">${e.rarity}</span>`);
       if(e.genre) chips.push(`<span class="chip">${e.genre}</span>`);
       if(activeCat==='books' && e.dimensions) chips.push(`<span class="chip">${e.dimensions}</span>`);
+      if(activeCat==='consoles' && e.model) chips.push(`<span class="chip">${escapeHtml(e.model)}</span>`);
+      if(activeCat==='consoles' && e.condition) chips.push(`<span class="chip">${escapeHtml(e.condition)}</span>`);
+      if(activeCat==='consoles' && e.region) chips.push(`<span class="chip">${escapeHtml(e.region.split(' ')[0])}</span>`);
+      if(activeCat==='consoles' && e.boxed==='Boxed') chips.push(`<span class="chip chip-sealed">Boxed</span>`);
       const catnoTag = `<span class="chip" style="font-family:'JetBrains Mono',monospace;">${catNo(activeCat, origIndex)}</span>`;
       const price = e.price ? `$${parseFloat(e.price).toFixed(2)}` : '';
       const titleBlock = `<h4>${escapeHtml(e.title)}</h4>${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}`;
@@ -2575,7 +2666,8 @@ function render(){
   document.getElementById('statGames').textContent = data.games.length;
   document.getElementById('statMusic').textContent = data.music.length;
   document.getElementById('statBooks').textContent = data.books.length;
-  const totalSpent = [...data.games, ...data.music, ...data.books].reduce((sum,e)=>sum+(parseFloat(e.price)||0),0);
+  document.getElementById('statConsoles').textContent = data.consoles.length;
+  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles].reduce((sum,e)=>sum+(parseFloat(e.price)||0),0);
   document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
 }
 
