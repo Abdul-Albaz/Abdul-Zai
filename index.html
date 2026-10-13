@@ -315,17 +315,19 @@
     padding:20px;
   }
   .slip-overlay.open{display:flex;}
-  /* Artwork shown beside the add/edit pop-up (wide screens; the form keeps its small preview everywhere) */
-  .slip-art{display:none;flex:0 0 auto;width:340px;max-width:30vw;margin-right:24px;align-self:center;}
-  @media (min-width:1080px){ .slip-art{display:block;} }
-  .slip-art img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);}
-  .slip-art .art-empty{aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);background:var(--ink-soft);color:#fff;}
-  .slip-art .art-empty h4{margin:0;font-size:22px;line-height:1.2;}
-  .slip-art .art-empty p{margin:0;font-size:12px;opacity:.75;letter-spacing:1px;text-transform:uppercase;}
-  .slip-art .art-empty.games{background:var(--cart);color:#1a0d05;}
-  .slip-art .art-empty.music{background:var(--tape);color:#0a1615;aspect-ratio:1/1;}
-  .slip-art .art-empty.books{background:var(--book);color:#221016;}
-  .slip-art .art-empty.consoles{background:var(--console);color:#08111f;aspect-ratio:1/1;}
+  /* Artwork shown beside the pop-ups (the card's detail window and the add/edit form) */
+  .slip-art, .detail-art{display:none;flex:0 1 340px;min-width:0;margin-right:24px;align-self:center;}
+  .detail-art{pointer-events:none;}                 /* clicking the art just closes the window, like clicking the dark background */
+  @media (min-width:700px){ .detail-art{display:block;} }
+  @media (min-width:900px){ .slip-art{display:block;} }
+  .slip-art img, .detail-art img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);}
+  .slip-art .art-empty, .detail-art .art-empty{aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);background:var(--ink-soft);color:#fff;}
+  .slip-art .art-empty h4, .detail-art .art-empty h4{margin:0;font-size:22px;line-height:1.2;overflow-wrap:anywhere;}
+  .slip-art .art-empty p, .detail-art .art-empty p{margin:0;font-size:12px;opacity:.75;letter-spacing:1px;text-transform:uppercase;}
+  .slip-art .art-empty.games, .detail-art .art-empty.games{background:var(--cart);color:#1a0d05;}
+  .slip-art .art-empty.music, .detail-art .art-empty.music{background:var(--tape);color:#0a1615;aspect-ratio:1/1;}
+  .slip-art .art-empty.books, .detail-art .art-empty.books{background:var(--book);color:#221016;}
+  .slip-art .art-empty.consoles, .detail-art .art-empty.consoles{background:var(--console);color:#08111f;aspect-ratio:1/1;}
   .slip{
     display:block;
     background:var(--paper);
@@ -956,6 +958,7 @@
     </div>
 
     <div class="detail-overlay" id="detailOverlay" onclick="if(event.target===this) closeDetail()">
+      <div class="detail-art" id="detailArt" aria-hidden="true"></div>
       <div class="detail-modal" id="detailModal"></div>
     </div>
 
@@ -1852,31 +1855,34 @@ function renderStarInput(){
 // Big artwork beside the add/edit pop-up: follows the cover as it changes
 // (uploaded, pasted link, or found automatically), or shows a coloured
 // placeholder with the title when there isn't any yet.
-function updateSlipArt(){
-  const el = document.getElementById('slipArt');
+function renderSideArt(el, cover, title, cat){
   if(!el) return;
   el.innerHTML = '';
   const showEmpty = ()=>{
     el.innerHTML = '';
     const box = document.createElement('div');
-    box.className = 'art-empty ' + activeCat;
+    box.className = 'art-empty ' + cat;
     const h = document.createElement('h4');
-    h.textContent = currentTitleValue() || 'New entry';
+    h.textContent = title || 'New entry';
     const p = document.createElement('p');
     p.textContent = 'No artwork yet';
     box.appendChild(h);
     box.appendChild(p);
     el.appendChild(box);
   };
-  if(currentCover){
+  if(cover){
     const img = document.createElement('img');
     img.alt = '';
     img.onerror = showEmpty;      // broken link -> placeholder instead of a broken image
-    img.src = currentCover;
+    img.src = cover;
     el.appendChild(img);
   } else {
     showEmpty();
   }
+}
+
+function updateSlipArt(){
+  renderSideArt(document.getElementById('slipArt'), currentCover, currentTitleValue(), activeCat);
 }
 
 function updateCoverPreview(){
@@ -2396,6 +2402,7 @@ function openDetail(id){
       <button class="btn btn-ghost" onclick="closeDetail()">Close</button>
       <button class="btn btn-primary ${cat}" onclick="closeDetail();editEntry('${entry.id}')">Edit</button>
     </div>`;
+  renderSideArt(document.getElementById('detailArt'), entry.cover, entry.title, cat);
   document.getElementById('detailOverlay').classList.add('open');
 }
 
