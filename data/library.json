@@ -4629,7 +4629,14 @@
       "addedAt": 1784126629271,
       "title": "sinatra ultimate",
       "rating": 0,
-      "cover": ""
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791921150993-sinatra-ultimate.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqlvyg9",
@@ -4671,7 +4678,14 @@
       "addedAt": 1784126629267,
       "title": "best of beatles",
       "rating": 0,
-      "cover": ""
+      "cover": "https://i.ebayimg.com/images/g/WowAAOSwK6JhsN2q/s-l1200.jpg",
+      "owner": "",
+      "artist": "",
+      "format": "Vinyl",
+      "genre": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrm6xhnqh6707",
@@ -8048,5 +8062,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791920893634
+  "savedAt": 1791921185366
 }
