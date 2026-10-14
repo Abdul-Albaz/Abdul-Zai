@@ -872,7 +872,7 @@
         <option value="title">Sort: Title A–Z</option>
         <option value="rating">Sort: Rating</option>
         <option value="price">Sort: Price</option>
-        <option value="platform" id="sortPlatformOpt">Sort: Platform</option>
+        <option value="platform" id="sortPlatformOpt" selected>Sort: Platform</option>
         <option value="custom">Sort: My order</option>
       </select>
       <button class="btn btn-ghost" id="toolbarEditBtn" onclick="toggleToolbarExtra()" title="Show import/export, select, size and storage options">⚙ Edit</button>
@@ -1189,7 +1189,7 @@ let currentIcon = '🏠';
 const FIELDS = {
   games: [
     {key:'title', label:'Title', type:'text', full:true, required:true},
-    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
     {key:'platform', label:'Platform', type:'text', placeholder:'e.g. Switch, PC, PS5'},
     {key:'publisher', label:'Publisher', type:'text', placeholder:'e.g. Yacht Club Games'},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. RPG, Platformer'},
@@ -1202,7 +1202,7 @@ const FIELDS = {
   ],
   music: [
     {key:'title', label:'Album / Title', type:'text', full:true, required:true},
-    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
     {key:'artist', label:'Artist', type:'text'},
     {key:'format', label:'Format', type:'select', options:['Vinyl','CD','Cassette','Digital']},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Jazz, Indie'},
@@ -1212,7 +1212,7 @@ const FIELDS = {
   ],
   books: [
     {key:'title', label:'Title', type:'text', full:true, required:true},
-    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
     {key:'author', label:'Author', type:'text'},
     {key:'format', label:'Format', type:'select', options:['Paperback','Hardcover','Ebook','Audiobook']},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Sci-Fi, Memoir'},
@@ -1224,7 +1224,7 @@ const FIELDS = {
   ],
   consoles: [
     {key:'title', label:'Console', type:'text', full:true, required:true, placeholder:'e.g. PlayStation 5, Nintendo Switch'},
-    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai'], placeholder:'Abdul, Zai, or type a name'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
     {key:'manufacturer', label:'Manufacturer', type:'text', list:['Sony','Nintendo','Microsoft','Sega','Atari','Valve'], placeholder:'e.g. Sony, Nintendo'},
     {key:'model', label:'Model', type:'text', placeholder:'e.g. Slim, OLED, CUH-1215A'},
     {key:'edition', label:'Edition / Color', type:'text', placeholder:'e.g. Limited Edition, White'},
@@ -2547,7 +2547,7 @@ function render(){
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
     const matchesPlatform = activeCat!=='games' || platformFilter==='All' || platformKey(e.platform)===platformFilter;
-    const matchesOwner = ownerFilter==='all' || ownerKey(e.owner)===ownerFilter;
+    const matchesOwner = ownerFilter==='all' || ownerKeys(e.owner).includes(ownerFilter);
     return matchesQ && matchesStatus && matchesPlatform && matchesOwner;
   });
 
@@ -2946,19 +2946,28 @@ document.addEventListener('keydown', e=>{
 // any other device. Each account only ever writes its own entry.
 // =====================================================================
 const PREFS_PATH = 'data/prefs.json';
-let userSort = 'added';      // the sort the person chose (kept even when its option is hidden on another tab)
+let userSort = 'platform';   // the sort in use: Platform unless the person picks another (kept even when its option is hidden on another tab)
+let sortChosen = false;      // true once the person has picked a sort themselves
 let ownerFilter = 'all';     // 'all' or a lowercase owner name such as 'abdul'
 let prefsTimer = null;
 
 function ownerKey(o){ return (o||'').trim().toLowerCase(); }
 
+// Things Abdul and Zai own together ("Both", also "Shared" or "Abdul & Zai") count for each of them.
+function ownerKeys(o){
+  const k = ownerKey(o);
+  if(!k) return [];
+  const shared = k==='both' || k==='shared' || k==='together' || (k.includes('abdul') && k.includes('zai'));
+  return shared ? ['abdul','zai','both'] : [k];
+}
+
 function populateOwnerFilter(){
   const sel = document.getElementById('ownerFilter');
   if(!sel) return;
-  const names = new Map([['abdul','Abdul'], ['zai','Zai']]);   // always offered
+  const names = new Map([['abdul','Abdul'], ['zai','Zai'], ['both','Both']]);   // always offered
   data[activeCat].forEach(e=>{
-    const k = ownerKey(e.owner);
-    if(k && !names.has(k)) names.set(k, e.owner.trim());
+    const ks = ownerKeys(e.owner);
+    if(ks.length===1 && !names.has(ks[0])) names.set(ks[0], e.owner.trim());
   });
   if(ownerFilter!=='all' && !names.has(ownerFilter)) ownerFilter = 'all';
   sel.innerHTML = '<option value="all">All owners</option>' +
@@ -2968,6 +2977,7 @@ function populateOwnerFilter(){
 
 function onSortChange(){
   userSort = document.getElementById('sortBy').value;
+  sortChosen = true;
   render();
   savePrefsNow();
 }
@@ -2978,21 +2988,25 @@ function onOwnerChange(){
 }
 
 function currentPrefs(){
-  return { sortBy: userSort, owner: ownerFilter, updatedAt: Date.now() };
+  return { sortBy: userSort, sortChosen: sortChosen, owner: ownerFilter, updatedAt: Date.now() };
 }
 function applyPrefs(p){
   if(!p) return;
   const sel = document.getElementById('sortBy');
-  if(p.sortBy && [...sel.options].some(o=>o.value===p.sortBy)){
+  // Settings saved before Platform became the default can't say whether "Recently added" was a
+  // deliberate pick, so only a flagged choice (or any other sort) overrides the Platform default.
+  if(p.sortBy && [...sel.options].some(o=>o.value===p.sortBy) && (p.sortChosen || p.sortBy!=='added')){
     userSort = p.sortBy;
+    sortChosen = true;
     sel.value = p.sortBy;
   }
   ownerFilter = (p.owner && typeof p.owner==='string') ? p.owner : 'all';
 }
 function resetViewPrefs(){
-  userSort = 'added';
+  userSort = 'platform';
+  sortChosen = false;
   ownerFilter = 'all';
-  document.getElementById('sortBy').value = 'added';
+  document.getElementById('sortBy').value = 'platform';
 }
 
 async function readLocalPrefs(user){
