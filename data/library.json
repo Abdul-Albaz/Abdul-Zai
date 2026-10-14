@@ -1360,7 +1360,8 @@
       "genre": "",
       "price": "",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": "2"
     },
     {
       "id": "mrm6g5qjzhk0u",
@@ -1821,23 +1822,6 @@
       "purchaseDate": "",
       "notes": "",
       "quantity": "2"
-    },
-    {
-      "id": "mrm6g5qjlp9gs",
-      "addedAt": 1784125820608,
-      "title": "hollow knight",
-      "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784187491888-hollow-knight.jpg",
-      "platform": "nintendo switch",
-      "publisher": "fangamer",
-      "status": "Completed",
-      "sealed": "Not sealed",
-      "rarity": "no",
-      "owner": "Zai",
-      "genre": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": ""
     },
     {
       "id": "mrm6g5qjlu6hw",
@@ -8111,5 +8095,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791972482790
+  "savedAt": 1791972601924
 }
