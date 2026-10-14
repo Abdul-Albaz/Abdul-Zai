@@ -834,7 +834,8 @@
       "genre": "",
       "price": "30",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791972853420-adventure-time-square.jpg"
     },
     {
       "id": "mrm6g5qiv78sw",
@@ -8081,5 +8082,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791972747611
+  "savedAt": 1791972857069
 }
