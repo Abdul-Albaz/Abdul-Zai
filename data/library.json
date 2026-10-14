@@ -1,6 +1,23 @@
 {
   "games": [
     {
+      "title": "Wanted Dead!",
+      "owner": "Abdul",
+      "platform": "playstation 5",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791970263329-wanted-dead.jpg",
+      "id": "mv7wug5bmvlaj",
+      "addedAt": 1791970294079
+    },
+    {
       "title": "xenoblade chronicles 3",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -8076,5 +8093,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791921524735
+  "savedAt": 1791970295583
 }
