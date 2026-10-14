@@ -630,6 +630,7 @@
   .card-overlay .sub{font-size:12px;color:#c9c2b4;margin:0 0 8px;}
   .card-overlay .chip{background:rgba(237,230,214,0.16);color:#EDE6D6;}
   .card-overlay .chip.chip-sealed{background:rgba(214,162,74,0.35);color:#f0cd8a;}
+  .card-overlay .chip.chip-qty{background:rgba(255,255,255,0.92);color:#1a1612;font-weight:700;}
   .card-overlay .stars-view{color:var(--gold);}
   .card-overlay .price{color:#e3ddd0;}
   .card-overlay .icon-btn{color:#EDE6D6;}
@@ -660,6 +661,7 @@
   .chip.status-reading{background:rgba(63,112,104,0.18);color:#2c5852;}
   .chip.status-completed{background:rgba(201,98,42,0.18);color:#8f4319;}
   .chip.chip-sealed{background:rgba(214,162,74,0.22);color:#8a6516;font-weight:700;}
+  .chip.chip-qty{background:#1a1612;color:#fff;font-weight:700;}
   .chip.chip-owner{background:rgba(63,112,104,0.18);color:#2c5852;font-weight:700;}
   .card-overlay .chip.chip-owner{background:rgba(214,162,74,0.28);color:#f0cd8a;}
   .stars-view{color:var(--gold);font-size:13px;letter-spacing:1px;}
@@ -1196,6 +1198,7 @@ const FIELDS = {
     {key:'sealed', label:'Sealed?', type:'select', options:['Not sealed','Sealed']},
     {key:'rarity', label:'Rarity', type:'text', placeholder:'e.g. Common, Limited Run'},
     {key:'status', label:'Finished', type:'select', options:['Backlog','Playing','Completed']},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
@@ -1206,6 +1209,7 @@ const FIELDS = {
     {key:'artist', label:'Artist', type:'text'},
     {key:'format', label:'Format', type:'select', options:['Vinyl','CD','Cassette','Digital']},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Jazz, Indie'},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
@@ -1218,6 +1222,7 @@ const FIELDS = {
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Sci-Fi, Memoir'},
     {key:'status', label:'Status', type:'select', options:['Backlog','Reading','Completed']},
     {key:'dimensions', label:'Size', type:'text', placeholder:'e.g. 12.7 × 17.8 cm'},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
@@ -1232,6 +1237,7 @@ const FIELDS = {
     {key:'condition', label:'Condition', type:'select', options:['New','Like new','Good','Fair','For parts']},
     {key:'boxed', label:'Box', type:'select', options:['Boxed','No box']},
     {key:'serial', label:'Serial number', type:'text'},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'controllers, cables, mods…'},
@@ -1478,6 +1484,7 @@ const CSV_ALIASES = {
   owner:['owner','whose','belongsto'],
   platform:['platform','system','console'],
   publisher:['publisher'],
+  quantity:['quantity','qty','copies','count'],
   manufacturer:['manufacturer','maker','brand'],
   model:['model'],
   edition:['edition','color','colour'],
@@ -1500,10 +1507,10 @@ const CSV_ALIASES = {
 };
 
 const CSV_HINTS = {
-  games: 'CSV columns: title, owner, platform, publisher, sealed?, rarity, finished, price, purchaseDate, rating, notes',
-  music: 'CSV columns: title, owner, artist, format, genre, price, purchaseDate, rating, notes',
-  books: 'CSV columns: title, owner, author, format, genre, status, dimensions, price, purchaseDate, rating, notes',
-  consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, price, purchaseDate, rating, notes'
+  games: 'CSV columns: title, owner, platform, publisher, sealed?, rarity, finished, quantity, price, purchaseDate, rating, notes',
+  music: 'CSV columns: title, owner, artist, format, genre, quantity, price, purchaseDate, rating, notes',
+  books: 'CSV columns: title, owner, author, format, genre, status, dimensions, quantity, price, purchaseDate, rating, notes',
+  consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, quantity, price, purchaseDate, rating, notes'
 };
 
 function updateCsvHint(){
@@ -1570,6 +1577,9 @@ async function handleCsvImport(event){
       if(key==='rating'){
         const n = parseInt(raw,10);
         entry.rating = isNaN(n) ? 0 : Math.max(0, Math.min(5,n));
+      } else if(key==='quantity'){
+        const q = parseInt(raw,10);
+        if(q > 1) entry.quantity = String(q);
       } else {
         const fieldDef = FIELDS[activeCat].find(f=>f.key===key);
         if(fieldDef && fieldDef.type==='select'){
@@ -1748,7 +1758,7 @@ function openSlip(entry){
       inner += `<input type="text" data-key="${f.key}" list="${listId}" placeholder="${f.placeholder||''}" value="${val}">
         <datalist id="${listId}">${f.list.map(o=>`<option value="${o}">`).join('')}</datalist>`;
     } else {
-      inner += `<input type="${f.type}" data-key="${f.key}" placeholder="${f.placeholder||''}" value="${val}">`;
+      inner += `<input type="${f.type}" data-key="${f.key}" placeholder="${f.placeholder||''}" value="${val}"${f.min!==undefined?` min="${f.min}"`:''}${f.step!==undefined?` step="${f.step}"`:''}>`;
     }
     wrap.innerHTML = inner;
     container.appendChild(wrap);
@@ -2301,6 +2311,9 @@ async function saveEntry(){
   }
   fields.rating = currentRating;
   fields.cover = currentCover;
+  // Copies: a whole number of 2 or more is kept; 1 / blank / nonsense means "just one".
+  const q = parseInt(fields.quantity, 10);
+  fields.quantity = q > 1 ? String(q) : '';
 
   let savedId = editingId;
   if(editingId){
@@ -2607,6 +2620,7 @@ function render(){
       const sub = e[SUB_KEYS[activeCat]] || '';
       const chips = [];
       if(e.owner) chips.push(`<span class="chip chip-owner">${escapeHtml(e.owner)}</span>`);
+      if(qtyOf(e) > 1) chips.push(`<span class="chip chip-qty" title="${qtyOf(e)} copies">×${qtyOf(e)}</span>`);
       if((activeCat==='games' || activeCat==='books') && e.status) chips.push(`<span class="chip status-${e.status.toLowerCase()}">${e.status}</span>`);
       if((activeCat==='music' || activeCat==='books') && e.format) chips.push(`<span class="chip">${e.format}</span>`);
       if(activeCat==='games' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
@@ -2678,11 +2692,11 @@ function render(){
     }).join('');
   }
 
-  document.getElementById('statGames').textContent = data.games.length;
-  document.getElementById('statMusic').textContent = data.music.length;
-  document.getElementById('statBooks').textContent = data.books.length;
-  document.getElementById('statConsoles').textContent = data.consoles.length;
-  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles].reduce((sum,e)=>sum+(parseFloat(e.price)||0),0);
+  document.getElementById('statGames').textContent = countCopies(data.games);
+  document.getElementById('statMusic').textContent = countCopies(data.music);
+  document.getElementById('statBooks').textContent = countCopies(data.books);
+  document.getElementById('statConsoles').textContent = countCopies(data.consoles);
+  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
 }
 
@@ -2950,6 +2964,10 @@ let userSort = 'platform';   // the sort in use: Platform unless the person pick
 let sortChosen = false;      // true once the person has picked a sort themselves
 let ownerFilter = 'all';     // 'all' or a lowercase owner name such as 'abdul'
 let prefsTimer = null;
+
+// How many copies of this item you have (1 unless a bigger number was entered).
+function qtyOf(e){ return Math.max(1, parseInt(e && e.quantity, 10) || 1); }
+function countCopies(list){ return list.reduce((n,e)=>n+qtyOf(e), 0); }
 
 function ownerKey(o){ return (o||'').trim().toLowerCase(); }
 
