@@ -1364,23 +1364,6 @@
       "quantity": "2"
     },
     {
-      "id": "mrm6g5qjzhk0u",
-      "addedAt": 1784125820635,
-      "title": "super smash bros",
-      "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784179604439-super-smash-bros.jpg",
-      "platform": "nintendo switch",
-      "publisher": "nintendo",
-      "status": "Backlog",
-      "sealed": "Not sealed",
-      "rarity": "no",
-      "owner": "Zai",
-      "genre": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": ""
-    },
-    {
       "id": "mrm6g5qjqksdw",
       "addedAt": 1784125820634,
       "title": "tomodachi life living the dream",
@@ -8095,5 +8078,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791972601924
+  "savedAt": 1791972606358
 }
