@@ -7960,7 +7960,8 @@
       "rating": 0,
       "cover": "https://media.icdn.hu/product/2025-08/726140/1996205_nintendo-switch-2-fekete.webp",
       "id": "mv67l4rf3xw7n",
-      "addedAt": 1791867402843
+      "addedAt": 1791867402843,
+      "quantity": "2"
     },
     {
       "title": "Nintendo switch lite",
@@ -8078,5 +8079,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791972618329
+  "savedAt": 1791972643989
 }
