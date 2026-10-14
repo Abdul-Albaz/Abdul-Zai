@@ -869,7 +869,8 @@
       "genre": "",
       "price": "30",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791972912276-animal-crossing-square.jpg"
     },
     {
       "id": "mrm6g5qij60d9",
@@ -8082,5 +8083,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1791972857069
+  "savedAt": 1791972923534
 }
