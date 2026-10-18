@@ -8183,7 +8183,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/61AcOZUe3RL._AC_UF1000,1000_QL80_.jpg",
+      "cover": "https://cdn.shopify.com/s/files/1/0014/1962/products/product_UT_artbook_designview.png?v=1653076637",
       "id": "mvebqyirl2dm1",
       "addedAt": 1792358122563
     },
@@ -8531,5 +8531,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792358124065
+  "savedAt": 1792358148014
 }
