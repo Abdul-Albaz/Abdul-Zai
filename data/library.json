@@ -8168,6 +8168,26 @@
   ],
   "artbooks": [
     {
+      "title": "Call of Duty: Black Ops 4 - The Official Comic Collection",
+      "owner": "Both",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/81plwh-CI+L._AC_UF1000,1000_QL80_.jpg",
+      "id": "mvec7pmo90foa",
+      "addedAt": 1792358904192
+    },
+    {
       "title": "The Hobbit: An Unexpected Journey - Chronicles I: Art & Design",
       "owner": "",
       "series": "",
@@ -8591,5 +8611,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792358809545
+  "savedAt": 1792358905693
 }
