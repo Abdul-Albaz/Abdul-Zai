@@ -8168,6 +8168,26 @@
   ],
   "artbooks": [
     {
+      "title": "The Art of Howl's Moving Castle",
+      "owner": "Both",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421500492/the-art-of-howls-moving-castle-9781421500492_hr.jpg",
+      "id": "mvec32ypamuuv",
+      "addedAt": 1792358688193
+    },
+    {
       "title": "The Art of Totoro",
       "owner": "Both",
       "series": "",
@@ -8551,5 +8571,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792358618695
+  "savedAt": 1792358689696
 }
