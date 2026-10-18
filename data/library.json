@@ -4622,7 +4622,7 @@
     {
       "id": "mrm6xhnq4cfsd",
       "addedAt": 1784126629273,
-      "title": "thriller",
+      "title": "michael jackson thriller",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791791296615-thriller.jpg",
       "owner": "",
@@ -4631,7 +4631,10 @@
       "genre": "",
       "price": "",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": "",
+      "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/58/8c/cb/588ccb9a-ab79-4a38-43b5-d4c24ea42859/mzaf_2083607504726567992.plus.aac.p.m4a",
+      "previewLabel": "Thriller — Michael Jackson"
     },
     {
       "id": "mrm6xhnqhyztm",
@@ -8124,5 +8127,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792282526014
+  "savedAt": 1792282535562
 }
