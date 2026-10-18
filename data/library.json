@@ -8290,24 +8290,6 @@
   ],
   "figures": [
     {
-      "title": "The Art of Totoro",
-      "owner": "Both",
-      "series": "",
-      "manufacturer": "",
-      "scale": "",
-      "edition": "",
-      "condition": "New",
-      "boxed": "Boxed",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/814b448GPxL._AC_UF1000,1000_QL80_.jpg",
-      "id": "mvec11qmxcn33",
-      "addedAt": 1792358593294
-    },
-    {
       "title": "Lord Of the Rings S9 – Frodo Baggins",
       "owner": "",
       "series": "",
@@ -8549,5 +8531,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792358594796
+  "savedAt": 1792358599113
 }
