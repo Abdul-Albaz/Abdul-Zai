@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "Star trek tricorder",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://www.masterreplicas.co.uk/cdn/shop/files/TOSMedicalTricorder1Hero.jpg?v=1780560796",
+      "id": "mve66cz04wic0",
+      "addedAt": 1792348763436
+    },
+    {
       "title": "Back to the future – DeLorean Elite Collection 1/18th",
       "owner": "",
       "series": "",
@@ -8331,5 +8349,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792348627822
+  "savedAt": 1792348764938
 }
