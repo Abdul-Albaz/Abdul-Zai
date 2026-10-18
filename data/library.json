@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "Lord Of the Rings S9 – Frodo Baggins",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://www.toytownstores.com/images/funko-pop-plus-lord-of-the-rings-s9-frodo-baggins-p7667-20942_image.jpg",
+      "id": "mve6q65g1w06h",
+      "addedAt": 1792349687716
+    },
+    {
       "title": "Duck Destany",
       "owner": "",
       "series": "",
@@ -8493,5 +8511,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792349607418
+  "savedAt": 1792349689217
 }
