@@ -8168,6 +8168,26 @@
   ],
   "artbooks": [
     {
+      "title": "The Art of Death Stranding",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/41zpVrTcw4L._SX342_SY445_FMwebp_.jpg",
+      "id": "mvd4rf5u1ea6z",
+      "addedAt": 1792285920642
+    },
+    {
       "title": "The Art and Making of Hogwarts Legacy",
       "owner": "Abdul",
       "series": "",
@@ -8236,5 +8256,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792285852845
+  "savedAt": 1792285922145
 }
