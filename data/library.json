@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "duck Yakoza",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://tubbz.com/cdn/shop/files/KazumaKiryu_Yakuza_MiniTUBBZ_PL_2.jpg?v=1754319446&width=1080",
+      "id": "mve6lrpsjyv6l",
+      "addedAt": 1792349482384
+    },
+    {
       "title": "Duck",
       "owner": "",
       "series": "",
@@ -8439,5 +8457,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792349386671
+  "savedAt": 1792349483886
 }
