@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "Back to the future – DeLorean Elite Collection 1/18th",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://cawettejones.com/wp-content/uploads/2020/04/6f9c2d98a53879004ef9b96219309ab4.jpg",
+      "id": "mve60r83x4cm1",
+      "addedAt": 1792348501971
+    },
+    {
       "title": "NECA Half-Life 2 Dr. Gordon Freeman 7",
       "owner": "Abdul",
       "series": "",
@@ -8313,5 +8331,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792348248576
+  "savedAt": 1792348503473
 }
