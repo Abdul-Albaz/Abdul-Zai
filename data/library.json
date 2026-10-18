@@ -8370,6 +8370,24 @@
   ],
   "figures": [
     {
+      "title": "Lego Gameboy",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://static0.pocketlintimages.com/wordpress/wp-content/uploads/wm/2025/09/lego-game-boy-and-cartridge.jpg?w=1600&h=1200&fit=crop",
+      "id": "mveced68kqkad",
+      "addedAt": 1792359214640
+    },
+    {
       "title": "Rp Minis Cuphead Bobbling Figurine: With Sound",
       "owner": "",
       "series": "",
@@ -8629,5 +8647,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792359096026
+  "savedAt": 1792359216142
 }
