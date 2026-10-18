@@ -4398,7 +4398,7 @@
       "addedAt": 1791791705364
     },
     {
-      "title": "Persona 4",
+      "title": "Persona 4 Pursuing My True Self",
       "owner": "",
       "artist": "",
       "format": "Vinyl",
@@ -4411,8 +4411,8 @@
       "id": "mv4yg5dcug1mj",
       "addedAt": 1791791587632,
       "quantity": "",
-      "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/1f/d9/9a1fd947-b0bf-7f37-8eef-42d5b2706a60/mzaf_13818667118844058371.plus.aac.p.m4a",
-      "previewLabel": "It's Going Down Now — Azumi Takahashi / Lotus Juice / ATLUS Sound Team / ATLUS GAME MUSIC"
+      "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/27/e4/b2/27e4b226-07c9-47b9-b681-02f7c68969d6/mzaf_1317385728091815541.plus.aac.p.m4a",
+      "previewLabel": "Pursuing My True Self — Shihoko Hirata"
     },
     {
       "title": "Blurryface",
@@ -8145,5 +8145,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792282812598
+  "savedAt": 1792282849816
 }
