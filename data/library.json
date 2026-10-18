@@ -8268,7 +8268,26 @@
       "addedAt": 1792285708126
     }
   ],
-  "figures": [],
+  "figures": [
+    {
+      "title": "ELDEN RING SHADOW OF THE ERDTREE COLLECTOR EDITION",
+      "owner": "Abdul",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://i.ebayimg.com/images/g/D08AAOSwo8ZmFeOG/s-l1200.jpg",
+      "id": "mvd4ymsj0wtsd",
+      "addedAt": 1792286257123
+    }
+  ],
   "icon": "🏠",
   "theme": {
     "color": "#0b0a09",
@@ -8276,5 +8295,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792286049327
+  "savedAt": 1792286258625
 }
