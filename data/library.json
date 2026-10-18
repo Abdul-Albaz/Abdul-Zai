@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "NECA Half-Life 2 Dr. Gordon Freeman 7",
+      "owner": "Abdul",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "Good",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://i.ebayimg.com/images/g/pZMAAOSwRV5jovVH/s-l1200.jpg",
+      "id": "mve5r528xi2kj",
+      "addedAt": 1792348053344
+    },
+    {
       "title": "ELDEN RING SHADOW OF THE ERDTREE COLLECTOR EDITION",
       "owner": "Abdul",
       "series": "",
@@ -8295,5 +8313,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792286258625
+  "savedAt": 1792348054847
 }
