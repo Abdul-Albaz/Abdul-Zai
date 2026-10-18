@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "TUBBZ Dark Soul Duck",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://tubbz.com/cdn/shop/products/dark-souls-tubbz-oscar-1_1.jpg?v=1754480678&width=1000",
+      "id": "mve6fxusew5fd",
+      "addedAt": 1792349210404
+    },
+    {
       "title": "the order 1886 action figure",
       "owner": "",
       "series": "",
@@ -8385,5 +8403,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792349076167
+  "savedAt": 1792349211906
 }
