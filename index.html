@@ -24,6 +24,8 @@
     --tape:#3F7068;   /* music accent */
     --book:#8B4A5C;   /* books accent */
     --console:#4C6FA5;   /* consoles accent */
+    --artbook:#8A63B8;   /* artbooks accent */
+    --figure:#5C9E6B;   /* figures accent */
     --gold:#D6A24A;
     --line: rgba(237,230,214,0.12);
   }
@@ -114,7 +116,9 @@
   }
   .stats{
     display:flex;
-    gap:22px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:10px 22px;
     font-family:'JetBrains Mono', monospace;
   }
   .stat{text-align:right;}
@@ -145,6 +149,8 @@
   .tab[data-cat="music"].active{background:var(--tape);color:#0a1615;border-color:var(--tape);}
   .tab[data-cat="books"].active{background:var(--book);color:#221016;border-color:var(--book);}
   .tab[data-cat="consoles"].active{background:var(--console);color:#08111f;border-color:var(--console);}
+  .tab[data-cat="artbooks"].active{background:var(--artbook);color:#150f1f;border-color:var(--artbook);}
+  .tab[data-cat="figures"].active{background:var(--figure);color:#0c1a10;border-color:var(--figure);}
   .tab:not(.active):hover{color:var(--paper);}
 
   .panel{
@@ -231,6 +237,8 @@
   .btn-primary.music{background:var(--tape);color:#0a1615;}
   .btn-primary.books{background:var(--book);color:#221016;}
   .btn-primary.consoles{background:var(--console);color:#08111f;}
+  .btn-primary.artbooks{background:var(--artbook);color:#150f1f;}
+  .btn-primary.figures{background:var(--figure);color:#0c1a10;}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
   .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
   .btn-ghost.active-toggle{color:var(--gold);border-color:var(--gold);}
@@ -327,6 +335,8 @@
   .detail-art .art-empty.music{background:var(--tape);color:#0a1615;aspect-ratio:1/1;}
   .detail-art .art-empty.books{background:var(--book);color:#221016;}
   .detail-art .art-empty.consoles{background:var(--console);color:#08111f;aspect-ratio:1/1;}
+  .detail-art .art-empty.artbooks{background:var(--artbook);color:#150f1f;}
+  .detail-art .art-empty.figures{background:var(--figure);color:#0c1a10;aspect-ratio:1/1;}
   /* Card detail window: the artwork is exactly as tall as the beige card (height set by JS), width follows the picture */
   .detail-art{flex:0 1 auto;}
   .detail-art img{height:var(--art-h, auto);width:auto;max-width:100%;max-height:88vh;}
@@ -523,6 +533,7 @@
     margin-bottom:16px;white-space:pre-wrap;
   }
   .detail-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 20px 18px;}
+  .detail-actions .prev-act{margin-right:auto;}
   @media (max-width:480px){
     .detail-overlay{padding:0;align-items:flex-end;}
     .detail-modal{max-width:100%;border-radius:12px 12px 0 0;max-height:92vh;}
@@ -530,7 +541,21 @@
 
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
-  .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  /* preview sound buttons (Music) */
+  .prev-btn{width:32px;height:32px;border-radius:50%;border:none;background:rgba(0,0,0,0.68);color:#fff;font-size:13px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:0;transition:transform .12s, background .12s;}
+  .prev-btn:hover{transform:scale(1.1);background:var(--tape);color:#0a1615;}
+  .prev-btn.playing{background:var(--tape);color:#0a1615;}
+  .card-prev{position:absolute;top:8px;right:8px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,0.5);}
+  .detail-preview{display:flex;align-items:center;gap:10px;margin:2px 0 10px;font-size:13px;color:var(--ink-soft);}
+  .detail-preview .prev-btn{background:var(--ink);}
+  .detail-preview .prev-btn:hover, .detail-preview .prev-btn.playing{background:var(--tape);color:#0a1615;}
+  .preview-field{display:flex;gap:10px;align-items:flex-start;}
+  .preview-field .prev-btn{background:var(--ink);margin-top:2px;}
+  .preview-field .prev-btn:hover, .preview-field .prev-btn.playing{background:var(--tape);color:#0a1615;}
+  .preview-controls{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0;}
+  .preview-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
   .card{
     display:flex;
     flex-direction:column;
@@ -553,7 +578,7 @@
     background:var(--bg-soft);
     overflow:hidden;
   }
-  .cover-area.music, .cover-area.consoles{aspect-ratio:1/1;}
+  .cover-area.music, .cover-area.consoles, .cover-area.figures{aspect-ratio:1/1;}
   .cover-area.music:not(.placeholder)::after{
     content:'';
     position:absolute;
@@ -577,6 +602,8 @@
   .cover-area.placeholder.music{background:var(--tape);}
   .cover-area.placeholder.books{background:var(--book);}
   .cover-area.placeholder.consoles{background:var(--console);}
+  .cover-area.placeholder.artbooks{background:var(--artbook);}
+  .cover-area.placeholder.figures{background:var(--figure);}
   .cover-area .hole{
     position:absolute;top:12px;left:50%;transform:translateX(-50%);
     width:11px;height:11px;border-radius:50%;
@@ -765,8 +792,9 @@
 
     .icon-picker{left:auto;right:0;max-width:calc(100vw - 40px);}
 
-    .tabs{gap:6px;margin-bottom:0;}
-    .tab{flex:1;justify-content:center;padding:12px 8px;font-size:11px;letter-spacing:1px;white-space:nowrap;}
+    .tabs{gap:6px;margin-bottom:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .tabs::-webkit-scrollbar{display:none;}
+    .tab{flex:1 0 auto;justify-content:center;padding:12px 10px;font-size:11px;letter-spacing:1px;white-space:nowrap;}
     .panel{border-radius:0 0 8px 8px;padding:14px;}
 
     .toolbar{gap:8px;}
@@ -782,7 +810,7 @@
     select, input[type=text], input[type=search], input[type=number], input[type=date]{font-size:16px;}
 
     .grid-cards{grid-template-columns:repeat(3, 1fr) !important;gap:8px;zoom:1 !important;}
-    .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
+    .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
     .card-overlay{padding:8px;}
     .card-overlay h4{font-size:12px;}
     .card-overlay .sub{font-size:9.5px;margin:0 0 4px;}
@@ -828,7 +856,7 @@
   }
 
   @media (max-width:420px){
-    .grid-cards, .grid-cards.cat-music, .grid-cards.cat-consoles{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
+    .grid-cards, .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
     .tab .dot{display:none;}
     .title-block h1{font-size:24px;}
     .stat .num{font-size:17px;}
@@ -852,6 +880,8 @@
       <div class="stat"><span class="num" id="statMusic">0</span><span class="lbl">Music</span></div>
       <div class="stat"><span class="num" id="statBooks">0</span><span class="lbl">Books</span></div>
       <div class="stat"><span class="num" id="statConsoles">0</span><span class="lbl">Consoles</span></div>
+      <div class="stat"><span class="num" id="statArtbooks">0</span><span class="lbl">Artbooks</span></div>
+      <div class="stat"><span class="num" id="statFigures">0</span><span class="lbl">Figures</span></div>
       <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
@@ -861,6 +891,8 @@
     <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music</div>
     <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books</div>
     <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles</div>
+    <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks</div>
+    <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures</div>
   </div>
 
   <div class="panel">
@@ -922,7 +954,7 @@
       <div class="gh-modal">
         <h3>Image storage on GitHub</h3>
         <p class="gh-desc">
-          Cover images you pick, and your whole collection (games/music/books/consoles), are committed straight into your GitHub
+          Cover images you pick, and your whole collection (games/music/books/consoles/artbooks/figures), are committed straight into your GitHub
           repo — images into an <code>imges</code> folder, your entries into <code>data/library.json</code> — so it's all
           part of the live site, not just this browser. Open the site from any other PC and it will load the same data
           from GitHub automatically. This needs a token with write access to that one repo.
@@ -1144,13 +1176,15 @@ async function handleBackupImport(event){
     const text = await file.text();
     const backup = JSON.parse(text);
     const incoming = backup.data || backup; // tolerate a raw {games,music,books} file too
-    if(!incoming.games && !incoming.music && !incoming.books && !incoming.consoles){
+    if(!incoming.games && !incoming.music && !incoming.books && !incoming.consoles && !incoming.artbooks && !incoming.figures){
       throw new Error('This file does not look like a Home Collection backup.');
     }
     data.games = incoming.games || [];
     data.music = incoming.music || [];
     data.books = incoming.books || [];
     data.consoles = incoming.consoles || [];
+    data.artbooks = incoming.artbooks || [];
+    data.figures = incoming.figures || [];
     if(backup.layoutScale){
       Object.keys(layoutScale).forEach(cat=>{
         if(backup.layoutScale[cat]) layoutScale[cat] = normalizeScale(backup.layoutScale[cat]);
@@ -1161,7 +1195,7 @@ async function handleBackupImport(event){
       renderTitleIcon();
       buildIconPicker();
     }
-    await Promise.all([persist('games'), persist('music'), persist('books'), persist('consoles')]);
+    await Promise.all([persist('games'), persist('music'), persist('books'), persist('consoles'), persist('artbooks'), persist('figures')]);
     await Promise.all(Object.keys(layoutScale).map(cat=>window.storage.set('ui:scale:'+cat, String(layoutScale[cat]))));
     if(backup.icon) await window.storage.set('ui:icon', currentIcon);
     updateScaleUI();
@@ -1180,11 +1214,11 @@ let activeCat = 'games';
 let editingId = null;
 let currentRating = 0;
 let currentCover = '';
-let data = { games: [], music: [], books: [], consoles: [] };
+let data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [] };
 let selectMode = false;
 let selectedIds = new Set();
 let dragSrcId = null;
-let layoutScale = { games:75, music:75, books:75, consoles:75 };
+let layoutScale = { games:75, music:75, books:75, consoles:75, artbooks:75, figures:75 };
 const ICON_OPTIONS = ['🏠','🗃','📦','🎮','🎵','📚','🕹️','💿','📀','🎧','🧸','⭐','🗂️','🏆','🎯','🛍️','🧩','🔖'];
 let currentIcon = '🏠';
 
@@ -1241,6 +1275,36 @@ const FIELDS = {
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'controllers, cables, mods…'},
+  ],
+  artbooks: [
+    {key:'title', label:'Artbook', type:'text', full:true, required:true, placeholder:'e.g. The Art of Hades'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
+    {key:'series', label:'Franchise / Series', type:'text', placeholder:'e.g. Zelda, Persona, Studio Ghibli'},
+    {key:'author', label:'Artist / Author', type:'text'},
+    {key:'publisher', label:'Publisher', type:'text', list:['Dark Horse','Udon','VIZ Media','Square Enix','Titan Books','Prestel','Insight Editions'], placeholder:'e.g. Dark Horse'},
+    {key:'format', label:'Format', type:'select', options:['Hardcover','Softcover','Deluxe edition','Digital']},
+    {key:'language', label:'Language', type:'text', placeholder:'e.g. English, Japanese'},
+    {key:'dimensions', label:'Size', type:'text', placeholder:'e.g. 23 × 30 cm'},
+    {key:'condition', label:'Condition', type:'select', options:['New','Like new','Good','Fair']},
+    {key:'sealed', label:'Sealed?', type:'select', options:['Not sealed','Sealed']},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ],
+  figures: [
+    {key:'title', label:'Figure', type:'text', full:true, required:true, placeholder:'e.g. Hatsune Miku, Link (Tears of the Kingdom)'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
+    {key:'series', label:'Series / Franchise', type:'text', placeholder:'e.g. Zelda, Vocaloid, Persona'},
+    {key:'manufacturer', label:'Manufacturer', type:'text', list:['Good Smile Company','Bandai','Funko','Kotobukiya','Alter','Max Factory','Banpresto','Sega','Hot Toys'], placeholder:'e.g. Good Smile Company'},
+    {key:'scale', label:'Scale / Line', type:'text', placeholder:'e.g. 1/7, Nendoroid, Funko Pop'},
+    {key:'edition', label:'Edition', type:'text', placeholder:'e.g. Limited, Exclusive, Re-release'},
+    {key:'condition', label:'Condition', type:'select', options:['New','Like new','Good','Fair','Damaged']},
+    {key:'boxed', label:'Box', type:'select', options:['Boxed','No box']},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
   ]
 };
 
@@ -1248,7 +1312,9 @@ const STATUS_FILTERS = {
   games: ['All','Backlog','Playing','Completed'],
   music: ['All'],
   books: ['All','Backlog','Reading','Completed'],
-  consoles: ['All']
+  consoles: ['All'],
+  artbooks: ['All'],
+  figures: ['All']
 };
 
 function buildIconPicker(){
@@ -1313,7 +1379,7 @@ async function loadData(){
   }
 
   try{
-    const [g, m, b, sg, sm, sb, ic, sa, th, ii, lc, sc] = await Promise.allSettled([
+    const [g, m, b, sg, sm, sb, ic, sa, th, ii, lc, sc, lab, sab, lf, sf] = await Promise.allSettled([
       window.storage.get('library:games'),
       window.storage.get('library:music'),
       window.storage.get('library:books'),
@@ -1325,20 +1391,26 @@ async function loadData(){
       window.storage.get('ui:theme'),
       window.storage.get('ui:iconImage'),
       window.storage.get('library:consoles'),
-      window.storage.get('ui:scale:consoles')
+      window.storage.get('ui:scale:consoles'),
+      window.storage.get('library:artbooks'),
+      window.storage.get('ui:scale:artbooks'),
+      window.storage.get('library:figures'),
+      window.storage.get('ui:scale:figures')
     ]);
 
     const localGames = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : null;
     const localMusic = m.status==='fulfilled' && m.value ? JSON.parse(m.value.value) : null;
     const localBooks = b.status==='fulfilled' && b.value ? JSON.parse(b.value.value) : null;
     const localConsoles = lc.status==='fulfilled' && lc.value ? JSON.parse(lc.value.value) : null;
-    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null || localConsoles!==null;
+    const localArtbooks = lab.status==='fulfilled' && lab.value ? JSON.parse(lab.value.value) : null;
+    const localFigures = lf.status==='fulfilled' && lf.value ? JSON.parse(lf.value.value) : null;
+    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null || localConsoles!==null || localArtbooks!==null || localFigures!==null;
     const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
     // This browser's copy of the site look (replaced below if GitHub's copy is the one we use).
     try{ if(th.status==='fulfilled' && th.value && th.value.value) siteTheme = JSON.parse(th.value.value) || null; }catch(e){}
     if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImage = ii.value.value;
 
-    const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles);
+    const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles || remote.artbooks || remote.figures);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
 
     if(hasRemote && (!currentUser || !(hasLocal && localSavedAt > remoteSavedAt))){
@@ -1347,6 +1419,8 @@ async function loadData(){
       data.music = remote.music || [];
       data.books = remote.books || [];
       data.consoles = remote.consoles || [];
+      data.artbooks = remote.artbooks || [];
+      data.figures = remote.figures || [];
       if(remote.icon) currentIcon = remote.icon;
       if('theme' in remote) siteTheme = remote.theme || null;
       if('iconImage' in remote) siteIconImage = remote.iconImage || '';
@@ -1356,6 +1430,8 @@ async function loadData(){
         window.storage.set('library:music', JSON.stringify(data.music)),
         window.storage.set('library:books', JSON.stringify(data.books)),
         window.storage.set('library:consoles', JSON.stringify(data.consoles)),
+        window.storage.set('library:artbooks', JSON.stringify(data.artbooks)),
+        window.storage.set('library:figures', JSON.stringify(data.figures)),
         window.storage.set('library:savedAt', String(remoteSavedAt || Date.now())),
         window.storage.set('ui:theme', JSON.stringify(siteTheme)),
         window.storage.set('ui:iconImage', siteIconImage || '')
@@ -1367,10 +1443,12 @@ async function loadData(){
       data.music = localMusic || [];
       data.books = localBooks || [];
       data.consoles = localConsoles || [];
+      data.artbooks = localArtbooks || [];
+      data.figures = localFigures || [];
       if(hasRemote) scheduleGithubDataSync();
     }
 
-    const scaleResults = { games: sg, music: sm, books: sb, consoles: sc };
+    const scaleResults = { games: sg, music: sm, books: sb, consoles: sc, artbooks: sab, figures: sf };
     Object.keys(scaleResults).forEach(cat=>{
       const r = scaleResults[cat];
       if(r.status==='fulfilled' && r.value && r.value.value){
@@ -1382,7 +1460,7 @@ async function loadData(){
     }
   }catch(e){
     console.error('load error', e);
-    if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [] };
+    if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [] };
   }
   try{
     const pf = await window.storage.get('ui:platform');
@@ -1480,11 +1558,14 @@ function parseCSV(text){
 }
 
 const CSV_ALIASES = {
-  title:['title','name','album','game','book'],
+  title:['title','name','album','game','book','figure','artbook'],
   owner:['owner','whose','belongsto'],
   platform:['platform','system','console'],
   publisher:['publisher'],
   quantity:['quantity','qty','copies','count'],
+  series:['series','franchise','universe'],
+  scale:['scale','line'],
+  language:['language','lang'],
   manufacturer:['manufacturer','maker','brand'],
   model:['model'],
   edition:['edition','color','colour'],
@@ -1510,7 +1591,9 @@ const CSV_HINTS = {
   games: 'CSV columns: title, owner, platform, publisher, sealed?, rarity, finished, quantity, price, purchaseDate, rating, notes',
   music: 'CSV columns: title, owner, artist, format, genre, quantity, price, purchaseDate, rating, notes',
   books: 'CSV columns: title, owner, author, format, genre, status, dimensions, quantity, price, purchaseDate, rating, notes',
-  consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, quantity, price, purchaseDate, rating, notes'
+  consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, quantity, price, purchaseDate, rating, notes',
+  artbooks: 'CSV columns: title, owner, series, author, publisher, format, language, dimensions, condition, sealed?, quantity, price, purchaseDate, rating, notes',
+  figures: 'CSV columns: title (or name), owner, series, manufacturer, scale, edition, condition, box, quantity, price, purchaseDate, rating, notes'
 };
 
 function updateCsvHint(){
@@ -1603,9 +1686,10 @@ async function handleCsvImport(event){
   showToast(`Imported ${n} ${activeCat} entr${n===1?'y':'ies'}.` + (skipped ? ` Skipped ${skipped} row(s) with no title.` : '') + (n ? ' Add artwork anytime by editing an entry.' : ''));
 }
 
-const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console' };
+const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console', artbooks:'+ Add artbook', figures:'+ Add figure' };
 
 function switchTab(cat){
+  stopPreview();
   activeCat = cat;
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===cat));
   document.getElementById('addBtn').className = 'btn btn-primary ' + cat;
@@ -1616,6 +1700,8 @@ function switchTab(cat){
   populateStatusFilter();
   updateScaleUI();
   render();
+  const activeTab = document.querySelector('.tab.active');   // keep the chosen tab in view when the tab row scrolls
+  if(activeTab && typeof activeTab.scrollIntoView==='function') activeTab.scrollIntoView({inline:'center', block:'nearest'});
 }
 
 function toggleSelectMode(){
@@ -1722,6 +1808,8 @@ function openSlip(entry){
   editingId = entry ? entry.id : null;
   currentRating = entry ? (entry.rating||0) : 0;
   currentCover = entry ? (entry.cover||'') : '';
+  currentPreview = (entry && entry.preview) ? { url: entry.preview, label: entry.previewLabel || '' } : { url:'', label:'' };
+  previewAuto = false;
   document.getElementById('slipTitle').textContent = entry ? 'Edit entry' : 'Add to the archive';
   const container = document.getElementById('slipFields');
   container.innerHTML = '';
@@ -1764,6 +1852,25 @@ function openSlip(entry){
     container.appendChild(wrap);
   });
 
+  if(activeCat==='music'){
+    const prevWrap = document.createElement('div');
+    prevWrap.className = 'field full';
+    prevWrap.innerHTML = `
+      <label>Preview sound (optional)</label>
+      <div class="preview-field">
+        <button type="button" class="prev-btn" id="previewTestBtn" data-prev="form" onclick="playFormPreview()" title="Play">▶</button>
+        <div class="preview-controls">
+          <input type="text" id="previewUrl" placeholder="paste an audio link, or let the site find a preview…" oninput="handlePreviewUrl(event)" value="${escapeHtml(currentPreview.url)}">
+          <div class="preview-actions">
+            <button type="button" class="cover-clear" onclick="findPreview(true)">Find preview automatically</button>
+            <button type="button" class="cover-clear" onclick="clearPreview()">Remove</button>
+          </div>
+          <span class="art-auto-note" id="previewNote">${currentPreview.url ? (currentPreview.label ? escapeHtml(currentPreview.label) : 'Preview added.') : 'A short preview is found automatically once you type the title (and artist).'}</span>
+        </div>
+      </div>`;
+    container.appendChild(prevWrap);
+  }
+
   const ratingWrap = document.createElement('div');
   ratingWrap.className = 'field full';
   ratingWrap.innerHTML = `<label>Rating</label><div class="stars-input" id="starsInput"></div>`;
@@ -1778,6 +1885,12 @@ function openSlip(entry){
   const titleInput = container.querySelector('[data-key="title"]');
   if(titleInput){
     titleInput.addEventListener('input', scheduleAutoFetchCover);
+  }
+  if(activeCat==='music'){
+    ['title','artist'].forEach(k=>{
+      const inp = container.querySelector('[data-key="'+k+'"]');
+      if(inp) inp.addEventListener('input', schedulePreviewFind);
+    });
   }
 
   document.getElementById('slipOverlay').classList.add('open');
@@ -1803,7 +1916,7 @@ async function autoFetchCoverArt(){
   const noteEl = document.getElementById('artAutoNote');
   const linksEl = document.getElementById('artSearchLinks');
   if(linksEl) linksEl.innerHTML = '';
-  const hint = {games:' video game', music:' album', books:' book', consoles:' video game console'}[activeCat] || '';
+  const hint = {games:' video game', music:' album', books:' book', consoles:' video game console', artbooks:' art book', figures:' figure'}[activeCat] || '';
   if(noteEl) noteEl.textContent = 'Looking for cover art…';
   try{
     const resp = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+hint)}&gsrlimit=1&prop=pageimages&pithumbsize=600&format=json&origin=*`);
@@ -2185,6 +2298,8 @@ async function syncLibraryToGithub(){
       music: data.music,
       books: data.books,
       consoles: data.consoles,
+      artbooks: data.artbooks,
+      figures: data.figures,
       icon: currentIcon,
       theme: siteTheme,
       iconImage: siteIconImage,
@@ -2280,6 +2395,7 @@ function clearCover(){
 }
 
 function closeSlip(){
+  if(playingKey==='form') stopPreview();
   document.getElementById('slipOverlay').classList.remove('open');
   document.body.style.overflow = '';
   editingId = null;
@@ -2314,6 +2430,11 @@ async function saveEntry(){
   // Copies: a whole number of 2 or more is kept; 1 / blank / nonsense means "just one".
   const q = parseInt(fields.quantity, 10);
   fields.quantity = q > 1 ? String(q) : '';
+  if(activeCat==='music'){
+    const pu = (currentPreview.url || '').trim();
+    fields.preview = /^https?:\/\//i.test(pu) ? pu : '';
+    fields.previewLabel = fields.preview ? (currentPreview.label || '') : '';
+  }
 
   let savedId = editingId;
   if(editingId){
@@ -2369,6 +2490,11 @@ function openDetail(id){
   const cat = activeCat;
   const subKey = SUB_KEYS[cat];
   const sub = entry[subKey] || '';
+  // Music: a small "♪ clip name" line once a clip is known, and a Play preview button that works even before one is saved.
+  const previewHtml = (cat==='music')
+    ? `<div class="detail-preview" id="detailPreviewLine"${entry.preview ? '' : ' style="display:none"'}>♪ <span id="detailPreviewLabel">${escapeHtml(entry.previewLabel || 'Preview sound')}</span></div>` : '';
+  const playBtnHtml = (cat==='music')
+    ? `<button class="btn btn-ghost prev-act" id="detailPlayBtn" data-prevbtn="${entry.id}" onclick="playDetailPreview('${entry.id}')">▶ Play preview</button>` : '';
   const stars = '★'.repeat(entry.rating||0) + '☆'.repeat(5-(entry.rating||0));
   const price = entry.price ? '$' + parseFloat(entry.price).toFixed(2) : '';
 
@@ -2404,14 +2530,18 @@ function openDetail(id){
       </div>
       <input type="file" id="squareImgInput" accept="image/*" style="display:none" onchange="handleSquareImageFile(event,'${entry.id}')">
       <div class="detail-stars">${stars}</div>
+      ${previewHtml}
       <div class="detail-rows">${rows}</div>
       ${notesHtml}
     </div>
     <div class="detail-actions">
+      ${playBtnHtml}
       <button class="btn btn-ghost" onclick="closeDetail()">Close</button>
       <button class="btn btn-primary ${cat}" onclick="closeDetail();editEntry('${entry.id}')">Edit</button>
     </div>`;
+  detailOpenId = id;
   renderSideArt(document.getElementById('detailArt'), entry.cover, entry.title, cat);
+  setPlayingUI();
   document.getElementById('detailOverlay').classList.add('open');
   syncDetailArtHeight();
 }
@@ -2429,6 +2559,9 @@ window.addEventListener('resize', syncDetailArtHeight);
 
 function closeDetail(){
   document.getElementById('detailOverlay').classList.remove('open');
+  // the sound started from this window stops with it
+  if(playingKey && playingKey===detailOpenId) stopPreview();
+  detailOpenId = null;
 }
 
 async function handleSquareImageFile(event, id){
@@ -2531,10 +2664,10 @@ function handleDragEnd(e){
 }
 
 // The line of small text under each title, per tab.
-const SUB_KEYS = { games:'platform', music:'artist', books:'author', consoles:'manufacturer' };
+const SUB_KEYS = { games:'platform', music:'artist', books:'author', consoles:'manufacturer', artbooks:'series', figures:'series' };
 
 function catNo(cat, index){
-  const prefix = {games:'G', music:'M', books:'B', consoles:'C'}[cat] || 'X';
+  const prefix = {games:'G', music:'M', books:'B', consoles:'C', artbooks:'A', figures:'F'}[cat] || 'X';
   return prefix + '-' + String(index+1).padStart(3,'0');
 }
 
@@ -2555,7 +2688,7 @@ function render(){
   const sortBy = document.getElementById('sortBy').value;
 
   let filtered = list.filter(e=>{
-    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')+' '+(e.manufacturer||'')+' '+(e.model||'')+' '+(e.edition||'')).toLowerCase();
+    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')+' '+(e.manufacturer||'')+' '+(e.model||'')+' '+(e.edition||'')+' '+(e.series||'')+' '+(e.publisher||'')+' '+(e.scale||'')).toLowerCase();
     const matchesQ = hay.includes(q);
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
@@ -2609,7 +2742,9 @@ function render(){
       games: 'No games yet — add the first one you bought.',
       music: 'No music yet — add your first album.',
       books: 'No books yet — add the first one you bought.',
-      consoles: 'No consoles yet — add the first one you own.'
+      consoles: 'No consoles yet — add the first one you own.',
+      artbooks: 'No artbooks yet — add the first one on your shelf.',
+      figures: 'No figures yet — add the first one on your shelf.'
     };
     emptyEl.textContent = list.length===0 ? emptyByCat[activeCat] : 'Nothing matches your search.';
   } else {
@@ -2632,8 +2767,17 @@ function render(){
       if(activeCat==='consoles' && e.condition) chips.push(`<span class="chip">${escapeHtml(e.condition)}</span>`);
       if(activeCat==='consoles' && e.region) chips.push(`<span class="chip">${escapeHtml(e.region.split(' ')[0])}</span>`);
       if(activeCat==='consoles' && e.boxed==='Boxed') chips.push(`<span class="chip chip-sealed">Boxed</span>`);
+      if(activeCat==='artbooks' && e.format) chips.push(`<span class="chip">${escapeHtml(e.format)}</span>`);
+      if(activeCat==='artbooks' && e.publisher) chips.push(`<span class="chip">${escapeHtml(e.publisher)}</span>`);
+      if(activeCat==='artbooks' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
+      if(activeCat==='figures' && e.scale) chips.push(`<span class="chip">${escapeHtml(e.scale)}</span>`);
+      if(activeCat==='figures' && e.manufacturer) chips.push(`<span class="chip">${escapeHtml(e.manufacturer)}</span>`);
+      if(activeCat==='figures' && e.condition) chips.push(`<span class="chip">${escapeHtml(e.condition)}</span>`);
+      if(activeCat==='figures' && e.boxed==='Boxed') chips.push(`<span class="chip chip-sealed">Boxed</span>`);
       const catnoTag = `<span class="chip" style="font-family:'JetBrains Mono',monospace;">${catNo(activeCat, origIndex)}</span>`;
       const price = e.price ? `$${parseFloat(e.price).toFixed(2)}` : '';
+      const previewBtn = (activeCat==='music' && e.preview && !selectMode)
+        ? `<button class="prev-btn card-prev" data-prev="${e.id}" onclick="event.stopPropagation();togglePreview('${e.id}')" title="${escapeHtml('Play preview' + (e.previewLabel ? ': ' + e.previewLabel : ''))}">▶</button>` : '';
       const titleBlock = `<h4>${escapeHtml(e.title)}</h4>${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}`;
       const metaBlock = `<div class="card-meta">${catnoTag}${chips.join('')}</div><div class="stars-view">${stars}</div>`;
       const isReorderable = sortBy==='custom' && !selectMode;
@@ -2665,6 +2809,7 @@ function render(){
           <div class="${cardClass}" data-id="${e.id}" tabindex="0"${cardClickAttr}${dragAttrs}>
             ${checkboxHtml}
             ${dragHandleHtml}
+            ${previewBtn}
             <div class="cover-area ${activeCat}">
               <img src="${e.cover}" alt="">
             </div>
@@ -2679,6 +2824,7 @@ function render(){
         <div class="${cardClass}" data-id="${e.id}" tabindex="0"${cardClickAttr}${dragAttrs}>
           ${checkboxHtml}
           ${dragHandleHtml}
+          ${previewBtn}
           <div class="cover-area ${activeCat} placeholder">
             <div class="hole"></div>
             <div class="catno">${catNo(activeCat, origIndex)}</div>
@@ -2691,12 +2837,15 @@ function render(){
         </div>`;
     }).join('');
   }
+  setPlayingUI();
 
   document.getElementById('statGames').textContent = countCopies(data.games);
   document.getElementById('statMusic').textContent = countCopies(data.music);
   document.getElementById('statBooks').textContent = countCopies(data.books);
   document.getElementById('statConsoles').textContent = countCopies(data.consoles);
-  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
+  document.getElementById('statArtbooks').textContent = countCopies(data.artbooks);
+  document.getElementById('statFigures').textContent = countCopies(data.figures);
+  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles, ...data.artbooks, ...data.figures].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
 }
 
@@ -3390,6 +3539,183 @@ function closeLook(){
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape' && document.getElementById('lookOverlay').classList.contains('open')) closeLook();
 });
+
+
+// =====================================================================
+// PREVIEW SOUNDS (Music): a short clip you can play from the card, the
+// detail window and the form. The clip is found automatically from Apple's
+// free iTunes Search (a ~30 second preview of the album/artist's music),
+// or you can paste any direct audio link yourself.
+// =====================================================================
+let currentPreview = { url:'', label:'' };   // preview of the item being added/edited
+let previewAuto = false;                     // true while the preview in the form was found automatically
+let previewAudio = null;
+let playingKey = null;                       // which item is playing: an entry id, or 'form'
+let previewTimer = null;
+let detailOpenId = null;                     // entry shown in the detail window
+let detailClipCache = {};                    // clips found from the detail window this visit, by entry id
+let detailFinding = false;                   // a preview lookup from the detail window is running
+
+function normName(t){
+  return String(t||'').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').trim();
+}
+
+// Returns {url, label} for the best matching 30s clip, null if none, throws if the lookup failed.
+async function lookupMusicPreview(title, artist){
+  const term = artist ? title+' '+artist : title;
+  const r = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=music&entity=song&limit=12&country=US`);
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const j = await r.json();
+  const songs = (j.results||[]).filter(x=>x.previewUrl && /^https?:\/\//i.test(x.previewUrl));
+  if(!songs.length) return null;
+  const t = normName(title), a = normName(artist);
+  const artistOk = x => !a || normName(x.artistName).includes(a) || a.includes(normName(x.artistName));
+  const pick = songs.find(x=>artistOk(x) && (normName(x.collectionName)===t || normName(x.trackName)===t))
+            || songs.find(x=>artistOk(x))
+            || songs[0];
+  return { url: pick.previewUrl, label: `${pick.trackName} — ${pick.artistName}` };
+}
+
+function setPlayingUI(){
+  document.querySelectorAll('[data-prev]').forEach(b=>{
+    const on = b.dataset.prev===playingKey;
+    b.textContent = on ? '⏸' : '▶';
+    b.classList.toggle('playing', on);
+    b.title = on ? 'Pause' : (b.title && b.title.startsWith('Play') ? b.title : 'Play preview');
+  });
+  document.querySelectorAll('[data-prevbtn]').forEach(b=>{
+    const on = b.dataset.prevbtn===playingKey;
+    b.textContent = on ? '⏸ Pause' : '▶ Play preview';
+    b.classList.toggle('playing', on);
+  });
+}
+function stopPreview(){
+  if(previewAudio){ try{ previewAudio.pause(); }catch(e){} }
+  playingKey = null;
+  setPlayingUI();
+}
+function playUrl(url, key){
+  if(!url || !/^https?:\/\//i.test(url)){ showToast('No preview to play.'); return; }
+  if(playingKey===key){ stopPreview(); return; }     // second click pauses
+  if(!previewAudio){
+    previewAudio = new Audio();
+    previewAudio.preload = 'none';
+    previewAudio.addEventListener('ended', ()=>{ playingKey = null; setPlayingUI(); });
+    previewAudio.addEventListener('error', ()=>{
+      if(playingKey){ playingKey = null; setPlayingUI(); showToast("Couldn't play this preview."); }
+    });
+  }
+  try{ previewAudio.pause(); }catch(e){}
+  previewAudio.src = url;                               // starting a new one stops the old one
+  playingKey = key;
+  setPlayingUI();
+  const started = previewAudio.play();
+  if(started && started.catch) started.catch(()=>{
+    if(playingKey===key){ playingKey = null; setPlayingUI(); showToast("Couldn't play this preview."); }
+  });
+}
+function togglePreview(id){
+  const entry = data.music.find(e=>e.id===id);
+  if(!entry || !entry.preview) return;
+  playUrl(entry.preview, id);
+}
+// "Play preview" in the detail window: plays the saved clip, or finds one first.
+async function playDetailPreview(id){
+  const entry = data.music.find(e=>e.id===id);
+  if(!entry) return;
+  if(playingKey===id){ stopPreview(); return; }                       // pressing it while it plays = pause
+  const cached = detailClipCache[id];                                  // a clip already found from this window this visit
+  if(!entry.preview && cached && currentUser){                         // an owner keeps it
+    entry.preview = cached.url;
+    entry.previewLabel = cached.label;
+    await persist('music');
+    render();
+  }
+  const known = entry.preview || (cached && cached.url);
+  if(known){ playUrl(known, id); return; }
+  if(detailFinding) return;
+  detailFinding = true;
+  const btn = document.getElementById('detailPlayBtn');
+  if(btn) btn.textContent = 'Looking for a preview…';
+  try{
+    const res = await lookupMusicPreview(entry.title, entry.artist || '');
+    if(!res){
+      showToast('No preview found for this one.');
+    } else {
+      detailClipCache[id] = res;             // remembered for this visit so pressing it again doesn't search again
+      if(currentUser){                       // owners keep it, so it plays instantly next time and shows on the card
+        entry.preview = res.url;
+        entry.previewLabel = res.label;
+        await persist('music');
+        render();
+      }
+      const lbl = document.getElementById('detailPreviewLabel');
+      const line = document.getElementById('detailPreviewLine');
+      if(lbl) lbl.textContent = res.label;
+      if(line) line.style.display = '';
+      if(detailOpenId===id) playUrl(res.url, id);     // only if the window is still on this item
+    }
+  }catch(e){
+    showToast("Couldn't look up a preview right now.");
+  }finally{
+    detailFinding = false;
+    setPlayingUI();
+  }
+}
+
+function playFormPreview(){
+  if(!currentPreview.url){ showToast('No preview yet — type the title or paste a link.'); return; }
+  playUrl(currentPreview.url, 'form');
+}
+
+// ----- form: find / paste / remove -----
+function previewNote(msg){ const el = document.getElementById('previewNote'); if(el) el.textContent = msg; }
+function handlePreviewUrl(ev){
+  const v = ev.target.value.trim();
+  currentPreview = { url: v, label: '' };
+  previewAuto = false;
+  if(playingKey==='form') stopPreview();
+  previewNote(!v ? '' : (/^https?:\/\//i.test(v) ? 'Using your link.' : "That doesn't look like a web link (it should start with https://)."));
+}
+function clearPreview(){
+  if(playingKey==='form') stopPreview();
+  currentPreview = { url:'', label:'' };
+  previewAuto = false;
+  const inp = document.getElementById('previewUrl'); if(inp) inp.value = '';
+  previewNote('Preview removed.');
+}
+function schedulePreviewFind(){
+  clearTimeout(previewTimer);
+  previewTimer = setTimeout(()=>findPreview(false), 1200);
+}
+async function findPreview(force){
+  if(activeCat!=='music') return;
+  if(currentPreview.url && !previewAuto && force!==true) return;   // never replace a link you pasted yourself
+  const title = currentTitleValue();
+  if(!title || title.length < 3){ if(force===true) showToast('Type the title first.'); return; }
+  const artist = currentFieldValue('artist');
+  previewNote('Looking for a preview…');
+  try{
+    const res = await lookupMusicPreview(title, artist);
+    if(!document.getElementById('slipOverlay').classList.contains('open') || currentTitleValue()!==title) return;
+    if(currentPreview.url && !previewAuto && force!==true) return;
+    if(res){
+      if(playingKey==='form') stopPreview();
+      currentPreview = { url: res.url, label: res.label };
+      previewAuto = true;
+      const inp = document.getElementById('previewUrl'); if(inp) inp.value = res.url;
+      previewNote('Found: ' + res.label + ' — press ▶ to check it\u2019s the right one.');
+    } else {
+      previewNote('No preview found — you can paste an audio link instead.');
+    }
+  }catch(e){
+    previewNote("Couldn't look up a preview right now — you can paste an audio link instead.");
+  }
+}
+function currentFieldValue(key){
+  const el = document.querySelector('#slipFields [data-key="'+key+'"]');
+  return el ? el.value.trim() : '';
+}
 
 document.getElementById('addBtn').className = 'btn btn-primary games';
 document.getElementById('saveBtn').className = 'btn btn-primary games';
