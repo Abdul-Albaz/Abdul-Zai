@@ -8166,7 +8166,28 @@
       "addedAt": 1791865953320
     }
   ],
-  "artbooks": [],
+  "artbooks": [
+    {
+      "title": "Bloodborne Official Design Art Works Art Book",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://i.ebayimg.com/images/g/OtkAAOSwN75jWCYo/s-l1200.jpg",
+      "id": "mvd4mv6merxk4",
+      "addedAt": 1792285708126
+    }
+  ],
   "figures": [],
   "icon": "🏠",
   "theme": {
@@ -8175,5 +8196,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792285522327
+  "savedAt": 1792285709627
 }
