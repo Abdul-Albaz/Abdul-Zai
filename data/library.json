@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "Star wars luke skywalker",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://nsabers.com/cdn/shop/files/MG_7527.jpg?v=1714061716",
+      "id": "mve692aoxyri8",
+      "addedAt": 1792348889568
+    },
+    {
       "title": "Star trek tricorder",
       "owner": "",
       "series": "",
@@ -8349,5 +8367,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792348819588
+  "savedAt": 1792348891068
 }
