@@ -8270,6 +8270,24 @@
   ],
   "figures": [
     {
+      "title": "Duck Destany",
+      "owner": "",
+      "series": "",
+      "manufacturer": "",
+      "scale": "",
+      "edition": "",
+      "condition": "New",
+      "boxed": "Boxed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/61Cql7QSw0L.jpg",
+      "id": "mve6of18xo6we",
+      "addedAt": 1792349605916
+    },
+    {
       "title": "duck yakoza 2",
       "owner": "",
       "series": "",
@@ -8475,5 +8493,5 @@
     "dim": 57
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1791784545998.png",
-  "savedAt": 1792349559769
+  "savedAt": 1792349607418
 }
