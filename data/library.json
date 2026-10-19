@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "ZELDA WIND WAKER HD",
+      "owner": "Abdul",
+      "platform": "Wii U",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792387525641-cover.jpg",
+      "id": "mvet9m0t05f4z",
+      "addedAt": 1792387546301
+    },
+    {
       "title": "Teenage Mutant Ninja Turtles: Shredders Revenge",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -8813,5 +8831,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792387392697
+  "savedAt": 1792387547805
 }
