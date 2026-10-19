@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Pinstripe",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792385698956-pinstripe.jpg",
+      "id": "mves69t0dk01e",
+      "addedAt": 1792385710884
+    },
+    {
       "title": "The Last Faith: The Nycrux Edition",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -8669,5 +8687,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792385618305
+  "savedAt": 1792385712386
 }
