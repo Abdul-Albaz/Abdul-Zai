@@ -69,24 +69,40 @@
   }
   .title-block{position:relative;}
   .title-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:44px;height:44px;
-    font-size:26px;
+    position:relative;
+    display:inline-block;
+    width:96px;height:96px;
+    font-size:44px;
     line-height:1;
-    border-radius:8px;
-    background:rgba(237,230,214,0.06);
-    border:1px solid var(--line);
+    border-radius:6px;
     cursor:pointer;
     flex-shrink:0;
-    transition:background .15s, border-color .15s;
+    --rv:radial-gradient(circle at center,#c9b09f 0 1.4px,#2b1d16 2.4px 4px,transparent 4.6px);
+    background:
+      var(--rv) 3px 3px/10px 10px no-repeat,
+      var(--rv) 50% 3px/10px 10px no-repeat,
+      var(--rv) calc(100% - 3px) 3px/10px 10px no-repeat,
+      var(--rv) 3px 50%/10px 10px no-repeat,
+      var(--rv) calc(100% - 3px) 50%/10px 10px no-repeat,
+      var(--rv) 3px calc(100% - 3px)/10px 10px no-repeat,
+      var(--rv) 50% calc(100% - 3px)/10px 10px no-repeat,
+      var(--rv) calc(100% - 3px) calc(100% - 3px)/10px 10px no-repeat,
+      linear-gradient(135deg,#8a6552,#5a3d30 45%,#7a5645 70%,#4a3128);
+    box-shadow:0 0 0 2px #2a1b14, 0 6px 16px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,220,190,0.25);
+    transition:filter .15s;
   }
-  .title-icon:hover{background:rgba(237,230,214,0.12);border-color:#645d51;}
+  .title-icon:hover{filter:brightness(1.12);}
+  .title-icon .ti-in{
+    position:absolute;inset:11px;
+    border-radius:4px;overflow:hidden;
+    background:#120f0d;
+    box-shadow:inset 0 0 0 2px #2a1b14, inset 0 2px 8px rgba(0,0,0,0.8);
+    display:flex;align-items:center;justify-content:center;
+  }
   .icon-picker{
     display:none;
     position:absolute;
-    top:56px;left:0;
+    top:108px;left:0;
     z-index:10;
     background:var(--paper);
     border-radius:8px;
@@ -179,8 +195,7 @@
 
   /* ---------- site look (custom background / icon) ---------- */
   #bgLayer{position:fixed;inset:0;z-index:-1;display:none;background-size:cover;background-position:center;background-repeat:no-repeat;}
-  .title-icon{overflow:hidden;}
-  .title-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+  .title-icon .ti-in img, .look-icon-preview img{width:100%;height:100%;object-fit:cover;display:block;}
   body.has-bg-image header, body.has-bg-image .tabs{text-shadow:0 1px 8px rgba(0,0,0,0.7);}
   body.theme-light{color:var(--ink);}
   body.theme-light .title-block p,
@@ -191,7 +206,6 @@
   body.theme-light .stat .num{color:var(--ink);}
   body.theme-light .stat .lbl{color:#5b564c;}
   body.theme-light header{border-bottom-color:rgba(0,0,0,0.18);}
-  body.theme-light .title-icon{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.2);}
   #lookOverlay{z-index:140;}
   .look-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px;}
   .look-swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
@@ -783,7 +797,9 @@
 
     header{align-items:flex-start;gap:14px;padding-bottom:16px;margin-bottom:18px;}
     .title-block h1{font-size:28px;gap:9px;}
-    .title-icon{width:38px;height:38px;font-size:21px;}
+    .title-icon{width:66px;height:66px;font-size:30px;}
+    .title-icon .ti-in{inset:8px;}
+    .icon-picker{top:78px;}
     .title-block p{font-size:12.5px;}
     .stats{gap:14px;width:100%;justify-content:space-between;flex-wrap:wrap;}
     .stats:not(.open){display:none;}
@@ -870,8 +886,7 @@
 <div class="wrap">
   <header>
     <div class="title-block">
-      <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to change icon">🏠</span> The Home Collection</h1>
-      <p>your games &amp; music collection, catalogued</p>
+      <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to pick an emoji instead">🏠</span> The Home Collection</h1>
       <div class="account-bar" id="accountBar"></div>
       <div class="icon-picker" id="iconPicker"></div>
     </div>
@@ -1075,11 +1090,11 @@
             <label>Site icon</label>
             <div class="look-row">
               <span class="look-icon-preview" id="lookIconPreview">🏠</span>
-              <button type="button" class="btn btn-ghost" onclick="document.getElementById('lookIconFile').click()">Upload icon</button>
+              <button type="button" class="btn btn-ghost" onclick="document.getElementById('lookIconFile').click()">Upload picture / GIF</button>
               <button type="button" class="btn btn-ghost" id="lookIconRemove" onclick="removeLookIcon()">Use emoji instead</button>
             </div>
             <input type="file" id="lookIconFile" accept="image/*" hidden onchange="handleLookIconFile(event)">
-            <p class="gh-help">Shown next to the title and in the browser tab. To pick an emoji instead, click the icon beside the title.</p>
+            <p class="gh-help">Shown in the framed profile picture next to the title (a GIF stays animated). To pick an emoji instead, click the picture beside the title.</p>
           </div>
         </div>
 
@@ -3353,14 +3368,17 @@ function updateFavicon(){
 function renderTitleIcon(){
   const el = document.getElementById('titleIcon');
   const img = safeImageUrl(siteIconImage);
+  el.textContent = '';
+  const inner = document.createElement('span');
+  inner.className = 'ti-in';
   if(img){
-    el.textContent = '';
     const im = document.createElement('img');
     im.src = img; im.alt = '';
-    el.appendChild(im);
+    inner.appendChild(im);
   }else{
-    el.textContent = currentIcon;
+    inner.textContent = currentIcon;
   }
+  el.appendChild(inner);
   updateFavicon();
 }
 
@@ -3413,13 +3431,32 @@ function resizeImageFileSquarePng(file, size){
   });
 }
 
+function readFileAsBase64(file){
+  return new Promise((resolve, reject)=>{
+    const r = new FileReader();
+    r.onload = ()=> resolve(String(r.result).split(',')[1]);
+    r.onerror = ()=> reject(new Error('Could not read that file.'));
+    r.readAsDataURL(file);
+  });
+}
+
 async function uploadSiteImage(file, kind){
   const stamp = Date.now();
   const isBg = kind==='bg';
-  const dataUrl = isBg ? await resizeImageFile(file, 1920, 0.8) : await resizeImageFileSquarePng(file, 256);
-  const filename = isBg ? `site-background-${stamp}.jpg` : `site-icon-${stamp}.png`;
+  const isGif = !isBg && file.type==='image/gif';
+  let base64, filename;
+  if(isGif){
+    // Animated GIFs are uploaded untouched so the animation survives.
+    if(file.size > 8*1024*1024) throw new Error('That GIF is over 8 MB — try a smaller one.');
+    base64 = await readFileAsBase64(file);
+    filename = `site-icon-${stamp}.gif`;
+  }else{
+    const dataUrl = isBg ? await resizeImageFile(file, 1920, 0.8) : await resizeImageFileSquarePng(file, 384);
+    base64 = dataUrl.split(',')[1];
+    filename = isBg ? `site-background-${stamp}.jpg` : `site-icon-${stamp}.png`;
+  }
   const path = `${ghConfig.folder}/${filename}`;
-  await ghPutFile(path, dataUrl.split(',')[1], `Add site ${isBg ? 'background' : 'icon'} image ${filename}`, null);
+  await ghPutFile(path, base64, `Add site ${isBg ? 'background' : 'icon'} image ${filename}`, null);
   return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
 }
 
