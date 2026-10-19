@@ -68,6 +68,14 @@
     gap:calc(var(--title-gap, 12) * var(--ts, 1) * 1px);
   }
   .title-block{position:relative;}
+  .title-block{flex:1 1 auto;min-width:0;}
+  .title-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;}
+  .stats.open{flex:1 1 100%;}
+  .details-toggle{display:inline-flex;align-items:center;gap:12px;background:none;border:none;outline:none;padding:6px 2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--cart);}
+  .details-toggle:hover{filter:brightness(1.2);}
+  .details-toggle .burger{display:inline-flex;flex-direction:column;gap:5px;width:24px;}
+  .details-toggle .burger i{display:block;height:2px;border-radius:2px;background:currentColor;}
+  .account-bar:not(.open){display:none;}
   .title-icon{
     position:relative;
     display:inline-block;
@@ -874,7 +882,10 @@
 <div class="wrap">
   <header>
     <div class="title-block">
+      <div class="title-row">
       <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to pick an emoji instead">🏠</span><span id="titleText">The Home Collection</span></h1>
+      <button type="button" class="details-toggle" id="detailsToggle" onclick="toggleDetails()" aria-expanded="false" aria-controls="accountBar"><span id="detailsLabel">Show Details</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      </div>
       <div class="account-bar" id="accountBar"></div>
       <div class="icon-picker" id="iconPicker"></div>
     </div>
@@ -3015,6 +3026,15 @@ function requireAuth(){
 }
 
 // The counts (and total spent) stay out of sight until you ask for them.
+function toggleDetails(){
+  const bar = document.getElementById('accountBar');
+  const open = bar.classList.toggle('open');
+  const btn = document.getElementById('detailsToggle');
+  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  const lbl = document.getElementById('detailsLabel');
+  if(lbl) lbl.textContent = open ? 'Hide Details' : 'Show Details';
+}
+
 let statsOpen = false;
 function toggleStats(){
   statsOpen = !statsOpen;
