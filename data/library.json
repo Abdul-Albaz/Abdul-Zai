@@ -8830,8 +8830,9 @@
     "titleSize": 51,
     "picSize": 61,
     "titleGap": 17,
-    "detailsColor": "#ffffff"
+    "detailsColor": "#ffffff",
+    "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif"
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792392616963
+  "savedAt": 1792392648835
 }
