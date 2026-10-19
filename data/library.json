@@ -8829,10 +8829,10 @@
     "titleFont": "inter",
     "titleSize": 51,
     "picSize": 83,
-    "titleGap": 17,
+    "titleGap": 29,
     "detailsColor": "#ffffff",
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif"
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792400982681
+  "savedAt": 1792401857079
 }
