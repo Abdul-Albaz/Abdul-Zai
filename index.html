@@ -59,6 +59,7 @@
   }
   .title-block h1{
     font-family:var(--title-font, 'Fraunces', serif);
+    color:var(--title-color, inherit);
     font-weight:700;
     font-size:calc(var(--title-size, 42) * var(--ts, 1) * 1px);
     letter-spacing:-0.5px;
@@ -71,7 +72,7 @@
   .title-block{flex:1 1 auto;min-width:0;}
   .title-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;}
   .stats.open{flex:1 1 100%;}
-  .details-toggle{display:inline-flex;align-items:center;gap:12px;background:none;border:none;outline:none;padding:6px 2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--cart);}
+  .details-toggle{display:inline-flex;align-items:center;gap:12px;background:none;border:none;outline:none;padding:6px 2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--details-color, #C9622A);}
   .details-toggle:hover{filter:brightness(1.2);}
   .details-toggle .burger{display:inline-flex;flex-direction:column;gap:5px;width:24px;}
   .details-toggle .burger i{display:block;height:2px;border-radius:2px;background:currentColor;}
@@ -160,12 +161,12 @@
     transition:color .15s, background .15s;
   }
   .tab .dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.6;}
-  .tab[data-cat="games"].active{background:var(--cart);color:#1a0d05;border-color:var(--cart);}
-  .tab[data-cat="music"].active{background:var(--tape);color:#0a1615;border-color:var(--tape);}
-  .tab[data-cat="books"].active{background:var(--book);color:#221016;border-color:var(--book);}
-  .tab[data-cat="consoles"].active{background:var(--console);color:#08111f;border-color:var(--console);}
-  .tab[data-cat="artbooks"].active{background:var(--artbook);color:#150f1f;border-color:var(--artbook);}
-  .tab[data-cat="figures"].active{background:var(--figure);color:#0c1a10;border-color:var(--figure);}
+  .tab[data-cat="games"].active{background:var(--cart);color:var(--on-cart,#1a0d05);border-color:var(--cart);}
+  .tab[data-cat="music"].active{background:var(--tape);color:var(--on-tape,#0a1615);border-color:var(--tape);}
+  .tab[data-cat="books"].active{background:var(--book);color:var(--on-book,#221016);border-color:var(--book);}
+  .tab[data-cat="consoles"].active{background:var(--console);color:var(--on-console,#08111f);border-color:var(--console);}
+  .tab[data-cat="artbooks"].active{background:var(--artbook);color:var(--on-artbook,#150f1f);border-color:var(--artbook);}
+  .tab[data-cat="figures"].active{background:var(--figure);color:var(--on-figure,#0c1a10);border-color:var(--figure);}
   .tab:not(.active):hover{color:var(--paper);}
 
   .panel{
@@ -245,12 +246,12 @@
   }
   .btn:hover{filter:brightness(1.1);}
   .btn:active{transform:scale(.97);}
-  .btn-primary.games{background:var(--cart);color:#1a0d05;}
-  .btn-primary.music{background:var(--tape);color:#0a1615;}
-  .btn-primary.books{background:var(--book);color:#221016;}
-  .btn-primary.consoles{background:var(--console);color:#08111f;}
-  .btn-primary.artbooks{background:var(--artbook);color:#150f1f;}
-  .btn-primary.figures{background:var(--figure);color:#0c1a10;}
+  .btn-primary.games{background:var(--cart);color:var(--on-cart,#1a0d05);}
+  .btn-primary.music{background:var(--tape);color:var(--on-tape,#0a1615);}
+  .btn-primary.books{background:var(--book);color:var(--on-book,#221016);}
+  .btn-primary.consoles{background:var(--console);color:var(--on-console,#08111f);}
+  .btn-primary.artbooks{background:var(--artbook);color:var(--on-artbook,#150f1f);}
+  .btn-primary.figures{background:var(--figure);color:var(--on-figure,#0c1a10);}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
   .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
   .btn-ghost.active-toggle{color:var(--gold);border-color:var(--gold);}
@@ -343,12 +344,12 @@
   .detail-art .art-empty{aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.55);background:var(--ink-soft);color:#fff;}
   .detail-art .art-empty h4{margin:0;font-size:22px;line-height:1.2;overflow-wrap:anywhere;}
   .detail-art .art-empty p{margin:0;font-size:12px;opacity:.75;letter-spacing:1px;text-transform:uppercase;}
-  .detail-art .art-empty.games{background:var(--cart);color:#1a0d05;}
-  .detail-art .art-empty.music{background:var(--tape);color:#0a1615;aspect-ratio:1/1;}
-  .detail-art .art-empty.books{background:var(--book);color:#221016;}
-  .detail-art .art-empty.consoles{background:var(--console);color:#08111f;aspect-ratio:1/1;}
-  .detail-art .art-empty.artbooks{background:var(--artbook);color:#150f1f;}
-  .detail-art .art-empty.figures{background:var(--figure);color:#0c1a10;aspect-ratio:1/1;}
+  .detail-art .art-empty.games{background:var(--cart);color:var(--on-cart,#1a0d05);}
+  .detail-art .art-empty.music{background:var(--tape);color:var(--on-tape,#0a1615);aspect-ratio:1/1;}
+  .detail-art .art-empty.books{background:var(--book);color:var(--on-book,#221016);}
+  .detail-art .art-empty.consoles{background:var(--console);color:var(--on-console,#08111f);aspect-ratio:1/1;}
+  .detail-art .art-empty.artbooks{background:var(--artbook);color:var(--on-artbook,#150f1f);}
+  .detail-art .art-empty.figures{background:var(--figure);color:var(--on-figure,#0c1a10);aspect-ratio:1/1;}
   /* Card detail window: the artwork is exactly as tall as the beige card (height set by JS), width follows the picture */
   .detail-art{flex:0 1 auto;}
   .detail-art img{height:var(--art-h, auto);width:auto;max-width:100%;max-height:88vh;}
@@ -1112,9 +1113,27 @@
 
         <div class="look-section">
           <div class="field full">
+            <label>Tab &amp; Add button colors</label>
+            <div id="lookAccents"></div>
+            <p class="gh-help">Each tab's color is also the color of its Add button.</p>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
             <label>Title text &amp; picture</label>
             <label style="margin-top:6px;display:block;">Title text</label>
             <input type="text" id="lookTitleText" maxlength="60" placeholder="The Home Collection" oninput="onLookTitle('text', this.value)" style="width:100%;">
+            <label style="margin-top:8px;display:block;">Title text color</label>
+            <div class="look-row">
+              <input type="color" id="lookTitleColor" value="#ede6d6" oninput="setTitleColor('titleColor', this.value)" title="Pick any color">
+              <button type="button" class="btn btn-ghost" onclick="clearTitleColor('titleColor')">Default color</button>
+            </div>
+            <label style="margin-top:8px;display:block;">Show Details button color</label>
+            <div class="look-row">
+              <input type="color" id="lookDetailsColor" value="#c9622a" oninput="setTitleColor('detailsColor', this.value)" title="Pick any color">
+              <button type="button" class="btn btn-ghost" onclick="clearTitleColor('detailsColor')">Default color</button>
+            </div>
             <label style="margin-top:8px;display:block;">Font</label>
             <select id="lookTitleFont" onchange="onLookTitle('font', this.value)" style="width:100%;"></select>
             <label style="margin-top:8px;display:block;">Title size: <span id="lookTitleSizeVal">42</span></label>
@@ -3388,6 +3407,7 @@ const TITLE_FONTS = {
 
 function applyTitleLook(){
   const t = siteTheme || {};
+  applyAccents();
   const txt = (typeof t.titleText==='string' && t.titleText.trim()) ? t.titleText.trim().slice(0,60) : 'The Home Collection';
   const tx = document.getElementById('titleText');
   if(tx) tx.textContent = txt;
@@ -3397,6 +3417,9 @@ function applyTitleLook(){
   if(f) root.style.setProperty('--title-font', f[1]); else root.style.removeProperty('--title-font');
   const sz = Number(t.titleSize);
   if(sz>=18 && sz<=90) root.style.setProperty('--title-size', String(sz)); else root.style.removeProperty('--title-size');
+  const hexOk = v => /^#[0-9a-f]{6}$/i.test(v || '');
+  if(hexOk(t.titleColor)) root.style.setProperty('--title-color', t.titleColor); else root.style.removeProperty('--title-color');
+  if(hexOk(t.detailsColor)) root.style.setProperty('--details-color', t.detailsColor); else root.style.removeProperty('--details-color');
   const bl = Number(t.titleBelow);
   if(t.titleBelow!=null && bl>=0 && bl<=100) root.style.setProperty('--title-below', String(bl)); else root.style.removeProperty('--title-below');
   const gp = Number(t.titleGap);
@@ -3637,6 +3660,72 @@ function clearLookColor(){
   applyTheme(); syncLookControls();
   saveSiteLookSoon();
 }
+const ACCENTS = {
+  games:    ['Games',    'cart',    '#C9622A'],
+  music:    ['Music',    'tape',    '#3F7068'],
+  books:    ['Books',    'book',    '#8B4A5C'],
+  consoles: ['Consoles', 'console', '#4C6FA5'],
+  artbooks: ['Artbooks', 'artbook', '#8A63B8'],
+  figures:  ['Figures',  'figure',  '#5C9E6B']
+};
+function applyAccents(){
+  const root = document.documentElement;
+  const acc = (siteTheme && siteTheme.accents) || {};
+  Object.keys(ACCENTS).forEach(cat=>{
+    const v = ACCENTS[cat][1];
+    if(/^#[0-9a-f]{6}$/i.test(acc[cat] || '')){
+      root.style.setProperty('--' + v, acc[cat]);
+      root.style.setProperty('--on-' + v, lookLuminance(acc[cat]) > 0.5 ? '#1a1a1a' : '#ffffff');
+    }else{
+      root.style.removeProperty('--' + v);
+      root.style.removeProperty('--on-' + v);
+    }
+  });
+}
+function buildAccentControls(){
+  const box = document.getElementById('lookAccents');
+  if(!box) return;
+  const acc = (siteTheme && siteTheme.accents) || {};
+  if(!box.dataset.built){
+    box.innerHTML = Object.keys(ACCENTS).map(cat=>
+      `<div class="look-row"><span style="width:76px;font-size:13px;">${ACCENTS[cat][0]}</span>` +
+      `<input type="color" id="lookAcc_${cat}" oninput="setAccent('${cat}', this.value)" title="Pick any color">` +
+      `<button type="button" class="btn btn-ghost" onclick="clearAccent('${cat}')">Default</button></div>`
+    ).join('');
+    box.dataset.built = '1';
+  }
+  Object.keys(ACCENTS).forEach(cat=>{
+    const el = document.getElementById('lookAcc_' + cat);
+    if(el) el.value = /^#[0-9a-f]{6}$/i.test(acc[cat] || '') ? acc[cat] : ACCENTS[cat][2];
+  });
+}
+function setAccent(cat, hex){
+  if(!requireAuth() || !ACCENTS[cat]) return;
+  const acc = { ...((siteTheme && siteTheme.accents) || {}), [cat]: hex };
+  siteTheme = { ...(siteTheme || {}), accents: acc };
+  applyAccents();
+  saveSiteLookSoon();
+}
+function clearAccent(cat){
+  if(!requireAuth() || !ACCENTS[cat]) return;
+  const acc = { ...((siteTheme && siteTheme.accents) || {}) };
+  delete acc[cat];
+  siteTheme = { ...(siteTheme || {}), accents: acc };
+  applyAccents(); buildAccentControls();
+  saveSiteLookSoon();
+}
+function setTitleColor(key, hex){
+  if(!requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}), [key]: hex };
+  applyTitleLook();
+  saveSiteLookSoon();
+}
+function clearTitleColor(key){
+  if(!requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}), [key]: '' };
+  applyTitleLook(); syncLookControls();
+  saveSiteLookSoon();
+}
 function onLookTitle(kind, v){
   if(!requireAuth()) return;
   const key = kind==='text' ? 'titleText' : kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : kind==='gap' ? 'titleGap' : kind==='below' ? 'titleBelow' : 'picSize';
@@ -3669,6 +3758,12 @@ async function resetLook(){
 
 function syncLookControls(){
   const t = siteTheme || {};
+  buildAccentControls();
+  const toHex = rgb => { const m = String(rgb).match(/\d+/g); return m ? '#' + m.slice(0,3).map(n=>Number(n).toString(16).padStart(2,'0')).join('') : '#ffffff'; };
+  const tcEl = document.getElementById('lookTitleColor');
+  if(tcEl) tcEl.value = /^#[0-9a-f]{6}$/i.test(t.titleColor||'') ? t.titleColor : toHex(getComputedStyle(document.querySelector('.title-block h1')).color);
+  const dcEl = document.getElementById('lookDetailsColor');
+  if(dcEl) dcEl.value = /^#[0-9a-f]{6}$/i.test(t.detailsColor||'') ? t.detailsColor : toHex(getComputedStyle(document.getElementById('detailsToggle')).color);
   const txEl = document.getElementById('lookTitleText');
   if(txEl && document.activeElement!==txEl) txEl.value = (typeof t.titleText==='string') ? t.titleText : '';
   const fontEl = document.getElementById('lookTitleFont');
