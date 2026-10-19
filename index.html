@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#171512">
 <title>The Home Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700&family=Bebas+Neue&family=Pacifico&family=Orbitron:wght@700&family=Press+Start+2P&family=Lobster&family=Cairo:wght@700&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme: dark;
@@ -58,9 +58,9 @@
     margin-bottom:26px;
   }
   .title-block h1{
-    font-family:'Fraunces', serif;
+    font-family:var(--title-font, 'Fraunces', serif);
     font-weight:700;
-    font-size:42px;
+    font-size:calc(var(--title-size, 42) * var(--ts, 1) * 1px);
     letter-spacing:-0.5px;
     margin:0 0 4px;
     display:flex;
@@ -71,8 +71,9 @@
   .title-icon{
     position:relative;
     display:inline-block;
-    width:96px;height:96px;
-    font-size:60px;
+    width:calc(var(--pic-size, 96) * var(--ts, 1) * 1px);
+    height:calc(var(--pic-size, 96) * var(--ts, 1) * 1px);
+    font-size:calc(var(--pic-size, 96) * var(--ts, 1) * 0.62px);
     line-height:1;
     border-radius:8px;
     cursor:pointer;
@@ -91,7 +92,7 @@
   .icon-picker{
     display:none;
     position:absolute;
-    top:108px;left:0;
+    top:calc(var(--pic-size, 96) * var(--ts, 1) * 1px + 12px);left:0;
     z-index:10;
     background:var(--paper);
     border-radius:8px;
@@ -785,9 +786,8 @@
     body{padding:18px 12px 90px;}
 
     header{align-items:flex-start;gap:14px;padding-bottom:16px;margin-bottom:18px;}
-    .title-block h1{font-size:28px;gap:9px;}
-    .title-icon{width:66px;height:66px;font-size:40px;}
-    .icon-picker{top:78px;}
+    :root{--ts:0.67;}
+    .title-block h1{gap:9px;}
     .title-block p{font-size:12.5px;}
     .stats{gap:14px;width:100%;justify-content:space-between;flex-wrap:wrap;}
     .stats:not(.open){display:none;}
@@ -1083,6 +1083,19 @@
             </div>
             <input type="file" id="lookIconFile" accept="image/*" hidden onchange="handleLookIconFile(event)">
             <p class="gh-help">Shown in the framed profile picture next to the title (a GIF stays animated). To pick an emoji instead, click the picture beside the title.</p>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Title text &amp; picture</label>
+            <label style="margin-top:6px;display:block;">Font</label>
+            <select id="lookTitleFont" onchange="onLookTitle('font', this.value)" style="width:100%;"></select>
+            <label style="margin-top:8px;display:block;">Title size: <span id="lookTitleSizeVal">42</span></label>
+            <input type="range" id="lookTitleSize" min="18" max="90" value="42" style="width:100%;" oninput="onLookTitle('size', this.value)">
+            <label style="margin-top:8px;display:block;">Picture size: <span id="lookPicSizeVal">96</span></label>
+            <input type="range" id="lookPicSize" min="30" max="220" value="96" style="width:100%;" oninput="onLookTitle('pic', this.value)">
+            <p class="gh-help">Only changes the title at the top of the page.</p>
           </div>
         </div>
 
@@ -3317,8 +3330,36 @@ function safeImageUrl(u){
   return (typeof u==='string' && /^https?:\/\//i.test(u)) ? u.replace(/["'()\\\s]/g, c=>encodeURIComponent(c)) : '';
 }
 
+const TITLE_FONTS = {
+  fraunces: ['Fraunces', "'Fraunces', serif"],
+  inter: ['Inter', "'Inter', sans-serif"],
+  mono: ['JetBrains Mono', "'JetBrains Mono', monospace"],
+  playfair: ['Playfair Display', "'Playfair Display', serif"],
+  bebas: ['Bebas Neue', "'Bebas Neue', sans-serif"],
+  pacifico: ['Pacifico (handwritten)', "'Pacifico', cursive"],
+  lobster: ['Lobster', "'Lobster', cursive"],
+  orbitron: ['Orbitron (sci-fi)', "'Orbitron', sans-serif"],
+  pixel: ['Press Start 2P (pixel)', "'Press Start 2P', monospace"],
+  cairo: ['Cairo (Arabic + English)', "'Cairo', sans-serif"],
+  reem: ['Reem Kufi (Arabic + English)', "'Reem Kufi', sans-serif"],
+  georgia: ['Georgia', "Georgia, serif"],
+  courier: ['Courier', "'Courier New', monospace"]
+};
+
+function applyTitleLook(){
+  const t = siteTheme || {};
+  const root = document.documentElement;
+  const f = TITLE_FONTS[t.titleFont];
+  if(f) root.style.setProperty('--title-font', f[1]); else root.style.removeProperty('--title-font');
+  const sz = Number(t.titleSize);
+  if(sz>=18 && sz<=90) root.style.setProperty('--title-size', String(sz)); else root.style.removeProperty('--title-size');
+  const pz = Number(t.picSize);
+  if(pz>=30 && pz<=220) root.style.setProperty('--pic-size', String(pz)); else root.style.removeProperty('--pic-size');
+}
+
 function applyTheme(){
   const t = siteTheme || {};
+  applyTitleLook();
   const layer = document.getElementById('bgLayer');
   const img = safeImageUrl(t.image);
   const color = /^#[0-9a-f]{6}$/i.test(t.color || '') ? t.color : '';
@@ -3517,6 +3558,15 @@ function clearLookColor(){
   applyTheme(); syncLookControls();
   saveSiteLookSoon();
 }
+function onLookTitle(kind, v){
+  if(!requireAuth()) return;
+  const key = kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : 'picSize';
+  siteTheme = { ...(siteTheme || {}), [key]: kind==='font' ? v : Number(v) };
+  if(kind==='size') document.getElementById('lookTitleSizeVal').textContent = Math.round(Number(v));
+  if(kind==='pic') document.getElementById('lookPicSizeVal').textContent = Math.round(Number(v));
+  applyTitleLook();
+  saveSiteLookSoon();
+}
 function onLookDim(v){
   if(!requireAuth()) return;
   siteTheme = { ...(siteTheme || {}), dim: Number(v) || 0 };
@@ -3537,6 +3587,17 @@ async function resetLook(){
 
 function syncLookControls(){
   const t = siteTheme || {};
+  const fontEl = document.getElementById('lookTitleFont');
+  if(fontEl){
+    if(!fontEl.options.length) fontEl.innerHTML = Object.keys(TITLE_FONTS).map(k=>`<option value="${k}">${TITLE_FONTS[k][0]}</option>`).join('');
+    fontEl.value = TITLE_FONTS[t.titleFont] ? t.titleFont : 'fraunces';
+  }
+  const tsz = (t.titleSize>=18 && t.titleSize<=90) ? Number(t.titleSize) : 42;
+  const psz = (t.picSize>=30 && t.picSize<=220) ? Number(t.picSize) : 96;
+  const tszEl = document.getElementById('lookTitleSize'); if(tszEl) tszEl.value = tsz;
+  const tszV = document.getElementById('lookTitleSizeVal'); if(tszV) tszV.textContent = tsz;
+  const pszEl = document.getElementById('lookPicSize'); if(pszEl) pszEl.value = psz;
+  const pszV = document.getElementById('lookPicSizeVal'); if(pszV) pszV.textContent = psz;
   const colorEl = document.getElementById('lookColor');
   if(colorEl) colorEl.value = /^#[0-9a-f]{6}$/i.test(t.color||'') ? t.color : '#171512';
   const dim = t.dim!=null ? t.dim : 40;
