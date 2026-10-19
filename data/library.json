@@ -546,14 +546,15 @@
       "genre": "",
       "sealed": "Not sealed",
       "rarity": "yes",
-      "status": "Backlog",
+      "status": "Completed",
       "price": "20",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780763596-cover.jpg",
       "id": "mv4s0wee7qh1p",
-      "addedAt": 1791780798470
+      "addedAt": 1791780798470,
+      "quantity": ""
     },
     {
       "title": "Absolum",
@@ -8836,5 +8837,5 @@
     "spaceBelow": 0
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792402339084
+  "savedAt": 1792402351917
 }
