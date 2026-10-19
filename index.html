@@ -62,7 +62,7 @@
     font-weight:700;
     font-size:calc(var(--title-size, 42) * var(--ts, 1) * 1px);
     letter-spacing:-0.5px;
-    margin:0 0 4px;
+    margin:0;
     display:flex;
     align-items:center;
     gap:calc(var(--title-gap, 12) * var(--ts, 1) * 1px);
@@ -168,7 +168,7 @@
   }
 
   /* ---------- accounts / view-only mode ---------- */
-  .account-bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#a9a196;}
+  .account-bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:calc(var(--title-below, 12) * var(--ts, 1) * 1px);font-family:'JetBrains Mono',monospace;font-size:11px;color:#a9a196;}
   .acct-name{color:var(--gold);}
   .acct-link{background:none;border:none;color:#a9a196;font:inherit;text-decoration:underline;cursor:pointer;padding:0;}
   .acct-link:hover{color:var(--paper);}
@@ -1112,6 +1112,8 @@
             <input type="range" id="lookPicSize" min="30" max="220" value="96" style="width:100%;" oninput="onLookTitle('pic', this.value)">
             <label style="margin-top:8px;display:block;">Space between picture and title: <span id="lookTitleGapVal">12</span></label>
             <input type="range" id="lookTitleGap" min="0" max="120" value="12" style="width:100%;" oninput="onLookTitle('gap', this.value)">
+            <label style="margin-top:8px;display:block;">Space between title and account line: <span id="lookTitleBelowVal">12</span></label>
+            <input type="range" id="lookTitleBelow" min="0" max="100" value="12" style="width:100%;" oninput="onLookTitle('below', this.value)">
             <p class="gh-help">Only changes the title at the top of the page.</p>
           </div>
         </div>
@@ -3375,6 +3377,8 @@ function applyTitleLook(){
   if(f) root.style.setProperty('--title-font', f[1]); else root.style.removeProperty('--title-font');
   const sz = Number(t.titleSize);
   if(sz>=18 && sz<=90) root.style.setProperty('--title-size', String(sz)); else root.style.removeProperty('--title-size');
+  const bl = Number(t.titleBelow);
+  if(t.titleBelow!=null && bl>=0 && bl<=100) root.style.setProperty('--title-below', String(bl)); else root.style.removeProperty('--title-below');
   const gp = Number(t.titleGap);
   if(t.titleGap!=null && gp>=0 && gp<=120) root.style.setProperty('--title-gap', String(gp)); else root.style.removeProperty('--title-gap');
   const pz = Number(t.picSize);
@@ -3615,9 +3619,10 @@ function clearLookColor(){
 }
 function onLookTitle(kind, v){
   if(!requireAuth()) return;
-  const key = kind==='text' ? 'titleText' : kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : kind==='gap' ? 'titleGap' : 'picSize';
+  const key = kind==='text' ? 'titleText' : kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : kind==='gap' ? 'titleGap' : kind==='below' ? 'titleBelow' : 'picSize';
   siteTheme = { ...(siteTheme || {}), [key]: (kind==='font' || kind==='text') ? v : Number(v) };
   if(kind==='size') document.getElementById('lookTitleSizeVal').textContent = Math.round(Number(v));
+  if(kind==='below') document.getElementById('lookTitleBelowVal').textContent = Math.round(Number(v));
   if(kind==='gap') document.getElementById('lookTitleGapVal').textContent = Math.round(Number(v));
   if(kind==='pic') document.getElementById('lookPicSizeVal').textContent = Math.round(Number(v));
   applyTitleLook();
@@ -3656,6 +3661,9 @@ function syncLookControls(){
   const tszEl = document.getElementById('lookTitleSize'); if(tszEl) tszEl.value = tsz;
   const tszV = document.getElementById('lookTitleSizeVal'); if(tszV) tszV.textContent = tsz;
   const gap = (t.titleGap!=null && t.titleGap>=0 && t.titleGap<=120) ? Number(t.titleGap) : 12;
+  const below = (t.titleBelow!=null && t.titleBelow>=0 && t.titleBelow<=100) ? Number(t.titleBelow) : 12;
+  const bEl = document.getElementById('lookTitleBelow'); if(bEl) bEl.value = below;
+  const bV = document.getElementById('lookTitleBelowVal'); if(bV) bV.textContent = below;
   const gEl = document.getElementById('lookTitleGap'); if(gEl) gEl.value = gap;
   const gV = document.getElementById('lookTitleGapVal'); if(gV) gV.textContent = gap;
   const pszEl = document.getElementById('lookPicSize'); if(pszEl) pszEl.value = psz;
