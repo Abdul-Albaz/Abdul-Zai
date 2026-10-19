@@ -1,6 +1,42 @@
 {
   "games": [
     {
+      "title": "Abarenbo Tengu & Zombie Nation",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792386848330-cover.jpg",
+      "id": "mvesv2e414wkw",
+      "addedAt": 1792386867676
+    },
+    {
+      "title": "Bloodstained curse of the moon",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792385853636-cover.jpg",
+      "id": "mvesb7v5pmjep",
+      "addedAt": 1792385941649
+    },
+    {
       "title": "Pinstripe",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -8687,5 +8723,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792385712386
+  "savedAt": 1792386869180
 }
