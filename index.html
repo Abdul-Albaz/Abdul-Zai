@@ -65,7 +65,7 @@
     margin:0 0 4px;
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:calc(var(--title-gap, 12) * var(--ts, 1) * 1px);
   }
   .title-block{position:relative;}
   .title-icon{
@@ -787,7 +787,6 @@
 
     header{align-items:flex-start;gap:14px;padding-bottom:16px;margin-bottom:18px;}
     :root{--ts:0.67;}
-    .title-block h1{gap:9px;}
     .title-block p{font-size:12.5px;}
     .stats{gap:14px;width:100%;justify-content:space-between;flex-wrap:wrap;}
     .stats:not(.open){display:none;}
@@ -874,7 +873,7 @@
 <div class="wrap">
   <header>
     <div class="title-block">
-      <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to pick an emoji instead">🏠</span> The Home Collection</h1>
+      <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to pick an emoji instead">🏠</span><span id="titleText">The Home Collection</span></h1>
       <div class="account-bar" id="accountBar"></div>
       <div class="icon-picker" id="iconPicker"></div>
     </div>
@@ -1089,12 +1088,16 @@
         <div class="look-section">
           <div class="field full">
             <label>Title text &amp; picture</label>
-            <label style="margin-top:6px;display:block;">Font</label>
+            <label style="margin-top:6px;display:block;">Title text</label>
+            <input type="text" id="lookTitleText" maxlength="60" placeholder="The Home Collection" oninput="onLookTitle('text', this.value)" style="width:100%;">
+            <label style="margin-top:8px;display:block;">Font</label>
             <select id="lookTitleFont" onchange="onLookTitle('font', this.value)" style="width:100%;"></select>
             <label style="margin-top:8px;display:block;">Title size: <span id="lookTitleSizeVal">42</span></label>
             <input type="range" id="lookTitleSize" min="18" max="90" value="42" style="width:100%;" oninput="onLookTitle('size', this.value)">
             <label style="margin-top:8px;display:block;">Picture size: <span id="lookPicSizeVal">96</span></label>
             <input type="range" id="lookPicSize" min="30" max="220" value="96" style="width:100%;" oninput="onLookTitle('pic', this.value)">
+            <label style="margin-top:8px;display:block;">Space between picture and title: <span id="lookTitleGapVal">12</span></label>
+            <input type="range" id="lookTitleGap" min="0" max="120" value="12" style="width:100%;" oninput="onLookTitle('gap', this.value)">
             <p class="gh-help">Only changes the title at the top of the page.</p>
           </div>
         </div>
@@ -3348,11 +3351,17 @@ const TITLE_FONTS = {
 
 function applyTitleLook(){
   const t = siteTheme || {};
+  const txt = (typeof t.titleText==='string' && t.titleText.trim()) ? t.titleText.trim().slice(0,60) : 'The Home Collection';
+  const tx = document.getElementById('titleText');
+  if(tx) tx.textContent = txt;
+  document.title = txt;
   const root = document.documentElement;
   const f = TITLE_FONTS[t.titleFont];
   if(f) root.style.setProperty('--title-font', f[1]); else root.style.removeProperty('--title-font');
   const sz = Number(t.titleSize);
   if(sz>=18 && sz<=90) root.style.setProperty('--title-size', String(sz)); else root.style.removeProperty('--title-size');
+  const gp = Number(t.titleGap);
+  if(t.titleGap!=null && gp>=0 && gp<=120) root.style.setProperty('--title-gap', String(gp)); else root.style.removeProperty('--title-gap');
   const pz = Number(t.picSize);
   if(pz>=30 && pz<=220) root.style.setProperty('--pic-size', String(pz)); else root.style.removeProperty('--pic-size');
 }
@@ -3560,9 +3569,10 @@ function clearLookColor(){
 }
 function onLookTitle(kind, v){
   if(!requireAuth()) return;
-  const key = kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : 'picSize';
-  siteTheme = { ...(siteTheme || {}), [key]: kind==='font' ? v : Number(v) };
+  const key = kind==='text' ? 'titleText' : kind==='font' ? 'titleFont' : kind==='size' ? 'titleSize' : kind==='gap' ? 'titleGap' : 'picSize';
+  siteTheme = { ...(siteTheme || {}), [key]: (kind==='font' || kind==='text') ? v : Number(v) };
   if(kind==='size') document.getElementById('lookTitleSizeVal').textContent = Math.round(Number(v));
+  if(kind==='gap') document.getElementById('lookTitleGapVal').textContent = Math.round(Number(v));
   if(kind==='pic') document.getElementById('lookPicSizeVal').textContent = Math.round(Number(v));
   applyTitleLook();
   saveSiteLookSoon();
@@ -3587,6 +3597,8 @@ async function resetLook(){
 
 function syncLookControls(){
   const t = siteTheme || {};
+  const txEl = document.getElementById('lookTitleText');
+  if(txEl && document.activeElement!==txEl) txEl.value = (typeof t.titleText==='string') ? t.titleText : '';
   const fontEl = document.getElementById('lookTitleFont');
   if(fontEl){
     if(!fontEl.options.length) fontEl.innerHTML = Object.keys(TITLE_FONTS).map(k=>`<option value="${k}">${TITLE_FONTS[k][0]}</option>`).join('');
@@ -3596,6 +3608,9 @@ function syncLookControls(){
   const psz = (t.picSize>=30 && t.picSize<=220) ? Number(t.picSize) : 96;
   const tszEl = document.getElementById('lookTitleSize'); if(tszEl) tszEl.value = tsz;
   const tszV = document.getElementById('lookTitleSizeVal'); if(tszV) tszV.textContent = tsz;
+  const gap = (t.titleGap!=null && t.titleGap>=0 && t.titleGap<=120) ? Number(t.titleGap) : 12;
+  const gEl = document.getElementById('lookTitleGap'); if(gEl) gEl.value = gap;
+  const gV = document.getElementById('lookTitleGapVal'); if(gV) gV.textContent = gap;
   const pszEl = document.getElementById('lookPicSize'); if(pszEl) pszEl.value = psz;
   const pszV = document.getElementById('lookPicSizeVal'); if(pszV) pszV.textContent = psz;
   const colorEl = document.getElementById('lookColor');
