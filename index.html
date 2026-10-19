@@ -53,8 +53,8 @@
     align-items:flex-end;
     flex-wrap:wrap;
     gap:18px;
-    padding-bottom:22px;
-    margin-bottom:26px;
+    padding-bottom:0;
+    margin-bottom:calc(var(--space-above, 48) * var(--ts, 1) * 1px);
   }
   .title-block h1{
     font-family:var(--title-font, 'Fraunces', serif);
@@ -141,7 +141,7 @@
   .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#8f887c;}
 
   /* ---------- tabs (spine labels) ---------- */
-  .tabs{display:flex;gap:10px;margin-bottom:18px;}
+  .tabs{display:flex;gap:calc(var(--tab-gap, 10) * 1px);margin-bottom:calc(var(--space-below, 18) * 1px);}
   .tab{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
@@ -794,7 +794,7 @@
   @media (max-width:768px){
     body{padding:18px 12px 90px;}
 
-    header{align-items:flex-start;gap:14px;padding-bottom:16px;margin-bottom:18px;}
+    header{align-items:flex-start;gap:14px;}
     :root{--ts:0.67;}
     .title-block p{font-size:12.5px;}
     .stats{gap:14px;width:100%;justify-content:space-between;flex-wrap:wrap;}
@@ -804,7 +804,7 @@
 
     .icon-picker{left:auto;right:0;max-width:calc(100vw - 40px);}
 
-    .tabs{gap:6px;margin-bottom:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .tabs{gap:calc(var(--tab-gap, 6) * 1px);margin-bottom:calc(var(--space-below, 0) * 1px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
     .tabs::-webkit-scrollbar{display:none;}
     .tab{flex:1 0 auto;justify-content:center;padding:12px 10px;font-size:11px;letter-spacing:1px;white-space:nowrap;}
     .panel{border-radius:0 0 8px 8px;padding:14px;}
@@ -1115,6 +1115,18 @@
             <label>Tab &amp; Add button colors</label>
             <div id="lookAccents"></div>
             <p class="gh-help">Each tab's color is also the color of its Add button.</p>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Tab spacing</label>
+            <label style="margin-top:6px;display:block;">Space above the tabs: <span id="lookSpaceAboveVal">48</span></label>
+            <input type="range" id="lookSpaceAbove" min="0" max="140" value="48" style="width:100%;" oninput="onLookSpace('spaceAbove', this.value)">
+            <label style="margin-top:8px;display:block;">Space below the tabs: <span id="lookSpaceBelowVal">18</span></label>
+            <input type="range" id="lookSpaceBelow" min="0" max="100" value="18" style="width:100%;" oninput="onLookSpace('spaceBelow', this.value)">
+            <label style="margin-top:8px;display:block;">Space between the tabs: <span id="lookTabGapVal">10</span></label>
+            <input type="range" id="lookTabGap" min="0" max="50" value="10" style="width:100%;" oninput="onLookSpace('tabGap', this.value)">
           </div>
         </div>
 
@@ -3407,6 +3419,7 @@ const TITLE_FONTS = {
 function applyTitleLook(){
   const t = siteTheme || {};
   applyAccents();
+  applySpaces();
   const txt = (typeof t.titleText==='string' && t.titleText.trim()) ? t.titleText.trim().slice(0,60) : 'The Home Collection';
   const tx = document.getElementById('titleText');
   if(tx) tx.textContent = txt;
@@ -3698,6 +3711,37 @@ function buildAccentControls(){
     if(el) el.value = /^#[0-9a-f]{6}$/i.test(acc[cat] || '') ? acc[cat] : ACCENTS[cat][2];
   });
 }
+const SPACES = {
+  spaceAbove: ['--space-above', 0, 140, 48, 'lookSpaceAbove'],
+  spaceBelow: ['--space-below', 0, 100, 18, 'lookSpaceBelow'],
+  tabGap:     ['--tab-gap',     0,  50, 10, 'lookTabGap']
+};
+function applySpaces(){
+  const root = document.documentElement;
+  const t = siteTheme || {};
+  Object.keys(SPACES).forEach(k=>{
+    const [cssVar, min, max] = SPACES[k];
+    const n = Number(t[k]);
+    if(t[k]!=null && t[k]!=='' && n>=min && n<=max) root.style.setProperty(cssVar, String(n)); else root.style.removeProperty(cssVar);
+  });
+}
+function syncSpaceControls(){
+  const t = siteTheme || {};
+  Object.keys(SPACES).forEach(k=>{
+    const [, min, max, def, id] = SPACES[k];
+    const n = Number(t[k]);
+    const v = (t[k]!=null && t[k]!=='' && n>=min && n<=max) ? n : def;
+    const el = document.getElementById(id); if(el) el.value = v;
+    const lb = document.getElementById(id + 'Val'); if(lb) lb.textContent = v;
+  });
+}
+function onLookSpace(key, v){
+  if(!requireAuth() || !SPACES[key]) return;
+  siteTheme = { ...(siteTheme || {}), [key]: Number(v) };
+  const lb = document.getElementById(SPACES[key][4] + 'Val'); if(lb) lb.textContent = Math.round(Number(v));
+  applySpaces();
+  saveSiteLookSoon();
+}
 function setAccent(cat, hex){
   if(!requireAuth() || !ACCENTS[cat]) return;
   const acc = { ...((siteTheme && siteTheme.accents) || {}), [cat]: hex };
@@ -3758,6 +3802,7 @@ async function resetLook(){
 function syncLookControls(){
   const t = siteTheme || {};
   buildAccentControls();
+  syncSpaceControls();
   const toHex = rgb => { const m = String(rgb).match(/\d+/g); return m ? '#' + m.slice(0,3).map(n=>Number(n).toString(16).padStart(2,'0')).join('') : '#ffffff'; };
   const tcEl = document.getElementById('lookTitleColor');
   if(tcEl) tcEl.value = /^#[0-9a-f]{6}$/i.test(t.titleColor||'') ? t.titleColor : toHex(getComputedStyle(document.querySelector('.title-block h1')).color);
