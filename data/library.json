@@ -8646,9 +8646,10 @@
     "image": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-background-1791784597422.jpg",
     "dim": 57,
     "titleFont": "inter",
-    "titleSize": 41,
-    "picSize": 56
+    "titleSize": 49,
+    "picSize": 56,
+    "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792384496350
+  "savedAt": 1792384757076
 }
