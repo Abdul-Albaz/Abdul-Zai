@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "BUG SNACKS",
+      "owner": "Zai",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792387159843-cover.jpg",
+      "id": "mvet1redz0bdi",
+      "addedAt": 1792387180021
+    },
+    {
       "title": "Time on ford island",
       "owner": "Zai",
       "platform": "nintendo switch",
@@ -8759,5 +8777,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792387030641
+  "savedAt": 1792387181524
 }
