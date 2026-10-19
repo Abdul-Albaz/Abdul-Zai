@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "MARIO ODYSSEY",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792387278795-cover.jpg",
+      "id": "mvet47gpkiu0f",
+      "addedAt": 1792387294153
+    },
+    {
       "title": "BUG SNACKS",
       "owner": "Zai",
       "platform": "nintendo switch",
@@ -8777,5 +8795,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792387181524
+  "savedAt": 1792387295656
 }
