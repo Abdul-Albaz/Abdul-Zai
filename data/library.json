@@ -8827,10 +8827,10 @@
     "image": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-background-1791784597422.jpg",
     "dim": 39,
     "titleFont": "inter",
-    "titleSize": 57,
+    "titleSize": 55,
     "picSize": 70,
-    "titleGap": 34
+    "titleGap": 8
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792387960935.png",
-  "savedAt": 1792387992949
+  "savedAt": 1792387995807
 }
