@@ -8825,12 +8825,12 @@
   "theme": {
     "color": "#0b0a09",
     "image": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-background-1791784597422.jpg",
-    "dim": 57,
+    "dim": 39,
     "titleFont": "inter",
-    "titleSize": 48,
-    "picSize": 56,
-    "titleGap": 27
+    "titleSize": 51,
+    "picSize": 61,
+    "titleGap": 17
   },
-  "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792387760434
+  "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792387960935.png",
+  "savedAt": 1792388007850
 }
