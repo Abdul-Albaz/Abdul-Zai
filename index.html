@@ -546,13 +546,14 @@
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
   .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
-  /* preview sound buttons (Music): dark round button with a thin light ring so it shows on any cover; teal while playing */
-  .prev-btn{width:32px;height:32px;border-radius:50%;border:none;background:rgba(10,8,6,0.78);color:#fff;font-size:13px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:0;box-shadow:0 0 0 1.5px rgba(255,255,255,0.85),0 2px 8px rgba(0,0,0,0.5);transition:transform .12s, background .12s;}
+  /* preview sound buttons (Music): dark round button, no outline; teal while playing */
+  .prev-btn{width:32px;height:32px;border-radius:50%;border:none;background:rgba(10,8,6,0.78);color:#fff;font-size:13px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:0;box-shadow:0 2px 8px rgba(0,0,0,0.5);outline:none;transition:transform .12s, background .12s;}
   .prev-btn:hover{transform:scale(1.1);background:var(--tape);}
   .prev-btn.playing{background:var(--tape);color:#fff;}
   .card-prev{position:absolute;top:8px;right:8px;z-index:4;}
-  .btn.btn-ghost.prev-act{background:var(--ink);color:#fff;border:1px solid var(--ink);font-weight:700;}
-  .btn.btn-ghost.prev-act:hover, .btn.btn-ghost.prev-act.playing, .btn.btn-ghost.prev-act.playing:hover{background:var(--tape);border-color:var(--tape);color:#fff;}
+  .btn.btn-ghost.prev-act{background:var(--ink);color:#fff;border:none;outline:none;font-weight:700;}
+  .btn.btn-ghost.prev-act:hover, .btn.btn-ghost.prev-act.playing, .btn.btn-ghost.prev-act.playing:hover{background:var(--tape);border:none;color:#fff;}
+  .prev-btn:focus, .prev-btn:focus-visible, .prev-act:focus, .prev-act:focus-visible{outline:none;}
   .detail-preview{display:flex;align-items:center;gap:10px;margin:2px 0 10px;font-size:13px;color:var(--ink-soft);}
   .preview-field{display:flex;gap:10px;align-items:flex-start;}
   .preview-field .prev-btn{margin-top:2px;}
