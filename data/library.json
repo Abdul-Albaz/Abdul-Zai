@@ -4340,7 +4340,7 @@
       "addedAt": 1784125820469,
       "title": "the plucky squire collector edition",
       "rating": 0,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Bk_ADZQ2uuLdZK_nwGCynKVejWcI10Pv73dJg0qyWA&s=10",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792387650231-the-plucky-squire-collector-edition.jpg",
       "platform": "playstation 5",
       "publisher": "Devolver Digital",
       "status": "Backlog",
@@ -4350,7 +4350,8 @@
       "genre": "",
       "price": "",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qkpwesp",
@@ -8831,5 +8832,5 @@
     "titleGap": 27
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792387547805
+  "savedAt": 1792387654836
 }
