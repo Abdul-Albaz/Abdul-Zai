@@ -8644,8 +8644,11 @@
   "theme": {
     "color": "#0b0a09",
     "image": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-background-1791784597422.jpg",
-    "dim": 57
+    "dim": 57,
+    "titleFont": "inter",
+    "titleSize": 41,
+    "picSize": 56
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792384279194.png",
-  "savedAt": 1792384282860
+  "savedAt": 1792384496350
 }
