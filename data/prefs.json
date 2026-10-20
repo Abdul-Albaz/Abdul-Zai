@@ -12,7 +12,7 @@
         "status": "All"
       },
       "music": {
-        "sortBy": "title",
+        "sortBy": "added",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -47,6 +47,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1792486603197
+    "updatedAt": 1792486604909
   }
 }
