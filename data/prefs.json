@@ -3,6 +3,50 @@
     "sortBy": "platform",
     "sortChosen": true,
     "owner": "all",
-    "updatedAt": 1792479621213
+    "tabs": {
+      "games": {
+        "sortBy": "platform",
+        "sortChosen": true,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "music": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "books": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "consoles": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "artbooks": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "figures": {
+        "sortBy": "title",
+        "sortChosen": true,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      }
+    },
+    "updatedAt": 1792486574716
   }
 }
