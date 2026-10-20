@@ -912,7 +912,7 @@
   <div class="panel">
     <div class="toolbar">
       <input type="search" id="search" placeholder="Search title, artist, platform, owner…" oninput="render()">
-      <select id="statusFilter" onchange="render()"></select>
+      <select id="statusFilter" onchange="onStatusChange()"></select>
       <select id="ownerFilter" onchange="onOwnerChange()" title="Show only one person's items"></select>
       <select id="platformFilter" onchange="onPlatformChange()" title="Show only one platform"></select>
       <select id="sortBy" onchange="onSortChange()">
@@ -1538,8 +1538,14 @@ async function loadData(){
     if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [] };
   }
   try{
-    const pf = await window.storage.get('ui:platform');
-    if(pf && pf.value) platformFilter = pf.value;
+    const pf = await window.storage.get('ui:platform');   // old single platform setting: move it into the Games tab once
+    if(pf && pf.value){
+      if(viewOf('games').platform==='All'){
+        viewOf('games').platform = pf.value;
+        if(activeCat==='games') platformFilter = pf.value;
+      }
+      try{ await window.storage.delete('ui:platform'); }catch(e){}
+    }
   }catch(e){ /* no saved platform yet */ }
   buildIconPicker();
   applyTheme();
@@ -1766,7 +1772,9 @@ const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book'
 
 function switchTab(cat){
   stopPreview();
+  captureView();            // keep this tab's own sort + filters
   activeCat = cat;
+  restoreView(cat);         // show the new tab's own sort + filters
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===cat));
   document.getElementById('addBtn').className = 'btn btn-primary ' + cat;
   document.getElementById('addBtn').textContent = ADD_LABELS[cat];
@@ -1868,14 +1876,15 @@ function populatePlatformFilter(){
 
 function onPlatformChange(){
   platformFilter = document.getElementById('platformFilter').value;
-  try{ window.storage.set('ui:platform', platformFilter); }catch(e){}
   render();
+  rememberView();
 }
 
 function populateStatusFilter(){
   const sel = document.getElementById('statusFilter');
   sel.innerHTML = STATUS_FILTERS[activeCat].map(s=>`<option value="${s}">${s==='All'?'All statuses':s}</option>`).join('');
   sel.style.display = (activeCat==='games' || activeCat==='books') ? 'block' : 'none';
+  syncStatusSelect();
   updateCsvHint();
 }
 
@@ -3143,6 +3152,7 @@ async function logout(){
   if(selectMode) exitSelectMode();
   applyAuthUI();
   resetViewPrefs();
+  await applyLocalPrefs();   // back to the visitor view saved on this device
   render();
   showToast('Logged out.');
 }
@@ -3239,38 +3249,90 @@ function populateOwnerFilter(){
   sel.value = ownerFilter;
 }
 
+// Every tab (Games, Music, Books, ...) keeps its own sort and filters.
+// userSort / ownerFilter / platformFilter / the status box always show the OPEN tab's values;
+// viewByCat holds all tabs' values.
+const VIEW_CATS = ['games','music','books','consoles','artbooks','figures'];
+let viewByCat = {};
+function defaultView(cat){
+  return { sortBy: cat==='games' ? 'platform' : 'added', sortChosen:false, owner:'all', platform:'All', status:'All' };
+}
+function viewOf(cat){ return viewByCat[cat] || (viewByCat[cat] = defaultView(cat)); }
+function sortAllowed(cat, s){
+  return ['added','title','rating','price','custom'].includes(s) || (s==='platform' && cat==='games');
+}
+function syncStatusSelect(){
+  const sel = document.getElementById('statusFilter');
+  if(!sel) return;
+  const want = viewOf(activeCat).status;
+  sel.value = [...sel.options].some(o=>o.value===want) ? want : 'All';
+}
+// copy what's on screen into the open tab's slot
+function captureView(){
+  const v = viewOf(activeCat);
+  v.sortBy = userSort;
+  v.sortChosen = sortChosen;
+  v.owner = ownerFilter;
+  v.platform = platformFilter;
+  const st = document.getElementById('statusFilter');
+  if(st && st.value) v.status = st.value;
+}
+// show a tab's own settings
+function restoreView(cat){
+  const v = viewOf(cat);
+  userSort = v.sortBy;
+  sortChosen = v.sortChosen;
+  ownerFilter = v.owner;
+  platformFilter = v.platform;
+  const sel = document.getElementById('sortBy');
+  if(sel) sel.value = userSort;
+  syncStatusSelect();
+}
+function rememberView(){ captureView(); savePrefsNow(); }
+
 function onSortChange(){
   userSort = document.getElementById('sortBy').value;
   sortChosen = true;
   render();
-  savePrefsNow();
+  rememberView();
 }
 function onOwnerChange(){
   ownerFilter = document.getElementById('ownerFilter').value;
   render();
-  savePrefsNow();
+  rememberView();
+}
+function onStatusChange(){
+  render();
+  rememberView();
 }
 
 function currentPrefs(){
-  return { sortBy: userSort, sortChosen: sortChosen, owner: ownerFilter, updatedAt: Date.now() };
+  captureView();
+  const g = viewOf('games');   // top-level sortBy/owner kept so older copies of the site still understand the file
+  return { sortBy: g.sortBy, sortChosen: g.sortChosen, owner: g.owner, tabs: JSON.parse(JSON.stringify(viewByCat)), updatedAt: Date.now() };
 }
 function applyPrefs(p){
   if(!p) return;
-  const sel = document.getElementById('sortBy');
-  // Settings saved before Platform became the default can't say whether "Recently added" was a
-  // deliberate pick, so only a flagged choice (or any other sort) overrides the Platform default.
-  if(p.sortBy && [...sel.options].some(o=>o.value===p.sortBy) && (p.sortChosen || p.sortBy!=='added')){
-    userSort = p.sortBy;
-    sortChosen = true;
-    sel.value = p.sortBy;
-  }
-  ownerFilter = (p.owner && typeof p.owner==='string') ? p.owner : 'all';
+  VIEW_CATS.forEach(cat=>{
+    const v = defaultView(cat);
+    const t = p.tabs && p.tabs[cat];
+    if(t){
+      if(typeof t.sortBy==='string' && sortAllowed(cat, t.sortBy)){ v.sortBy = t.sortBy; v.sortChosen = !!t.sortChosen; }
+      if(typeof t.owner==='string' && t.owner) v.owner = t.owner;
+      if(cat==='games' && typeof t.platform==='string' && t.platform) v.platform = t.platform;
+      if(typeof t.status==='string' && STATUS_FILTERS[cat].includes(t.status)) v.status = t.status;
+    } else if(!p.tabs){
+      // settings saved before tabs had their own: one sort + owner, used for every tab
+      if(p.sortBy && sortAllowed(cat, p.sortBy) && (p.sortChosen || p.sortBy!=='added')){ v.sortBy = p.sortBy; v.sortChosen = true; }
+      if(typeof p.owner==='string' && p.owner) v.owner = p.owner;
+    }
+    viewByCat[cat] = v;
+  });
+  restoreView(activeCat);
 }
 function resetViewPrefs(){
-  userSort = 'platform';
-  sortChosen = false;
-  ownerFilter = 'all';
-  document.getElementById('sortBy').value = 'platform';
+  viewByCat = {};
+  restoreView(activeCat);
 }
 
 async function readLocalPrefs(user){
@@ -3280,14 +3342,13 @@ async function readLocalPrefs(user){
   }catch(e){ return null; }
 }
 async function applyLocalPrefs(){
-  if(!currentUser) return;
-  applyPrefs(await readLocalPrefs(currentUser));
+  applyPrefs(await readLocalPrefs(currentUser || '_guest'));
 }
 
 async function savePrefsNow(){
-  if(!currentUser) return;                 // visitors can look around, nothing is saved for them
-  try{ await window.storage.set('ui:prefs:'+currentUser, JSON.stringify(currentPrefs())); }catch(e){}
-  scheduleSavePrefs();
+  // logged-in accounts: saved on this device + GitHub. Visitors: this device only.
+  try{ await window.storage.set('ui:prefs:'+(currentUser || '_guest'), JSON.stringify(currentPrefs())); }catch(e){}
+  if(currentUser) scheduleSavePrefs();
 }
 
 function scheduleSavePrefs(){
