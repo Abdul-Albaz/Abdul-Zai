@@ -33,7 +33,7 @@
         "status": "All"
       },
       "artbooks": {
-        "sortBy": "rating",
+        "sortBy": "title",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -47,6 +47,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1792486590258
+    "updatedAt": 1792486592242
   }
 }
