@@ -8562,13 +8562,14 @@
       "condition": "Good",
       "boxed": "No box",
       "serial": "",
-      "price": "",
+      "price": "40",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvQD7HdoYKSMEAGKmyqlX8PgS7nOsiEMN8fNGZg-wNxA&s=10",
       "id": "mv678e9253ggv",
-      "addedAt": 1791866808615
+      "addedAt": 1791866808615,
+      "quantity": ""
     },
     {
       "title": "Playstation 2",
@@ -9134,5 +9135,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560537706
+  "savedAt": 1792560544471
 }
