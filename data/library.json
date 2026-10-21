@@ -386,13 +386,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "35",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/I/81u2KtpyyHL._AC_UF894,1000_QL80_.jpg",
       "id": "mv72xgutr2jyo",
-      "addedAt": 1791920046485
+      "addedAt": 1791920046485,
+      "quantity": ""
     },
     {
       "title": "doraemon story of seasons friends of the great kingdom",
@@ -9011,5 +9012,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792558076586
+  "savedAt": 1792558091334
 }
