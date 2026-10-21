@@ -8543,13 +8543,14 @@
       "condition": "New",
       "boxed": "Boxed",
       "serial": "",
-      "price": "",
+      "price": "150",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://www.bodyguardz.com/cdn/shop/files/installed_51a59123-afac-429c-87dc-e95ac82c8783.jpg?v=1750574826&width=768",
       "id": "mv67ewd9kyu54",
-      "addedAt": 1791867112029
+      "addedAt": 1791867112029,
+      "quantity": ""
     },
     {
       "title": "Wii",
@@ -9133,5 +9134,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560530808
+  "savedAt": 1792560537706
 }
