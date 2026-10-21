@@ -243,13 +243,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "20",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791970369678-wanted-dead.jpg",
       "id": "mv7wug5bmvlaj",
-      "addedAt": 1791970294079
+      "addedAt": 1791970294079,
+      "quantity": ""
     },
     {
       "title": "xenoblade chronicles 3",
@@ -9087,5 +9088,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792559058413
+  "savedAt": 1792559065381
 }
