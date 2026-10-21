@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Omori",
+      "owner": "Abdul",
+      "platform": "Nintendo Switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "15",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792559180762-cover.jpg",
+      "id": "mvhnhnxqocnuy",
+      "addedAt": 1792559242862
+    },
+    {
       "title": "Dino Crisis",
       "owner": "Abdul",
       "platform": "playstation 1",
@@ -9092,5 +9110,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792559104847
+  "savedAt": 1792559244365
 }
