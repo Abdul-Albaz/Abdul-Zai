@@ -1397,9 +1397,10 @@
       "rarity": "no",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "30",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qjmiw90",
@@ -8896,5 +8897,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556726990
+  "savedAt": 1792556737507
 }
