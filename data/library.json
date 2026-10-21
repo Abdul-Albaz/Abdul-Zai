@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Fire Emblem: Fortune’s Weave – Dagdan Collection",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "143",
+      "purchaseDate": "2026-10-19",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZwngkFLcxbFfNc6QcI3wzei7c7SEEUvhPxtWN36Bpm6oyJLoEFB_GBiA&s=10",
+      "id": "mvhepo5bavbth",
+      "addedAt": 1792544499839
+    },
+    {
       "title": "ZELDA WIND WAKER HD",
       "owner": "Abdul",
       "platform": "Wii U",
@@ -8840,5 +8858,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792479557091
+  "savedAt": 1792544501343
 }
