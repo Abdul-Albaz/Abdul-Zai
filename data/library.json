@@ -3310,9 +3310,10 @@
       "rarity": "yes",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "30",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qkuueoe",
@@ -3451,9 +3452,10 @@
       "rarity": "no",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "5",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qk6m3ws",
@@ -9022,5 +9024,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792558365669
+  "savedAt": 1792558374367
 }
