@@ -8781,7 +8781,7 @@
       "condition": "New",
       "sealed": "Not sealed",
       "quantity": "",
-      "price": "",
+      "price": "60",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
@@ -9139,5 +9139,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792569330905
+  "savedAt": 1792569336357
 }
