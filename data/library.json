@@ -172,7 +172,7 @@
       "rarity": "",
       "status": "Backlog",
       "quantity": "",
-      "price": "",
+      "price": "30",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
@@ -8902,5 +8902,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556774272
+  "savedAt": 1792556779289
 }
