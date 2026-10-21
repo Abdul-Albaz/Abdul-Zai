@@ -293,13 +293,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "35",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791920605551-rhythm-heaven-groove.jpg",
       "id": "mv739k6zel3w4",
-      "addedAt": 1791920610683
+      "addedAt": 1791920610683,
+      "quantity": ""
     },
     {
       "title": "Hello Kitty Island Adventure",
@@ -8908,5 +8909,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556848875
+  "savedAt": 1792556862972
 }
