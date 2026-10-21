@@ -2514,7 +2514,7 @@
       "addedAt": 1784125820584,
       "title": "metal gear 1",
       "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784192183206-metal-gear-1.jpg",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/3/33/Metal_Gear_Solid_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
       "platform": "playstation 1",
       "publisher": "konami",
       "status": "Backlog",
@@ -8968,5 +8968,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792557596205
+  "savedAt": 1792557655304
 }
