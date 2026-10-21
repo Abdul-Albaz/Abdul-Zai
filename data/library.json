@@ -278,13 +278,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "65",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791920814681-xenoblade-chronicles-x.jpg",
       "id": "mv73e8qli1ubv",
-      "addedAt": 1791920829117
+      "addedAt": 1791920829117,
+      "quantity": ""
     },
     {
       "title": "Rhythm Heaven Groove",
@@ -8947,5 +8948,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792557427921
+  "savedAt": 1792557432888
 }
