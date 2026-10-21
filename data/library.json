@@ -242,13 +242,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "35",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791920873403-cover.jpg",
       "id": "mv73fld04ubq4",
-      "addedAt": 1791920892132
+      "addedAt": 1791920892132,
+      "quantity": ""
     },
     {
       "title": "xenoblade chronicles 1",
@@ -8931,5 +8932,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792557236007
+  "savedAt": 1792557247537
 }
