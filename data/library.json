@@ -808,10 +808,11 @@
       "rarity": "no",
       "owner": "",
       "genre": "",
-      "price": "",
+      "price": "30",
       "purchaseDate": "",
       "notes": "",
-      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784190822864-disco-elysium-the-final-cut-square.jpg"
+      "squareImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784190822864-disco-elysium-the-final-cut-square.jpg",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qi542oc",
@@ -8871,5 +8872,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556468990
+  "savedAt": 1792556475141
 }
