@@ -4906,7 +4906,7 @@
       "artist": "Twenty One Pilots",
       "format": "Vinyl",
       "genre": "",
-      "price": "",
+      "price": "40",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
@@ -9128,5 +9128,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792559483878
+  "savedAt": 1792559492100
 }
