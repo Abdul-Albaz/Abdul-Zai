@@ -722,13 +722,14 @@
       "sealed": "Not sealed",
       "rarity": "yes",
       "status": "Backlog",
-      "price": "",
+      "price": "25",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780415832-off.jpg",
       "id": "mv4aw0byzbdln",
-      "addedAt": 1791752016814
+      "addedAt": 1791752016814,
+      "quantity": ""
     },
     {
       "title": "Granblue Fantasy: Relink",
@@ -8898,5 +8899,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556743322
+  "savedAt": 1792556750839
 }
