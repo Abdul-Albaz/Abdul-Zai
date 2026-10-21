@@ -8410,13 +8410,14 @@
       "condition": "New",
       "boxed": "Boxed",
       "serial": "",
-      "price": "",
+      "price": "500",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://elektroskup.pl/2693-large_default/steam-deck-512gb-nvme-ssd.jpg",
       "id": "mv72tak75655t",
-      "addedAt": 1791919851703
+      "addedAt": 1791919851703,
+      "quantity": ""
     },
     {
       "title": "PlayDate",
@@ -9128,5 +9129,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560460123
+  "savedAt": 1792560475109
 }
