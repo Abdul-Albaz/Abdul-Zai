@@ -8466,13 +8466,14 @@
       "condition": "New",
       "boxed": "Boxed",
       "serial": "",
-      "price": "",
+      "price": "150",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/I/61MpVLSjmrL.jpg",
       "id": "mv72oqwkecy3r",
-      "addedAt": 1791919639604
+      "addedAt": 1791919639604,
+      "quantity": ""
     },
     {
       "title": "Gameboy Advance",
@@ -9129,5 +9130,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560475109
+  "savedAt": 1792560487607
 }
