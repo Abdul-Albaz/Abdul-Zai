@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Dino Crisis",
+      "owner": "Abdul",
+      "platform": "playstation 1",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://i.ebayimg.com/images/g/je8AAOSw4PxaNgsa/s-l1200.jpg",
+      "id": "mvhmic7j2mmy4",
+      "addedAt": 1792557594703
+    },
+    {
       "title": "Fire Emblem: Fortune’s Weave – Dagdan Collection",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -8950,5 +8968,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792557456105
+  "savedAt": 1792557596205
 }
