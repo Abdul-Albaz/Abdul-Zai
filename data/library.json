@@ -8485,13 +8485,14 @@
       "condition": "Like new",
       "boxed": "Boxed",
       "serial": "",
-      "price": "",
+      "price": "25",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://retrospekt.com/cdn/shop/files/GB-1053_1_ff6ed389-2359-4109-9452-0a3f6cad93a6.jpg?v=1697662776&width=1920",
       "id": "mv72kv4mx3a5j",
-      "addedAt": 1791919458454
+      "addedAt": 1791919458454,
+      "quantity": ""
     },
     {
       "title": "gameboy",
@@ -9130,5 +9131,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560487607
+  "savedAt": 1792560498139
 }
