@@ -742,13 +742,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "50",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791780480629-granblue-fantasy-relink.jpg",
       "id": "mv4arvixmykfj",
-      "addedAt": 1791751823961
+      "addedAt": 1791751823961,
+      "quantity": ""
     },
     {
       "title": "Shinobi: Art of Vengeance",
@@ -8939,5 +8940,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792557343373
+  "savedAt": 1792557357304
 }
