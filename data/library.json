@@ -8619,13 +8619,14 @@
       "condition": "Like new",
       "boxed": "Boxed",
       "serial": "",
-      "price": "",
+      "price": "200",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://dpc8tamkiuhgi.cloudfront.net/ec_media_images/5091125-01.jpg",
       "id": "mv672x07n9121",
-      "addedAt": 1791866552984
+      "addedAt": 1791866552984,
+      "quantity": ""
     },
     {
       "title": "Playstation 5",
@@ -9137,5 +9138,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792560556972
+  "savedAt": 1792560565339
 }
