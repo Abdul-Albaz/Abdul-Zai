@@ -207,13 +207,14 @@
       "sealed": "Not sealed",
       "rarity": "",
       "status": "Backlog",
-      "price": "",
+      "price": "30",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791970775037-indka.jpg",
       "id": "mv7x5pbvpwdm5",
-      "addedAt": 1791970819195
+      "addedAt": 1791970819195,
+      "quantity": ""
     },
     {
       "title": "Wanted Dead!",
@@ -8883,5 +8884,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792556590790
+  "savedAt": 1792556596708
 }
