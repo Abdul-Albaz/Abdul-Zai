@@ -368,13 +368,14 @@
       "sealed": "Not sealed",
       "rarity": "YES",
       "status": "Backlog",
-      "price": "",
+      "price": "60",
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/I/91fPZWIhRBL.jpg",
       "id": "mv7305akdo2xa",
-      "addedAt": 1791920171468
+      "addedAt": 1791920171468,
+      "quantity": ""
     },
     {
       "title": "Ninja gaiden z special edition",
@@ -9010,5 +9011,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792558066701
+  "savedAt": 1792558076586
 }
