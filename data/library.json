@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Indiana jones and the great circle",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "50",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1792773447409-cover.jpg",
+      "id": "mvl71hpzdfwbr",
+      "addedAt": 1792773479159
+    },
+    {
       "title": "The Count Lucanor",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -9139,5 +9157,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792569366542
+  "savedAt": 1792773480662
 }
