@@ -26,6 +26,7 @@
     --console:#4C6FA5;   /* consoles accent */
     --artbook:#8A63B8;   /* artbooks accent */
     --figure:#5C9E6B;   /* figures accent */
+    --boardgame:#CFA52B;   /* board games accent */
     --gold:#D6A24A;
     --line: rgba(237,230,214,0.12);
   }
@@ -166,6 +167,7 @@
   .tab[data-cat="consoles"].active{background:var(--console);color:var(--on-console,#08111f);border-color:var(--console);}
   .tab[data-cat="artbooks"].active{background:var(--artbook);color:var(--on-artbook,#150f1f);border-color:var(--artbook);}
   .tab[data-cat="figures"].active{background:var(--figure);color:var(--on-figure,#0c1a10);border-color:var(--figure);}
+  .tab[data-cat="boardgames"].active{background:var(--boardgame);color:var(--on-boardgame,#1f1705);border-color:var(--boardgame);}
   .tab:not(.active):hover{color:var(--paper);}
 
   .panel{
@@ -251,6 +253,7 @@
   .btn-primary.consoles{background:var(--console);color:var(--on-console,#08111f);}
   .btn-primary.artbooks{background:var(--artbook);color:var(--on-artbook,#150f1f);}
   .btn-primary.figures{background:var(--figure);color:var(--on-figure,#0c1a10);}
+  .btn-primary.boardgames{background:var(--boardgame);color:var(--on-boardgame,#1f1705);}
   .btn-ghost{background:transparent;border:1px solid var(--line);color:#a9a196;}
   .btn-ghost:hover{color:var(--paper);border-color:#645d51;}
   .btn-ghost.active-toggle{color:var(--gold);border-color:var(--gold);}
@@ -349,6 +352,7 @@
   .detail-art .art-empty.consoles{background:var(--console);color:var(--on-console,#08111f);aspect-ratio:1/1;}
   .detail-art .art-empty.artbooks{background:var(--artbook);color:var(--on-artbook,#150f1f);}
   .detail-art .art-empty.figures{background:var(--figure);color:var(--on-figure,#0c1a10);aspect-ratio:1/1;}
+  .detail-art .art-empty.boardgames{background:var(--boardgame);color:var(--on-boardgame,#1f1705);aspect-ratio:1/1;}
   /* Card detail window: the artwork is exactly as tall as the beige card (height set by JS), width follows the picture */
   .detail-art{flex:0 1 auto;}
   .detail-art img{height:var(--art-h, auto);width:auto;max-width:100%;max-height:88vh;}
@@ -553,7 +557,7 @@
 
   /* ---------- grid & cards ---------- */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
-  .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures, .grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
   /* preview sound buttons (Music): dark round button, no outline; teal while playing */
   .prev-btn{width:32px;height:32px;border-radius:50%;border:none;background:rgba(10,8,6,0.78);color:#fff;font-size:13px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:0;box-shadow:0 2px 8px rgba(0,0,0,0.5);outline:none;transition:transform .12s, background .12s;}
   .prev-btn:hover{transform:scale(1.1);background:var(--tape);}
@@ -590,7 +594,7 @@
     background:var(--bg-soft);
     overflow:hidden;
   }
-  .cover-area.music, .cover-area.consoles, .cover-area.figures{aspect-ratio:1/1;}
+  .cover-area.music, .cover-area.consoles, .cover-area.figures, .cover-area.boardgames{aspect-ratio:1/1;}
   .cover-area.music:not(.placeholder)::after{
     content:'';
     position:absolute;
@@ -616,6 +620,7 @@
   .cover-area.placeholder.consoles{background:var(--console);}
   .cover-area.placeholder.artbooks{background:var(--artbook);}
   .cover-area.placeholder.figures{background:var(--figure);}
+  .cover-area.placeholder.boardgames{background:var(--boardgame);}
   .cover-area .hole{
     position:absolute;top:12px;left:50%;transform:translateX(-50%);
     width:11px;height:11px;border-radius:50%;
@@ -822,7 +827,7 @@
     select, input[type=text], input[type=search], input[type=number], input[type=date]{font-size:16px;}
 
     .grid-cards{grid-template-columns:repeat(3, 1fr) !important;gap:8px;zoom:1 !important;}
-    .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
+    .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures, .grid-cards.cat-boardgames{grid-template-columns:repeat(3, 1fr) !important;gap:8px;}
     .card-overlay{padding:8px;}
     .card-overlay h4{font-size:12px;}
     .card-overlay .sub{font-size:9.5px;margin:0 0 4px;}
@@ -868,7 +873,7 @@
   }
 
   @media (max-width:420px){
-    .grid-cards, .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
+    .grid-cards, .grid-cards.cat-music, .grid-cards.cat-consoles, .grid-cards.cat-figures, .grid-cards.cat-boardgames{grid-template-columns:repeat(3, 1fr) !important;gap:6px;}
     .tab .dot{display:none;}
     .title-block h1{font-size:24px;}
     .stat .num{font-size:17px;}
@@ -896,6 +901,7 @@
       <div class="stat"><span class="num" id="statConsoles">0</span><span class="lbl">Consoles</span></div>
       <div class="stat"><span class="num" id="statArtbooks">0</span><span class="lbl">Artbooks</span></div>
       <div class="stat"><span class="num" id="statFigures">0</span><span class="lbl">Figures</span></div>
+      <div class="stat"><span class="num" id="statBoardgames">0</span><span class="lbl">Board games</span></div>
       <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
@@ -907,6 +913,7 @@
     <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles</div>
     <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks</div>
     <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures</div>
+    <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games</div>
   </div>
 
   <div class="panel">
@@ -967,7 +974,7 @@
       <div class="gh-modal">
         <h3>Image storage on GitHub</h3>
         <p class="gh-desc">
-          Cover images you pick, and your whole collection (games/music/books/consoles/artbooks/figures), are committed straight into your GitHub
+          Cover images you pick, and your whole collection (games/music/books/consoles/artbooks/figures/board games), are committed straight into your GitHub
           repo — images into an <code>imges</code> folder, your entries into <code>data/library.json</code> — so it's all
           part of the live site, not just this browser. Open the site from any other PC and it will load the same data
           from GitHub automatically. This needs a token with write access to that one repo.
@@ -1251,7 +1258,7 @@ async function handleBackupImport(event){
     const text = await file.text();
     const backup = JSON.parse(text);
     const incoming = backup.data || backup; // tolerate a raw {games,music,books} file too
-    if(!incoming.games && !incoming.music && !incoming.books && !incoming.consoles && !incoming.artbooks && !incoming.figures){
+    if(!incoming.games && !incoming.music && !incoming.books && !incoming.consoles && !incoming.artbooks && !incoming.figures && !incoming.boardgames){
       throw new Error('This file does not look like a Home Collection backup.');
     }
     data.games = incoming.games || [];
@@ -1260,6 +1267,7 @@ async function handleBackupImport(event){
     data.consoles = incoming.consoles || [];
     data.artbooks = incoming.artbooks || [];
     data.figures = incoming.figures || [];
+    data.boardgames = incoming.boardgames || [];
     if(backup.layoutScale){
       Object.keys(layoutScale).forEach(cat=>{
         if(backup.layoutScale[cat]) layoutScale[cat] = normalizeScale(backup.layoutScale[cat]);
@@ -1270,7 +1278,7 @@ async function handleBackupImport(event){
       renderTitleIcon();
       buildIconPicker();
     }
-    await Promise.all([persist('games'), persist('music'), persist('books'), persist('consoles'), persist('artbooks'), persist('figures')]);
+    await Promise.all([persist('games'), persist('music'), persist('books'), persist('consoles'), persist('artbooks'), persist('figures'), persist('boardgames')]);
     await Promise.all(Object.keys(layoutScale).map(cat=>window.storage.set('ui:scale:'+cat, String(layoutScale[cat]))));
     if(backup.icon) await window.storage.set('ui:icon', currentIcon);
     updateScaleUI();
@@ -1289,11 +1297,11 @@ let activeCat = 'games';
 let editingId = null;
 let currentRating = 0;
 let currentCover = '';
-let data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [] };
+let data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [], boardgames: [] };
 let selectMode = false;
 let selectedIds = new Set();
 let dragSrcId = null;
-let layoutScale = { games:75, music:75, books:75, consoles:75, artbooks:75, figures:75 };
+let layoutScale = { games:75, music:75, books:75, consoles:75, artbooks:75, figures:75, boardgames:75 };
 const ICON_OPTIONS = ['🏠','🗃','📦','🎮','🎵','📚','🕹️','💿','📀','🎧','🧸','⭐','🗂️','🏆','🎯','🛍️','🧩','🔖'];
 let currentIcon = '🏠';
 
@@ -1380,6 +1388,23 @@ const FIELDS = {
     {key:'price', label:'Price ($)', type:'number'},
     {key:'purchaseDate', label:'Purchase date', type:'date'},
     {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'optional'},
+  ],
+  boardgames: [
+    {key:'title', label:'Board game', type:'text', full:true, required:true, placeholder:'e.g. Catan, Wingspan, Ticket to Ride'},
+    {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
+    {key:'designer', label:'Designer', type:'text', placeholder:'e.g. Klaus Teuber'},
+    {key:'publisher', label:'Publisher', type:'text', list:['Asmodee','Days of Wonder','Fantasy Flight','Stonemaier','Hasbro','Ravensburger','Z-Man Games','Czech Games Edition','Mattel'], placeholder:'e.g. Asmodee'},
+    {key:'genre', label:'Type / Genre', type:'text', placeholder:'e.g. Strategy, Party, Co-op, Card game'},
+    {key:'players', label:'Players', type:'text', placeholder:'e.g. 2–4'},
+    {key:'playTime', label:'Play time', type:'text', placeholder:'e.g. 45–60 min'},
+    {key:'age', label:'Age', type:'text', placeholder:'e.g. 10+'},
+    {key:'edition', label:'Edition / Expansions', type:'text', placeholder:'e.g. 5th edition, with Seafarers'},
+    {key:'condition', label:'Condition', type:'select', options:['New','Like new','Good','Fair','Damaged']},
+    {key:'sealed', label:'Sealed?', type:'select', options:['Not sealed','Sealed']},
+    {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
+    {key:'price', label:'Price ($)', type:'number'},
+    {key:'purchaseDate', label:'Purchase date', type:'date'},
+    {key:'notes', label:'Notes', type:'textarea', full:true, placeholder:'missing pieces, house rules…'},
   ]
 };
 
@@ -1389,7 +1414,8 @@ const STATUS_FILTERS = {
   books: ['All','Backlog','Reading','Completed'],
   consoles: ['All'],
   artbooks: ['All'],
-  figures: ['All']
+  figures: ['All'],
+  boardgames: ['All']
 };
 
 function buildIconPicker(){
@@ -1454,7 +1480,7 @@ async function loadData(){
   }
 
   try{
-    const [g, m, b, sg, sm, sb, ic, sa, th, ii, lc, sc, lab, sab, lf, sf] = await Promise.allSettled([
+    const [g, m, b, sg, sm, sb, ic, sa, th, ii, lc, sc, lab, sab, lf, sf, lbg, sbg] = await Promise.allSettled([
       window.storage.get('library:games'),
       window.storage.get('library:music'),
       window.storage.get('library:books'),
@@ -1470,7 +1496,9 @@ async function loadData(){
       window.storage.get('library:artbooks'),
       window.storage.get('ui:scale:artbooks'),
       window.storage.get('library:figures'),
-      window.storage.get('ui:scale:figures')
+      window.storage.get('ui:scale:figures'),
+      window.storage.get('library:boardgames'),
+      window.storage.get('ui:scale:boardgames')
     ]);
 
     const localGames = g.status==='fulfilled' && g.value ? JSON.parse(g.value.value) : null;
@@ -1479,13 +1507,14 @@ async function loadData(){
     const localConsoles = lc.status==='fulfilled' && lc.value ? JSON.parse(lc.value.value) : null;
     const localArtbooks = lab.status==='fulfilled' && lab.value ? JSON.parse(lab.value.value) : null;
     const localFigures = lf.status==='fulfilled' && lf.value ? JSON.parse(lf.value.value) : null;
-    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null || localConsoles!==null || localArtbooks!==null || localFigures!==null;
+    const localBoardgames = lbg.status==='fulfilled' && lbg.value ? JSON.parse(lbg.value.value) : null;
+    const hasLocal = localGames!==null || localMusic!==null || localBooks!==null || localConsoles!==null || localArtbooks!==null || localFigures!==null || localBoardgames!==null;
     const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
     // This browser's copy of the site look (replaced below if GitHub's copy is the one we use).
     try{ if(th.status==='fulfilled' && th.value && th.value.value) siteTheme = JSON.parse(th.value.value) || null; }catch(e){}
     if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImage = ii.value.value;
 
-    const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles || remote.artbooks || remote.figures);
+    const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles || remote.artbooks || remote.figures || remote.boardgames);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
 
     if(hasRemote && (!currentUser || !(hasLocal && localSavedAt > remoteSavedAt))){
@@ -1496,6 +1525,7 @@ async function loadData(){
       data.consoles = remote.consoles || [];
       data.artbooks = remote.artbooks || [];
       data.figures = remote.figures || [];
+      data.boardgames = remote.boardgames || [];
       if(remote.icon) currentIcon = remote.icon;
       if('theme' in remote) siteTheme = remote.theme || null;
       if('iconImage' in remote) siteIconImage = remote.iconImage || '';
@@ -1507,6 +1537,7 @@ async function loadData(){
         window.storage.set('library:consoles', JSON.stringify(data.consoles)),
         window.storage.set('library:artbooks', JSON.stringify(data.artbooks)),
         window.storage.set('library:figures', JSON.stringify(data.figures)),
+        window.storage.set('library:boardgames', JSON.stringify(data.boardgames)),
         window.storage.set('library:savedAt', String(remoteSavedAt || Date.now())),
         window.storage.set('ui:theme', JSON.stringify(siteTheme)),
         window.storage.set('ui:iconImage', siteIconImage || '')
@@ -1520,10 +1551,11 @@ async function loadData(){
       data.consoles = localConsoles || [];
       data.artbooks = localArtbooks || [];
       data.figures = localFigures || [];
+      data.boardgames = localBoardgames || [];
       if(hasRemote) scheduleGithubDataSync();
     }
 
-    const scaleResults = { games: sg, music: sm, books: sb, consoles: sc, artbooks: sab, figures: sf };
+    const scaleResults = { games: sg, music: sm, books: sb, consoles: sc, artbooks: sab, figures: sf, boardgames: sbg };
     Object.keys(scaleResults).forEach(cat=>{
       const r = scaleResults[cat];
       if(r.status==='fulfilled' && r.value && r.value.value){
@@ -1535,7 +1567,7 @@ async function loadData(){
     }
   }catch(e){
     console.error('load error', e);
-    if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [] };
+    if(!loadedFromGithub) data = { games: [], music: [], books: [], consoles: [], artbooks: [], figures: [], boardgames: [] };
   }
   try{
     const pf = await window.storage.get('ui:platform');   // old single platform setting: move it into the Games tab once
@@ -1639,7 +1671,7 @@ function parseCSV(text){
 }
 
 const CSV_ALIASES = {
-  title:['title','name','album','game','book','figure','artbook'],
+  title:['title','name','album','game','book','figure','artbook','boardgame','board game'],
   owner:['owner','whose','belongsto'],
   platform:['platform','system','console'],
   publisher:['publisher'],
@@ -1656,7 +1688,11 @@ const CSV_ALIASES = {
   serial:['serial','serialnumber','serial number'],
   artist:['artist','band','musician'],
   author:['author','writer'],
-  genre:['genre','category'],
+  genre:['genre','category','type'],
+  designer:['designer','creator'],
+  players:['players','playercount','player count'],
+  playTime:['playtime','play time','time','duration'],
+  age:['age','minage','min age'],
   status:['status','finished'],
   sealed:['sealed','sealed?'],
   rarity:['rarity','rare'],
@@ -1674,7 +1710,8 @@ const CSV_HINTS = {
   books: 'CSV columns: title, owner, author, format, genre, status, dimensions, quantity, price, purchaseDate, rating, notes',
   consoles: 'CSV columns: title (or name), owner, manufacturer, model, edition, region, condition, box, serial, quantity, price, purchaseDate, rating, notes',
   artbooks: 'CSV columns: title, owner, series, author, publisher, format, language, dimensions, condition, sealed?, quantity, price, purchaseDate, rating, notes',
-  figures: 'CSV columns: title (or name), owner, series, manufacturer, scale, edition, condition, box, quantity, price, purchaseDate, rating, notes'
+  figures: 'CSV columns: title (or name), owner, series, manufacturer, scale, edition, condition, box, quantity, price, purchaseDate, rating, notes',
+  boardgames: 'CSV columns: title (or name), owner, designer, publisher, genre, players, playTime, age, edition, condition, sealed?, quantity, price, purchaseDate, rating, notes'
 };
 
 function updateCsvHint(){
@@ -1768,7 +1805,7 @@ async function handleCsvImport(event){
   showToast(`Imported ${n} ${activeCat} entr${n===1?'y':'ies'}.` + (skipped ? ` Skipped ${skipped} row(s) with no title.` : '') + (n ? ' Add artwork anytime by editing an entry.' : ''));
 }
 
-const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console', artbooks:'+ Add artbook', figures:'+ Add figure' };
+const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console', artbooks:'+ Add artbook', figures:'+ Add figure', boardgames:'+ Add board game' };
 
 function switchTab(cat){
   stopPreview();
@@ -2001,7 +2038,7 @@ async function autoFetchCoverArt(){
   const noteEl = document.getElementById('artAutoNote');
   const linksEl = document.getElementById('artSearchLinks');
   if(linksEl) linksEl.innerHTML = '';
-  const hint = {games:' video game', music:' album', books:' book', consoles:' video game console', artbooks:' art book', figures:' figure'}[activeCat] || '';
+  const hint = {games:' video game', music:' album', books:' book', consoles:' video game console', artbooks:' art book', figures:' figure', boardgames:' board game'}[activeCat] || '';
   if(noteEl) noteEl.textContent = 'Looking for cover art…';
   try{
     const resp = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+hint)}&gsrlimit=1&prop=pageimages&pithumbsize=600&format=json&origin=*`);
@@ -2040,6 +2077,7 @@ function renderArtSearchLinks(title){
   if(activeCat==='games') links.push({label:'🔍 IGDB', url:`https://www.igdb.com/search?q=${q}`});
   if(activeCat==='music') links.push({label:'🔍 Discogs', url:`https://www.discogs.com/search/?q=${q}&type=release`});
   if(activeCat==='books') links.push({label:'🔍 Open Library', url:`https://openlibrary.org/search?q=${q}`});
+  if(activeCat==='boardgames') links.push({label:'🔍 BoardGameGeek', url:`https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=${q}`});
   linksEl.innerHTML = links.map(l=>`<a class="art-search-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
 }
 
@@ -2385,6 +2423,7 @@ async function syncLibraryToGithub(){
       consoles: data.consoles,
       artbooks: data.artbooks,
       figures: data.figures,
+      boardgames: data.boardgames,
       icon: currentIcon,
       theme: siteTheme,
       iconImage: siteIconImage,
@@ -2749,10 +2788,10 @@ function handleDragEnd(e){
 }
 
 // The line of small text under each title, per tab.
-const SUB_KEYS = { games:'platform', music:'artist', books:'author', consoles:'manufacturer', artbooks:'series', figures:'series' };
+const SUB_KEYS = { games:'platform', music:'artist', books:'author', consoles:'manufacturer', artbooks:'series', figures:'series', boardgames:'publisher' };
 
 function catNo(cat, index){
-  const prefix = {games:'G', music:'M', books:'B', consoles:'C', artbooks:'A', figures:'F'}[cat] || 'X';
+  const prefix = {games:'G', music:'M', books:'B', consoles:'C', artbooks:'A', figures:'F', boardgames:'BG'}[cat] || 'X';
   return prefix + '-' + String(index+1).padStart(3,'0');
 }
 
@@ -2773,7 +2812,7 @@ function render(){
   const sortBy = document.getElementById('sortBy').value;
 
   let filtered = list.filter(e=>{
-    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')+' '+(e.manufacturer||'')+' '+(e.model||'')+' '+(e.edition||'')+' '+(e.series||'')+' '+(e.publisher||'')+' '+(e.scale||'')).toLowerCase();
+    const hay = (e.title+' '+(e.artist||'')+' '+(e.platform||'')+' '+(e.author||'')+' '+(e.genre||'')+' '+(e.owner||'')+' '+(e.manufacturer||'')+' '+(e.model||'')+' '+(e.edition||'')+' '+(e.series||'')+' '+(e.publisher||'')+' '+(e.scale||'')+' '+(e.designer||'')).toLowerCase();
     const matchesQ = hay.includes(q);
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
@@ -2829,7 +2868,8 @@ function render(){
       books: 'No books yet — add the first one you bought.',
       consoles: 'No consoles yet — add the first one you own.',
       artbooks: 'No artbooks yet — add the first one on your shelf.',
-      figures: 'No figures yet — add the first one on your shelf.'
+      figures: 'No figures yet — add the first one on your shelf.',
+      boardgames: 'No board games yet — add the first one on your shelf.'
     };
     emptyEl.textContent = list.length===0 ? emptyByCat[activeCat] : 'Nothing matches your search.';
   } else {
@@ -2859,6 +2899,9 @@ function render(){
       if(activeCat==='figures' && e.manufacturer) chips.push(`<span class="chip">${escapeHtml(e.manufacturer)}</span>`);
       if(activeCat==='figures' && e.condition) chips.push(`<span class="chip">${escapeHtml(e.condition)}</span>`);
       if(activeCat==='figures' && e.boxed==='Boxed') chips.push(`<span class="chip chip-sealed">Boxed</span>`);
+      if(activeCat==='boardgames' && e.players) chips.push(`<span class="chip">👥 ${escapeHtml(e.players)}</span>`);
+      if(activeCat==='boardgames' && e.playTime) chips.push(`<span class="chip">⏱ ${escapeHtml(e.playTime)}</span>`);
+      if(activeCat==='boardgames' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
       const catnoTag = `<span class="chip" style="font-family:'JetBrains Mono',monospace;">${catNo(activeCat, origIndex)}</span>`;
       const price = e.price ? `$${parseFloat(e.price).toFixed(2)}` : '';
       const previewBtn = (activeCat==='music' && e.preview && !selectMode)
@@ -2930,7 +2973,8 @@ function render(){
   document.getElementById('statConsoles').textContent = countCopies(data.consoles);
   document.getElementById('statArtbooks').textContent = countCopies(data.artbooks);
   document.getElementById('statFigures').textContent = countCopies(data.figures);
-  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles, ...data.artbooks, ...data.figures].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
+  document.getElementById('statBoardgames').textContent = countCopies(data.boardgames);
+  const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles, ...data.artbooks, ...data.figures, ...data.boardgames].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
 }
 
@@ -3252,7 +3296,7 @@ function populateOwnerFilter(){
 // Every tab (Games, Music, Books, ...) keeps its own sort and filters.
 // userSort / ownerFilter / platformFilter / the status box always show the OPEN tab's values;
 // viewByCat holds all tabs' values.
-const VIEW_CATS = ['games','music','books','consoles','artbooks','figures'];
+const VIEW_CATS = ['games','music','books','consoles','artbooks','figures','boardgames'];
 let viewByCat = {};
 function defaultView(cat){
   return { sortBy: cat==='games' ? 'platform' : 'added', sortChosen:false, owner:'all', platform:'All', status:'All' };
@@ -3739,7 +3783,8 @@ const ACCENTS = {
   books:    ['Books',    'book',    '#8B4A5C'],
   consoles: ['Consoles', 'console', '#4C6FA5'],
   artbooks: ['Artbooks', 'artbook', '#8A63B8'],
-  figures:  ['Figures',  'figure',  '#5C9E6B']
+  figures:  ['Figures',  'figure',  '#5C9E6B'],
+  boardgames: ['Board Games', 'boardgame', '#CFA52B']
 };
 function applyAccents(){
   const root = document.documentElement;
