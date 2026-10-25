@@ -9142,6 +9142,27 @@
   ],
   "boardgames": [
     {
+      "title": "The Gallerist",
+      "owner": "Abdul",
+      "designer": "",
+      "publisher": "",
+      "genre": "",
+      "players": "",
+      "playTime": "",
+      "age": "",
+      "edition": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://madeincamelot.co.uk/cdn/shop/files/The-Gallerist-box.jpg?v=1765097885&width=1024",
+      "id": "mvnbbf0twdevw",
+      "addedAt": 1792901593037
+    },
+    {
       "title": "Metal Gear Solid: The Board Game",
       "owner": "Abdul",
       "designer": "",
@@ -9180,5 +9201,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792901404776
+  "savedAt": 1792901594539
 }
