@@ -8685,6 +8685,26 @@
   ],
   "artbooks": [
     {
+      "title": "Fallout 4",
+      "owner": "",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/81LVtnitzDL._AC_UF1000,1000_QL80_.jpg",
+      "id": "mvy42i4pduf9u",
+      "addedAt": 1793554547785
+    },
+    {
       "title": "Deathloop",
       "owner": "",
       "series": "",
@@ -9279,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554523405
+  "savedAt": 1793554549286
 }
