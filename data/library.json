@@ -8825,6 +8825,26 @@
       "addedAt": 1792285764209
     },
     {
+      "title": "The Art and Making of Hogwarts Legacy",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "70",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/71mQamGg36L._SY522_.jpg",
+      "id": "mvd4p1v0n3cmm",
+      "addedAt": 1792285810092
+    },
+    {
       "title": "death stranding 2 art book",
       "owner": "",
       "series": "",
@@ -8903,26 +8923,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1481301937i/33299138.jpg",
       "id": "mvebqyirl2dm1",
       "addedAt": 1792358122563
-    },
-    {
-      "title": "The Art and Making of Hogwarts Legacy",
-      "owner": "Abdul",
-      "series": "",
-      "author": "",
-      "publisher": "",
-      "format": "Hardcover",
-      "language": "",
-      "dimensions": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "70",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/71mQamGg36L._SY522_.jpg",
-      "id": "mvd4p1v0n3cmm",
-      "addedAt": 1792285810092
     },
     {
       "title": "Bloodborne Official Design Art Works Art Book",
@@ -9299,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554679061
+  "savedAt": 1793554681508
 }
