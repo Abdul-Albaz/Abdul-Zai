@@ -8745,6 +8745,26 @@
       "addedAt": 1792286047826
     },
     {
+      "title": "The Art of Howl's Moving Castle",
+      "owner": "Both",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "35",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421500492/the-art-of-howls-moving-castle-9781421500492_hr.jpg",
+      "id": "mvec32ypamuuv",
+      "addedAt": 1792358688193
+    },
+    {
       "title": "death stranding 2 art book",
       "owner": "",
       "series": "",
@@ -8823,26 +8843,6 @@
       "cover": "https://m.media-amazon.com/images/I/81plwh-CI+L._AC_UF1000,1000_QL80_.jpg",
       "id": "mvec7pmo90foa",
       "addedAt": 1792358904192
-    },
-    {
-      "title": "The Art of Howl's Moving Castle",
-      "owner": "Both",
-      "series": "",
-      "author": "",
-      "publisher": "",
-      "format": "Hardcover",
-      "language": "",
-      "dimensions": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "35",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421500492/the-art-of-howls-moving-castle-9781421500492_hr.jpg",
-      "id": "mvec32ypamuuv",
-      "addedAt": 1792358688193
     },
     {
       "title": "The Art of Totoro",
@@ -9299,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554668344
+  "savedAt": 1793554670912
 }
