@@ -8765,6 +8765,26 @@
       "addedAt": 1793554438637
     },
     {
+      "title": "Death Stranding",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "60",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/815jySwonEL._AC_UF1000,1000_QL80_.jpg",
+      "id": "mvd4rf5u1ea6z",
+      "addedAt": 1792285920642
+    },
+    {
       "title": "The Hobbit: An Unexpected Journey - Chronicles I: Art & Design",
       "owner": "",
       "series": "",
@@ -8863,26 +8883,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1481301937i/33299138.jpg",
       "id": "mvebqyirl2dm1",
       "addedAt": 1792358122563
-    },
-    {
-      "title": "Death Stranding",
-      "owner": "Abdul",
-      "series": "",
-      "author": "",
-      "publisher": "",
-      "format": "Hardcover",
-      "language": "",
-      "dimensions": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "60",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/815jySwonEL._AC_UF1000,1000_QL80_.jpg",
-      "id": "mvd4rf5u1ea6z",
-      "addedAt": 1792285920642
     },
     {
       "title": "The Art and Making of Hogwarts Legacy",
@@ -9299,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554665307
+  "savedAt": 1793554668344
 }
