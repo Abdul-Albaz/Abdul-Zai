@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Xenoblade Chronicles 2",
+      "owner": "",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "70",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1793553944203-cover.jpg",
+      "id": "mvy3qt9vlnune",
+      "addedAt": 1793554002355
+    },
+    {
       "title": "Indiana jones and the great circle",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -9222,5 +9240,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1792392613405.png",
-  "savedAt": 1792905774220
+  "savedAt": 1793554003859
 }
