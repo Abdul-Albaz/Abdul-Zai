@@ -33,7 +33,7 @@
         "status": "All"
       },
       "artbooks": {
-        "sortBy": "title",
+        "sortBy": "added",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -45,8 +45,15 @@
         "owner": "all",
         "platform": "All",
         "status": "All"
+      },
+      "boardgames": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
       }
     },
-    "updatedAt": 1792559614348
+    "updatedAt": 1793554643005
   }
 }
