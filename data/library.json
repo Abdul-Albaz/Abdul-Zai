@@ -8845,6 +8845,26 @@
       "addedAt": 1792285810092
     },
     {
+      "title": "Bloodborne Official Design Art Works Art Book",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "60",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/71rAj53+L+L._SY522_.jpg",
+      "id": "mvd4mv6merxk4",
+      "addedAt": 1792285708126
+    },
+    {
       "title": "death stranding 2 art book",
       "owner": "",
       "series": "",
@@ -8923,26 +8943,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1481301937i/33299138.jpg",
       "id": "mvebqyirl2dm1",
       "addedAt": 1792358122563
-    },
-    {
-      "title": "Bloodborne Official Design Art Works Art Book",
-      "owner": "Abdul",
-      "series": "",
-      "author": "",
-      "publisher": "",
-      "format": "Hardcover",
-      "language": "",
-      "dimensions": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "60",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/71rAj53+L+L._SY522_.jpg",
-      "id": "mvd4mv6merxk4",
-      "addedAt": 1792285708126
     }
   ],
   "figures": [
@@ -9299,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554681508
+  "savedAt": 1793554684343
 }
