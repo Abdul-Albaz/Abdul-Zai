@@ -8805,6 +8805,26 @@
       "addedAt": 1792358904192
     },
     {
+      "title": "The Art of Cuphead",
+      "owner": "Abdul",
+      "series": "",
+      "author": "",
+      "publisher": "",
+      "format": "Hardcover",
+      "language": "",
+      "dimensions": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/I/91EaniW+yML._AC_UF1000,1000_QL80_.jpg",
+      "id": "mvd4o2gh3h0w1",
+      "addedAt": 1792285764209
+    },
+    {
       "title": "death stranding 2 art book",
       "owner": "",
       "series": "",
@@ -8903,26 +8923,6 @@
       "cover": "https://m.media-amazon.com/images/I/71mQamGg36L._SY522_.jpg",
       "id": "mvd4p1v0n3cmm",
       "addedAt": 1792285810092
-    },
-    {
-      "title": "The Art of Cuphead",
-      "owner": "Abdul",
-      "series": "",
-      "author": "",
-      "publisher": "",
-      "format": "Hardcover",
-      "language": "",
-      "dimensions": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "40",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/I/91EaniW+yML._AC_UF1000,1000_QL80_.jpg",
-      "id": "mvd4o2gh3h0w1",
-      "addedAt": 1792285764209
     },
     {
       "title": "Bloodborne Official Design Art Works Art Book",
@@ -9299,5 +9299,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554676578
+  "savedAt": 1793554679061
 }
