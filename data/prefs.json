@@ -66,7 +66,7 @@
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
-        "status": "Reading"
+        "status": "All"
       },
       "games": {
         "sortBy": "platform",
@@ -111,6 +111,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793629866283
+    "updatedAt": 1793629868290
   }
 }
