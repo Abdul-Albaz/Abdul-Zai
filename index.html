@@ -1490,7 +1490,7 @@ async function loadData(){
       window.storage.get('ui:icon'),
       window.storage.get('library:savedAt'),
       window.storage.get('ui:theme'),
-      window.storage.get('ui:iconImage'),
+      window.storage.get('ui:iconImages'),
       window.storage.get('library:consoles'),
       window.storage.get('ui:scale:consoles'),
       window.storage.get('library:artbooks'),
@@ -1512,7 +1512,7 @@ async function loadData(){
     const localSavedAt = sa.status==='fulfilled' && sa.value ? Number(sa.value.value)||0 : 0;
     // This browser's copy of the site look (replaced below if GitHub's copy is the one we use).
     try{ if(th.status==='fulfilled' && th.value && th.value.value) siteTheme = JSON.parse(th.value.value) || null; }catch(e){}
-    if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImage = ii.value.value;
+    try{ if(ii.status==='fulfilled' && ii.value && ii.value.value) siteIconImages = JSON.parse(ii.value.value) || {}; }catch(e){ siteIconImages = {}; }
 
     const hasRemote = remote && (remote.games || remote.music || remote.books || remote.consoles || remote.artbooks || remote.figures || remote.boardgames);
     const remoteSavedAt = hasRemote ? (Number(remote.savedAt)||0) : -1;
@@ -1528,7 +1528,8 @@ async function loadData(){
       data.boardgames = remote.boardgames || [];
       if(remote.icon) currentIcon = remote.icon;
       if('theme' in remote) siteTheme = remote.theme || null;
-      if('iconImage' in remote) siteIconImage = remote.iconImage || '';
+      if('iconImage' in remote) legacyIconImage = remote.iconImage || '';
+      if(remote.iconImages && typeof remote.iconImages==='object') siteIconImages = remote.iconImages;
       loadedFromGithub = true;
       Promise.allSettled([
         window.storage.set('library:games', JSON.stringify(data.games)),
@@ -1540,7 +1541,7 @@ async function loadData(){
         window.storage.set('library:boardgames', JSON.stringify(data.boardgames)),
         window.storage.set('library:savedAt', String(remoteSavedAt || Date.now())),
         window.storage.set('ui:theme', JSON.stringify(siteTheme)),
-        window.storage.set('ui:iconImage', siteIconImage || '')
+        window.storage.set('ui:iconImages', JSON.stringify(siteIconImages))
       ]).catch(()=>{});
     } else if(hasLocal){
       // This browser has changes GitHub hasn't caught up on yet (or GitHub
@@ -1581,6 +1582,7 @@ async function loadData(){
   }catch(e){ /* no saved platform yet */ }
   buildIconPicker();
   applyTheme();
+  loadUserIcon();
   renderTitleIcon();
   updateScaleUI();
   document.getElementById('loading').style.display='none';
@@ -2422,6 +2424,7 @@ window.addEventListener('beforeunload', ()=>{
 
 async function syncLibraryToGithub(){
   if(!ghConfig || !currentUser) return;
+  stashUserIcon();
   try{
     const payload = {
       games: data.games,
@@ -2433,7 +2436,8 @@ async function syncLibraryToGithub(){
       boardgames: data.boardgames,
       icon: currentIcon,
       theme: siteTheme,
-      iconImage: siteIconImage,
+      iconImage: legacyIconImage,
+      iconImages: siteIconImages,
       savedAt: Date.now()
     };
     const content = utf8ToBase64(JSON.stringify(payload, null, 2));
@@ -3136,6 +3140,7 @@ function toggleStats(){
 
 function applyAuthUI(){
   document.body.classList.toggle('guest', !currentUser);
+  loadUserIcon();
   renderTitleIcon();
   const bar = document.getElementById('accountBar');
   const totalsBtn = `<button class="acct-link" id="statsToggle" onclick="toggleStats()" title="Show how many things you have">${statsOpen ? 'Hide totals' : 'Show totals'}</button>`;
@@ -3497,7 +3502,16 @@ async function loadAccountPrefs(){
 // in this browser so it appears instantly on the next visit.
 // =====================================================================
 let siteTheme = null;        // {color:'#rrggbb'|'', image:'https://…'|'', dim:0-80} — null = the original look
-let siteIconImage = '';      // URL of an uploaded site icon; '' = use the emoji icon
+let siteIconImage = '';
+let siteIconImages = {};     // each account's own logo: { abdul:'https://…', zai:'https://…' }
+let legacyIconImage = '';    // the old single shared logo — used only until an account sets its own
+function loadUserIcon(){     // switch the logo to whoever is logged in
+  const u = currentUser;
+  siteIconImage = !u ? '' : (Object.prototype.hasOwnProperty.call(siteIconImages, u) ? (siteIconImages[u] || '') : legacyIconImage);
+}
+function stashUserIcon(){    // remember the logged-in account's logo under their name
+  if(currentUser) siteIconImages[currentUser] = siteIconImage || '';
+}      // URL of an uploaded site icon; '' = use the emoji icon
 let lookSaveTimer = null;
 
 const LOOK_PRESETS = ['#171512','#0f1a2b','#14261c','#2a1620','#2b2b2b','#efe6d2','#dce8f2'];
@@ -3618,8 +3632,9 @@ async function applyLocalLook(){
     if(th && th.value) siteTheme = JSON.parse(th.value) || null;
   }catch(e){}
   try{
-    const ii = await window.storage.get('ui:iconImage');
-    if(ii && ii.value) siteIconImage = ii.value;
+    const ii = await window.storage.get('ui:iconImages');
+    if(ii && ii.value) siteIconImages = JSON.parse(ii.value) || {};
+    loadUserIcon();
   }catch(e){}
   applyTheme();
   renderTitleIcon();
@@ -3628,9 +3643,10 @@ async function applyLocalLook(){
 // Save to this browser and queue the sync to GitHub (same path as a collection edit).
 async function saveSiteLook(){
   if(!currentUser) return;
+  stashUserIcon();
   try{
     await window.storage.set('ui:theme', JSON.stringify(siteTheme));
-    await window.storage.set('ui:iconImage', siteIconImage || '');
+    await window.storage.set('ui:iconImages', JSON.stringify(siteIconImages));
     await window.storage.set('library:savedAt', String(Date.now()));
   }catch(e){ console.error('look save error', e); }
   scheduleGithubDataSync();
