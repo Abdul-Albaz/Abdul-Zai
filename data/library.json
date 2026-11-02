@@ -7329,7 +7329,7 @@
       "title": "Eleanor Oliphant is Completely Fine",
       "rating": 0,
       "cover": "",
-      "status": "Completed"
+      "status": "Backlog"
     },
     {
       "id": "mrqxffru8r5l6",
@@ -7337,7 +7337,7 @@
       "title": "The Girl who Drank the Moon",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffruym0b0",
@@ -9335,5 +9335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793625182682
+  "savedAt": 1793625190659
 }
