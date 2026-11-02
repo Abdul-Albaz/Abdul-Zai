@@ -10865,8 +10865,19 @@
       "addedAt": 1784413001047,
       "title": "كليلة ودمنة",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1480289116i/33139444.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrudzchm",
@@ -12138,5 +12149,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793636054161
+  "savedAt": 1793636160895
 }
