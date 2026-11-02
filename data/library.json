@@ -9368,8 +9368,19 @@
       "addedAt": 1784413001075,
       "title": "Divergent",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1618526890i/13335037.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Veronica Roth",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru4azgq",
@@ -10825,5 +10836,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793632246133
+  "savedAt": 1793632269004
 }
