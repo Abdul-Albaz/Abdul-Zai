@@ -9514,8 +9514,19 @@
       "addedAt": 1784413001133,
       "title": "كتاب الكوابيس",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1649760178i/60799987.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "حسن أكرم",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru48rhc",
@@ -10773,8 +10784,19 @@
       "addedAt": 1784413001053,
       "title": "كل شيء هادئ على الجبهة الغربية",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1579522752i/50566892.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Erich Maria Remarque",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru1hcos",
@@ -12149,5 +12171,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793636160895
+  "savedAt": 1793636218353
 }
