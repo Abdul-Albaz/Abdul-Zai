@@ -6381,9 +6381,19 @@
       "addedAt": 1784413001308,
       "title": "دليل جدتي لقتل الاوغاد",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734355825i/222660664.jpg",
       "author": "ميرنا المهدي",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrui954l",
@@ -9677,5 +9687,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793626263743
+  "savedAt": 1793626322490
 }
