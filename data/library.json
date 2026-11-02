@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "DCC #7: This Inevitable Ruin",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760789256i/232497556.jpg",
+      "id": "mvzc1levly6v6",
+      "addedAt": 1793628408487
+    },
+    {
       "title": "DCC #5: The Butcher's Masquerade",
       "owner": "",
       "author": "Matt Dinniman",
@@ -10325,5 +10344,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628362115
+  "savedAt": 1793628409988
 }
