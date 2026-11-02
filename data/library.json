@@ -9319,6 +9319,10 @@
     "tabGap": 10,
     "titleBelow": 12
   },
-  "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793597933573.png",
-  "savedAt": 1793597942339
+  "iconImage": "",
+  "iconImages": {
+    "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793598386748.png",
+    "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793598452188.png"
+  },
+  "savedAt": 1793598456380
 }
