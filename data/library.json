@@ -10167,8 +10167,19 @@
       "addedAt": 1784413001033,
       "title": "Simon vs. the Homosapiens Agenda",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1402915678i/19547856.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Becky Albertalli",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrutuy49",
@@ -11273,5 +11284,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633490726
+  "savedAt": 1793633524085
 }
