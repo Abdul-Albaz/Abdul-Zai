@@ -7920,8 +7920,19 @@
       "addedAt": 1784413001214,
       "title": "Diary of a Wimpy Kid Cabin Fever",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1350396037i/11254250.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Jeff Kinney",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrutbudg",
@@ -10814,5 +10825,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793632223291
+  "savedAt": 1793632246133
 }
