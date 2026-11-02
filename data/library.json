@@ -8284,8 +8284,19 @@
       "addedAt": 1784413001196,
       "title": "Star Wars: Catalyst",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1509729394i/29662066.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "James Luceno",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrudb8ui",
@@ -11372,5 +11383,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633717523
+  "savedAt": 1793633750627
 }
