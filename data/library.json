@@ -7407,8 +7407,19 @@
       "addedAt": 1784413001269,
       "title": "Mrs. Dalloway",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1589375640i/52692585.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Virginia Woolf",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrueg3ix",
@@ -11142,5 +11153,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633080749
+  "savedAt": 1793633109591
 }
