@@ -7831,8 +7831,19 @@
       "addedAt": 1784413001232,
       "title": "The Complete Maus",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1788759416i/15195.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Art Spiegelman",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruncz6g",
@@ -11514,5 +11525,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793634105241
+  "savedAt": 1793634132311
 }
