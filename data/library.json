@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "DCC #5: The Butcher's Masquerade",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098643i/220772913.jpg",
+      "id": "mvzc0kh283xn8",
+      "addedAt": 1793628360614
+    },
+    {
       "title": "DCC #2: Carl's Doomsday Scenario",
       "owner": "",
       "author": "Matt Dinniman",
@@ -10306,5 +10325,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628321310
+  "savedAt": 1793628362115
 }
