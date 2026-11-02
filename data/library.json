@@ -7796,8 +7796,19 @@
       "addedAt": 1784413001224,
       "title": "Alia's Mission: Saving the Books of Iraq",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1320407080i/151398.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Mark Alan Stamaty",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrunqprx",
@@ -10498,5 +10509,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628884954
+  "savedAt": 1793628904549
 }
