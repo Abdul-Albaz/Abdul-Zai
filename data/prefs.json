@@ -66,7 +66,7 @@
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
-        "status": "Completed"
+        "status": "Backlog"
       },
       "games": {
         "sortBy": "platform",
@@ -111,6 +111,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793629851666
+    "updatedAt": 1793629859156
   }
 }
