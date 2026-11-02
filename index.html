@@ -548,6 +548,21 @@
     padding:10px 12px;border-radius:5px;
     margin-bottom:16px;white-space:pre-wrap;
   }
+  /* quick edit inside the detail window (only shown when logged in) */
+  .detail-stars.editable span{cursor:pointer;transition:transform .1s;display:inline-block;}
+  .detail-stars.editable span:hover{transform:scale(1.2);}
+  .detail-row select.quick, .detail-row input.quick{
+    width:100%;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);
+    background:rgba(34,31,26,0.06);border:1px solid rgba(34,31,26,0.18);
+    border-radius:5px;padding:5px 8px;outline:none;
+  }
+  .detail-row select.quick:focus, .detail-row input.quick:focus{border-color:var(--cart);}
+  .detail-progress{grid-column:1 / -1;}
+  .progress-bar{height:8px;background:rgba(34,31,26,0.14);border-radius:99px;overflow:hidden;margin:4px 0 6px;}
+  .progress-fill{height:100%;background:var(--cart);border-radius:99px;transition:width .3s;}
+  .progress-text{font-size:13px;}
+  .progress-edit{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:12px;color:var(--ink-soft);}
+  .progress-edit input.quick{width:78px;}
   .detail-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 20px 18px;}
   .detail-actions .prev-act{margin-right:auto;}
   @media (max-width:480px){
@@ -1338,6 +1353,8 @@ const FIELDS = {
     {key:'format', label:'Format', type:'select', options:['Paperback','Hardcover','Ebook','Audiobook']},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Sci-Fi, Memoir'},
     {key:'status', label:'Status', type:'select', options:['Backlog','Reading','Completed']},
+    {key:'pagesRead', label:'Pages read', type:'number', min:0, step:1, placeholder:'e.g. 120'},
+    {key:'pagesTotal', label:'Total pages', type:'number', min:1, step:1, placeholder:'e.g. 435'},
     {key:'dimensions', label:'Size', type:'text', placeholder:'e.g. 12.7 × 17.8 cm'},
     {key:'quantity', label:'Copies', type:'number', min:1, step:1, placeholder:'how many you have (price = per copy)'},
     {key:'price', label:'Price ($)', type:'number'},
@@ -2630,14 +2647,29 @@ function openDetail(id){
     ? `<div class="detail-preview" id="detailPreviewLine"${entry.preview ? '' : ' style="display:none"'}>♪ <span id="detailPreviewLabel">${escapeHtml(entry.previewLabel || 'Preview sound')}</span></div>` : '';
   const playBtnHtml = (cat==='music')
     ? `<button class="btn btn-ghost prev-act" id="detailPlayBtn" data-prevbtn="${entry.id}" onclick="playDetailPreview('${entry.id}')">▶ Play preview</button>` : '';
-  const stars = '★'.repeat(entry.rating||0) + '☆'.repeat(5-(entry.rating||0));
+  const canEdit = !!currentUser;
+  const rate = entry.rating||0;
+  const stars = canEdit
+    ? [1,2,3,4,5].map(i=>`<span onclick="quickRate('${entry.id}',${i})" title="Click to rate">${i<=rate?'★':'☆'}</span>`).join('')
+    : '★'.repeat(rate) + '☆'.repeat(5-rate);
   const price = entry.price ? '$' + parseFloat(entry.price).toFixed(2) : '';
 
-  const skipKeys = new Set(['title', subKey, 'notes', 'price', 'purchaseDate']);
+  const skipKeys = new Set(['title', subKey, 'notes', 'price', 'purchaseDate', 'pagesRead', 'pagesTotal']);
   const rows = FIELDS[cat]
-    .filter(f=>!skipKeys.has(f.key) && entry[f.key])
-    .map(f=>`<div class="detail-row"><span class="k">${escapeHtml(f.label)}</span><span class="v">${escapeHtml(String(entry[f.key]))}</span></div>`)
+    .filter(f=>!skipKeys.has(f.key) && (entry[f.key] || (canEdit && (f.key==='owner' || f.key==='status'))))
+    .map(f=>{
+      let v = `<span class="v">${escapeHtml(String(entry[f.key]||''))}</span>`;
+      if(canEdit && f.key==='status'){
+        v = `<select class="quick" onchange="quickSet('${entry.id}','status',this.value)">${f.options.map(o=>`<option ${o===entry.status?'selected':''}>${o}</option>`).join('')}</select>`;
+      } else if(canEdit && f.key==='owner'){
+        const opts = ['Abdul','Zai','Both'];
+        if(entry.owner && !opts.includes(entry.owner)) opts.push(entry.owner);
+        v = `<select class="quick" onchange="quickSet('${entry.id}','owner',this.value)"><option value="">—</option>${opts.map(o=>`<option ${o===entry.owner?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select>`;
+      }
+      return `<div class="detail-row"><span class="k">${escapeHtml(f.label)}</span>${v}</div>`;
+    })
     .join('')
+    + (cat==='books' ? progressHtml(entry, canEdit) : '')
     + (price ? `<div class="detail-row"><span class="k">Price</span><span class="v">${price}</span></div>` : '')
     + (entry.purchaseDate ? `<div class="detail-row"><span class="k">Purchased</span><span class="v">${escapeHtml(entry.purchaseDate)}</span></div>` : '');
 
@@ -2664,7 +2696,7 @@ function openDetail(id){
         </div>
       </div>
       <input type="file" id="squareImgInput" accept="image/*" style="display:none" onchange="handleSquareImageFile(event,'${entry.id}')">
-      <div class="detail-stars">${stars}</div>
+      <div class="detail-stars${canEdit?' editable':''}">${stars}</div>
       ${previewHtml}
       <div class="detail-rows">${rows}</div>
       ${notesHtml}
@@ -2679,6 +2711,71 @@ function openDetail(id){
   setPlayingUI();
   document.getElementById('detailOverlay').classList.add('open');
   syncDetailArtHeight();
+}
+
+// ---------- quick edit from the detail window ----------
+function progressHtml(entry, canEdit){
+  const total = parseInt(entry.pagesTotal,10) || 0;
+  const read  = parseInt(entry.pagesRead,10) || 0;
+  if(!canEdit && !total && !read) return '';
+  const pct = total ? Math.min(100, Math.round(read/total*100)) : 0;
+  const text = total ? `${read} / ${total} pages (${pct}%)` : (read ? `${read} pages read` : 'Not started');
+  const edit = canEdit ? `
+      <div class="progress-edit">
+        <input class="quick" type="number" id="pgRead" min="0" step="1" value="${read||''}" placeholder="read" onchange="quickProgress('${entry.id}')">
+        <span>of</span>
+        <input class="quick" type="number" id="pgTotal" min="1" step="1" value="${total||''}" placeholder="total" onchange="quickProgress('${entry.id}')">
+        <span>pages</span>
+      </div>` : '';
+  return `<div class="detail-row detail-progress">
+      <span class="k">Progress</span>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div class="progress-text">${text}</div>${edit}
+    </div>`;
+}
+
+async function quickSave(id){
+  await persist(activeCat);
+  render();
+  openDetail(id);
+}
+
+function quickRate(id, n){
+  if(!requireAuth()) return;
+  const entry = data[activeCat].find(e=>e.id===id);
+  if(!entry) return;
+  entry.rating = (entry.rating===n) ? 0 : n; // click the same star again to clear
+  quickSave(id);
+}
+
+function quickSet(id, key, value){
+  if(!requireAuth()) return;
+  const entry = data[activeCat].find(e=>e.id===id);
+  if(!entry) return;
+  entry[key] = value;
+  // Marking a book Completed fills the progress bar
+  if(activeCat==='books' && key==='status' && value==='Completed'){
+    const total = parseInt(entry.pagesTotal,10) || 0;
+    if(total) entry.pagesRead = String(total);
+  }
+  quickSave(id);
+}
+
+function quickProgress(id){
+  if(!requireAuth()) return;
+  const entry = data[activeCat].find(e=>e.id===id);
+  if(!entry) return;
+  let total = parseInt(document.getElementById('pgTotal').value,10) || 0;
+  let read  = parseInt(document.getElementById('pgRead').value,10) || 0;
+  if(total < 0) total = 0;
+  if(read < 0) read = 0;
+  if(total && read > total) read = total;
+  entry.pagesTotal = total ? String(total) : '';
+  entry.pagesRead  = read ? String(read) : '';
+  // keep the status in step with the progress
+  if(total && read >= total) entry.status = 'Completed';
+  else if(read > 0 && (!entry.status || entry.status==='Backlog' || entry.status==='Completed')) entry.status = 'Reading';
+  quickSave(id);
 }
 
 // Make the artwork beside the detail window exactly as tall as the window itself.
