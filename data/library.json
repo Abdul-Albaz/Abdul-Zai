@@ -7297,7 +7297,7 @@
       "title": "A Wrinkle in Time",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrup85dg",
@@ -7305,7 +7305,7 @@
       "title": "The Fault in our Stars",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffru6om8g",
@@ -9335,5 +9335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793625153084
+  "savedAt": 1793625158517
 }
