@@ -8221,8 +8221,19 @@
       "addedAt": 1784413001208,
       "title": "The Shadow Land",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1474474955i/31394293.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Elizabeth Kostova",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruiynx1",
@@ -11886,5 +11897,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793635060901
+  "savedAt": 1793635145508
 }
