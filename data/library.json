@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "The Invention of Hugo Cabret",
+      "owner": "",
+      "author": "Brian Selznick",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Completed",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1422312376i/9673436.jpg",
+      "id": "mvzbv5wub1mxx",
+      "addedAt": 1793628108462
+    },
+    {
       "title": "Piranesi",
       "owner": "",
       "author": "Susanna Clarke",
@@ -10211,5 +10230,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628052292
+  "savedAt": 1793628109962
 }
