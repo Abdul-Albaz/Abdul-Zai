@@ -7806,8 +7806,19 @@
       "addedAt": 1784413001231,
       "title": "Persepolis",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/1793633353245-persepolis.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Marjane Satrapi",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrut3eda",
@@ -11219,5 +11230,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633300957
+  "savedAt": 1793633358118
 }
