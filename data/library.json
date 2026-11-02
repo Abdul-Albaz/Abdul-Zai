@@ -7877,8 +7877,19 @@
       "addedAt": 1784413001229,
       "title": "The Boy, The Mole, The Fox and the Horse",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1579017235i/43708884.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Charlie Mackesy",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru7mqat",
@@ -11503,5 +11514,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793634079120
+  "savedAt": 1793634105241
 }
