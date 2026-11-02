@@ -10240,10 +10240,21 @@
     {
       "id": "mrqxffruisv5f",
       "addedAt": 1784413001036,
-      "title": "Stuff Happens (George Bush Play)",
+      "title": "Stuff Happens",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348447401i/422945.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "David Hare",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrurz5u9",
@@ -11405,5 +11416,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633789842
+  "savedAt": 1793633820852
 }
