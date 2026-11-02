@@ -9187,10 +9187,21 @@
     {
       "id": "mrqxffru4xkng",
       "addedAt": 1784413001012,
-      "title": "Bury our bones in the midnight soil",
+      "title": "Bury Our Bones in the Midnight Soil",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752327619i/215020997.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "V.E. Schwab",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     }
   ],
   "consoles": [
@@ -10083,5 +10094,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793627650848
+  "savedAt": 1793627685452
 }
