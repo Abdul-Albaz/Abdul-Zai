@@ -8939,8 +8939,19 @@
       "addedAt": 1784413001157,
       "title": "The Hundred-Year-Old Man Who Climbed Out of the Window",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1334848488i/13486632.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Jonas Jonasson",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrujctk6",
@@ -11668,5 +11679,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793634498066
+  "savedAt": 1793634517772
 }
