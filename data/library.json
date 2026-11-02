@@ -7369,7 +7369,7 @@
       "title": "The Girl on the Train",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffru0hkmg",
@@ -7377,7 +7377,7 @@
       "title": "Divine Rivals",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrubac97",
@@ -9335,5 +9335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793625203454
+  "savedAt": 1793625209481
 }
