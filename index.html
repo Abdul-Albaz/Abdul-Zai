@@ -1810,7 +1810,7 @@ async function handleCsvImport(event){
 const ADD_LABELS = { games:'+ Add game', music:'+ Add music', books:'+ Add book', consoles:'+ Add console', artbooks:'+ Add artbook', figures:'+ Add figure', boardgames:'+ Add board game' };
 
 function switchTab(cat){
-  stopPreview();
+  if(playingKey==='form') stopPreview();   // only the add/edit pop-up's clip stops; a card's preview keeps playing across tabs
   captureView();            // keep this tab's own sort + filters
   activeCat = cat;
   restoreView(cat);         // show the new tab's own sort + filters
