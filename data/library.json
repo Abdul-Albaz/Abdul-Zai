@@ -6628,9 +6628,19 @@
       "addedAt": 1784413001295,
       "title": "Will Grayson, Will Grayson",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1429642798i/25402091.jpg",
       "author": "John Green",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrupq7o5",
@@ -9808,5 +9818,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793626637187
+  "savedAt": 1793626660259
 }
