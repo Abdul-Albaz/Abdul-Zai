@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "Piranesi",
+      "owner": "",
+      "author": "Susanna Clarke",
+      "format": "Paperback",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1633273842i/59136297.jpg",
+      "id": "mvzbtxevnvvnc",
+      "addedAt": 1793628050791
+    },
+    {
       "title": "Operation Bounce House",
       "owner": "",
       "author": "Matt Dinniman",
@@ -10192,5 +10211,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628001450
+  "savedAt": 1793628052292
 }
