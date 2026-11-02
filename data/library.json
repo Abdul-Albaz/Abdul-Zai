@@ -8687,8 +8687,19 @@
       "addedAt": 1784413001145,
       "title": "Hooked",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1756880407i/238969853.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Asako Yuzuki",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrumk6i5",
@@ -10957,5 +10968,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793632585587
+  "savedAt": 1793632618716
 }
