@@ -7523,9 +7523,19 @@
       "addedAt": 1784413001255,
       "title": "A Holiday for Murder",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1325080036i/875943.jpg",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrumajtx",
@@ -10445,5 +10455,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628777079
+  "savedAt": 1793628799443
 }
