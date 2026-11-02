@@ -8735,9 +8735,19 @@
       "addedAt": 1784413001174,
       "title": "The Rest of Us Just Live Here",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1429800081i/22910900.jpg",
       "author": "Patrick Ness",
-      "status": "Completed"
+      "status": "Completed",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrunl8vm",
@@ -11854,5 +11864,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793634988192
+  "savedAt": 1793635006776
 }
