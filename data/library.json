@@ -6778,11 +6778,21 @@
     {
       "id": "mrqxffruiu0ot",
       "addedAt": 1784413001287,
-      "title": "The School of Good and Evil: Quests for Glory",
+      "title": "The School for Good and Evil: Quests for Glory",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1488534074i/34201983.jpg",
       "author": "Soman Chainani",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrui5iiv",
@@ -9888,5 +9898,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793626911591
+  "savedAt": 1793626937499
 }
