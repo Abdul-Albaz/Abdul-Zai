@@ -8391,8 +8391,19 @@
       "addedAt": 1784413001195,
       "title": "The Lurker at the Threshold",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1329718197i/13492871.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "H.P. Lovecraft",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrue5n36",
@@ -11777,5 +11788,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793634723581
+  "savedAt": 1793634752929
 }
