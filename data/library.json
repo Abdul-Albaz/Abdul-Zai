@@ -7871,7 +7871,18 @@
       "title": "شبيك لبيك ٢",
       "rating": 0,
       "cover": "",
-      "status": "Completed"
+      "status": "Completed",
+      "owner": "",
+      "author": "Deena Mohamed",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruu5lk5",
@@ -12270,5 +12281,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793636666216
+  "savedAt": 1793636669261
 }
