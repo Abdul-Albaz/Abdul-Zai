@@ -10775,8 +10775,19 @@
       "addedAt": 1784413001062,
       "title": "شجرتي شجرة البرتقال الرائعة",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1511638272i/36660125.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "José Mauro de Vasconcelos",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruv0i6g",
@@ -12248,5 +12259,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793636511403
+  "savedAt": 1793636638538
 }
