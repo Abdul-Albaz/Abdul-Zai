@@ -5763,7 +5763,17 @@
       "rating": 0,
       "cover": "",
       "author": "Maggie Stiefvater",
-      "status": "Backlog"
+      "status": "Completed",
+      "owner": "Zai",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru5xsoz",
@@ -5772,7 +5782,8 @@
       "rating": 0,
       "cover": "",
       "author": "Maggie Stiefvater",
-      "status": "Backlog"
+      "status": "Completed",
+      "owner": "Zai"
     },
     {
       "id": "mrqxffrux6er4",
@@ -5781,7 +5792,7 @@
       "rating": 0,
       "cover": "",
       "author": "Maggie Stiefvater",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrueeifn",
@@ -5790,7 +5801,7 @@
       "rating": 0,
       "cover": "",
       "author": "Leigh Bardugo",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrui2owq",
@@ -5799,7 +5810,7 @@
       "rating": 0,
       "cover": "",
       "author": "Leigh Bardugo",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffruhv5ze",
@@ -5808,7 +5819,7 @@
       "rating": 0,
       "cover": "",
       "author": "Leigh Bardugo",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffru1z396",
@@ -5817,7 +5828,7 @@
       "rating": 0,
       "cover": "",
       "author": "Stephen King",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffru6uuic",
@@ -5852,7 +5863,7 @@
       "rating": 0,
       "cover": "",
       "author": "Stephen King",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrujl2ar",
@@ -5861,7 +5872,7 @@
       "rating": 0,
       "cover": "",
       "author": "Robin Sloan",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrubyz0o",
@@ -5888,7 +5899,7 @@
       "rating": 0,
       "cover": "",
       "author": "Alex Michaelides",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffru2w3rn",
@@ -5897,7 +5908,7 @@
       "rating": 0,
       "cover": "",
       "author": "Jacqueline Harpman",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffruouf5c",
@@ -5915,7 +5926,7 @@
       "rating": 0,
       "cover": "",
       "author": "Robert Galibraith",
-      "status": "Backlog"
+      "status": "Completed"
     },
     {
       "id": "mrqxffrustha3",
@@ -9324,5 +9335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793624565989
+  "savedAt": 1793624750835
 }
