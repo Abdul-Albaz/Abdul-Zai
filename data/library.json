@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "DCC #2: Carl's Doomsday Scenario",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Completed",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719949673i/212393364.jpg",
+      "id": "mvzbzozlx61ia",
+      "addedAt": 1793628319809
+    },
+    {
       "title": "DCC #1: Dungeon Crawler Carl",
       "owner": "",
       "author": "Matt Dinniman",
@@ -10287,5 +10306,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628268044
+  "savedAt": 1793628321310
 }
