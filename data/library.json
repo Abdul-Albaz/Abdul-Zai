@@ -7900,7 +7900,7 @@
       "addedAt": 1784413001233,
       "title": "شبيك لبيك ٣",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1622567303i/58235636.jpg",
       "status": "Completed",
       "owner": "",
       "author": "Deena Mohamed",
@@ -12292,5 +12292,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793636693041
+  "savedAt": 1793636713392
 }
