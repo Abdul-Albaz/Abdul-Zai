@@ -10290,10 +10290,21 @@
     {
       "id": "mrqxffrum963a",
       "addedAt": 1784413001088,
-      "title": "مفكرات كلب عراقي",
+      "title": "مذكرات كلب عراقي",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1744452179i/231312490.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "عبد الهادي سعدون",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruerabk",
@@ -12105,5 +12116,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793635930081
+  "savedAt": 1793635976234
 }
