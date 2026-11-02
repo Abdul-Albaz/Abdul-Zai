@@ -9298,7 +9298,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://media.gamestop.com/i/gamestop/20020164/Metal-Gear-Solid-The-Board-Game",
+      "cover": "https://cmon-files.s3.amazonaws.com/cmon-cms-files/hero_small_38a13f2e5e.png",
       "id": "mvnb7clm2nbwt",
       "addedAt": 1792901403274
     }
@@ -9324,5 +9324,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793598386748.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793598452188.png"
   },
-  "savedAt": 1793613028829
+  "savedAt": 1793613068230
 }
