@@ -8266,8 +8266,19 @@
       "addedAt": 1784413001190,
       "title": "Norse Mythology",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://www.goodreads.com/book/show/30809689-norse-mythology",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Neil Gaiman",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruzbthv",
@@ -11208,5 +11219,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793633266709
+  "savedAt": 1793633290943
 }
