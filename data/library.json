@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "Dungeon Crawler Carl Graphic Novel #1",
+      "owner": "",
+      "author": "Matt Dinniman, Tevagah (Adapter), Laurel Pursuit Studios (Illustrator)",
+      "format": "Paperback",
+      "genre": "",
+      "status": "Reading",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760892951i/242977916.jpg",
+      "id": "mvzc2ufzz3ea6",
+      "addedAt": 1793628466847
+    },
+    {
       "title": "DCC #7: This Inevitable Ruin",
       "owner": "",
       "author": "Matt Dinniman",
@@ -10344,5 +10363,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628409988
+  "savedAt": 1793628468348
 }
