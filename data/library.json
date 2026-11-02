@@ -2146,7 +2146,7 @@
       "status": "Completed",
       "sealed": "Not sealed",
       "rarity": "no",
-      "owner": "",
+      "owner": "Zai",
       "genre": "",
       "price": "30",
       "purchaseDate": "",
@@ -9324,5 +9324,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793598452188.png"
   },
-  "savedAt": 1793615996688
+  "savedAt": 1793616002890
 }
