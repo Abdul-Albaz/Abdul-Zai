@@ -5295,6 +5295,25 @@
   ],
   "books": [
     {
+      "title": "The Marvels",
+      "owner": "",
+      "author": "Brian Selznick",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1453389120i/23566909.jpg",
+      "id": "mvzbwtki5dsbb",
+      "addedAt": 1793628185778
+    },
+    {
       "title": "Wonderstruck",
       "owner": "",
       "author": "Brian Selznick",
@@ -10249,5 +10268,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793628143234
+  "savedAt": 1793628187281
 }
