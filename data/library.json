@@ -6878,7 +6878,7 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1477324680i/30688435.jpg",
       "status": "Completed",
       "owner": "",
-      "author": "",
+      "author": "Mohsin Hamid",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -9986,5 +9986,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793627205845
+  "savedAt": 1793627219132
 }
