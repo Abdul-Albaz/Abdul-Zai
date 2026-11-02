@@ -61,6 +61,13 @@
     "sortChosen": false,
     "owner": "all",
     "tabs": {
+      "books": {
+        "sortBy": "title",
+        "sortChosen": true,
+        "owner": "all",
+        "platform": "All",
+        "status": "Completed"
+      },
       "games": {
         "sortBy": "platform",
         "sortChosen": false,
@@ -68,14 +75,42 @@
         "platform": "All",
         "status": "All"
       },
-      "books": {
-        "sortBy": "title",
-        "sortChosen": true,
+      "music": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "consoles": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "artbooks": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "figures": {
+        "sortBy": "added",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "boardgames": {
+        "sortBy": "added",
+        "sortChosen": false,
         "owner": "all",
         "platform": "All",
         "status": "All"
       }
     },
-    "updatedAt": 1793629040431
+    "updatedAt": 1793629851666
   }
 }
