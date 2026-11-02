@@ -9235,7 +9235,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://store.asmodee.com/cdn/shop/products/PRL01_535x.jpg?v=1691520007",
+      "cover": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=1080/da/cms-assets/cms/product/rc-upload-1781766441145-959.png?bg_token=color.background.quaternary",
       "id": "mvyrveuh5x0q6",
       "addedAt": 1793594527721
     },
@@ -9320,5 +9320,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793594529224
+  "savedAt": 1793594576205
 }
