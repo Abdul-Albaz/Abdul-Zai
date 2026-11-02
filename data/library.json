@@ -9219,6 +9219,27 @@
   ],
   "boardgames": [
     {
+      "title": "project L",
+      "owner": "Zai",
+      "designer": "",
+      "publisher": "",
+      "genre": "",
+      "players": "",
+      "playTime": "",
+      "age": "",
+      "edition": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://store.asmodee.com/cdn/shop/products/PRL01_535x.jpg?v=1691520007",
+      "id": "mvyrveuh5x0q6",
+      "addedAt": 1793594527721
+    },
+    {
       "title": "Catan",
       "owner": "Zai",
       "designer": "",
@@ -9299,5 +9320,5 @@
     "titleBelow": 12
   },
   "iconImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-icon-1793554299501.png",
-  "savedAt": 1793554817562
+  "savedAt": 1793594529224
 }
