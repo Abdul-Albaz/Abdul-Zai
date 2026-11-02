@@ -2365,13 +2365,20 @@ async function deleteCoverFromGithub(url){
   }
 }
 
+function userImageFolder(){
+  // Every account uploads into its own sub-folder, e.g. imges/abdul/ and imges/zai/
+  const base = (ghConfig && ghConfig.folder) ? ghConfig.folder : 'imges';
+  const u = (typeof currentUser==='string' && currentUser) ? currentUser.toLowerCase().replace(/[^a-z0-9_-]/g,'') : '';
+  return u ? `${base}/${u}` : base;
+}
+
 async function uploadCoverToGithub(file){
   const dataUrl = await resizeImageFile(file, 600, 0.75);
   const base64 = dataUrl.split(',')[1];
   const titleEl = document.querySelector('#slipFields [data-key="title"]');
   const namePart = slugify(titleEl ? titleEl.value : '');
   const filename = `${Date.now()}-${namePart}.jpg`;
-  const path = `${ghConfig.folder}/${filename}`;
+  const path = `${userImageFolder()}/${filename}`;
   await ghPutFile(path, base64, `Add cover image ${filename}`, null);
   return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
 }
@@ -2381,7 +2388,7 @@ async function uploadSquareImageToGithub(file, titleForName){
   const base64 = dataUrl.split(',')[1];
   const namePart = slugify(titleForName || '');
   const filename = `${Date.now()}-${namePart}-square.jpg`;
-  const path = `${ghConfig.folder}/${filename}`;
+  const path = `${userImageFolder()}/${filename}`;
   await ghPutFile(path, base64, `Add square image ${filename}`, null);
   return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
 }
@@ -3679,7 +3686,7 @@ async function uploadSiteImage(file, kind){
     base64 = dataUrl.split(',')[1];
     filename = isBg ? `site-background-${stamp}.jpg` : `${prefix}-${stamp}.png`;
   }
-  const path = `${ghConfig.folder}/${filename}`;
+  const path = `${userImageFolder()}/${filename}`;
   await ghPutFile(path, base64, `Add site ${isBg ? 'background' : 'icon'} image ${filename}`, null);
   return `https://raw.githubusercontent.com/${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}/${path}`;
 }
