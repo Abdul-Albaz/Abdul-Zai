@@ -8843,8 +8843,19 @@
       "addedAt": 1784413001131,
       "title": "Frankenstein in Baghdad",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1515103783i/37826912.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Ahmed Saadawi",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruq4jj2",
@@ -10913,5 +10924,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793632479532
+  "savedAt": 1793632503167
 }
