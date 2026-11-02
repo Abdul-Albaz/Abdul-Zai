@@ -140,6 +140,7 @@
   .stat{text-align:right;}
   .stat .num{font-size:22px;font-weight:700;color:var(--paper);display:block;line-height:1.1;}
   .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#8f887c;}
+  .stat .sub{font-family:'JetBrains Mono', monospace;font-size:11px;color:#8f887c;display:block;line-height:1.2;margin-top:1px;}
 
   /* ---------- tabs (spine labels) ---------- */
   .tabs{display:flex;gap:calc(var(--tab-gap, 10) * 1px);margin-bottom:calc(var(--space-below, 18) * 1px);}
@@ -205,6 +206,7 @@
   body.theme-light .acct-name{color:#8a5a12;}
   body.theme-light .stat .num{color:var(--ink);}
   body.theme-light .stat .lbl{color:#5b564c;}
+  body.theme-light .stat .sub{color:#5b564c;}
   body.theme-light header{border-bottom-color:rgba(0,0,0,0.18);}
   #lookOverlay{z-index:140;}
   .look-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px;}
@@ -910,13 +912,13 @@
       <div class="icon-picker" id="iconPicker"></div>
     </div>
     <div class="stats" id="statsBox">
-      <div class="stat"><span class="num" id="statGames">0</span><span class="lbl">Games</span></div>
-      <div class="stat"><span class="num" id="statMusic">0</span><span class="lbl">Music</span></div>
-      <div class="stat"><span class="num" id="statBooks">0</span><span class="lbl">Books</span></div>
-      <div class="stat"><span class="num" id="statConsoles">0</span><span class="lbl">Consoles</span></div>
-      <div class="stat"><span class="num" id="statArtbooks">0</span><span class="lbl">Artbooks</span></div>
-      <div class="stat"><span class="num" id="statFigures">0</span><span class="lbl">Figures</span></div>
-      <div class="stat"><span class="num" id="statBoardgames">0</span><span class="lbl">Board games</span></div>
+      <div class="stat"><span class="num" id="statGames">0</span><span class="sub" id="statGamesPrice">$0</span><span class="lbl">Games</span></div>
+      <div class="stat"><span class="num" id="statMusic">0</span><span class="sub" id="statMusicPrice">$0</span><span class="lbl">Music</span></div>
+      <div class="stat"><span class="num" id="statBooks">0</span><span class="sub" id="statBooksPrice">$0</span><span class="lbl">Books</span></div>
+      <div class="stat"><span class="num" id="statConsoles">0</span><span class="sub" id="statConsolesPrice">$0</span><span class="lbl">Consoles</span></div>
+      <div class="stat"><span class="num" id="statArtbooks">0</span><span class="sub" id="statArtbooksPrice">$0</span><span class="lbl">Artbooks</span></div>
+      <div class="stat"><span class="num" id="statFigures">0</span><span class="sub" id="statFiguresPrice">$0</span><span class="lbl">Figures</span></div>
+      <div class="stat"><span class="num" id="statBoardgames">0</span><span class="sub" id="statBoardgamesPrice">$0</span><span class="lbl">Board games</span></div>
       <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
@@ -3082,6 +3084,12 @@ function render(){
   document.getElementById('statArtbooks').textContent = countCopies(data.artbooks);
   document.getElementById('statFigures').textContent = countCopies(data.figures);
   document.getElementById('statBoardgames').textContent = countCopies(data.boardgames);
+  const spentOf = list => list.reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
+  const fmtMoney = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:2});
+  [['Games','games'],['Music','music'],['Books','books'],['Consoles','consoles'],['Artbooks','artbooks'],['Figures','figures'],['Boardgames','boardgames']].forEach(([id,key])=>{
+    const el = document.getElementById('stat'+id+'Price');
+    if(el) el.textContent = fmtMoney(spentOf(data[key]||[]));
+  });
   const totalSpent = [...data.games, ...data.music, ...data.books, ...data.consoles, ...data.artbooks, ...data.figures, ...data.boardgames].reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   document.getElementById('statSpent').textContent = '$' + totalSpent.toFixed(0);
 }
