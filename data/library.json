@@ -7671,8 +7671,19 @@
       "addedAt": 1784413001241,
       "title": "I'm Glad My Mom Died",
       "rating": 0,
-      "cover": "",
-      "status": "Completed"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1649228846i/59366244.jpg",
+      "status": "Completed",
+      "owner": "",
+      "author": "Jennette McCurdy",
+      "format": "Hardcover",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru260m6",
@@ -10979,5 +10990,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793632639619
+  "savedAt": 1793632660402
 }
