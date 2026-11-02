@@ -5924,9 +5924,19 @@
       "addedAt": 1784413001322,
       "title": "Between the Assassinations",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1481913031i/7695521.jpg",
       "author": "Aravind Adiga",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru14dbd",
@@ -9476,5 +9486,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793625847463
+  "savedAt": 1793625860069
 }
