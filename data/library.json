@@ -5879,9 +5879,19 @@
       "addedAt": 1784413001327,
       "title": "Mr. Penumbra's 24-Hour Bookstore",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1397301384i/20733840.jpg",
       "author": "Robin Sloan",
-      "status": "Completed"
+      "status": "Completed",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrubyz0o",
@@ -9526,5 +9536,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793625912343
+  "savedAt": 1793625925190
 }
