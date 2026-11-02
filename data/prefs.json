@@ -55,5 +55,27 @@
       }
     },
     "updatedAt": 1793554769740
+  },
+  "zai": {
+    "sortBy": "platform",
+    "sortChosen": false,
+    "owner": "all",
+    "tabs": {
+      "games": {
+        "sortBy": "platform",
+        "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "books": {
+        "sortBy": "title",
+        "sortChosen": true,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      }
+    },
+    "updatedAt": 1793628641514
   }
 }
