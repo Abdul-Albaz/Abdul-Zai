@@ -7046,8 +7046,19 @@
       "addedAt": 1784413001273,
       "title": "The Sea of Monsters: The Graphic Novel",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1322487564i/12029129.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Rick Riordan",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruw9u23",
@@ -10039,5 +10050,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793627421287
+  "savedAt": 1793627449147
 }
