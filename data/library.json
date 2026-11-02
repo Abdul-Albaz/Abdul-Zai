@@ -9491,10 +9491,21 @@
     {
       "id": "mrqxffrukc37y",
       "addedAt": 1784413001034,
-      "title": "Anyway the Wind Blows",
+      "title": "Any Way the Wind Blows",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1620553931i/57986884.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "Rainbow Rowell",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrula9tc",
@@ -10596,5 +10607,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793629129793
+  "savedAt": 1793629163319
 }
