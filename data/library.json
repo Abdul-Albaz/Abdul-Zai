@@ -11208,12 +11208,15 @@
     "spaceBelow": 0,
     "spaceAbove": 50,
     "tabGap": 10,
-    "titleBelow": 12
+    "titleBelow": 12,
+    "priceColors": {
+      "games": "#ffb22e"
+    }
   },
   "iconImage": "",
   "iconImages": {
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793642115554
+  "savedAt": 1793710919976
 }
