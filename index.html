@@ -140,7 +140,7 @@
   .stat{text-align:right;}
   .stat .num{font-size:22px;font-weight:700;color:var(--paper);display:block;line-height:1.1;}
   .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#8f887c;}
-  .stat .sub{font-family:'JetBrains Mono', monospace;font-size:11px;color:#8f887c;display:block;line-height:1.2;margin-top:1px;}
+  .stat .sub{direction:ltr;unicode-bidi:isolate;text-align:left;font-family:'JetBrains Mono', monospace;font-size:11px;color:#8f887c;display:block;line-height:1.2;margin-top:1px;}
 
   /* ---------- tabs (spine labels) ---------- */
   .tabs{display:flex;gap:calc(var(--tab-gap, 10) * 1px);margin-bottom:calc(var(--space-below, 18) * 1px);}
@@ -727,7 +727,7 @@
   .card-overlay .chip.chip-owner{background:rgba(214,162,74,0.28);color:#f0cd8a;}
   .stars-view{color:var(--gold);font-size:13px;letter-spacing:1px;}
   .card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
-  .price{font-family:'JetBrains Mono', monospace;font-size:12px;color:var(--ink-soft);}
+  .price{direction:ltr;unicode-bidi:isolate;font-family:'JetBrains Mono', monospace;font-size:12px;color:var(--ink-soft);}
   .card-actions{display:flex;gap:8px;}
   .icon-btn{
     background:none;border:none;cursor:pointer;
@@ -1139,6 +1139,14 @@
             <label>Tab &amp; Add button colors</label>
             <div id="lookAccents"></div>
             <p class="gh-help">Each tab's color is also the color of its Add button.</p>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Total price colors</label>
+            <div id="lookPriceColors"></div>
+            <p class="gh-help">The color of each tab's total price in the totals box.</p>
           </div>
         </div>
 
@@ -2672,7 +2680,7 @@ function openDetail(id){
     })
     .join('')
     + (cat==='books' ? progressHtml(entry, canEdit) : '')
-    + (price ? `<div class="detail-row"><span class="k">Price</span><span class="v">${price}</span></div>` : '')
+    + (price ? `<div class="detail-row"><span class="k">Price</span><span class="v" dir="ltr" style="unicode-bidi:isolate;">${price}</span></div>` : '')
     + (entry.purchaseDate ? `<div class="detail-row"><span class="k">Purchased</span><span class="v">${escapeHtml(entry.purchaseDate)}</span></div>` : '');
 
   const notesHtml = entry.notes ? `<div class="detail-notes">${escapeHtml(entry.notes)}</div>` : '';
@@ -3650,6 +3658,7 @@ const TITLE_FONTS = {
 function applyTitleLook(){
   const t = siteTheme || {};
   applyAccents();
+  applyPriceColors();
   applySpaces();
   const txt = (typeof t.titleText==='string' && t.titleText.trim()) ? t.titleText.trim().slice(0,60) : 'The Home Collection';
   const tx = document.getElementById('titleText');
@@ -3945,6 +3954,46 @@ function buildAccentControls(){
     if(el) el.value = /^#[0-9a-f]{6}$/i.test(acc[cat] || '') ? acc[cat] : ACCENTS[cat][2];
   });
 }
+function applyPriceColors(){
+  const pc = (siteTheme && siteTheme.priceColors) || {};
+  Object.keys(ACCENTS).forEach(cat=>{
+    const el = document.getElementById('stat' + cat.charAt(0).toUpperCase() + cat.slice(1) + 'Price');
+    if(!el) return;
+    if(/^#[0-9a-f]{6}$/i.test(pc[cat] || '')) el.style.color = pc[cat]; else el.style.removeProperty('color');
+  });
+}
+function buildPriceColorControls(){
+  const box = document.getElementById('lookPriceColors');
+  if(!box) return;
+  const pc = (siteTheme && siteTheme.priceColors) || {};
+  if(!box.dataset.built){
+    box.innerHTML = Object.keys(ACCENTS).map(cat=>
+      `<div class="look-row"><span style="width:76px;font-size:13px;">${ACCENTS[cat][0]}</span>` +
+      `<input type="color" id="lookPrice_${cat}" oninput="setPriceColor('${cat}', this.value)" title="Pick any color">` +
+      `<button type="button" class="btn btn-ghost" onclick="clearPriceColor('${cat}')">Default</button></div>`
+    ).join('');
+    box.dataset.built = '1';
+  }
+  Object.keys(ACCENTS).forEach(cat=>{
+    const el = document.getElementById('lookPrice_' + cat);
+    if(el) el.value = /^#[0-9a-f]{6}$/i.test(pc[cat] || '') ? pc[cat] : '#8f887c';
+  });
+}
+function setPriceColor(cat, hex){
+  if(!requireAuth() || !ACCENTS[cat]) return;
+  const pc = { ...((siteTheme && siteTheme.priceColors) || {}), [cat]: hex };
+  siteTheme = { ...(siteTheme || {}), priceColors: pc };
+  applyPriceColors();
+  saveSiteLookSoon();
+}
+function clearPriceColor(cat){
+  if(!requireAuth() || !ACCENTS[cat]) return;
+  const pc = { ...((siteTheme && siteTheme.priceColors) || {}) };
+  delete pc[cat];
+  siteTheme = { ...(siteTheme || {}), priceColors: pc };
+  applyPriceColors(); buildPriceColorControls();
+  saveSiteLookSoon();
+}
 const SPACES = {
   spaceAbove: ['--space-above', 0, 140, 48, 'lookSpaceAbove'],
   spaceBelow: ['--space-below', 0, 100, 18, 'lookSpaceBelow'],
@@ -4036,6 +4085,7 @@ async function resetLook(){
 function syncLookControls(){
   const t = siteTheme || {};
   buildAccentControls();
+  buildPriceColorControls();
   syncSpaceControls();
   const toHex = rgb => { const m = String(rgb).match(/\d+/g); return m ? '#' + m.slice(0,3).map(n=>Number(n).toString(16).padStart(2,'0')).join('') : '#ffffff'; };
   const tcEl = document.getElementById('lookTitleColor');
