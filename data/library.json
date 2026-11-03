@@ -11212,7 +11212,8 @@
     "priceColors": {
       "games": "#ffb22e",
       "music": "#ffb433",
-      "books": "#f7ad2b"
+      "books": "#f7ad2b",
+      "consoles": "#fdb435"
     }
   },
   "iconImage": "",
@@ -11220,5 +11221,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793710935524
+  "savedAt": 1793710938342
 }
