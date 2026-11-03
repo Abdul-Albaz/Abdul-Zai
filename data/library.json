@@ -11214,7 +11214,8 @@
       "music": "#ffb433",
       "books": "#f7ad2b",
       "consoles": "#fdb435",
-      "artbooks": "#fbaf2d"
+      "artbooks": "#fbaf2d",
+      "figures": "#f0a728"
     }
   },
   "iconImage": "",
@@ -11222,5 +11223,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793710943990
+  "savedAt": 1793710948657
 }
