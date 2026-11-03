@@ -23,7 +23,7 @@
         "sortChosen": false,
         "owner": "all",
         "platform": "All",
-        "status": "All"
+        "status": "Completed"
       },
       "consoles": {
         "sortBy": "title",
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793716715027
+    "updatedAt": 1793717155830
   },
   "zai": {
     "sortBy": "platform",
