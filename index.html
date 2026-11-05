@@ -141,6 +141,7 @@
   .stat:last-child{margin-left:auto;text-align:right;}
   .stat .num{font-size:22px;font-weight:700;color:var(--paper);display:block;line-height:1.1;}
   .stat .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#8f887c;}
+  body.guest .price-only{display:none !important;}
   .stat .sub{direction:ltr;unicode-bidi:isolate;text-align:left;font-family:'JetBrains Mono', monospace;font-size:11px;color:#8f887c;display:block;line-height:1.2;margin-top:1px;}
 
   /* ---------- tabs (spine labels) ---------- */
@@ -913,14 +914,16 @@
       <div class="icon-picker" id="iconPicker"></div>
     </div>
     <div class="stats" id="statsBox">
-      <div class="stat"><span class="num" id="statGames">0</span><span class="sub" id="statGamesPrice">$0</span><span class="lbl">Games</span></div>
-      <div class="stat"><span class="num" id="statMusic">0</span><span class="sub" id="statMusicPrice">$0</span><span class="lbl">Music</span></div>
-      <div class="stat"><span class="num" id="statBooks">0</span><span class="sub" id="statBooksPrice">$0</span><span class="lbl">Books</span></div>
-      <div class="stat"><span class="num" id="statConsoles">0</span><span class="sub" id="statConsolesPrice">$0</span><span class="lbl">Consoles</span></div>
-      <div class="stat"><span class="num" id="statArtbooks">0</span><span class="sub" id="statArtbooksPrice">$0</span><span class="lbl">Artbooks</span></div>
-      <div class="stat"><span class="num" id="statFigures">0</span><span class="sub" id="statFiguresPrice">$0</span><span class="lbl">Figures</span></div>
-      <div class="stat"><span class="num" id="statBoardgames">0</span><span class="sub" id="statBoardgamesPrice">$0</span><span class="lbl">Board games</span></div>
-      <div class="stat"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
+      <div class="stat"><span class="num" id="statGames">0</span><span class="sub price-only" id="statGamesPrice">$0</span><span class="lbl">Games</span></div>
+      <div class="stat"><span class="num" id="statMusic">0</span><span class="sub price-only" id="statMusicPrice">$0</span><span class="lbl">Music</span></div>
+      <div class="stat"><span class="num" id="statBooks">0</span><span class="sub price-only" id="statBooksPrice">$0</span><span class="lbl">Books</span></div>
+      <div class="stat"><span class="num" id="statConsoles">0</span><span class="sub price-only" id="statConsolesPrice">$0</span><span class="lbl">Consoles</span></div>
+      <div class="stat"><span class="num" id="statArtbooks">0</span><span class="sub price-only" id="statArtbooksPrice">$0</span><span class="lbl">Artbooks</span></div>
+      <div class="stat"><span class="num" id="statFigures">0</span><span class="sub price-only" id="statFiguresPrice">$0</span><span class="lbl">Figures</span></div>
+      <div class="stat"><span class="num" id="statBoardgames">0</span><span class="sub price-only" id="statBoardgamesPrice">$0</span><span class="lbl">Board games</span></div>
+      <div class="stat"><span class="num" id="statGamesDone">0</span><span class="sub" id="statGamesDoneOf"></span><span class="lbl">Games finished</span></div>
+      <div class="stat"><span class="num" id="statBooksDone">0</span><span class="sub" id="statBooksDoneOf"></span><span class="lbl">Books finished</span></div>
+      <div class="stat price-only"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
 
@@ -944,7 +947,7 @@
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
         <option value="rating">Sort: Rating</option>
-        <option value="price">Sort: Price</option>
+        <option value="price" id="sortPriceOpt">Sort: Price</option>
         <option value="platform" id="sortPlatformOpt" selected>Sort: Platform</option>
         <option value="custom">Sort: My order</option>
       </select>
@@ -1064,7 +1067,7 @@
           <input type="password" id="pwCurrent" autocomplete="current-password">
         </div>
         <div class="field full">
-          <label>New password (at least 8 characters)</label>
+          <label>New password (at least 12 characters)</label>
           <input type="password" id="pwNew" autocomplete="new-password">
         </div>
         <div class="field full">
@@ -2663,7 +2666,7 @@ function openDetail(id){
   const stars = canEdit
     ? [1,2,3,4,5].map(i=>`<span onclick="quickRate('${entry.id}',${i})" title="Click to rate">${i<=rate?'★':'☆'}</span>`).join('')
     : '★'.repeat(rate) + '☆'.repeat(5-rate);
-  const price = entry.price ? '$' + parseFloat(entry.price).toFixed(2) : '';
+  const price = (currentUser && entry.price) ? '$' + parseFloat(entry.price).toFixed(2) : '';
 
   const skipKeys = new Set(['title', subKey, 'notes', 'price', 'purchaseDate', 'pagesRead', 'pagesTotal']);
   const rows = FIELDS[cat]
@@ -2925,6 +2928,14 @@ function render(){
     if(!isGames && document.getElementById('sortBy').value==='platform') document.getElementById('sortBy').value = 'added';
     else if(isGames && userSort==='platform') document.getElementById('sortBy').value = 'platform';
   }
+  const priceOpt = document.getElementById('sortPriceOpt');
+  if(priceOpt){
+    const canSee = !!currentUser;
+    priceOpt.hidden = !canSee;
+    priceOpt.disabled = !canSee;
+    if(!canSee && document.getElementById('sortBy').value==='price') document.getElementById('sortBy').value = 'added';
+    else if(canSee && userSort==='price') document.getElementById('sortBy').value = 'price';
+  }
   const list = [...data[activeCat]];
   const q = document.getElementById('search').value.toLowerCase();
   const statusF = document.getElementById('statusFilter').value;
@@ -3022,7 +3033,7 @@ function render(){
       if(activeCat==='boardgames' && e.playTime) chips.push(`<span class="chip">⏱ ${escapeHtml(e.playTime)}</span>`);
       if(activeCat==='boardgames' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
       const catnoTag = `<span class="chip" style="font-family:'JetBrains Mono',monospace;">${catNo(activeCat, origIndex)}</span>`;
-      const price = e.price ? `$${parseFloat(e.price).toFixed(2)}` : '';
+      const price = (currentUser && e.price) ? `$${parseFloat(e.price).toFixed(2)}` : '';
       const previewBtn = (activeCat==='music' && e.preview && !selectMode)
         ? `<button class="prev-btn card-prev" data-prev="${e.id}" onclick="event.stopPropagation();togglePreview('${e.id}')" title="${escapeHtml('Play preview' + (e.previewLabel ? ': ' + e.previewLabel : ''))}">▶</button>` : '';
       const titleBlock = `<h4>${escapeHtml(e.title)}</h4>${sub ? `<p class="sub">${escapeHtml(sub)}</p>` : ''}`;
@@ -3093,6 +3104,13 @@ function render(){
   document.getElementById('statArtbooks').textContent = countCopies(data.artbooks);
   document.getElementById('statFigures').textContent = countCopies(data.figures);
   document.getElementById('statBoardgames').textContent = countCopies(data.boardgames);
+  const doneOf = (list, numId, ofId, noun) => {
+    const done = list.filter(e=>e.status==='Completed').length;
+    document.getElementById(numId).textContent = done;
+    document.getElementById(ofId).textContent = list.length ? `of ${list.length} ${noun}` : '';
+  };
+  doneOf(data.games, 'statGamesDone', 'statGamesDoneOf', 'games');
+  doneOf(data.books, 'statBooksDone', 'statBooksDoneOf', 'books');
   const spentOf = list => list.reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   const fmtMoney = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:2});
   [['Games','games'],['Music','music'],['Books','books'],['Consoles','consoles'],['Artbooks','artbooks'],['Figures','figures'],['Boardgames','boardgames']].forEach(([id,key])=>{
@@ -3172,7 +3190,8 @@ function escapeHtml(str){
 // guard on your data is the GitHub token: without it nobody can write to
 // data/library.json or the images folder, whatever they do to this page.
 // =====================================================================
-const AUTH_ITERATIONS = 200000;
+const AUTH_ITERATIONS = 200000;       // what the first two hashes below were made with
+const AUTH_ITERATIONS_NEW = 600000;   // used for every password changed from now on (slower to crack)
 const ALLOWED_USERS = ['abdul', 'zai'];
 const USERS_PATH = 'data/users.json';
 const ACCOUNTS = {
@@ -3183,10 +3202,10 @@ let currentUser = null;
 let accountsReady = Promise.resolve();
 let loginFails = 0, loginLockUntil = 0;
 
-async function pbkdf2(password, saltB64){
+async function pbkdf2(password, saltB64, iterations){
   const salt = Uint8Array.from(atob(saltB64), c=>c.charCodeAt(0));
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
-  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', salt, iterations:AUTH_ITERATIONS, hash:'SHA-256'}, key, 256);
+  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', salt, iterations:iterations || AUTH_ITERATIONS, hash:'SHA-256'}, key, 256);
   return btoa(String.fromCharCode(...new Uint8Array(bits)));
 }
 function safeEqual(a, b){
@@ -3210,7 +3229,11 @@ async function loadAccounts(){
       const j = await res.json();
       ALLOWED_USERS.forEach(n=>{
         const a = j && j[n];
-        if(a && typeof a.salt==='string' && typeof a.hash==='string') ACCOUNTS[n] = { salt:a.salt, hash:a.hash };
+        if(a && typeof a.salt==='string' && typeof a.hash==='string'){
+          const it = Number(a.it);
+          ACCOUNTS[n] = { salt:a.salt, hash:a.hash };
+          if(Number.isInteger(it) && it>=100000 && it<=5000000) ACCOUNTS[n].it = it;
+        }
       });
       return;
     }catch(e){ /* try next branch */ }
@@ -3291,7 +3314,8 @@ async function submitLogin(){
   try{
     const acct = ALLOWED_USERS.includes(name) ? ACCOUNTS[name] : null;
     // Hash even for unknown names so the response time doesn't reveal which usernames exist.
-    const h = await pbkdf2(pass, (acct || ACCOUNTS.abdul).salt);
+    const ref = acct || ACCOUNTS.abdul;
+    const h = await pbkdf2(pass, ref.salt, ref.it);
     ok = !!acct && safeEqual(h, acct.hash);
   }catch(e){ console.error('login error', e); }
   if(!ok){
@@ -3345,7 +3369,7 @@ async function submitChangePassword(){
   const cur = document.getElementById('pwCurrent').value;
   const next = document.getElementById('pwNew').value;
   const again = document.getElementById('pwConfirm').value;
-  if(next.length < 8){ status.textContent = 'New password must be at least 8 characters.'; return; }
+  if(next.length < 12){ status.textContent = 'Use at least 12 characters — a few random words works well.'; return; }
   if(next !== again){ status.textContent = "The two new passwords don't match."; return; }
   if(!ghConfig || !ghConfig.token){
     status.textContent = 'Connect GitHub first (⚙ Edit → ⚙ Image storage) so the new password works on every device.';
@@ -3353,17 +3377,20 @@ async function submitChangePassword(){
   }
   status.textContent = 'Saving…';
   try{
-    const okCur = safeEqual(await pbkdf2(cur, ACCOUNTS[currentUser].salt), ACCOUNTS[currentUser].hash);
+    const okCur = safeEqual(await pbkdf2(cur, ACCOUNTS[currentUser].salt, ACCOUNTS[currentUser].it), ACCOUNTS[currentUser].hash);
     if(!okCur){ status.textContent = 'Current password is wrong.'; return; }
     const saltBytes = crypto.getRandomValues(new Uint8Array(16));
     const salt = btoa(String.fromCharCode(...saltBytes));
-    const hash = await pbkdf2(next, salt);
+    const hash = await pbkdf2(next, salt, AUTH_ITERATIONS_NEW);
     const payload = {};
-    ALLOWED_USERS.forEach(n=>{ payload[n] = { salt: ACCOUNTS[n].salt, hash: ACCOUNTS[n].hash }; });
-    payload[currentUser] = { salt, hash };
+    ALLOWED_USERS.forEach(n=>{
+      payload[n] = { salt: ACCOUNTS[n].salt, hash: ACCOUNTS[n].hash };
+      if(ACCOUNTS[n].it) payload[n].it = ACCOUNTS[n].it;
+    });
+    payload[currentUser] = { salt, hash, it: AUTH_ITERATIONS_NEW };
     const sha = await ghGetFileSha(USERS_PATH);
     await ghPutFile(USERS_PATH, utf8ToBase64(JSON.stringify(payload, null, 2)), 'Update account password', sha);
-    ACCOUNTS[currentUser] = { salt, hash };
+    ACCOUNTS[currentUser] = { salt, hash, it: AUTH_ITERATIONS_NEW };
     closeChangePassword();
     showToast('Password changed.');
   }catch(err){
