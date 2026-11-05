@@ -137,6 +137,12 @@
     font-family:'JetBrains Mono', monospace;
   }
   .stats.open{display:flex;}
+  .done-box{display:none;flex-wrap:wrap;gap:10px 40px;font-family:'JetBrains Mono', monospace;color:var(--done-color, #8f887c);}
+  .done-box.open{display:flex;flex:1 1 100%;}
+  .done-item{text-align:left;}
+  .done-num{display:block;font-size:26px;font-weight:700;line-height:1.1;color:var(--done-color, var(--paper));}
+  .done-lbl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+  .done-of{display:block;font-size:11px;margin-top:1px;opacity:.85;}
   .stat{text-align:left;}
   .stat:last-child{margin-left:auto;text-align:right;}
   .stat .num{font-size:22px;font-weight:700;color:var(--paper);display:block;line-height:1.1;}
@@ -921,9 +927,11 @@
       <div class="stat"><span class="num" id="statArtbooks">0</span><span class="sub price-only" id="statArtbooksPrice">$0</span><span class="lbl">Artbooks</span></div>
       <div class="stat"><span class="num" id="statFigures">0</span><span class="sub price-only" id="statFiguresPrice">$0</span><span class="lbl">Figures</span></div>
       <div class="stat"><span class="num" id="statBoardgames">0</span><span class="sub price-only" id="statBoardgamesPrice">$0</span><span class="lbl">Board games</span></div>
-      <div class="stat"><span class="num" id="statGamesDone">0</span><span class="sub" id="statGamesDoneOf"></span><span class="lbl">Games finished</span></div>
-      <div class="stat"><span class="num" id="statBooksDone">0</span><span class="sub" id="statBooksDoneOf"></span><span class="lbl">Books finished</span></div>
       <div class="stat price-only"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
+    </div>
+    <div class="done-box" id="doneBox">
+      <div class="done-item"><span class="done-num" id="doneGames">0</span><span class="done-lbl">Games completed</span><span class="done-of" id="doneGamesOf"></span></div>
+      <div class="done-item"><span class="done-num" id="doneBooks">0</span><span class="done-lbl">Books completed</span><span class="done-of" id="doneBooksOf"></span></div>
     </div>
   </header>
 
@@ -1151,6 +1159,18 @@
             <label>Total price colors</label>
             <div id="lookPriceColors"></div>
             <p class="gh-help">The color of each tab's total price in the totals box.</p>
+          </div>
+        </div>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Completed counts (games &amp; books)</label>
+            <label style="margin-top:6px;display:block;">Text color</label>
+            <div class="look-row">
+              <input type="color" id="lookDoneColor" value="#ede6d6" oninput="setTitleColor('doneColor', this.value)" title="Pick any color">
+              <button type="button" class="btn btn-ghost" onclick="clearTitleColor('doneColor')">Default color</button>
+            </div>
+            <p class="gh-help">Open them with "Show completed" in the account line.</p>
           </div>
         </div>
 
@@ -3109,8 +3129,8 @@ function render(){
     document.getElementById(numId).textContent = done;
     document.getElementById(ofId).textContent = list.length ? `of ${list.length} ${noun}` : '';
   };
-  doneOf(data.games, 'statGamesDone', 'statGamesDoneOf', 'games');
-  doneOf(data.books, 'statBooksDone', 'statBooksDoneOf', 'books');
+  doneOf(data.games, 'doneGames', 'doneGamesOf', 'games');
+  doneOf(data.books, 'doneBooks', 'doneBooksOf', 'books');
   const spentOf = list => list.reduce((sum,e)=>sum+(parseFloat(e.price)||0)*qtyOf(e),0);
   const fmtMoney = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:2});
   [['Games','games'],['Music','music'],['Books','books'],['Consoles','consoles'],['Artbooks','artbooks'],['Figures','figures'],['Boardgames','boardgames']].forEach(([id,key])=>{
@@ -3275,15 +3295,25 @@ function toggleStats(){
   if(btn) btn.textContent = statsOpen ? 'Hide totals' : 'Show totals';
 }
 
+let doneOpen = false;
+function toggleDone(){
+  doneOpen = !doneOpen;
+  const box = document.getElementById('doneBox');
+  if(box) box.classList.toggle('open', doneOpen);
+  const btn = document.getElementById('doneToggle');
+  if(btn) btn.textContent = doneOpen ? 'Hide completed' : 'Show completed';
+}
+
 function applyAuthUI(){
   document.body.classList.toggle('guest', !currentUser);
   loadUserIcon();
   renderTitleIcon();
   const bar = document.getElementById('accountBar');
   const totalsBtn = `<button class="acct-link" id="statsToggle" onclick="toggleStats()" title="Show how many things you have">${statsOpen ? 'Hide totals' : 'Show totals'}</button>`;
+  const doneBtn = `<button class="acct-link" id="doneToggle" onclick="toggleDone()" title="Show how many games and books you have completed">${doneOpen ? 'Hide completed' : 'Show completed'}</button>`;
   bar.innerHTML = currentUser
-    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span>${totalsBtn}<button class="acct-link" onclick="openLook()">Customize</button><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
-    : `<span>👁 View only</span>${totalsBtn}<button class="acct-link" onclick="openLogin()">Log in</button>`;
+    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span>${totalsBtn}${doneBtn}<button class="acct-link" onclick="openLook()">Customize</button><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
+    : `<span>👁 View only</span>${totalsBtn}${doneBtn}<button class="acct-link" onclick="openLogin()">Log in</button>`;
   document.getElementById('toolbarEditBtn').textContent = currentUser ? '⚙ Edit' : '⚙ Size';
 }
 
@@ -3700,6 +3730,7 @@ function applyTitleLook(){
   const hexOk = v => /^#[0-9a-f]{6}$/i.test(v || '');
   if(hexOk(t.titleColor)) root.style.setProperty('--title-color', t.titleColor); else root.style.removeProperty('--title-color');
   if(hexOk(t.detailsColor)) root.style.setProperty('--details-color', t.detailsColor); else root.style.removeProperty('--details-color');
+  if(hexOk(t.doneColor)) root.style.setProperty('--done-color', t.doneColor); else root.style.removeProperty('--done-color');
   const bl = Number(t.titleBelow);
   if(t.titleBelow!=null && bl>=0 && bl<=100) root.style.setProperty('--title-below', String(bl)); else root.style.removeProperty('--title-below');
   const gp = Number(t.titleGap);
@@ -4118,6 +4149,8 @@ function syncLookControls(){
   const toHex = rgb => { const m = String(rgb).match(/\d+/g); return m ? '#' + m.slice(0,3).map(n=>Number(n).toString(16).padStart(2,'0')).join('') : '#ffffff'; };
   const tcEl = document.getElementById('lookTitleColor');
   if(tcEl) tcEl.value = /^#[0-9a-f]{6}$/i.test(t.titleColor||'') ? t.titleColor : toHex(getComputedStyle(document.querySelector('.title-block h1')).color);
+  const doneEl = document.getElementById('lookDoneColor');
+  if(doneEl) doneEl.value = /^#[0-9a-f]{6}$/i.test(t.doneColor||'') ? t.doneColor : toHex(getComputedStyle(document.getElementById('doneGames')).color);
   const dcEl = document.getElementById('lookDetailsColor');
   if(dcEl) dcEl.value = /^#[0-9a-f]{6}$/i.test(t.detailsColor||'') ? t.detailsColor : toHex(getComputedStyle(document.getElementById('detailsToggle')).color);
   const txEl = document.getElementById('lookTitleText');
