@@ -8502,8 +8502,19 @@
       "addedAt": 1784413001220,
       "title": "Saturday Annual 2023",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/I/81R8haRzGhL._UF1000,1000_QL80_.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrupclxs",
@@ -12876,5 +12887,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001025604
+  "savedAt": 1794001049229
 }
