@@ -7899,9 +7899,19 @@
       "addedAt": 1784413001254,
       "title": "The Man in the Brown Suit",
       "rating": 0,
-      "cover": "",
+      "cover": "https://live.staticflickr.com/7033/6568282829_510b355565.jpg",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru3nlhr",
@@ -12898,5 +12908,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001090864
+  "savedAt": 1794001172166
 }
