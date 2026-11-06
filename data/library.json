@@ -9152,8 +9152,19 @@
       "addedAt": 1784413001179,
       "title": "Michael Angelo: His Life and Works in 500 Images",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/I/A1xq6N9gxPL._AC_UF1000,1000_QL80_.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrum5tiv",
@@ -12780,5 +12791,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000633756
+  "savedAt": 1794000672068
 }
