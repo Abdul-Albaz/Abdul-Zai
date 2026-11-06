@@ -7896,9 +7896,19 @@
       "addedAt": 1784413001252,
       "title": "Murder in the Mews",
       "rating": 0,
-      "cover": "",
+      "cover": "https://www.telegraph.co.uk/content/dam/obituaries/2019/12/20/TELEMMGLPICT000219283089_trans_NvBQzQNjv4BqqVzuuqpFlyLIwiB6NTmJwfSVWeZ_vEN7c6bHu2jJnT8.jpeg?imwidth=350",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru5o8ot",
@@ -12791,5 +12801,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000672068
+  "savedAt": 1794000699081
 }
