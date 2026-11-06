@@ -7908,9 +7908,19 @@
       "addedAt": 1784413001253,
       "title": "Sad Cypress",
       "rating": 0,
-      "cover": "",
+      "cover": "https://i.pinimg.com/736x/07/26/cc/0726ccd97506a0fc3979c9e3b5aeb211.jpg",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru9dl8s",
@@ -12866,5 +12876,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000992282
+  "savedAt": 1794001025604
 }
