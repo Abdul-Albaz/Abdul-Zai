@@ -7719,9 +7719,19 @@
       "addedAt": 1784413001264,
       "title": "Oscar Wilde: Complete Plays",
       "rating": 0,
-      "cover": "",
+      "cover": "https://pictures.abebooks.com/inventory/31423918190._SL300_.jpg",
       "author": "Oscar Wilde",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrunbmjb",
@@ -12812,5 +12822,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000765473
+  "savedAt": 1794000800568
 }
