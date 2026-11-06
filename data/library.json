@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Azure Striker Gunvolt 3",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793993969960-cover.jpg",
+      "id": "mw5dpnhnk17v1",
+      "addedAt": 1793994007595
+    },
+    {
       "title": "Bayonetta",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -11307,5 +11325,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793993867615
+  "savedAt": 1793994009097
 }
