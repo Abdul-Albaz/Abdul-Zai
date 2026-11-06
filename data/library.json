@@ -7955,8 +7955,19 @@
       "addedAt": 1784413001250,
       "title": "Romeo and Juliet",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/I/81xxWv3L0XL._UF1000,1000_QL80_.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruzb3lk",
@@ -12844,5 +12855,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000892223
+  "savedAt": 1794000917545
 }
