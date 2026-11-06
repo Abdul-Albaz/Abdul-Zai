@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Soul Hackers 2",
+      "owner": "Abdul",
+      "platform": "Playstation 5",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThG1xYwyEh375HR56ZvNImslkerLiNG5tg9Rj5a-0r7uonrIATGOW8GFD4&s=10",
+      "id": "mw5g9cy17izya",
+      "addedAt": 1793998286281
+    },
+    {
       "title": "Xmen Destiny",
       "owner": "Abdul",
       "platform": "PlayStation 3",
@@ -12592,5 +12610,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793998210450
+  "savedAt": 1793998287783
 }
