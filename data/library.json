@@ -8609,8 +8609,19 @@
       "addedAt": 1784413001216,
       "title": "W.I.T.C.H Halloween",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/1794001334103-w-i-t-c-h-halloween.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffrukb5aw",
@@ -12929,5 +12940,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001294734
+  "savedAt": 1794001338091
 }
