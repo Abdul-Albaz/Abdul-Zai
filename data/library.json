@@ -7852,9 +7852,19 @@
       "addedAt": 1784413001257,
       "title": "The Mysterious Affair at Styles",
       "rating": 0,
-      "cover": "",
+      "cover": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQRMCmlr2SRuC4hWHYBE5y3aNQghm4c0mOlV2hzCNksZ6H08L8e",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruj64lj",
@@ -12908,5 +12918,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001172166
+  "savedAt": 1794001212871
 }
