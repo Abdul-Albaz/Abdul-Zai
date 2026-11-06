@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Xmen Destiny",
+      "owner": "Abdul",
+      "platform": "PlayStation 3",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793998187186-cover.jpg",
+      "id": "mw5g7p9v1oxv1",
+      "addedAt": 1793998208947
+    },
+    {
       "title": "House of the Dead OVERKILL - Extended Cut",
       "owner": "Abdul",
       "platform": "Playstation 3",
@@ -12574,5 +12592,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793998171317
+  "savedAt": 1793998210450
 }
