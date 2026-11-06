@@ -57,20 +57,13 @@
     "updatedAt": 1793717171934
   },
   "zai": {
-    "sortBy": "platform",
-    "sortChosen": false,
+    "sortBy": "added",
+    "sortChosen": true,
     "owner": "all",
     "tabs": {
-      "books": {
-        "sortBy": "title",
-        "sortChosen": true,
-        "owner": "all",
-        "platform": "All",
-        "status": "All"
-      },
       "games": {
-        "sortBy": "platform",
-        "sortChosen": false,
+        "sortBy": "added",
+        "sortChosen": true,
         "owner": "all",
         "platform": "All",
         "status": "All"
@@ -78,6 +71,13 @@
       "music": {
         "sortBy": "added",
         "sortChosen": false,
+        "owner": "all",
+        "platform": "All",
+        "status": "All"
+      },
+      "books": {
+        "sortBy": "title",
+        "sortChosen": true,
         "owner": "all",
         "platform": "All",
         "status": "All"
@@ -111,6 +111,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793637155362
+    "updatedAt": 1793995808252
   }
 }
