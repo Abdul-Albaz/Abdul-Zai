@@ -1,11 +1,11 @@
 {
   "abdul": {
-    "sortBy": "platform",
+    "sortBy": "added",
     "sortChosen": true,
     "owner": "all",
     "tabs": {
       "games": {
-        "sortBy": "platform",
+        "sortBy": "added",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793995855699
+    "updatedAt": 1793995949956
   },
   "zai": {
     "sortBy": "title",
