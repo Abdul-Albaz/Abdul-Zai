@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "X Men Destiny",
+      "owner": "Abdul",
+      "platform": "PlayStation 3",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793997170220-cover.jpg",
+      "id": "mw5fm7qgf6x0u",
+      "addedAt": 1793997206440
+    },
+    {
       "title": "bayonetta",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -12447,5 +12465,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793996764966
+  "savedAt": 1793997207943
 }
