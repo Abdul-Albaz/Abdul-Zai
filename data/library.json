@@ -11430,7 +11430,18 @@
       "title": "The Secret Garden",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "author": "Frances Hodgson Burnett",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruzpyw3",
@@ -12628,5 +12639,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793999319806
+  "savedAt": 1793999350858
 }
