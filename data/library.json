@@ -11499,8 +11499,19 @@
       "addedAt": 1784413001061,
       "title": "لا تعبث مع النساء",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://cdn.yaqut.me/cdn-cgi/image/width=1000,height=1375,dpr=1,fit=cover/https://s3.amazonaws.com/jarir-files/images/original/30435.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruu2r5m",
@@ -13051,5 +13062,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001644511
+  "savedAt": 1794001746016
 }
