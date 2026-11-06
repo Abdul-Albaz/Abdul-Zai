@@ -8088,8 +8088,19 @@
       "addedAt": 1784413001244,
       "title": "The Spectacular Spider-man",
       "rating": 0,
-      "cover": "",
-      "status": "Backlog"
+      "cover": "https://m.media-amazon.com/images/I/91MSwpQxmvL._UF1000,1000_QL80_.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru0gi9z",
@@ -12918,5 +12929,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001266088
+  "savedAt": 1794001294734
 }
