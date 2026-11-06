@@ -57,12 +57,12 @@
     "updatedAt": 1793717171934
   },
   "zai": {
-    "sortBy": "added",
+    "sortBy": "title",
     "sortChosen": true,
     "owner": "all",
     "tabs": {
       "games": {
-        "sortBy": "added",
+        "sortBy": "title",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -111,6 +111,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1793995808252
+    "updatedAt": 1793995813710
   }
 }
