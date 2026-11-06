@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Burnout Paradise",
+      "owner": "Abdul",
+      "platform": "Playstation 3",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "5",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793998397145-cover.jpg",
+      "id": "mw5gcnhlqju45",
+      "addedAt": 1793998439913
+    },
+    {
       "title": "Soul Hackers 2",
       "owner": "Abdul",
       "platform": "Playstation 5",
@@ -12610,5 +12628,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793998287783
+  "savedAt": 1793998441416
 }
