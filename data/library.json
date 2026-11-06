@@ -7840,9 +7840,19 @@
       "addedAt": 1784413001256,
       "title": "Evil Under the Sun",
       "rating": 0,
-      "cover": "",
+      "cover": "https://live.staticflickr.com/5314/14101245198_ccde4e0828_b.jpg",
       "author": "Agatha Christie",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffruwil7k",
@@ -12770,5 +12780,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000591785
+  "savedAt": 1794000633756
 }
