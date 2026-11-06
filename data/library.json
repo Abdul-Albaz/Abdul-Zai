@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Xenoblade chronicles 2",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "70",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793998065119-xenoblade-chronicles-2.jpg",
+      "id": "mw5g593uou74m",
+      "addedAt": 1793998094682
+    },
+    {
       "title": "This Is the Police",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -12538,5 +12556,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793997963168
+  "savedAt": 1793998096184
 }
