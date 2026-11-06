@@ -1,24 +1,6 @@
 {
   "games": [
     {
-      "title": "X Men Destiny",
-      "owner": "Abdul",
-      "platform": "PlayStation 3",
-      "publisher": "",
-      "genre": "",
-      "sealed": "Not sealed",
-      "rarity": "",
-      "status": "Backlog",
-      "quantity": "",
-      "price": "20",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793997170220-cover.jpg",
-      "id": "mw5fm7qgf6x0u",
-      "addedAt": 1793997206440
-    },
-    {
       "title": "bayonetta",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -1242,7 +1224,7 @@
     {
       "id": "mrm6g5qi3rvgq",
       "addedAt": 1784125820663,
-      "title": "bayonetta 2+1",
+      "title": "bayonetta 2",
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784176458109-bayonetta-2-1.jpg",
       "platform": "nintendo switch",
@@ -1254,7 +1236,8 @@
       "genre": "",
       "price": "30",
       "purchaseDate": "",
-      "notes": ""
+      "notes": "",
+      "quantity": ""
     },
     {
       "id": "mrm6g5qi5526z",
@@ -12465,5 +12448,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793997207943
+  "savedAt": 1793997519201
 }
