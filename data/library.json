@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Cave Story plus",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "50",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYH7_M7W0PINjIzM2N3M4lu_4ZPA4Pkg7IrPv-6jUVjlmBstA-2v85MxI&s=10",
+      "id": "mw5dhnils3368",
+      "addedAt": 1793993634381
+    },
+    {
       "title": "The Is The Police",
       "owner": "Abdul",
       "platform": "Nintendo Switch",
@@ -11253,5 +11271,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793993497300
+  "savedAt": 1793993635883
 }
