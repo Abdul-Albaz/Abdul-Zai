@@ -11697,7 +11697,7 @@
       "addedAt": 1784413001038,
       "title": "The Secret Garden",
       "rating": 0,
-      "cover": "",
+      "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b25dbc69285677.5b7bd41fe2aec.jpg",
       "status": "Backlog",
       "owner": "",
       "author": "Frances Hodgson Burnett",
@@ -12918,5 +12918,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001240490
+  "savedAt": 1794001266088
 }
