@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "X-Men: Destiny",
+      "owner": "Abdul",
+      "platform": "PlayStation 3",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1793994247692-x-men-destiny.jpg",
+      "id": "mw5dv7c64l07a",
+      "addedAt": 1793994266598
+    },
+    {
       "title": "Azure Striker Gunvolt 3",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -11325,5 +11343,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793994009097
+  "savedAt": 1793994268101
 }
