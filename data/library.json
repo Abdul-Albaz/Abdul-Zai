@@ -9316,7 +9316,18 @@
       "title": "Pinocchio",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "",
+      "author": "Carlo Collodi",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
     },
     {
       "id": "mrqxffru8b49d",
@@ -12650,5 +12661,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000075634
+  "savedAt": 1794000095048
 }
