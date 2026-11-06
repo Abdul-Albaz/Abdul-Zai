@@ -8262,12 +8262,12 @@
     {
       "id": "mrqxffru2krmv",
       "addedAt": 1784413001227,
-      "title": "Pumpkin Heads",
+      "title": "Pumpkinheads",
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1537541596i/40864790.jpg",
       "status": "Completed",
       "owner": "",
-      "author": "",
+      "author": "Rainbow Rowell",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -12650,5 +12650,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000064341
+  "savedAt": 1794000075634
 }
