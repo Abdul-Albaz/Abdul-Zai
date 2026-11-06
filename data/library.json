@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Cave Story+",
+      "owner": "Abdul",
+      "platform": "nintendo switch",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "50",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI6iFLl4sq6y_SrX5Kax5Zl7ISrKK86V0t9oYKqh0tjw&s=10",
+      "id": "mw5fzpei495g3",
+      "addedAt": 1793997835866
+    },
+    {
       "title": "snipperclips",
       "owner": "Abdul",
       "platform": "nintendo switch",
@@ -12502,5 +12520,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793997776202
+  "savedAt": 1793997837368
 }
