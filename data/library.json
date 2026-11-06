@@ -7974,7 +7974,7 @@
       "addedAt": 1784413001249,
       "title": "Tales From Shakespeare",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/I/81F4ds1YNyL.jpg",
       "status": "Backlog",
       "owner": "",
       "author": "Charles Lamb",
@@ -12866,5 +12866,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794000961034
+  "savedAt": 1794000992282
 }
