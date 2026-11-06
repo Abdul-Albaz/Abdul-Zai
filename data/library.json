@@ -10308,7 +10308,7 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1670752670i/40874032.jpg",
       "status": "Completed",
       "owner": "",
-      "author": "",
+      "author": "V.E. Schwab",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -10327,7 +10327,7 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1683488509i/26856502.jpg",
       "status": "Backlog",
       "owner": "",
-      "author": "",
+      "author": "V.E. Schwab",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -12628,5 +12628,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1793998822488
+  "savedAt": 1793998828622
 }
