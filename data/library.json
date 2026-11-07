@@ -9220,6 +9220,25 @@
       "notes": ""
     },
     {
+      "id": "mrqxffruc8kkw",
+      "addedAt": 1784413001190,
+      "title": "Norse Mythology",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1656684690i/30809689.jpg",
+      "status": "Backlog",
+      "owner": "",
+      "author": "",
+      "format": "Paperback",
+      "genre": "",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": ""
+    },
+    {
       "id": "mrqxffruyaqea",
       "addedAt": 1784413001199,
       "title": "Almond",
@@ -9304,25 +9323,6 @@
       "status": "Backlog",
       "owner": "",
       "author": "H.P. Lovecraft",
-      "format": "Paperback",
-      "genre": "",
-      "pagesRead": "",
-      "pagesTotal": "",
-      "dimensions": "",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": ""
-    },
-    {
-      "id": "mrqxffruc8kkw",
-      "addedAt": 1784413001190,
-      "title": "Norse Mythology",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1656684690i/30809689.jpg",
-      "status": "Backlog",
-      "owner": "",
-      "author": "",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -13335,5 +13335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065791367
+  "savedAt": 1794065803292
 }
