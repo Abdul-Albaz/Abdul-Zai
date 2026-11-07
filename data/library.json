@@ -5603,6 +5603,25 @@
       "addedAt": 1794064905959
     },
     {
+      "title": "DCC #1: Dungeon Crawler Carl",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Completed",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1715780755i/211721806.jpg",
+      "id": "mvzbyd5pbmz6p",
+      "addedAt": 1793628257821
+    },
+    {
       "title": "DCC #8:  A Parade of Horribles",
       "owner": "",
       "author": "Matt Dinniman",
@@ -5791,25 +5810,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719949673i/212393364.jpg",
       "id": "mvzbzozlx61ia",
       "addedAt": 1793628319809
-    },
-    {
-      "title": "DCC #1: Dungeon Crawler Carl",
-      "owner": "",
-      "author": "Matt Dinniman",
-      "format": "Hardcover",
-      "genre": "",
-      "status": "Completed",
-      "pagesRead": "",
-      "pagesTotal": "",
-      "dimensions": "",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1715780755i/211721806.jpg",
-      "id": "mvzbyd5pbmz6p",
-      "addedAt": 1793628257821
     },
     {
       "title": "The Marvels",
@@ -13251,5 +13251,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065036603
+  "savedAt": 1794065091380
 }
