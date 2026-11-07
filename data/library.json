@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "MOUSE: P.I. For Hire",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "45",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794056660103-mouse-p-i-for-hire.jpg",
+      "id": "mw6f0x9vgujjq",
+      "addedAt": 1794056679283
+    },
+    {
       "title": "Pokémon Pokopia",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -13138,5 +13156,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794056634936
+  "savedAt": 1794056679986
 }
