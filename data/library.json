@@ -5584,6 +5584,25 @@
   ],
   "books": [
     {
+      "title": "DCC #6: The Eye of the Bedlam Bride",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "",
+      "id": "mw6juf4kw7779",
+      "addedAt": 1794064773908
+    },
+    {
       "title": "DCC #4: The Gate of the Feral Gods",
       "owner": "",
       "author": "Matt Dinniman",
@@ -13194,5 +13213,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794064748852
+  "savedAt": 1794064774609
 }
