@@ -13137,6 +13137,27 @@
   ],
   "boardgames": [
     {
+      "title": "Codenames",
+      "owner": "",
+      "designer": "",
+      "publisher": "",
+      "genre": "",
+      "players": "",
+      "playTime": "",
+      "age": "",
+      "edition": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "",
+      "id": "mw6k6adi0345o",
+      "addedAt": 1794065327622
+    },
+    {
       "title": "project L",
       "owner": "Zai",
       "designer": "",
@@ -13251,5 +13272,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065290734
+  "savedAt": 1794065328323
 }
