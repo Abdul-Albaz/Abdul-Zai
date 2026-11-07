@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "final fantasy vii rebirth",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794056448073-cover.jpg",
+      "id": "mw6exbgr1ilxw",
+      "addedAt": 1794056511051
+    },
+    {
       "title": "Burnout Paradise",
       "owner": "Abdul",
       "platform": "Playstation 3",
@@ -13084,5 +13102,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794001895500
+  "savedAt": 1794056511754
 }
