@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "splatoon raiders",
+      "owner": "Abdul",
+      "platform": "nintendo switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "60",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794056561472-splatoon-raiders.jpg",
+      "id": "mw6eyxfr7irga",
+      "addedAt": 1794056586183
+    },
+    {
       "title": "final fantasy vii rebirth",
       "owner": "Abdul",
       "platform": "nintendo switch 2",
@@ -13102,5 +13120,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794056511754
+  "savedAt": 1794056586885
 }
