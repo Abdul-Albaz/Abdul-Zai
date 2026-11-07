@@ -13153,7 +13153,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Im_lovin_it_%2810-07-08%29_%282936777806%29.jpg/960px-Im_lovin_it_%2810-07-08%29_%282936777806%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "cover": "",
       "id": "mw6k7lzfouucz",
       "addedAt": 1794065389323
     },
@@ -13335,5 +13335,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065390024
+  "savedAt": 1794065395127
 }
