@@ -5660,6 +5660,25 @@
       "addedAt": 1794064701785
     },
     {
+      "title": "DCC #4: The Gate of the Feral Gods",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Reading",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098514i/220772908.jpg",
+      "id": "mw6jtv92ydf50",
+      "addedAt": 1794064748150
+    },
+    {
       "title": "DCC #8:  A Parade of Horribles",
       "owner": "",
       "author": "Matt Dinniman",
@@ -5696,25 +5715,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098749i/220772912.jpg",
       "id": "mw6juf4kw7779",
       "addedAt": 1794064773908
-    },
-    {
-      "title": "DCC #4: The Gate of the Feral Gods",
-      "owner": "",
-      "author": "Matt Dinniman",
-      "format": "Hardcover",
-      "genre": "",
-      "status": "Reading",
-      "pagesRead": "",
-      "pagesTotal": "",
-      "dimensions": "",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098514i/220772908.jpg",
-      "id": "mw6jtv92ydf50",
-      "addedAt": 1794064748150
     },
     {
       "title": "اخوة محمد",
@@ -13251,5 +13251,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065097850
+  "savedAt": 1794065101350
 }
