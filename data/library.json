@@ -13137,6 +13137,27 @@
   ],
   "boardgames": [
     {
+      "title": "Coup",
+      "owner": "",
+      "designer": "",
+      "publisher": "",
+      "genre": "",
+      "players": "",
+      "playTime": "",
+      "age": "",
+      "edition": "",
+      "condition": "New",
+      "sealed": "Not sealed",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "",
+      "id": "mw6k79jjtwpzl",
+      "addedAt": 1794065373199
+    },
+    {
       "title": "TEN",
       "owner": "",
       "designer": "",
@@ -13293,5 +13314,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065342744
+  "savedAt": 1794065373900
 }
