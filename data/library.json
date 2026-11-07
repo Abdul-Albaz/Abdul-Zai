@@ -5598,7 +5598,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "",
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098749i/220772912.jpg",
       "id": "mw6juf4kw7779",
       "addedAt": 1794064773908
     },
@@ -13213,5 +13213,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794064774609
+  "savedAt": 1794064794094
 }
