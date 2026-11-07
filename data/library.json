@@ -5698,25 +5698,6 @@
       "addedAt": 1793628360614
     },
     {
-      "title": "DCC #8:  A Parade of Horribles",
-      "owner": "",
-      "author": "Matt Dinniman",
-      "format": "Hardcover",
-      "genre": "",
-      "status": "Backlog",
-      "pagesRead": "",
-      "pagesTotal": "",
-      "dimensions": "",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1768406680i/228928465.jpg",
-      "id": "mw6jvqve3b6os",
-      "addedAt": 1794064835786
-    },
-    {
       "title": "DCC #6: The Eye of the Bedlam Bride",
       "owner": "",
       "author": "Matt Dinniman",
@@ -5734,6 +5715,25 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098749i/220772912.jpg",
       "id": "mw6juf4kw7779",
       "addedAt": 1794064773908
+    },
+    {
+      "title": "DCC #8:  A Parade of Horribles",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1768406680i/228928465.jpg",
+      "id": "mw6jvqve3b6os",
+      "addedAt": 1794064835786
     },
     {
       "title": "اخوة محمد",
@@ -13251,5 +13251,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065106692
+  "savedAt": 1794065109492
 }
