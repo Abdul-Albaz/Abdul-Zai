@@ -5717,6 +5717,25 @@
       "addedAt": 1794064773908
     },
     {
+      "title": "DCC #7: This Inevitable Ruin",
+      "owner": "",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760789256i/232497556.jpg",
+      "id": "mvzc1levly6v6",
+      "addedAt": 1793628408487
+    },
+    {
       "title": "DCC #8:  A Parade of Horribles",
       "owner": "",
       "author": "Matt Dinniman",
@@ -5791,25 +5810,6 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760892951i/242977916.jpg",
       "id": "mvzc2ufzz3ea6",
       "addedAt": 1793628466847
-    },
-    {
-      "title": "DCC #7: This Inevitable Ruin",
-      "owner": "",
-      "author": "Matt Dinniman",
-      "format": "Hardcover",
-      "genre": "",
-      "status": "Backlog",
-      "pagesRead": "",
-      "pagesTotal": "",
-      "dimensions": "",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760789256i/232497556.jpg",
-      "id": "mvzc1levly6v6",
-      "addedAt": 1793628408487
     },
     {
       "title": "The Marvels",
@@ -13251,5 +13251,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794065109492
+  "savedAt": 1794065112106
 }
