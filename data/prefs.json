@@ -76,7 +76,7 @@
         "status": "All"
       },
       "books": {
-        "sortBy": "custom",
+        "sortBy": "added",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -111,6 +111,6 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794065467637
+    "updatedAt": 1794065994764
   }
 }
