@@ -1291,6 +1291,16 @@
     .card-overlay h4,.placeholder-title h4{font-size:17px;}
     .card-overlay .sub{font-size:14px;}
   }
+
+  /* card size like the original version, square covers for every collection */
+  .cover-area,.card .cover-area,.card.has-cover .cover-area,.cover-area.music,.cover-area.consoles,.cover-area.figures,.cover-area.boardgames,.cover-area.games,.cover-area.books,.cover-area.artbooks{aspect-ratio:1/1 !important;height:auto !important;}
+  .card .cover-area img{object-fit:contain !important;}
+  @media (min-width:901px){
+    .grid-cards,.grid-cards.cat-music,.grid-cards.cat-consoles,.grid-cards.cat-figures,.grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px 16px;margin-top:36px;}
+    .card-overlay{padding:10px 4px 0 !important;}
+    .card-overlay h4,.placeholder-title h4{font-size:16px;}
+    .card-overlay .sub{font-size:12px;}
+  }
 </style>
 </head>
 <body>
