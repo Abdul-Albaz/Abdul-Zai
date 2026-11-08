@@ -1284,6 +1284,13 @@
   .topbar .hdr-logout{position:static;margin:0;flex:0 0 auto;}
   .topbar .hdr-logout button{height:46px;padding:0 18px !important;font-size:14px !important;white-space:nowrap;}
   @media (max-width:900px){.topbar .hdr-logout button{height:40px;padding:0 12px !important;font-size:13px !important;}}
+
+  /* desktop card size back to the original bigger covers */
+  @media (min-width:901px){
+    .grid-cards,.grid-cards.cat-music,.grid-cards.cat-consoles,.grid-cards.cat-figures,.grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:44px 34px;margin-top:48px;}
+    .card-overlay h4,.placeholder-title h4{font-size:17px;}
+    .card-overlay .sub{font-size:14px;}
+  }
 </style>
 </head>
 <body>
