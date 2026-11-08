@@ -19,7 +19,7 @@
         "status": "All"
       },
       "books": {
-        "sortBy": "custom",
+        "sortBy": "title",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794153195066
+    "updatedAt": 1794153198546
   },
   "zai": {
     "sortBy": "title",
