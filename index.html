@@ -1324,6 +1324,16 @@
   *,*:focus,*:focus-visible,.card,.card.selected,.card.drag-over{outline:none !important;}
   .card.selected .cover-area,.card.drag-over .cover-area{opacity:.55;}
   img{filter:none;}
+
+  /* card size exactly like the original version (190px columns, 16px gaps, 75% size), all covers square and filled */
+  .cover-area,.card .cover-area,.card.has-cover .cover-area,.cover-area.games,.cover-area.books,.cover-area.artbooks,.cover-area.music,.cover-area.consoles,.cover-area.figures,.cover-area.boardgames,.card .cover-area.games,.card .cover-area.books,.card .cover-area.artbooks{aspect-ratio:1/1 !important;height:auto !important;}
+  .card .cover-area img{object-fit:cover !important;width:100%;height:100%;}
+  @media (min-width:901px){
+    .grid-cards,.grid-cards.cat-music,.grid-cards.cat-consoles,.grid-cards.cat-figures,.grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:36px;}
+    .card-overlay{padding:10px 4px 0 !important;}
+    .card-overlay h4,.placeholder-title h4{font-size:16px;}
+    .card-overlay .sub{font-size:12px;}
+  }
 </style>
 </head>
 <body>
