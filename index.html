@@ -1318,6 +1318,12 @@
     .card-overlay h4,.placeholder-title h4{font-size:17px;}
     .card-overlay .sub{font-size:14px;}
   }
+
+  /* no outlines and no drop shadows anywhere (cards, windows, text) */
+  *,*::before,*::after{text-shadow:none !important;box-shadow:none !important;-webkit-text-stroke:0 !important;}
+  *,*:focus,*:focus-visible,.card,.card.selected,.card.drag-over{outline:none !important;}
+  .card.selected .cover-area,.card.drag-over .cover-area{opacity:.55;}
+  img{filter:none;}
 </style>
 </head>
 <body>
