@@ -12277,6 +12277,25 @@
   ],
   "consoles": [
     {
+      "title": "nintendo ds lite",
+      "owner": "Abdul",
+      "manufacturer": "nintendo",
+      "model": "Lite",
+      "edition": "",
+      "region": "NTSC-U (US)",
+      "condition": "Good",
+      "boxed": "No box",
+      "serial": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgxQiVC1FPKtCwkMTkVFus2Uxr7vk8Uyr8I-ZNGEMltEBzDxf1qYQXv7oH&s=10",
+      "id": "mw7n6uluspuej",
+      "addedAt": 1794130858866
+    },
+    {
       "title": "Steam Deck",
       "owner": "Zai",
       "manufacturer": "Valve",
@@ -13174,5 +13193,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794083563319
+  "savedAt": 1794131121692
 }
