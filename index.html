@@ -1420,6 +1420,110 @@
   /* (the slider defaults, 42 and 96, give the same size the sidebar already had) */
   .sidebar .title-block h1{font-size:max(12px, calc(21px + (var(--title-size, 42) - 42) * .3px)) !important;line-height:1.15;flex-wrap:wrap;overflow-wrap:anywhere;}
   .sidebar .title-icon{width:max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;height:max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;flex:0 0 max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;font-size:max(10px, calc(24px + (var(--pic-size, 96) - 96) * .22px)) !important;}
+
+  /* ===== menu back on top: logo/title, account links and the collection tabs sit in a header, no side bar ===== */
+  .sb-toggle,.sb-close,#sbBackdrop{display:none !important;}
+  html body.sb-open{overflow:auto !important;}
+  html body .wrap, html body.sb-collapsed .wrap{padding:0 clamp(14px,4vw,48px) 60px !important;}
+  html body .sidebar, html body.sb-collapsed .sidebar, html body.sb-open .sidebar{
+    position:static !important;transform:none !important;width:auto !important;height:auto !important;
+    margin:18px 0 0 !important;padding:16px 20px 12px !important;z-index:auto;overflow:visible !important;
+    display:flex !important;flex-direction:row !important;flex-wrap:wrap;align-items:center;gap:6px 20px;
+    background:var(--lb-side) !important;border-radius:14px;}
+  .sidebar .sb-brand{order:1;flex:1 1 320px;padding:0 !important;border:none !important;min-width:0;}
+  .sidebar .sb-nav{order:2;display:flex !important;margin:0 0 0 auto !important;padding:0 !important;}
+  .sidebar .sb-nav .account-bar{display:flex !important;flex-direction:row !important;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:2px 4px !important;margin:0 !important;padding:0 !important;}
+  .sidebar .sb-nav .acct-name,.sidebar .sb-nav .acct-link{display:inline-block;width:auto !important;padding:8px 12px !important;font-size:14px !important;border-radius:6px;}
+  .sidebar .sb-label{display:none !important;}
+  .sidebar .tabs{order:3;flex:1 1 100% !important;flex-direction:row !important;flex-wrap:nowrap !important;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:8px !important;
+    margin:6px 0 0 !important;padding:10px 0 4px !important;border:none !important;}
+  .sidebar .tabs::-webkit-scrollbar{display:none;}
+  .sidebar .tab{flex:0 0 auto !important;width:auto !important;justify-content:center !important;padding:10px 18px !important;font-size:15px !important;white-space:nowrap;}
+  .sidebar .stats.open,.sidebar .done-box.open{display:flex !important;flex-wrap:wrap;gap:12px 28px;margin-top:12px;}
+  .sidebar .stat:last-child{grid-column:auto;}
+  @media (max-width:600px){
+    html body .sidebar{padding:14px 14px 10px !important;}
+    .sidebar .sb-nav{margin:0 !important;flex:1 1 100%;}
+    .sidebar .sb-nav .account-bar{justify-content:flex-start;}
+  }
+
+  /* ===== filters / sort / edit / add buttons sit up in the header, beside the tabs; the collection bar fills the full width ===== */
+  .sidebar .sb-row2{order:3;flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:6px 0 0;min-width:0;}
+  .sidebar .sb-row2 .tabs{order:1 !important;flex:1 0 auto !important;max-width:100%;min-width:0;margin:0 !important;padding:4px 0 !important;gap:2px !important;}
+  .sidebar .sb-row2 .toolbar{order:2 !important;flex:0 0 auto !important;flex-wrap:nowrap !important;width:auto !important;gap:8px !important;justify-content:flex-end;}
+  .coll-row .coll-bar{flex:1 1 100%;}
+  @media (min-width:601px){
+    .sidebar .sb-row2 .toolbar select,.sidebar .sb-row2 .toolbar .btn-ghost,.sidebar .sb-row2 .toolbar #sortBy,
+    .sidebar .sb-row2 .btn-filters,.sidebar .sb-row2 .toolbar #addBtn{height:40px !important;font-size:13px !important;padding:0 10px !important;}
+    .sidebar .sb-row2 .btn-filters{gap:6px !important;}
+    .sidebar .sb-row2 .toolbar #sortBy{min-width:0 !important;width:114px !important;}
+    .sidebar .sb-row2 .toolbar-extra{top:50px !important;}
+    .sidebar .sb-row2 .filters-panel{top:50px !important;}
+    .sidebar .sb-row2 .tab{padding:8px 8px !important;margin:0 !important;font-size:13.5px !important;gap:0 !important;}
+    .sidebar .sb-row2 .tab .dot{display:none !important;}
+  }
+  @media (max-width:600px){
+    .sidebar .sb-row2 .toolbar{flex:1 1 100% !important;flex-wrap:wrap !important;}
+  }
+
+  /* numbers on the tabs; the collection name bar below is gone */
+  .coll-row{display:none !important;}
+  .tab .tab-count{margin-left:6px;font-size:11px;font-weight:600;line-height:1;padding:3px 6px;border-radius:99px;background:rgba(0,0,0,.09);color:var(--lb-mute,#666);}
+  .tab.active .tab-count{background:rgba(255,255,255,.3);color:inherit;}
+  html.dark .tab .tab-count{background:rgba(255,255,255,.12);color:#bbb;}
+  html.dark .tab.active .tab-count{background:rgba(0,0,0,.25);color:inherit;}
+
+  /* ===== search bar above, tabs below (both inside the header) ===== */
+  .sidebar .topbar{order:3 !important;flex:1 1 100%;width:100%;margin:6px 0 2px !important;padding:4px 16px !important;gap:12px;
+    background:#fff;border-radius:12px;box-sizing:border-box;}
+  html.dark .sidebar .topbar{background:#1b1b1b;}
+  .sidebar .topbar input#search{font-size:17px;min-width:0;}
+  .sidebar .sb-row2{order:4 !important;}
+  @media (max-width:600px){ .sidebar .topbar{padding:2px 12px !important;} }
+
+  /* ===== lighter blur, no pop-in animation: windows just appear ===== */
+  .slip-overlay,.gh-overlay,.detail-overlay{
+    background:rgba(15,15,15,.35) !important;
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+  .slip-overlay,.gh-overlay,.detail-overlay,
+  .slip-overlay.open,.gh-overlay.open,.detail-overlay.open,
+  .detail-overlay.open .detail-art,.detail-overlay.open .detail-modal,
+  .detail-overlay .detail-art,.detail-overlay .detail-modal,
+  .slip-overlay .slip,.gh-overlay .gh-modal{animation:none !important;transition:none !important;}
+
+  /* ===== Customize options wired to the header layout ===== */
+  /* Tab & Add button colours */
+  html body .sidebar .tab.tab[data-cat="games"].active.active{background:var(--c-cart,var(--lb-accent)) !important;color:var(--c-on-cart,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="music"].active.active{background:var(--c-tape,var(--lb-accent)) !important;color:var(--c-on-tape,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="books"].active.active{background:var(--c-book,var(--lb-accent)) !important;color:var(--c-on-book,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="consoles"].active.active{background:var(--c-console,var(--lb-accent)) !important;color:var(--c-on-console,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="artbooks"].active.active{background:var(--c-artbook,var(--lb-accent)) !important;color:var(--c-on-artbook,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="figures"].active.active{background:var(--c-figure,var(--lb-accent)) !important;color:var(--c-on-figure,#fff) !important;}
+  html body .sidebar .tab.tab[data-cat="boardgames"].active.active{background:var(--c-boardgame,var(--lb-accent)) !important;color:var(--c-on-boardgame,#fff) !important;}
+  html body .toolbar #addBtn.games{background:var(--c-cart,var(--lb-accent)) !important;color:var(--c-on-cart,#fff) !important;}
+  html body .toolbar #addBtn.music{background:var(--c-tape,var(--lb-accent)) !important;color:var(--c-on-tape,#fff) !important;}
+  html body .toolbar #addBtn.books{background:var(--c-book,var(--lb-accent)) !important;color:var(--c-on-book,#fff) !important;}
+  html body .toolbar #addBtn.consoles{background:var(--c-console,var(--lb-accent)) !important;color:var(--c-on-console,#fff) !important;}
+  html body .toolbar #addBtn.artbooks{background:var(--c-artbook,var(--lb-accent)) !important;color:var(--c-on-artbook,#fff) !important;}
+  html body .toolbar #addBtn.figures{background:var(--c-figure,var(--lb-accent)) !important;color:var(--c-on-figure,#fff) !important;}
+  html body .toolbar #addBtn.boardgames{background:var(--c-boardgame,var(--lb-accent)) !important;color:var(--c-on-boardgame,#fff) !important;}
+  /* Tab spacing */
+  html body .sidebar{margin-top:max(0px, calc(18px + (var(--space-above, 48) - 48) * 1px)) !important;
+    padding-bottom:max(0px, calc(12px + (var(--space-below, 18) - 18) * 1px)) !important;}
+  html body .sidebar .sb-row2 .tabs{gap:max(0px, calc(var(--tab-gap, 10) * 1px - 8px)) !important;}
+  /* Title text: colour, font, gap to the picture, space below */
+  html body .sidebar .title-block h1,html body .sidebar .title-block h1 *{color:var(--title-color, var(--lb-text)) !important;font-family:var(--title-font, 'Inter', sans-serif) !important;}
+  html body .sidebar .title-block h1{gap:calc(var(--title-gap, 10) * 1px) !important;}
+  html body .sidebar .topbar{margin-top:max(0px, calc(6px + (var(--title-below, 12) - 12) * 1px)) !important;}
+  /* "Details" colour -> account links */
+  html body .sidebar .sb-nav .acct-link{color:var(--details-color, var(--lb-text)) !important;}
+
+  /* Customize window: every colour picker gets the same small size (only the first one had it) */
+  .gh-modal .look-row input[type=color]{width:46px !important;height:36px !important;flex:0 0 46px;padding:2px !important;
+    border:1px solid #c9c0aa !important;border-radius:6px !important;background:#fff !important;cursor:pointer;}
+  .gh-modal .look-row > span:first-child:not(.look-icon-preview){flex:0 0 84px;}
+  .gh-modal .look-row .btn-ghost{height:36px;padding:0 14px;font-size:13px;}
 </style>
 </head>
 <body>
@@ -1455,13 +1559,13 @@
     </div>
     <div class="sb-label">Collections</div>
   <div class="tabs">
-    <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games</div>
-    <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music</div>
-    <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books</div>
-    <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles</div>
-    <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks</div>
-    <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures</div>
-    <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games</div>
+    <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games<span class="tab-count" data-count="games">0</span></div>
+    <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music<span class="tab-count" data-count="music">0</span></div>
+    <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books<span class="tab-count" data-count="books">0</span></div>
+    <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles<span class="tab-count" data-count="consoles">0</span></div>
+    <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks<span class="tab-count" data-count="artbooks">0</span></div>
+    <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures<span class="tab-count" data-count="figures">0</span></div>
+    <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games<span class="tab-count" data-count="boardgames">0</span></div>
   </div>
 
 
@@ -1479,7 +1583,7 @@
       <button type="button" class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Dark mode"></button>
     </div>
     <div class="coll-row">
-      <div class="coll-bar"><span class="coll-name" id="collName">Games</span><span class="coll-count" id="collCount">0</span></div>
+      
     <div class="toolbar">
           <button type="button" class="btn-filters" id="filtersBtn" onclick="document.getElementById('filtersPanel').classList.toggle('open')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg>Filters</button>
       <div class="filters-panel" id="filtersPanel">
@@ -1733,7 +1837,7 @@
               <input type="color" id="lookTitleColor" value="#ede6d6" oninput="setTitleColor('titleColor', this.value)" title="Pick any color">
               <button type="button" class="btn btn-ghost" onclick="clearTitleColor('titleColor')">Default color</button>
             </div>
-            <label style="margin-top:8px;display:block;">Show Details button color</label>
+            <label style="margin-top:8px;display:block;">Account links color (Show totals, Log in…)</label>
             <div class="look-row">
               <input type="color" id="lookDetailsColor" value="#c9622a" oninput="setTitleColor('detailsColor', this.value)" title="Pick any color">
               <button type="button" class="btn btn-ghost" onclick="clearTitleColor('detailsColor')">Default color</button>
@@ -1746,7 +1850,7 @@
             <input type="range" id="lookPicSize" min="30" max="220" value="96" style="width:100%;" oninput="onLookTitle('pic', this.value)">
             <label style="margin-top:8px;display:block;">Space between picture and title: <span id="lookTitleGapVal">12</span></label>
             <input type="range" id="lookTitleGap" min="0" max="120" value="12" style="width:100%;" oninput="onLookTitle('gap', this.value)">
-            <label style="margin-top:8px;display:block;">Space between title and account line: <span id="lookTitleBelowVal">12</span></label>
+            <label style="margin-top:8px;display:block;">Space between title and the search bar: <span id="lookTitleBelowVal">12</span></label>
             <input type="range" id="lookTitleBelow" min="0" max="100" value="12" style="width:100%;" oninput="onLookTitle('below', this.value)">
             <p class="gh-help">Only changes the title at the top of the page.</p>
           </div>
@@ -4612,11 +4716,16 @@ function applyAccents(){
   Object.keys(ACCENTS).forEach(cat=>{
     const v = ACCENTS[cat][1];
     if(/^#[0-9a-f]{6}$/i.test(acc[cat] || '')){
+      const on = lookLuminance(acc[cat]) > 0.5 ? '#1a1a1a' : '#ffffff';
       root.style.setProperty('--' + v, acc[cat]);
-      root.style.setProperty('--on-' + v, lookLuminance(acc[cat]) > 0.5 ? '#1a1a1a' : '#ffffff');
+      root.style.setProperty('--on-' + v, on);
+      root.style.setProperty('--c-' + v, acc[cat]);
+      root.style.setProperty('--c-on-' + v, on);
     }else{
       root.style.removeProperty('--' + v);
       root.style.removeProperty('--on-' + v);
+      root.style.removeProperty('--c-' + v);
+      root.style.removeProperty('--c-on-' + v);
     }
   });
 }
@@ -4634,7 +4743,12 @@ function buildAccentControls(){
   }
   Object.keys(ACCENTS).forEach(cat=>{
     const el = document.getElementById('lookAcc_' + cat);
-    if(el) el.value = /^#[0-9a-f]{6}$/i.test(acc[cat] || '') ? acc[cat] : ACCENTS[cat][2];
+    if(el){
+      // not customised yet: show the colour the tab really has now (the site's blue)
+      let dflt = (getComputedStyle(document.documentElement).getPropertyValue('--lb-accent') || '').trim();
+      if(!/^#[0-9a-f]{6}$/i.test(dflt)) dflt = ACCENTS[cat][2];
+      el.value = /^#[0-9a-f]{6}$/i.test(acc[cat] || '') ? acc[cat] : dflt;
+    }
   });
 }
 function applyPriceColors(){
@@ -5130,7 +5244,7 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
   const sb = document.getElementById('sidebar');
   const bd = document.getElementById('sbBackdrop');
   const mq = window.matchMedia('(max-width:900px)');
-  const isPhone = ()=> mq.matches;
+  const isPhone = ()=> false;   // the menu is back on top, so the slide-in drawer is switched off
   const btn = document.getElementById('sbToggle');
   function syncBtn(){
     const on = isPhone() ? body.classList.contains('sb-open') : !body.classList.contains('sb-collapsed');
@@ -5150,7 +5264,6 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
   };
 
   // remember the choice on a computer
-  try{ if(localStorage.getItem('sbCollapsed') === '1') body.classList.add('sb-collapsed'); }catch(e){}
   syncBtn();
 
   // picking a collection closes the menu on a phone
@@ -5220,6 +5333,75 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
     if(dirty && !confirm('Close without saving your changes?')) return;
     closeSlip();
   });
+})();
+
+// ---------- move the toolbar buttons up into the header, next to the tabs ----------
+(function(){
+  const sb = document.getElementById('sidebar');
+  const tabs = sb && sb.querySelector('.tabs');
+  const tb = document.querySelector('.coll-row .toolbar');
+  if(!sb || !tabs || !tb) return;
+  const row = document.createElement('div');
+  row.className = 'sb-row2';
+  sb.insertBefore(row, tabs);
+  row.appendChild(tabs);
+  row.appendChild(tb);
+})();
+
+// ---------- numbers on the tabs ----------
+(function(){
+  const CATS = ['games','music','books','consoles','artbooks','figures','boardgames'];
+  function updateTabCounts(){
+    try{
+      CATS.forEach(c=>{
+        const el = document.querySelector('.tab-count[data-count="'+c+'"]');
+        if(el && data[c]) el.textContent = countCopies(data[c]);
+      });
+    }catch(e){}
+  }
+  const prev = window.render;
+  window.render = function(){ const r = prev.apply(this, arguments); updateTabCounts(); return r; };
+  updateTabCounts();
+})();
+
+// ---------- search bar goes up into the header, above the tabs ----------
+(function(){
+  const sb = document.getElementById('sidebar');
+  const top = document.querySelector('.panel > .topbar') || document.querySelector('.topbar');
+  if(!sb || !top) return;
+  const row = sb.querySelector('.sb-row2');
+  sb.insertBefore(top, row || null);
+})();
+
+// ---------- the "⚙ Edit" options panel closes when you click anywhere else ----------
+document.addEventListener('click', function(e){
+  const panel = document.getElementById('toolbarExtra');
+  if(!panel || !panel.classList.contains('open')) return;
+  if(e.target.closest('#toolbarExtra, #toolbarEditBtn')) return;
+  panel.classList.remove('open');
+  const btn = document.getElementById('toolbarEditBtn');
+  if(btn) btn.classList.remove('active-toggle');
+});
+
+// ---------- Customize colours for the totals / completed windows ----------
+(function(){
+  const norm = t => String(t||'').toLowerCase().replace(/[^a-z]/g,'');
+  const hex = v => /^#[0-9a-f]{6}$/i.test(v||'');
+  function tintStats(){
+    const pc = (siteTheme && siteTheme.priceColors) || {};
+    document.querySelectorAll('#infoBody .info-tile').forEach(tile=>{
+      const l = tile.querySelector('.l'), p = tile.querySelector('.p');
+      if(l && p && hex(pc[norm(l.textContent)])) p.style.color = pc[norm(l.textContent)];
+    });
+  }
+  function tintDone(){
+    const c = siteTheme && siteTheme.doneColor;
+    if(!hex(c)) return;
+    document.querySelectorAll('#infoBody .info-tile .n, #infoBody .info-tile .p').forEach(e=>{ e.style.color = c; });
+  }
+  const ts = window.toggleStats, td = window.toggleDone;
+  if(ts) window.toggleStats = function(){ const r = ts.apply(this, arguments); tintStats(); return r; };
+  if(td) window.toggleDone  = function(){ const r = td.apply(this, arguments); tintDone();  return r; };
 })();
 </script>
 </body>
