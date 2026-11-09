@@ -1344,12 +1344,90 @@
     .grid-cards{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:36px;}
     .grid-cards.cat-music,.grid-cards.cat-consoles,.grid-cards.cat-figures,.grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
   }
+
+  /* ===== sliding sidebar + working card-size slider on phones ===== */
+  .sb-toggle{flex:0 0 auto;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--lb-line);border-radius:8px;background:transparent;color:var(--lb-text);cursor:pointer;padding:0;}
+  .sb-toggle{transition:background .2s,border-color .2s,color .2s;}
+  .sb-toggle .bars{position:relative;display:block;width:20px;height:14px;}
+  .sb-toggle .bars i{position:absolute;left:0;width:100%;height:2.4px;border-radius:2px;background:currentColor;transition:transform .25s ease,top .25s ease,opacity .2s ease;}
+  .sb-toggle .bars i:nth-child(1){top:0;}
+  .sb-toggle .bars i:nth-child(2){top:6px;}
+  .sb-toggle .bars i:nth-child(3){top:12px;}
+  /* menu open: filled colour button, bars turn into an X */
+  .sb-toggle.on{background:var(--lb-accent);border-color:var(--lb-accent);color:#fff;}
+  .sb-toggle.on .bars i:nth-child(1){top:6px;transform:rotate(45deg);}
+  .sb-toggle.on .bars i:nth-child(2){opacity:0;transform:scaleX(0);}
+  .sb-toggle.on .bars i:nth-child(3){top:6px;transform:rotate(-45deg);}
+  .sb-close{display:none;}
+  html.dark .sb-toggle{border-color:#333;}
+  #sbBackdrop{display:none;}
+  .sidebar{transition:transform .25s ease;}
+  .wrap{transition:padding-left .25s ease;}
+  @media (min-width:901px){
+    body.sb-collapsed .sidebar{transform:translateX(-100%);}
+    body.sb-collapsed .wrap{padding-left:48px !important;}
+  }
+  @media (max-width:900px){
+    .sidebar{position:fixed !important;top:0;bottom:0;left:0;margin:0 !important;border-radius:0;width:min(82vw,310px) !important;
+      transform:translateX(-100%);z-index:90;overflow-y:auto;-webkit-overflow-scrolling:touch;
+      flex-direction:column;padding-bottom:30px;}
+    body.sb-open .sidebar{transform:translateX(0);}
+    #sbBackdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:85;}
+    body.sb-open #sbBackdrop{opacity:1;pointer-events:auto;}
+    body.sb-open{overflow:hidden;}
+    .sb-close{display:inline-flex;position:absolute;top:14px;right:14px;z-index:3;}
+    .sb-label{display:block !important;}
+    .sb-nav{display:block !important;padding:6px 18px 0;}
+    .sidebar .tabs{flex-direction:column !important;flex-wrap:nowrap !important;overflow:visible !important;border-bottom:none !important;}
+    .sidebar .tab{width:100%;justify-content:flex-start !important;padding:13px 22px !important;font-size:17px !important;}
+    .sidebar .sb-brand{padding-right:72px !important;}
+    .wrap{padding-left:16px !important;}
+    /* card size slider: number of columns instead of zoom */
+    .grid-cards,.grid-cards.cat-music,.grid-cards.cat-consoles,.grid-cards.cat-figures,.grid-cards.cat-boardgames{
+      grid-template-columns:repeat(var(--cols,2),minmax(0,1fr)) !important;zoom:1 !important;}
+  }
+
+  /* ===== custom background: a colour OR a picture shows behind the page ===== */
+  html body.has-bg-image{background:transparent !important;}
+  html body.has-bg-image #bgLayer{display:block !important;}
+  html body.has-bg-image .panel, html body.has-bg-color .panel{
+    background:rgba(255,255,255,.9) !important;
+    border-radius:16px !important;padding:8px 26px 30px !important;margin-top:22px !important;}
+  html.dark body.has-bg-image .panel, html.dark body.has-bg-color .panel{background:rgba(19,19,19,.88) !important;}
+  @media (max-width:900px){
+    html body.has-bg-image .panel, html body.has-bg-color .panel{padding:4px 12px 22px !important;margin-top:12px !important;border-radius:12px !important;}
+  }
+
+  /* ===== opened windows: blurred background, the card pops out ===== */
+  .slip-overlay,.gh-overlay,.detail-overlay{
+    background:rgba(15,15,15,.42) !important;
+    backdrop-filter:blur(12px) saturate(1.15);-webkit-backdrop-filter:blur(12px) saturate(1.15);}
+  .slip-overlay.open,.gh-overlay.open,.detail-overlay.open{animation:ovFade .18s ease-out;}
+  @keyframes ovFade{from{opacity:0}to{opacity:1}}
+  @keyframes artPop{from{transform:scale(.88);opacity:0}to{transform:none;opacity:1}}
+  .detail-overlay.open .detail-art{animation:artPop .3s cubic-bezier(.2,.9,.3,1.15);}
+  .detail-overlay.open .detail-modal{animation:artPop .25s ease-out;}
+  .detail-art img,.detail-art .art-empty{filter:drop-shadow(0 20px 40px rgba(0,0,0,.65)) drop-shadow(0 0 3px rgba(255,255,255,.3));}
+  @media (max-width:699px){
+    .detail-overlay{flex-direction:column;justify-content:flex-end;align-items:center !important;}
+    .detail-art{display:flex !important;justify-content:center;flex:0 0 auto;margin:0 0 14px !important;max-width:100%;}
+    .detail-art img{height:28vh !important;width:auto !important;max-height:28vh !important;}
+    .detail-art .art-empty{height:28vh !important;width:min(180px,50vw) !important;}
+    .detail-modal{max-height:62vh !important;width:100% !important;overflow-y:auto;}
+  }
+
+  /* ===== title and profile picture sizes follow the Customize sliders again ===== */
+  /* (the slider defaults, 42 and 96, give the same size the sidebar already had) */
+  .sidebar .title-block h1{font-size:max(12px, calc(21px + (var(--title-size, 42) - 42) * .3px)) !important;line-height:1.15;flex-wrap:wrap;overflow-wrap:anywhere;}
+  .sidebar .title-icon{width:max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;height:max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;flex:0 0 max(16px, calc(38px + (var(--pic-size, 96) - 96) * .35px)) !important;font-size:max(10px, calc(24px + (var(--pic-size, 96) - 96) * .22px)) !important;}
 </style>
 </head>
 <body>
 <div id="bgLayer"></div>
+<div id="sbBackdrop" onclick="toggleSidebar()"></div>
 <div class="wrap">
   <aside class="sidebar" id="sidebar">
+  <button type="button" class="sb-toggle sb-close on" onclick="toggleSidebar()" aria-label="Close menu" title="Close menu"><span class="bars"><i></i><i></i><i></i></span></button>
     <div class="sb-brand">
   <header>
     <div class="title-block">
@@ -1394,6 +1472,7 @@
 
   <div class="panel">
     <div class="topbar">
+      <button type="button" class="sb-toggle" id="sbToggle" onclick="toggleSidebar()" aria-label="Show or hide the menu" title="Menu"><span class="bars"><i></i><i></i><i></i></span></button>
       <svg class="sb-ico" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></svg>
       <input type="search" id="search" placeholder="Start Searching..." oninput="render()">
       <div id="hdrLogout" class="hdr-logout"></div>
@@ -2121,15 +2200,26 @@ function updateScaleUI(){
   const label = document.getElementById('scaleValue');
   if(slider) slider.value = val;
   if(label) label.textContent = val + '%';
-  const cardsEl = document.getElementById('cards');
-  if(cardsEl) cardsEl.style.zoom = (val/100);
+  applyCardScale(val);
 }
+
+// Desktop: zoom the cards. Phone: change how many cards fit in a row
+// (bigger size = fewer, larger cards).
+function isPhoneLayout(){ return window.matchMedia('(max-width:900px)').matches; }
+function colsForScale(n){ return Math.max(1, Math.min(6, Math.round(1 + (100 - n) / 90 * 5))); }
+function applyCardScale(n){
+  const cardsEl = document.getElementById('cards');
+  if(!cardsEl) return;
+  cardsEl.style.zoom = isPhoneLayout() ? 1 : (n/100);
+  cardsEl.style.setProperty('--cols', colsForScale(n));
+}
+window.addEventListener('resize', ()=>{ applyCardScale(layoutScale[activeCat]); });
 
 function onScaleInput(val){
   const n = Number(val);
   layoutScale[activeCat] = n;
   document.getElementById('scaleValue').textContent = n + '%';
-  document.getElementById('cards').style.zoom = (n/100);
+  applyCardScale(n);
 }
 
 async function onScaleChange(val){
@@ -3525,7 +3615,7 @@ function render(){
   const cardsEl = document.getElementById('cards');
   const emptyEl = document.getElementById('emptyMsg');
   cardsEl.className = 'grid-cards cat-' + activeCat;
-  cardsEl.style.zoom = (layoutScale[activeCat]/100);
+  applyCardScale(layoutScale[activeCat]);
 
   const bar = document.getElementById('bulkBar');
   if(selectMode){
@@ -4277,7 +4367,9 @@ function applyTheme(){
   const layer = document.getElementById('bgLayer');
   const img = safeImageUrl(t.image);
   const color = /^#[0-9a-f]{6}$/i.test(t.color || '') ? t.color : '';
-  document.body.style.backgroundColor = color;
+  if(color) document.body.style.setProperty('background-color', color, 'important');
+  else document.body.style.removeProperty('background-color');
+  document.body.classList.toggle('has-bg-color', !!color);
   if(layer){
     if(img){
       const d = Math.min(0.8, Math.max(0, (Number(t.dim)||0)/100));
@@ -5030,6 +5122,104 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
     window.applyAuthUI=function(){var r=orig.apply(this,arguments);relocate();return r;};
   }
   relocate();
+})();
+
+// ---------- sliding sidebar ----------
+(function(){
+  const body = document.body;
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('sbBackdrop');
+  const mq = window.matchMedia('(max-width:900px)');
+  const isPhone = ()=> mq.matches;
+  const btn = document.getElementById('sbToggle');
+  function syncBtn(){
+    const on = isPhone() ? body.classList.contains('sb-open') : !body.classList.contains('sb-collapsed');
+    btn.classList.toggle('on', on);
+    btn.title = on ? 'Hide menu' : 'Show menu';
+  }
+  function setOpen(open){ body.classList.toggle('sb-open', open); syncBtn(); }
+
+  window.toggleSidebar = function(){
+    if(isPhone()){
+      setOpen(!body.classList.contains('sb-open'));
+    }else{
+      const c = body.classList.toggle('sb-collapsed');
+      try{ localStorage.setItem('sbCollapsed', c ? '1' : '0'); }catch(e){}
+      syncBtn();
+    }
+  };
+
+  // remember the choice on a computer
+  try{ if(localStorage.getItem('sbCollapsed') === '1') body.classList.add('sb-collapsed'); }catch(e){}
+  syncBtn();
+
+  // picking a collection closes the menu on a phone
+  sb.addEventListener('click', e=>{ if(isPhone() && e.target.closest('.tab')) setOpen(false); });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') setOpen(false); });
+  mq.addEventListener && mq.addEventListener('change', ()=>{ setOpen(false); sb.style.transform=''; bd.style.opacity=''; syncBtn(); });
+
+  // swipe: from the left edge to open, swipe left to close; it follows your finger
+  let sx=0, sy=0, drag=false, wasOpen=false, w=0, lock=null;
+  document.addEventListener('touchstart', e=>{
+    if(!isPhone() || e.touches.length !== 1) return;
+    const t = e.touches[0];
+    wasOpen = body.classList.contains('sb-open');
+    if(!wasOpen && t.clientX > 24) return;
+    sx = t.clientX; sy = t.clientY; w = sb.offsetWidth; lock = null; drag = true;
+  }, {passive:true});
+  document.addEventListener('touchmove', e=>{
+    if(!drag) return;
+    const t = e.touches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if(lock === null){
+      if(Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      lock = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+      if(lock === 'y'){ drag = false; return; }
+      sb.style.transition = 'none'; bd.style.transition = 'none';
+    }
+    let x = wasOpen ? Math.min(0, dx) : -w + Math.max(0, dx);
+    x = Math.max(-w, Math.min(0, x));
+    sb.style.transform = 'translateX(' + x + 'px)';
+    bd.style.opacity = String(1 + x / w);
+    bd.style.pointerEvents = 'auto';
+  }, {passive:true});
+  document.addEventListener('touchend', ()=>{
+    if(!drag) return;
+    drag = false;
+    if(lock !== 'x') return;
+    const left = sb.getBoundingClientRect().left;
+    sb.style.transition = ''; bd.style.transition = '';
+    sb.style.transform = ''; bd.style.opacity = ''; bd.style.pointerEvents = '';
+    setOpen(left > -w * 0.5);
+  }, {passive:true});
+})();
+
+// ---------- click outside a window to close it ----------
+(function(){
+  let downTarget = null;
+  const rec = e=>{ downTarget = e.target; };
+  document.addEventListener('mousedown', rec, true);
+  document.addEventListener('touchstart', rec, {capture:true, passive:true});
+  const isOverlay = t => t && t.classList && (t.classList.contains('detail-overlay') || t.classList.contains('gh-overlay') || t.classList.contains('slip-overlay'));
+  // a drag that starts inside a window and ends on the dark area must not close it
+  document.addEventListener('click', e=>{
+    const t = e.target;
+    const startedElsewhere = isOverlay(t) && downTarget && downTarget !== t;
+    downTarget = null;
+    if(startedElsewhere){ e.stopImmediatePropagation(); e.preventDefault(); }
+  }, true);
+
+  // the add/edit window closes too; if you typed something it asks first
+  const slipO = document.getElementById('slipOverlay');
+  let dirty = false;
+  slipO.addEventListener('input', ()=>{ dirty = true; });
+  slipO.addEventListener('change', ()=>{ dirty = true; });
+  const _openSlip = window.openSlip;
+  window.openSlip = function(){ dirty = false; return _openSlip.apply(this, arguments); };
+  slipO.addEventListener('click', e=>{
+    if(e.target !== slipO) return;
+    if(dirty && !confirm('Close without saving your changes?')) return;
+    closeSlip();
+  });
 })();
 </script>
 </body>
