@@ -11344,7 +11344,7 @@
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1662568423i/23164983.jpg",
       "status": "Completed",
-      "owner": "",
+      "owner": "Zai",
       "author": "Ransom Riggs",
       "format": "Paperback",
       "genre": "",
@@ -13386,5 +13386,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335392531
+  "savedAt": 1794335405381
 }
