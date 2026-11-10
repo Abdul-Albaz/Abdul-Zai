@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "owner": "Both",
+      "platform": "Nintendo Switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "65",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794289400819-cover.jpg",
+      "id": "mwa9mcqzb2l9y",
+      "addedAt": 1794289466123
+    },
+    {
       "title": "CRYPT OF THE NECRODANCER",
       "owner": "Abdul",
       "platform": "Nintendo switch",
@@ -13193,5 +13211,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794288317982
+  "savedAt": 1794289466826
 }
