@@ -8055,7 +8055,7 @@
       "rating": 0,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/1794000588262-egar-allan-poe-selected-poems.jpg",
       "status": "Backlog",
-      "owner": "",
+      "owner": "Zai",
       "author": "",
       "format": "Paperback",
       "genre": "",
@@ -13385,5 +13385,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335342728
+  "savedAt": 1794335345467
 }
