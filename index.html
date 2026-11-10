@@ -1524,6 +1524,86 @@
     border:1px solid #c9c0aa !important;border-radius:6px !important;background:#fff !important;cursor:pointer;}
   .gh-modal .look-row > span:first-child:not(.look-icon-preview){flex:0 0 84px;}
   .gh-modal .look-row .btn-ghost{height:36px;padding:0 14px;font-size:13px;}
+
+  /* ===== layout like the older version: header (title + account), a separate row of tabs, then a panel with search + filters ===== */
+  html body .sidebar, html body.sb-collapsed .sidebar, html body.sb-open .sidebar{
+    background:transparent !important;border-radius:0 !important;padding:0 !important;
+    margin:22px 0 0 !important;gap:0 20px;}
+  html body .sidebar .sb-brand{flex:1 1 320px;}
+  html body .sidebar .tabs{order:3 !important;flex:1 1 100% !important;display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;border:none !important;padding:0 !important;
+    gap:calc(var(--tab-gap, 10) * 1px) !important;
+    margin:max(0px, calc(var(--space-above, 48) * .5px)) 0 calc(var(--space-below, 18) * 1px) !important;}
+  html body .sidebar .tabs::-webkit-scrollbar{display:none;}
+  html body .sidebar .tab, html body .sidebar .tab *{font-family:'JetBrains Mono', ui-monospace, monospace !important;}
+  html body .sidebar .tab{
+    flex:0 0 auto !important;width:auto !important;margin:0 !important;
+    display:flex !important;align-items:center;gap:8px !important;justify-content:flex-start !important;
+    padding:10px 18px !important;white-space:nowrap;cursor:pointer;
+    font-size:12px !important;font-weight:500 !important;letter-spacing:1.5px !important;text-transform:uppercase !important;
+    border:1px solid var(--lb-line) !important;border-bottom:none !important;border-radius:3px 3px 0 0 !important;
+    background:var(--lb-bar) !important;color:#7a7a7a !important;box-shadow:none !important;
+    transition:color .15s, background .15s;}
+  html body .sidebar .tab .dot{display:block !important;width:7px;height:7px;border-radius:50%;background:currentColor !important;opacity:.6;}
+  html body .sidebar .tab:not(.active):hover{color:#111 !important;background:#e4e4e4 !important;}
+  html body .sidebar .tab.tab.active.active{border-color:transparent !important;font-weight:700 !important;box-shadow:none !important;}
+  html body .sidebar .tab .tab-count{font-size:10px;letter-spacing:0;margin-left:2px;}
+  html.dark body .sidebar .tab{background:#1e1e1e !important;border-color:#333 !important;color:#9a9a9a !important;}
+  html.dark body .sidebar .tab:not(.active):hover{color:#fff !important;background:#2a2a2a !important;}
+  /* the panel the tabs sit on */
+  html body .panel{background:#fff !important;border:1px solid var(--lb-line) !important;border-radius:0 10px 10px 10px !important;
+    padding:18px 20px 26px !important;margin:0 !important;}
+  html.dark body .panel{background:#161616 !important;border-color:#2c2c2c !important;}
+  html body.has-bg-image .panel, html body.has-bg-color .panel{background:rgba(255,255,255,.92) !important;margin:0 !important;
+    border-radius:0 10px 10px 10px !important;padding:18px 20px 26px !important;}
+  html.dark body.has-bg-image .panel, html.dark body.has-bg-color .panel{background:rgba(22,22,22,.9) !important;}
+  /* search row */
+  html body .panel > .topbar{display:flex !important;flex-wrap:wrap;align-items:center;gap:10px !important;
+    padding:0 0 16px !important;margin:0 !important;background:none !important;border-radius:0 !important;}
+  html body .panel > .topbar .sb-ico{display:none;}
+  html body .panel > .topbar input#search{flex:1 1 220px;min-width:0;height:40px;padding:0 12px !important;font-size:14px !important;
+    border:1px solid var(--lb-line) !important;border-radius:6px !important;background:#fff !important;}
+  html.dark body .panel > .topbar input#search{background:#1e1e1e !important;border-color:#333 !important;}
+  html body .topbar .toolbar{display:flex !important;flex-wrap:nowrap !important;gap:8px !important;width:auto !important;flex:0 0 auto !important;margin:0 !important;position:relative;}
+  html body .topbar .toolbar select, html body .topbar .toolbar .btn-ghost, html body .topbar .toolbar #sortBy,
+  html body .topbar .toolbar .btn-filters, html body .topbar .toolbar #addBtn{height:40px !important;font-size:13px !important;padding:0 12px !important;}
+  html body .topbar .toolbar #sortBy{min-width:0 !important;width:140px !important;}
+  html body .topbar .toolbar .filters-panel, html body .topbar .toolbar .toolbar-extra{top:46px !important;}
+  html body .topbar .hdr-logout button{height:40px;}
+  @media (max-width:700px){
+    html body .panel{padding:14px 12px 20px !important;}
+    html body .panel > .topbar input#search{flex:1 1 120px;order:0;}
+    html body .panel > .topbar #themeBtn{order:1;}
+    html body .panel > .topbar .hdr-logout{order:1;}
+    html body .topbar .toolbar{order:2;flex:1 1 100% !important;flex-wrap:wrap !important;}
+    html body .topbar .toolbar #sortBy{flex:1 1 80px !important;width:auto !important;min-width:0 !important;max-width:none !important;}
+    html body .topbar .toolbar .btn-filters, html body .topbar .toolbar #toolbarEditBtn{flex:0 0 auto !important;height:40px !important;}
+    html body .topbar .toolbar .btn-filters, html body .topbar .toolbar .btn-ghost{padding:0 10px !important;}
+    html body .topbar .toolbar #addBtn{flex:1 1 100%;order:9;}
+    html body .sidebar .tab{padding:9px 14px !important;}
+  }
+
+  /* ===== card hover like the older version: just the cover; the details fade in over it on hover (tap on a phone) ===== */
+  html body .card .cover-area, html body .card.has-cover .cover-area{border:none !important;border-radius:8px !important;box-shadow:0 3px 10px rgba(0,0,0,.25) !important;}
+  html body .card.has-cover{overflow:hidden;border-radius:8px !important;}
+  html body .card.has-cover .card-overlay{
+    position:absolute !important;inset:0;width:auto;
+    display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;text-align:left;
+    padding:12px 14px !important;border-radius:8px;
+    background:linear-gradient(to top, rgba(15,13,10,.92) 0%, rgba(15,13,10,.72) 45%, rgba(15,13,10,.05) 80%, transparent 100%) !important;
+    color:#EDE6D6 !important;opacity:0 !important;pointer-events:none;transition:opacity .18s ease !important;}
+  html body .card.has-cover .card-overlay h4{color:#EDE6D6 !important;font-size:16px;margin:0 0 2px;-webkit-line-clamp:2;text-align:left;}
+  html body .card.has-cover .card-overlay .sub{color:#c9c2b4 !important;font-size:12px;margin:0 0 8px;text-align:left;}
+  html body .card.has-cover .card-overlay .card-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+  html body .card.has-cover .card-overlay .stars-view{display:block;color:var(--gold);}
+  html body .card.has-cover .card-overlay .price{display:block;color:#e3ddd0;}
+  html body .card.has-cover .card-overlay .card-bottom{position:static;opacity:1;width:100%;margin-top:6px;}
+  html body .card.has-cover .card-overlay .icon-btn{background:none;color:#EDE6D6;}
+  html body .card.has-cover.show-overlay .card-overlay,
+  html body .card.has-cover:focus-within .card-overlay{opacity:1 !important;pointer-events:auto;}
+  @media (hover:hover){
+    html body .card.has-cover:hover .card-overlay{opacity:1 !important;pointer-events:auto;}
+  }
 </style>
 </head>
 <body>
@@ -1594,6 +1674,7 @@
       <select id="sortBy" onchange="onSortChange()">
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
+        <option value="author" id="sortAuthorOpt">Sort: Author A–Z</option>
         <option value="rating">Sort: Rating</option>
         <option value="price" id="sortPriceOpt">Sort: Price</option>
         <option value="platform" id="sortPlatformOpt" selected>Sort: Platform</option>
@@ -3674,6 +3755,14 @@ function render(){
     if(!isGames && document.getElementById('sortBy').value==='platform') document.getElementById('sortBy').value = 'added';
     else if(isGames && userSort==='platform') document.getElementById('sortBy').value = 'platform';
   }
+  const authOpt = document.getElementById('sortAuthorOpt');
+  if(authOpt){
+    const isBooks = activeCat==='books';
+    authOpt.hidden = !isBooks;
+    authOpt.disabled = !isBooks;
+    if(!isBooks && document.getElementById('sortBy').value==='author') document.getElementById('sortBy').value = 'added';
+    else if(isBooks && userSort==='author') document.getElementById('sortBy').value = 'author';
+  }
   const priceOpt = document.getElementById('sortPriceOpt');
   if(priceOpt){
     const canSee = !!currentUser;
@@ -3698,6 +3787,16 @@ function render(){
   });
 
   if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
+  else if(sortBy==='author') filtered.sort((a,b)=>{
+    // Author A–Z (books without an author go last), then title inside each author.
+    const aa = (a.author||'').trim(), ab = (b.author||'').trim();
+    if(aa!==ab){
+      if(!aa) return 1;
+      if(!ab) return -1;
+      return aa.localeCompare(ab, undefined, {sensitivity:'base'});
+    }
+    return a.title.localeCompare(b.title);
+  });
   else if(sortBy==='rating') filtered.sort((a,b)=>(b.rating||0)-(a.rating||0));
   else if(sortBy==='price') filtered.sort((a,b)=>(parseFloat(b.price)||0)-(parseFloat(a.price)||0));
   else if(sortBy==='platform') filtered.sort((a,b)=>{
@@ -4212,7 +4311,7 @@ function defaultView(cat){
 }
 function viewOf(cat){ return viewByCat[cat] || (viewByCat[cat] = defaultView(cat)); }
 function sortAllowed(cat, s){
-  return ['added','title','rating','price','custom'].includes(s) || (s==='platform' && cat==='games');
+  return ['added','title','rating','price','custom'].includes(s) || (s==='platform' && cat==='games') || (s==='author' && cat==='books');
 }
 function syncStatusSelect(){
   const sel = document.getElementById('statusFilter');
@@ -5335,18 +5434,6 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
   });
 })();
 
-// ---------- move the toolbar buttons up into the header, next to the tabs ----------
-(function(){
-  const sb = document.getElementById('sidebar');
-  const tabs = sb && sb.querySelector('.tabs');
-  const tb = document.querySelector('.coll-row .toolbar');
-  if(!sb || !tabs || !tb) return;
-  const row = document.createElement('div');
-  row.className = 'sb-row2';
-  sb.insertBefore(row, tabs);
-  row.appendChild(tabs);
-  row.appendChild(tb);
-})();
 
 // ---------- numbers on the tabs ----------
 (function(){
@@ -5364,14 +5451,6 @@ document.getElementById('saveBtn').className = 'btn btn-primary games';
   updateTabCounts();
 })();
 
-// ---------- search bar goes up into the header, above the tabs ----------
-(function(){
-  const sb = document.getElementById('sidebar');
-  const top = document.querySelector('.panel > .topbar') || document.querySelector('.topbar');
-  if(!sb || !top) return;
-  const row = sb.querySelector('.sb-row2');
-  sb.insertBefore(top, row || null);
-})();
 
 // ---------- the "⚙ Edit" options panel closes when you click anywhere else ----------
 document.addEventListener('click', function(e){
@@ -5402,6 +5481,17 @@ document.addEventListener('click', function(e){
   const ts = window.toggleStats, td = window.toggleDone;
   if(ts) window.toggleStats = function(){ const r = ts.apply(this, arguments); tintStats(); return r; };
   if(td) window.toggleDone  = function(){ const r = td.apply(this, arguments); tintDone();  return r; };
+})();
+
+// ---------- search + filters share one row inside the panel (like the old layout) ----------
+(function(){
+  const top = document.querySelector('.panel > .topbar') || document.querySelector('.topbar');
+  const tb  = document.querySelector('.toolbar');
+  if(!top || !tb) return;
+  const logout = top.querySelector('#hdrLogout');
+  top.insertBefore(tb, logout || null);
+  const search = document.getElementById('search');
+  if(search) search.placeholder = 'Search title, artist, platform, owner…';
 })();
 </script>
 </body>
