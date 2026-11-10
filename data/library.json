@@ -9675,11 +9675,11 @@
       "id": "mrqxffrunl8vm",
       "addedAt": 1784413001173,
       "title": "A Monster Calls",
-      "rating": 0,
+      "rating": 5,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1485991317i/8621462.jpg",
       "author": "Patrick Ness",
       "status": "Completed",
-      "owner": "",
+      "owner": "Zai",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -13384,5 +13384,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794333462852
+  "savedAt": 1794333465892
 }
