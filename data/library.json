@@ -13171,7 +13171,7 @@
     "titleFont": "inter",
     "titleSize": 53,
     "picSize": 107,
-    "titleGap": 35,
+    "titleGap": 28,
     "detailsColor": "#ffffff",
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif",
     "spaceBelow": 0,
@@ -13193,5 +13193,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794285366710
+  "savedAt": 1794285369831
 }
