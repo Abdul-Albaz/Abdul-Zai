@@ -33,7 +33,7 @@
         "status": "All"
       },
       "artbooks": {
-        "sortBy": "added",
+        "sortBy": "title",
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794285887179
+    "updatedAt": 1794286104422
   },
   "zai": {
     "sortBy": "title",
