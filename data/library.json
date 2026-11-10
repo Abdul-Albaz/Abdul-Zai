@@ -9412,7 +9412,7 @@
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1396227095i/19501680.jpg",
       "status": "Backlog",
-      "owner": "",
+      "owner": "Zai",
       "author": "",
       "format": "Hardcover",
       "genre": "",
@@ -13385,5 +13385,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335327085
+  "savedAt": 1794335330389
 }
