@@ -13176,7 +13176,7 @@
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif",
     "spaceBelow": 0,
     "spaceAbove": 40,
-    "tabGap": 24,
+    "tabGap": 8,
     "titleBelow": 20,
     "priceColors": {
       "games": "#ffb22e",
@@ -13193,5 +13193,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794285348167
+  "savedAt": 1794285352860
 }
