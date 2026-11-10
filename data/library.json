@@ -9469,7 +9469,7 @@
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/I/A18iHMGHy2L._AC_UF1000,1000_QL80_.jpg",
       "status": "Backlog",
-      "owner": "",
+      "owner": "Zai",
       "author": "",
       "format": "Paperback",
       "genre": "",
@@ -13385,5 +13385,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335294669
+  "savedAt": 1794335297335
 }
