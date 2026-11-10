@@ -910,6 +910,23 @@
   header{margin-bottom:calc(var(--space-above, 48) * var(--ts, 1) * .4px);}
   .search-row{margin-bottom:calc(var(--space-above, 48) * .4px);}
   .search-row input#search{width:100%;font-size:14px;padding:12px 14px;}
+
+  /* ===== Add button at the end of the first row; tabs spread evenly ===== */
+  @media (min-width:769px){
+    .toolbar #addBtn{order:5;margin-left:auto;}
+    .toolbar .toolbar-extra{order:9;flex:1 1 100%;}
+    .tabs .tab{flex:1 1 auto;justify-content:center;}
+  }
+
+  /* ===== Show completed: games + books as cards ===== */
+  .done-box.open{gap:14px;margin-top:16px;}
+  .done-item{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;
+    padding:16px 22px;min-width:190px;flex:0 1 auto;
+    box-shadow:0 3px 10px rgba(0,0,0,0.25);
+  }
+  .done-item .done-num{font-size:34px;}
+  .done-item .done-lbl{margin-top:4px;color:var(--paper);opacity:.85;}
 </style>
 </head>
 <body>
@@ -962,6 +979,7 @@
       <select id="sortBy" onchange="onSortChange()">
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
+        <option value="author" id="sortAuthorOpt">Sort: Author A–Z</option>
         <option value="rating">Sort: Rating</option>
         <option value="price" id="sortPriceOpt">Sort: Price</option>
         <option value="platform" id="sortPlatformOpt" selected>Sort: Platform</option>
@@ -3023,6 +3041,14 @@ function render(){
     if(!isGames && document.getElementById('sortBy').value==='platform') document.getElementById('sortBy').value = 'added';
     else if(isGames && userSort==='platform') document.getElementById('sortBy').value = 'platform';
   }
+  const authOpt = document.getElementById('sortAuthorOpt');
+  if(authOpt){
+    const isBooks = activeCat==='books';
+    authOpt.hidden = !isBooks;
+    authOpt.disabled = !isBooks;
+    if(!isBooks && document.getElementById('sortBy').value==='author') document.getElementById('sortBy').value = 'added';
+    else if(isBooks && userSort==='author') document.getElementById('sortBy').value = 'author';
+  }
   const priceOpt = document.getElementById('sortPriceOpt');
   if(priceOpt){
     const canSee = !!currentUser;
@@ -3047,6 +3073,16 @@ function render(){
   });
 
   if(sortBy==='title') filtered.sort((a,b)=>a.title.localeCompare(b.title));
+  else if(sortBy==='author') filtered.sort((a,b)=>{
+    // Author A–Z (books without an author go last), then title inside each author.
+    const aa = (a.author||'').trim(), ab = (b.author||'').trim();
+    if(aa!==ab){
+      if(!aa) return 1;
+      if(!ab) return -1;
+      return aa.localeCompare(ab, undefined, {sensitivity:'base'});
+    }
+    return a.title.localeCompare(b.title);
+  });
   else if(sortBy==='rating') filtered.sort((a,b)=>(b.rating||0)-(a.rating||0));
   else if(sortBy==='price') filtered.sort((a,b)=>(parseFloat(b.price)||0)-(parseFloat(a.price)||0));
   else if(sortBy==='platform') filtered.sort((a,b)=>{
@@ -3561,7 +3597,7 @@ function defaultView(cat){
 }
 function viewOf(cat){ return viewByCat[cat] || (viewByCat[cat] = defaultView(cat)); }
 function sortAllowed(cat, s){
-  return ['added','title','rating','price','custom'].includes(s) || (s==='platform' && cat==='games');
+  return ['added','title','rating','price','custom'].includes(s) || (s==='platform' && cat==='games') || (s==='author' && cat==='books');
 }
 function syncStatusSelect(){
   const sel = document.getElementById('statusFilter');
