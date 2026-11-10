@@ -5656,6 +5656,25 @@
   ],
   "books": [
     {
+      "title": "DCC #4: The Gate of the Feral Gods",
+      "owner": "Zai",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Completed",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734098643i/220772913.jpg",
+      "id": "mwaznvl0nt79t",
+      "addedAt": 1794333207204
+    },
+    {
       "title": "DCC #3: The Dungeon Anarchist's Cookbook",
       "owner": "Zai",
       "author": "Matt Dinniman",
@@ -13308,5 +13327,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794333147647
+  "savedAt": 1794333207905
 }
