@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Nintendo Switch Sports Resort",
+      "owner": "Abdul",
+      "platform": "Nintendo Switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "45",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794289554657-cover.jpg",
+      "id": "mwa9p98tful4b",
+      "addedAt": 1794289601549
+    },
+    {
       "title": "The Legend of Zelda: Ocarina of Time",
       "owner": "Both",
       "platform": "Nintendo Switch 2",
@@ -13211,5 +13229,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794289466826
+  "savedAt": 1794289602253
 }
