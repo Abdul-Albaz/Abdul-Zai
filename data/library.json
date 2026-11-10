@@ -8720,7 +8720,7 @@
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1320407080i/151398.jpg",
       "status": "Completed",
-      "owner": "",
+      "owner": "Zai",
       "author": "Mark Alan Stamaty",
       "format": "Paperback",
       "genre": "",
@@ -13384,5 +13384,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794333481325
+  "savedAt": 1794333484202
 }
