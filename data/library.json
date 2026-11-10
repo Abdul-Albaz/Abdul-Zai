@@ -13238,27 +13238,6 @@
       "addedAt": 1792905602154
     },
     {
-      "title": "The Gallerist",
-      "owner": "Abdul",
-      "designer": "",
-      "publisher": "",
-      "genre": "",
-      "players": "",
-      "playTime": "",
-      "age": "",
-      "edition": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGlvoVuV5oWvW2v6e000EBvza4KpYZS4zqA_7Ycl4FtA&s=10",
-      "id": "mvnbbf0twdevw",
-      "addedAt": 1792901593037
-    },
-    {
       "title": "Metal Gear Solid: The Board Game",
       "owner": "Abdul",
       "designer": "",
@@ -13310,5 +13289,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794304607378
+  "savedAt": 1794304612951
 }
