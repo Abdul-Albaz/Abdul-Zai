@@ -5656,6 +5656,25 @@
   ],
   "books": [
     {
+      "title": "DCC #3: The Dungeon Anarchist's Cookbook",
+      "owner": "Zai",
+      "author": "Matt Dinniman",
+      "format": "Hardcover",
+      "genre": "",
+      "status": "Completed",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719949594i/211721809.jpg",
+      "id": "mwazm3mi8n4r4",
+      "addedAt": 1794333124314
+    },
+    {
       "title": "اخوة محمد",
       "owner": "",
       "author": "ميسلون هادي",
@@ -13289,5 +13308,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794305804492
+  "savedAt": 1794333125015
 }
