@@ -10039,7 +10039,7 @@
       "rating": 0,
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1404331702i/18460392.jpg",
       "status": "Completed",
-      "owner": "",
+      "owner": "Zai",
       "author": "Jennifer Niven",
       "format": "Paperback",
       "genre": "",
@@ -13384,5 +13384,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794333475781
+  "savedAt": 1794333478472
 }
