@@ -6745,7 +6745,7 @@
       "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1345204437i/9492488.jpg",
       "author": "Stephen King",
       "status": "Completed",
-      "owner": "",
+      "owner": "Zai",
       "format": "Paperback",
       "genre": "",
       "pagesRead": "",
@@ -13389,5 +13389,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335478392
+  "savedAt": 1794335481638
 }
