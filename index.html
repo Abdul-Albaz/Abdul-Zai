@@ -968,6 +968,19 @@
   @media (min-width:769px) and (max-width:960px){
     .tabs .tab{padding:12px 11px;font-size:10.5px;letter-spacing:.6px;gap:5px;}
   }
+
+  /* ===== A–Z bar on the Books tab ===== */
+  .alpha-bar{position:sticky;top:8px;z-index:20;flex-wrap:wrap;gap:5px;margin:0 0 16px;padding:8px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;}
+  .alpha-btn{min-width:28px;height:28px;padding:0 6px;font-family:'JetBrains Mono', monospace;font-size:12px;font-weight:600;color:var(--paper);background:var(--bg);border:1px solid var(--line);border-radius:6px;cursor:pointer;}
+  .alpha-btn:hover:not(:disabled){background:var(--accent, #c8602a);border-color:var(--accent, #c8602a);color:#1a1410;}
+  .alpha-btn:disabled{opacity:.28;cursor:default;}
+  #cards .card{scroll-margin-top:84px;}
+  @keyframes alphaFlash{0%,60%{outline:2px solid var(--accent, #c8602a);outline-offset:3px;}100%{outline:2px solid transparent;outline-offset:3px;}}
+  .card.alpha-flash{animation:alphaFlash 1.6s ease-out;}
+  @media (max-width:768px){
+    .alpha-bar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+    .alpha-btn{flex:0 0 auto;}
+  }
 </style>
 </head>
 <body>
@@ -1299,6 +1312,7 @@
     </div>
 
     <div id="loading" class="loading">loading your collection…</div>
+    <div class="alpha-bar" id="alphaBar" style="display:none;" onclick="alphaClick(event)"></div>
     <div class="grid-cards" id="cards" style="display:none;"></div>
     <div class="empty" id="emptyMsg" style="display:none;"></div>
   </div>
@@ -3154,6 +3168,7 @@ function render(){
   const emptyEl = document.getElementById('emptyMsg');
   cardsEl.className = 'grid-cards cat-' + activeCat;
   cardsEl.style.zoom = (layoutScale[activeCat]/100);
+  buildAlphaBar(filtered);
 
   const bar = document.getElementById('bulkBar');
   if(selectMode){
@@ -3677,6 +3692,43 @@ function restoreView(cat){
   syncStatusSelect();
 }
 function rememberView(){ captureView(); savePrefsNow(); }
+
+// ---- A–Z jump bar (Books tab) ----
+// Letters follow the sort in use: Author A–Z → first letter of the author, anything else → first letter of the title.
+function alphaKey(e, byAuthor){
+  const s = String((byAuthor ? e.author : e.title) || '').trim();
+  const c = s.charAt(0).toUpperCase();
+  if(/[A-Z]/.test(c)) return c;
+  return /\p{L}/u.test(c) ? c : '#';   // other alphabets keep their own letter, digits/symbols go under #
+}
+function buildAlphaBar(list){
+  const el = document.getElementById('alphaBar');
+  if(!el) return;
+  if(activeCat !== 'books'){ el.style.display = 'none'; el.innerHTML = ''; return; }
+  const byAuthor = document.getElementById('sortBy').value === 'author';
+  const have = new Set(list.map(e => alphaKey(e, byAuthor)));
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  [...have].filter(k => !letters.includes(k) && k !== '#').sort().forEach(k => letters.push(k));
+  if(have.has('#')) letters.push('#');
+  el.innerHTML = letters.map(L => `<button type="button" class="alpha-btn" data-letter="${escapeHtml(L)}"${have.has(L) ? '' : ' disabled'}>${escapeHtml(L)}</button>`).join('');
+  el.style.display = 'flex';
+}
+function alphaClick(ev){
+  const b = ev.target.closest('.alpha-btn');
+  if(!b || b.disabled) return;
+  const L = b.dataset.letter;
+  const sel = document.getElementById('sortBy');
+  // jumping only makes sense in an alphabetical order, so switch to Title A–Z if needed
+  if(sel.value !== 'title' && sel.value !== 'author'){ sel.value = 'title'; onSortChange(); }
+  const byAuthor = document.getElementById('sortBy').value === 'author';
+  const target = [...document.querySelectorAll('#cards .card')].find(c => {
+    const e = data.books.find(x => x.id === c.dataset.id);
+    return e && alphaKey(e, byAuthor) === L;
+  });
+  if(!target) return;
+  target.scrollIntoView({behavior:'smooth', block:'start'});
+  target.classList.remove('alpha-flash'); void target.offsetWidth; target.classList.add('alpha-flash');
+}
 
 function onSortChange(){
   userSort = document.getElementById('sortBy').value;
