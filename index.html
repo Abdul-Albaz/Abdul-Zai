@@ -946,6 +946,19 @@
   @media (min-width:769px){
     .tabs .tab{padding:14px 16px;}
   }
+
+  /* ===== Completed: button beside Add game, opens a popup card ===== */
+  .done-overlay{display:none;position:fixed;inset:0;background:rgba(10,9,7,0.65);z-index:130;align-items:center;justify-content:center;padding:20px;}
+  .done-overlay.open{display:flex;}
+  .done-popup{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:26px 28px 28px;box-shadow:0 18px 50px rgba(0,0,0,.55);max-width:100%;}
+  .done-popup .done-title{font-family:'JetBrains Mono', monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--paper);opacity:.7;margin:0 40px 16px 0;}
+  .done-popup .done-x{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--paper);opacity:.7;font-size:16px;cursor:pointer;padding:6px;}
+  .done-popup .done-x:hover{opacity:1;}
+  .done-popup .done-box.open{display:flex;flex-wrap:wrap;gap:14px;margin:0;}
+  @media (min-width:769px){
+    .toolbar #completedBtn{order:5;margin-left:auto;}
+    .toolbar #addBtn{order:6;margin-left:0;}
+  }
 </style>
 </head>
 <body>
@@ -970,11 +983,18 @@
       <div class="stat"><span class="num" id="statBoardgames">0</span><span class="sub price-only" id="statBoardgamesPrice">$0</span><span class="lbl">Board games</span></div>
       <div class="stat price-only"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
-    <div class="done-box" id="doneBox">
+  </header>
+
+  <div class="done-overlay" id="doneOverlay" onclick="if(event.target===this)closeDone()">
+    <div class="done-popup" role="dialog" aria-label="Completed">
+      <button class="done-x" type="button" onclick="closeDone()" aria-label="Close">✕</button>
+      <div class="done-title">Completed</div>
+    <div class="done-box open" id="doneBox">
       <div class="done-item"><span class="done-num" id="doneGames">0</span><span class="done-lbl">Games completed</span><span class="done-of" id="doneGamesOf"></span></div>
       <div class="done-item"><span class="done-num" id="doneBooks">0</span><span class="done-lbl">Books completed</span><span class="done-of" id="doneBooksOf"></span></div>
     </div>
-  </header>
+    </div>
+  </div>
 
   <div class="search-row">
     <input type="search" id="search" placeholder="Search title, artist, platform, owner…" oninput="render()">
@@ -1020,6 +1040,7 @@
         <button class="btn btn-ghost" id="selectModeBtn" onclick="toggleSelectMode()">Select</button>
         <button class="btn btn-ghost" onclick="openGithubSettings()" title="Configure saving cover images to your GitHub repo">⚙ Image storage</button>
       </div>
+      <button class="btn" id="completedBtn" onclick="openDone()" title="Show how many games and books you have completed">✓ Completed</button>
       <button class="btn btn-primary" id="addBtn" onclick="openSlip()">+ Add game</button>
     </div>
     <p style="margin:-10px 0 16px;font-size:11px;color:#8f887c;font-family:'JetBrains Mono',monospace;display:none;" id="reorderHint">Drag the ⠿ handle to reorder cards, or use the ↑ / ↓ buttons.</p>
@@ -3426,14 +3447,9 @@ function toggleStats(){
   if(btn) btn.textContent = statsOpen ? 'Hide totals' : 'Show totals';
 }
 
-let doneOpen = false;
-function toggleDone(){
-  doneOpen = !doneOpen;
-  const box = document.getElementById('doneBox');
-  if(box) box.classList.toggle('open', doneOpen);
-  const btn = document.getElementById('doneToggle');
-  if(btn) btn.textContent = doneOpen ? 'Hide completed' : 'Show completed';
-}
+function openDone(){ document.getElementById('doneOverlay').classList.add('open'); }
+function closeDone(){ document.getElementById('doneOverlay').classList.remove('open'); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDone(); });
 
 function applyAuthUI(){
   document.body.classList.toggle('guest', !currentUser);
@@ -3441,10 +3457,9 @@ function applyAuthUI(){
   renderTitleIcon();
   const bar = document.getElementById('accountBar');
   const totalsBtn = `<button class="acct-link" id="statsToggle" onclick="toggleStats()" title="Show how many things you have">${statsOpen ? 'Hide totals' : 'Show totals'}</button>`;
-  const doneBtn = `<button class="acct-link" id="doneToggle" onclick="toggleDone()" title="Show how many games and books you have completed">${doneOpen ? 'Hide completed' : 'Show completed'}</button>`;
   bar.innerHTML = currentUser
-    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span>${totalsBtn}${doneBtn}<button class="acct-link" onclick="openLook()">Customize</button><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
-    : `<span>👁 View only</span>${totalsBtn}${doneBtn}<button class="acct-link" onclick="openLogin()">Log in</button>`;
+    ? `<span class="acct-name">👤 ${escapeHtml(currentUser)}</span>${totalsBtn}<button class="acct-link" onclick="openLook()">Customize</button><button class="acct-link" onclick="openChangePassword()">Change password</button><button class="acct-link" onclick="logout()">Log out</button>`
+    : `<span>👁 View only</span>${totalsBtn}<button class="acct-link" onclick="openLogin()">Log in</button>`;
   document.getElementById('toolbarEditBtn').textContent = currentUser ? '⚙ Edit' : '⚙ Size';
 }
 
