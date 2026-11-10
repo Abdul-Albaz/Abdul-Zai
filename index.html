@@ -927,6 +927,10 @@
   }
   .done-item .done-num{font-size:34px;}
   .done-item .done-lbl{margin-top:4px;color:var(--paper);opacity:.85;}
+
+  /* ===== number of items on each tab ===== */
+  .tab .tab-count{margin-left:4px;font-size:10px;font-weight:700;letter-spacing:0;line-height:1;padding:3px 7px;border-radius:99px;background:rgba(255,255,255,.12);color:#cfc8b8;}
+  .tab.active .tab-count{background:rgba(0,0,0,.25);color:inherit;}
 </style>
 </head>
 <body>
@@ -962,13 +966,13 @@
   </div>
 
   <div class="tabs">
-    <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games</div>
-    <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music</div>
-    <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books</div>
-    <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles</div>
-    <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks</div>
-    <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures</div>
-    <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games</div>
+    <div class="tab active" data-cat="games" onclick="switchTab('games')"><span class="dot"></span>Games<span class="tab-count" data-count="games">0</span></div>
+    <div class="tab" data-cat="music" onclick="switchTab('music')"><span class="dot"></span>Music<span class="tab-count" data-count="music">0</span></div>
+    <div class="tab" data-cat="books" onclick="switchTab('books')"><span class="dot"></span>Books<span class="tab-count" data-count="books">0</span></div>
+    <div class="tab" data-cat="consoles" onclick="switchTab('consoles')"><span class="dot"></span>Consoles<span class="tab-count" data-count="consoles">0</span></div>
+    <div class="tab" data-cat="artbooks" onclick="switchTab('artbooks')"><span class="dot"></span>Artbooks<span class="tab-count" data-count="artbooks">0</span></div>
+    <div class="tab" data-cat="figures" onclick="switchTab('figures')"><span class="dot"></span>Figures<span class="tab-count" data-count="figures">0</span></div>
+    <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games<span class="tab-count" data-count="boardgames">0</span></div>
   </div>
 
   <div class="panel">
@@ -3229,6 +3233,7 @@ function render(){
   setPlayingUI();
 
   document.getElementById('statGames').textContent = countCopies(data.games);
+  document.querySelectorAll('.tab-count').forEach(el=>{ el.textContent = countCopies(data[el.dataset.count] || []); });
   document.getElementById('statMusic').textContent = countCopies(data.music);
   document.getElementById('statBooks').textContent = countCopies(data.books);
   document.getElementById('statConsoles').textContent = countCopies(data.consoles);
