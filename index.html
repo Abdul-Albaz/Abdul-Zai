@@ -959,6 +959,15 @@
     .toolbar #completedBtn{order:5;margin-left:auto;}
     .toolbar #addBtn{order:6;margin-left:0;}
   }
+
+  /* ===== tabs never push the page sideways on mid-size screens ===== */
+  @media (min-width:769px){
+    .tabs{overflow-x:auto;scrollbar-width:none;}
+    .tabs::-webkit-scrollbar{display:none;}
+  }
+  @media (min-width:769px) and (max-width:960px){
+    .tabs .tab{padding:12px 11px;font-size:10.5px;letter-spacing:.6px;gap:5px;}
+  }
 </style>
 </head>
 <body>
@@ -3449,7 +3458,13 @@ function toggleStats(){
 
 function openDone(){ document.getElementById('doneOverlay').classList.add('open'); }
 function closeDone(){ document.getElementById('doneOverlay').classList.remove('open'); }
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDone(); });
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Escape') return;
+  closeDone();
+  // Esc also closes the card's detail window (unless the edit window is open on top of it)
+  const det = document.getElementById('detailOverlay'), slip = document.getElementById('slipOverlay');
+  if(det && det.classList.contains('open') && !(slip && slip.classList.contains('open'))) closeDetail();
+});
 
 function applyAuthUI(){
   document.body.classList.toggle('guest', !currentUser);
