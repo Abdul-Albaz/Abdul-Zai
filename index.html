@@ -970,7 +970,7 @@
   }
 
   /* ===== A–Z bar on the Books tab ===== */
-  .alpha-bar{position:sticky;top:8px;z-index:20;flex-wrap:wrap;gap:5px;margin:0 0 16px;padding:8px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;}
+  .alpha-bar{position:sticky;top:8px;z-index:10;flex-wrap:wrap;gap:5px;margin:0 0 16px;padding:8px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;}
   .alpha-btn{min-width:28px;height:28px;padding:0 6px;font-family:'JetBrains Mono', monospace;font-size:12px;font-weight:600;color:var(--paper);background:var(--bg);border:1px solid var(--line);border-radius:6px;cursor:pointer;}
   .alpha-btn:hover:not(:disabled){background:var(--accent, #c8602a);border-color:var(--accent, #c8602a);color:#1a1410;}
   .alpha-btn:disabled{opacity:.28;cursor:default;}
@@ -3704,7 +3704,7 @@ function alphaKey(e, byAuthor){
 function buildAlphaBar(list){
   const el = document.getElementById('alphaBar');
   if(!el) return;
-  if(activeCat !== 'books' && activeCat !== 'games'){ el.style.display = 'none'; el.innerHTML = ''; return; }
+  if((activeCat !== 'books' && activeCat !== 'games') || !data[activeCat] || data[activeCat].length === 0){ el.style.display = 'none'; el.innerHTML = ''; return; }
   const byAuthor = activeCat === 'books' && document.getElementById('sortBy').value === 'author';
   const have = new Set(list.map(e => alphaKey(e, byAuthor)));
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
