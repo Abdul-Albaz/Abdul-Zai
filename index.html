@@ -3693,7 +3693,7 @@ function restoreView(cat){
 }
 function rememberView(){ captureView(); savePrefsNow(); }
 
-// ---- A–Z jump bar (Books tab) ----
+// ---- A–Z jump bar (Books and Games tabs) ----
 // Letters follow the sort in use: Author A–Z → first letter of the author, anything else → first letter of the title.
 function alphaKey(e, byAuthor){
   const s = String((byAuthor ? e.author : e.title) || '').trim();
@@ -3704,8 +3704,8 @@ function alphaKey(e, byAuthor){
 function buildAlphaBar(list){
   const el = document.getElementById('alphaBar');
   if(!el) return;
-  if(activeCat !== 'books'){ el.style.display = 'none'; el.innerHTML = ''; return; }
-  const byAuthor = document.getElementById('sortBy').value === 'author';
+  if(activeCat !== 'books' && activeCat !== 'games'){ el.style.display = 'none'; el.innerHTML = ''; return; }
+  const byAuthor = activeCat === 'books' && document.getElementById('sortBy').value === 'author';
   const have = new Set(list.map(e => alphaKey(e, byAuthor)));
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   [...have].filter(k => !letters.includes(k) && k !== '#').sort().forEach(k => letters.push(k));
@@ -3720,9 +3720,9 @@ function alphaClick(ev){
   const sel = document.getElementById('sortBy');
   // jumping only makes sense in an alphabetical order, so switch to Title A–Z if needed
   if(sel.value !== 'title' && sel.value !== 'author'){ sel.value = 'title'; onSortChange(); }
-  const byAuthor = document.getElementById('sortBy').value === 'author';
+  const byAuthor = activeCat === 'books' && document.getElementById('sortBy').value === 'author';
   const target = [...document.querySelectorAll('#cards .card')].find(c => {
-    const e = data.books.find(x => x.id === c.dataset.id);
+    const e = data[activeCat].find(x => x.id === c.dataset.id);
     return e && alphaKey(e, byAuthor) === L;
   });
   if(!target) return;
