@@ -5656,6 +5656,25 @@
   ],
   "books": [
     {
+      "title": "DCC #1: Dungeon Crawler Carl",
+      "owner": "Abdul",
+      "author": "Matt Dinniman",
+      "format": "Paperback",
+      "genre": "",
+      "status": "Backlog",
+      "pagesRead": "",
+      "pagesTotal": "",
+      "dimensions": "",
+      "quantity": "",
+      "price": "",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1715780755i/211721806.jpg",
+      "id": "mwazqu45qm0z4",
+      "addedAt": 1794333345269
+    },
+    {
       "title": "DCC #8: A Parade of Horribles",
       "owner": "",
       "author": "Matt Dinniman",
@@ -13365,5 +13384,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794333309277
+  "savedAt": 1794333345971
 }
