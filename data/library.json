@@ -13236,27 +13236,6 @@
       "cover": "https://store.401games.ca/cdn/shop/files/Catan-6th-Edition_900x.jpg?v=1758160989",
       "id": "mvndpch6emqbt",
       "addedAt": 1792905602154
-    },
-    {
-      "title": "Metal Gear Solid: The Board Game",
-      "owner": "Abdul",
-      "designer": "",
-      "publisher": "",
-      "genre": "",
-      "players": "",
-      "playTime": "",
-      "age": "",
-      "edition": "",
-      "condition": "New",
-      "sealed": "Not sealed",
-      "quantity": "",
-      "price": "",
-      "purchaseDate": "",
-      "notes": "",
-      "rating": 0,
-      "cover": "https://www.boardgamequest.com/wp-content/uploads/2025/05/Metal-Gear-Solid.jpg",
-      "id": "mvnb7clm2nbwt",
-      "addedAt": 1792901403274
     }
   ],
   "icon": "🏠",
@@ -13289,5 +13268,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794305079149
+  "savedAt": 1794305103225
 }
