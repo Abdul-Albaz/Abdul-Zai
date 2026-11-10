@@ -9118,7 +9118,8 @@
       "title": "Letters to the Mother",
       "rating": 0,
       "cover": "",
-      "status": "Backlog"
+      "status": "Backlog",
+      "owner": "Zai"
     },
     {
       "id": "mrqxffru41s5s",
@@ -13387,5 +13388,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794335459720
+  "savedAt": 1794335462874
 }
