@@ -8,7 +8,7 @@
         "sortBy": "platform",
         "sortChosen": true,
         "owner": "all",
-        "platform": "All",
+        "platform": "gameboy",
         "status": "All"
       },
       "music": {
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794373324858
+    "updatedAt": 1794373608849
   },
   "zai": {
     "sortBy": "title",
