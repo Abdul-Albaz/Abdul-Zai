@@ -993,6 +993,10 @@
     color:var(--paper-dim);border-bottom:1px solid var(--line);}
   .plat-head:first-child{margin-top:0;}
   .plat-head span{font-size:11px;letter-spacing:0;color:var(--gold);}
+
+  .chip.status-tbr{background:rgba(34,31,26,0.08);}
+  .chip.status-currently-reading{background:rgba(63,112,104,0.18);color:#2c5852;}
+  .chip.status-dnf{background:rgba(160,50,50,0.18);color:#8a2f2f;}
 </style>
 </head>
 <body>
@@ -1487,7 +1491,7 @@ const FIELDS = {
     {key:'author', label:'Author', type:'text'},
     {key:'format', label:'Format', type:'select', options:['Paperback','Hardcover','Ebook','Audiobook']},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. Sci-Fi, Memoir'},
-    {key:'status', label:'Status', type:'select', options:['Backlog','Reading','Completed']},
+    {key:'status', label:'Status', type:'select', options:['TBR','Currently Reading','Completed','DNF']},
     {key:'pagesRead', label:'Pages read', type:'number', min:0, step:1, placeholder:'e.g. 120'},
     {key:'pagesTotal', label:'Total pages', type:'number', min:1, step:1, placeholder:'e.g. 435'},
     {key:'dimensions', label:'Size', type:'text', placeholder:'e.g. 12.7 × 17.8 cm'},
@@ -1560,10 +1564,29 @@ const FIELDS = {
   ]
 };
 
+// Book statuses: TBR, Currently Reading, Completed, DNF. Older books saved as Backlog / Reading are moved over automatically.
+function normalizeBookStatus(raw){
+  const k = String(raw||'').trim().toLowerCase().replace(/[^a-z]+/g,' ').trim();
+  if(!k) return null;
+  if(['tbr','backlog','to read','to be read','want to read','unread','not started','wishlist'].includes(k)) return 'TBR';
+  if(['currently reading','reading','in progress','started'].includes(k)) return 'Currently Reading';
+  if(['completed','complete','finished','read','done'].includes(k)) return 'Completed';
+  if(['dnf','did not finish','abandoned','dropped','gave up'].includes(k)) return 'DNF';
+  return null;
+}
+function migrateBookStatuses(){
+  (data.books||[]).forEach(e=>{
+    if(e.status==='Backlog') e.status = 'TBR';
+    else if(e.status==='Reading') e.status = 'Currently Reading';
+  });
+}
+function statusClass(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function defaultStatus(cat){ return cat==='books' ? 'TBR' : 'Backlog'; }
+
 const STATUS_FILTERS = {
   games: ['All','Backlog','Playing','Completed'],
   music: ['All'],
-  books: ['All','Backlog','Reading','Completed'],
+  books: ['All','TBR','Currently Reading','Completed','DNF'],
   consoles: ['All'],
   artbooks: ['All'],
   figures: ['All'],
@@ -1882,12 +1905,16 @@ function toYesNo(raw){
 }
 
 function normalizeSelectValue(fieldDef, raw){
+  if(activeCat==='books' && fieldDef.key==='status'){
+    const m = normalizeBookStatus(raw);
+    if(m) return m;
+  }
   const match = fieldDef.options.find(o => o.toLowerCase() === raw.trim().toLowerCase());
   if(match) return match;
   const yn = toYesNo(raw);
   if(yn !== null){
     if(fieldDef.key === 'sealed') return yn ? 'Sealed' : 'Not sealed';
-    if(fieldDef.key === 'status') return yn ? 'Completed' : 'Backlog';
+    if(fieldDef.key === 'status') return yn ? 'Completed' : defaultStatus(activeCat);
   }
   return null; // unrecognized — leave field unset rather than guess
 }
@@ -1946,7 +1973,7 @@ async function handleCsvImport(event){
         }
       }
     });
-    if((activeCat==='games' || activeCat==='books') && !entry.status) entry.status = 'Backlog';
+    if((activeCat==='games' || activeCat==='books') && !entry.status) entry.status = defaultStatus(activeCat);
     newEntries.push(entry);
   }
 
@@ -2850,7 +2877,7 @@ async function saveEntry(){
     fields.id = uid();
     savedId = fields.id;
     fields.addedAt = Date.now();
-    if((activeCat==='games' || activeCat==='books') && !fields.status) fields.status = 'Backlog';
+    if((activeCat==='games' || activeCat==='books') && !fields.status) fields.status = defaultStatus(activeCat);
     data[activeCat].unshift(fields);
   }
   await persist(activeCat);
@@ -3028,7 +3055,7 @@ function quickProgress(id){
   entry.pagesRead  = read ? String(read) : '';
   // keep the status in step with the progress
   if(total && read >= total) entry.status = 'Completed';
-  else if(read > 0 && (!entry.status || entry.status==='Backlog' || entry.status==='Completed')) entry.status = 'Reading';
+  else if(read > 0 && (!entry.status || entry.status==='TBR' || entry.status==='Backlog' || entry.status==='Completed')) entry.status = 'Currently Reading';
   quickSave(id);
 }
 
@@ -3158,6 +3185,7 @@ function catNo(cat, index){
 }
 
 function render(){
+  migrateBookStatuses();
   populatePlatformFilter();
   populateOwnerFilter();
   const platOpt = document.getElementById('sortPlatformOpt');
@@ -3291,7 +3319,7 @@ function render(){
       const chips = [];
       if(e.owner) chips.push(`<span class="chip chip-owner">${escapeHtml(e.owner)}</span>`);
       if(qtyOf(e) > 1) chips.push(`<span class="chip chip-qty" title="${qtyOf(e)} copies">×${qtyOf(e)}</span>`);
-      if((activeCat==='games' || activeCat==='books') && e.status) chips.push(`<span class="chip status-${e.status.toLowerCase()}">${e.status}</span>`);
+      if((activeCat==='games' || activeCat==='books') && e.status) chips.push(`<span class="chip status-${statusClass(e.status)}">${escapeHtml(e.status)}</span>`);
       if((activeCat==='music' || activeCat==='books') && e.format) chips.push(`<span class="chip">${e.format}</span>`);
       if(activeCat==='games' && e.sealed==='Sealed') chips.push(`<span class="chip chip-sealed">Sealed</span>`);
       if(activeCat==='games' && e.publisher) chips.push(`<span class="chip">${e.publisher}</span>`);
