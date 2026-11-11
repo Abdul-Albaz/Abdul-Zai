@@ -987,6 +987,12 @@
     background:transparent;color:var(--ink-soft);border:1px solid rgba(34,31,26,.28);}
   .plat-chip:hover{border-color:var(--cart);color:var(--ink);}
   .plat-chip.on{background:var(--cart);border-color:var(--cart);color:#fff;font-weight:600;}
+
+  .plat-head{grid-column:1 / -1;display:flex;align-items:center;gap:10px;margin:14px 0 2px;padding:6px 2px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--paper-dim);border-bottom:1px solid var(--line);}
+  .plat-head:first-child{margin-top:0;}
+  .plat-head span{font-size:11px;letter-spacing:0;color:var(--gold);}
 </style>
 </head>
 <body>
@@ -3258,7 +3264,27 @@ function render(){
     emptyEl.textContent = list.length===0 ? emptyByCat[activeCat] : 'Nothing matches your search.';
   } else {
     emptyEl.style.display = 'none';
-    cardsEl.innerHTML = filtered.map((e)=>{
+    // Games sorted by platform (with "All platforms" showing): a game on PS4 + PS5 appears under BOTH, each group with a heading.
+    const groupMode = activeCat==='games' && sortBy==='platform' && platformFilter==='All';
+    let renderItems = filtered.map(e=>({e, key:'', label:''}));
+    if(groupMode){
+      renderItems = [];
+      filtered.forEach(e=>{
+        const ls = platformList(e.platform);
+        if(!ls.length) renderItems.push({e, key:'', label:'No platform'});
+        else ls.forEach(l=>renderItems.push({e, key:platformKey(l), label:l}));
+      });
+      renderItems.sort((a,b)=>{
+        if(a.key!==b.key){
+          if(!a.key) return 1;
+          if(!b.key) return -1;
+          return a.key.localeCompare(b.key);
+        }
+        return a.e.title.localeCompare(b.e.title);
+      });
+    }
+    const cardParts = renderItems.map((item)=>{
+      const e = item.e;
       const origIndex = data[activeCat].findIndex(x=>x.id===e.id);
       const stars = '★'.repeat(e.rating||0) + '☆'.repeat(5-(e.rating||0));
       const sub = e[SUB_KEYS[activeCat]] || '';
@@ -3347,6 +3373,14 @@ function render(){
             ${actionsBlock}
           </div>
         </div>`;
+    });
+    const groupSize = {};
+    if(groupMode) renderItems.forEach(it=>{ groupSize[it.key] = (groupSize[it.key]||0) + 1; });
+    cardsEl.innerHTML = cardParts.map((html, i)=>{
+      const it = renderItems[i];
+      const head = (groupMode && (i===0 || renderItems[i-1].key!==it.key))
+        ? `<div class="plat-head">${escapeHtml(it.label)}<span>${groupSize[it.key]}</span></div>` : '';
+      return head + html;
     }).join('');
   }
   setPlayingUI();
