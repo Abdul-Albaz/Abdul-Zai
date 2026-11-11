@@ -981,6 +981,12 @@
     .alpha-bar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
     .alpha-btn{flex:0 0 auto;}
   }
+
+  .plat-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .plat-chip{font:inherit;font-size:12px;padding:4px 11px;border-radius:99px;cursor:pointer;
+    background:transparent;color:var(--ink-soft);border:1px solid rgba(34,31,26,.28);}
+  .plat-chip:hover{border-color:var(--cart);color:var(--ink);}
+  .plat-chip.on{background:var(--cart);border-color:var(--cart);color:#fff;font-weight:600;}
 </style>
 </head>
 <body>
@@ -1447,7 +1453,7 @@ const FIELDS = {
   games: [
     {key:'title', label:'Title', type:'text', full:true, required:true},
     {key:'owner', label:'Owner', type:'text', list:['Abdul','Zai','Both'], placeholder:'Abdul, Zai, Both, or a name'},
-    {key:'platform', label:'Platform', type:'text', placeholder:'e.g. Switch, PC, PS5'},
+    {key:'platform', label:'Platform', type:'text', placeholder:'e.g. PS4, PS5 (more than one is fine)'},
     {key:'publisher', label:'Publisher', type:'text', placeholder:'e.g. Yacht Club Games'},
     {key:'genre', label:'Genre', type:'text', placeholder:'e.g. RPG, Platformer'},
     {key:'sealed', label:'Sealed?', type:'select', options:['Not sealed','Sealed']},
@@ -2035,6 +2041,47 @@ async function deleteSelected(){
 // ---- Platform filter (games only): show just one platform at a time ----
 let platformFilter = 'All';
 function platformKey(p){ return (p||'').trim().toLowerCase(); }
+// A game can be on several platforms: "PS4, PS5" (also "PS4 / PS5", "PS4 & PS5", "PS4 + PS5").
+function platformList(p){
+  const out = [], seen = new Set();
+  String(p||'').split(/\s*(?:,|;|\/|&|\+|\band\b)\s*/i).forEach(x=>{
+    const t = x.trim(), k = platformKey(t);
+    if(t && !seen.has(k)){ seen.add(k); out.push(t); }
+  });
+  return out;
+}
+function platformKeys(p){ return platformList(p).map(platformKey); }
+
+
+// Tap-to-add platform chips under the Platform box (games). Tap a chip to add or remove that platform;
+// typing in the box works too (separate with commas).
+function buildPlatformChips(container){
+  const input = container.querySelector('[data-key="platform"]');
+  if(!input) return;
+  const known = new Map();
+  ['PS5','PS4','PS3','Switch','Xbox Series X','Xbox One','PC','Steam Deck','Wii U','3DS'].forEach(l=>known.set(platformKey(l), l));
+  data.games.forEach(e=>platformList(e.platform).forEach(l=>{ const k = platformKey(l); if(!known.has(k)) known.set(k, l); }));
+  platformList(input.value).forEach(l=>{ const k = platformKey(l); if(!known.has(k)) known.set(k, l); });
+  const row = document.createElement('div');
+  row.className = 'plat-chips';
+  row.innerHTML = [...known.values()].sort((a,b)=>a.localeCompare(b))
+    .map(l=>`<button type="button" class="plat-chip" data-p="${escapeHtml(l)}">${escapeHtml(l)}</button>`).join('');
+  input.parentNode.appendChild(row);
+  const sync = ()=>{
+    const have = new Set(platformKeys(input.value));
+    row.querySelectorAll('.plat-chip').forEach(b=>b.classList.toggle('on', have.has(platformKey(b.dataset.p))));
+  };
+  row.addEventListener('click', e=>{
+    const b = e.target.closest('.plat-chip'); if(!b) return;
+    const list = platformList(input.value), k = platformKey(b.dataset.p);
+    const i = list.findIndex(x=>platformKey(x)===k);
+    if(i>-1) list.splice(i,1); else list.push(b.dataset.p);
+    input.value = list.join(', ');
+    sync();
+  });
+  input.addEventListener('input', sync);
+  sync();
+}
 
 function populatePlatformFilter(){
   const sel = document.getElementById('platformFilter');
@@ -2042,8 +2089,10 @@ function populatePlatformFilter(){
   if(activeCat!=='games'){ sel.style.display='none'; return; }
   const seen = new Map(); // "ps5" -> "PS5" (PS5 / ps5 count as one platform)
   data.games.forEach(e=>{
-    const k = platformKey(e.platform);
-    if(k && !seen.has(k)) seen.set(k, e.platform.trim());
+    platformList(e.platform).forEach(label=>{
+      const k = platformKey(label);
+      if(k && !seen.has(k)) seen.set(k, label);
+    });
   });
   const options = [...seen.entries()].sort((a,b)=>a[1].localeCompare(b[1]));
   if(platformFilter!=='All' && !seen.has(platformFilter)) platformFilter = 'All';
@@ -2115,6 +2164,8 @@ function openSlip(entry){
     wrap.innerHTML = inner;
     container.appendChild(wrap);
   });
+
+  if(activeCat==='games') buildPlatformChips(container);
 
   if(activeCat==='music'){
     const prevWrap = document.createElement('div');
@@ -2767,6 +2818,13 @@ async function saveEntry(){
     showToast('Please enter a title.');
     return;
   }
+  if(activeCat==='games' && fields.platform){
+    // keep the spelling already used elsewhere ("ps5" becomes "PS5" if another game says PS5)
+    const used = new Map();
+    ['PS5','PS4','PS3','Switch','PC','Steam Deck','Wii U','3DS','Xbox One','Xbox Series X'].forEach(l=>used.set(platformKey(l), l));
+    data.games.forEach(e=>platformList(e.platform).forEach(l=>{ if(!used.has(platformKey(l))) used.set(platformKey(l), l); }));
+    fields.platform = platformList(fields.platform).map(l=>used.get(platformKey(l)) || l).join(', ');
+  }
   fields.rating = currentRating;
   fields.cover = currentCover;
   // Copies: a whole number of 2 or more is kept; 1 / blank / nonsense means "just one".
@@ -3130,7 +3188,7 @@ function render(){
     const matchesQ = hay.includes(q);
     const hasStatus = activeCat==='games' || activeCat==='books';
     const matchesStatus = !hasStatus || statusF==='All' || e.status===statusF;
-    const matchesPlatform = activeCat!=='games' || platformFilter==='All' || platformKey(e.platform)===platformFilter;
+    const matchesPlatform = activeCat!=='games' || platformFilter==='All' || platformKeys(e.platform).includes(platformFilter);
     const matchesOwner = ownerFilter==='all' || ownerKeys(e.owner).includes(ownerFilter);
     return matchesQ && matchesStatus && matchesPlatform && matchesOwner;
   });
@@ -3150,7 +3208,8 @@ function render(){
   else if(sortBy==='price') filtered.sort((a,b)=>(parseFloat(b.price)||0)-(parseFloat(a.price)||0));
   else if(sortBy==='platform') filtered.sort((a,b)=>{
     // Group by platform A–Z (PS5 / ps5 count as one), no-platform last, then by title inside each group.
-    const pa = platformKey(a.platform), pb = platformKey(b.platform);
+    const first = e => { const ks = platformKeys(e.platform); return (platformFilter!=='All' && ks.includes(platformFilter)) ? platformFilter : (ks[0]||''); };
+    const pa = first(a), pb = first(b);
     if(pa!==pb){
       if(!pa) return 1;
       if(!pb) return -1;
