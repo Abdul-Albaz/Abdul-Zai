@@ -23,7 +23,7 @@
         "sortChosen": true,
         "owner": "all",
         "platform": "All",
-        "status": "All"
+        "status": "TBR"
       },
       "consoles": {
         "sortBy": "title",
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794373610386
+    "updatedAt": 1794375682781
   },
   "zai": {
     "sortBy": "title",
