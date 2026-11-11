@@ -8,7 +8,7 @@
         "sortBy": "platform",
         "sortChosen": true,
         "owner": "all",
-        "platform": "All",
+        "platform": "nintendo switch",
         "status": "All"
       },
       "music": {
@@ -54,7 +54,7 @@
         "status": "All"
       }
     },
-    "updatedAt": 1794372582749
+    "updatedAt": 1794372951597
   },
   "zai": {
     "sortBy": "title",
