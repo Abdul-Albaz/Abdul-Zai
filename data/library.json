@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Stelar Blade",
+      "owner": "Abdul",
+      "platform": "Nintendo Switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "65",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794570468827-cover.jpg",
+      "id": "mwewxsqbj93x6",
+      "addedAt": 1794570495923
+    },
+    {
       "title": "Mario Maker",
       "owner": "Abdul",
       "platform": "Wii U",
@@ -13326,5 +13344,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794388579412
+  "savedAt": 1794570496625
 }
