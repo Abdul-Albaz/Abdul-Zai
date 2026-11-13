@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Marvel's Wolverine",
+      "owner": "Abdul",
+      "platform": "Playstation 5",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "40",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794570753299-cover.jpg",
+      "id": "mwex3safp7ycu",
+      "addedAt": 1794570775287
+    },
+    {
       "title": "Kingdom Come: Deliverance II",
       "owner": "Abdul",
       "platform": "Playstation 5",
@@ -13362,5 +13380,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794570727058
+  "savedAt": 1794570775990
 }
