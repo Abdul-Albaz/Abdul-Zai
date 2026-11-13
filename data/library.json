@@ -741,7 +741,7 @@
     {
       "title": "Wanted Dead!",
       "owner": "Abdul",
-      "platform": "playstation 5",
+      "platform": "Playstation 5",
       "publisher": "",
       "genre": "",
       "sealed": "Not sealed",
@@ -751,7 +751,7 @@
       "purchaseDate": "",
       "notes": "",
       "rating": 0,
-      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1791970369678-wanted-dead.jpg",
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1794571288239-wanted-dead.jpg",
       "id": "mv7wug5bmvlaj",
       "addedAt": 1791970294079,
       "quantity": ""
@@ -13380,5 +13380,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1794570775990
+  "savedAt": 1794571292924
 }
