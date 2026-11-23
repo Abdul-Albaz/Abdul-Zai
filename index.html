@@ -3293,7 +3293,7 @@ function render(){
   } else {
     emptyEl.style.display = 'none';
     // Games sorted by platform (with "All platforms" showing): a game on PS4 + PS5 appears under BOTH, each group with a heading.
-    const groupMode = activeCat==='games' && sortBy==='platform' && platformFilter==='All';
+    const groupMode = false; // games are shown in one flat list (no platform headings / no duplicates)
     let renderItems = filtered.map(e=>({e, key:'', label:''}));
     if(groupMode){
       renderItems = [];
