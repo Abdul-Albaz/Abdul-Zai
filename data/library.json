@@ -2341,7 +2341,7 @@
       "id": "mrm6g5qjzt9rv",
       "addedAt": 1784125820623,
       "title": "Animal well",
-      "rating": 0,
+      "rating": 5,
       "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/1784180522167-animal-well.jpg",
       "platform": "nintendo switch",
       "publisher": "limited run",
@@ -13391,5 +13391,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795517380821
+  "savedAt": 1795517456454
 }
