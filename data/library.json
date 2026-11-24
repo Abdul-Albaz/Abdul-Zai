@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Dave the diver",
+      "owner": "Abdul",
+      "platform": "playstation 1",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1795536295011-dave-the-diver.jpg",
+      "id": "mwuvygrealtgy",
+      "addedAt": 1795536306266
+    },
+    {
       "title": "Gta 6",
       "owner": "Abdul",
       "platform": "PS5",
@@ -13463,5 +13481,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795536197336
+  "savedAt": 1795536306968
 }
