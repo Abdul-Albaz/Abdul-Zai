@@ -4227,7 +4227,7 @@ async function savePrefsNow(){
 function scheduleSavePrefs(){
   if(!currentUser || !ghConfig || !ghConfig.token) return;
   clearTimeout(prefsTimer);
-  prefsTimer = setTimeout(pushPrefsToGithub, 1200);
+  prefsTimer = setTimeout(pushPrefsToGithub, 20000);   // wait until you stop clicking, so one change = one GitHub save
 }
 window.addEventListener('beforeunload', ()=>{
   if(prefsTimer){ clearTimeout(prefsTimer); pushPrefsToGithub(); }
@@ -4261,6 +4261,8 @@ async function pushPrefsToGithub(){
       const f = await ghReadFile(PREFS_PATH);
       let all = {};
       if(f){ try{ all = JSON.parse(f.text) || {}; }catch(e){ all = {}; } }
+      // Nothing new compared with what GitHub already has: skip it (every save starts a new site deployment).
+      if(JSON.stringify(all[user]) === JSON.stringify(mine)) return;
       all[user] = mine;
       await ghPutFile(PREFS_PATH, utf8ToBase64(JSON.stringify(all, null, 2)), `Save ${user}'s view settings`, f ? f.sha : null);
       return;
