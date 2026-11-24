@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Gta 6",
+      "owner": "Abdul",
+      "platform": "PS5",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "100",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1795536179074-cover.jpg",
+      "id": "mwuvw461fwmlq",
+      "addedAt": 1795536196633
+    },
+    {
       "title": "Outbound",
       "owner": "Zai",
       "platform": "Nintendo Switch 2",
@@ -13445,5 +13463,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795535988956
+  "savedAt": 1795536197336
 }
