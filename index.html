@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#171512">
 <title>The Home Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700&family=Bebas+Neue&family=Pacifico&family=Orbitron:wght@700&family=Press+Start+2P&family=Lobster&family=Cairo:wght@700&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700&family=Bebas+Neue&family=Pacifico&family=Orbitron:wght@700&family=Press+Start+2P&family=Lobster&family=Cairo:wght@700&family=Reem+Kufi:wght@700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme: dark;
@@ -997,6 +997,123 @@
   .chip.status-tbr{background:rgba(34,31,26,0.08);}
   .chip.status-currently-reading{background:rgba(63,112,104,0.18);color:#2c5852;}
   .chip.status-dnf{background:rgba(160,50,50,0.18);color:#8a2f2f;}
+
+  /* ---------- Gallery look (modelled on interfaceingame.com/games) ---------- */
+  .side-label, .side-list{display:none;}
+  body.gallery{background-image:none;font-family:'Barlow','Inter',sans-serif;}
+  body.gallery .title-block h1{letter-spacing:-0.5px;}
+  body.gallery .tab .dot{display:none;}
+  body.gallery .panel{background:transparent;border:none;border-radius:0;padding:0;}
+  body.gallery input[type=text], body.gallery input[type=search], body.gallery select, body.gallery input[type=number], body.gallery input[type=date]{background:#000;border:1px solid #333;border-radius:3px;padding:10px 14px;font-family:'Barlow',sans-serif;font-size:15px;color:#fff;}
+  body.gallery .btn{font-family:'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-weight:500;font-size:13px;border-radius:3px;}
+  body.gallery .btn-primary{background:#fff;color:#000;}
+  body.gallery .btn-ghost{border-color:#333;}
+  body.gallery .scale-slider-wrap{background:#000;border-color:#333;border-radius:3px;}
+  body.gallery .card{background:#000;color:var(--paper);border:1px solid #2a2a2a;border-radius:3px;box-shadow:none;transition:border-color .15s ease;}
+  body.gallery .card:hover{border-color:#6a6a6a;}
+  body.gallery .cover-area{aspect-ratio:3/4;background:#0a0a0a;}
+  body.gallery .cover-area.music, body.gallery .cover-area.consoles, body.gallery .cover-area.figures, body.gallery .cover-area.boardgames{aspect-ratio:1/1;}
+  body.gallery .cover-area img{object-fit:cover;}
+  body.gallery .card-overlay{background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 55%, transparent 100%);}
+  body.gallery .card-overlay h4, body.gallery .card-body h4{font-family:'Barlow',sans-serif;font-weight:400;font-size:20px;color:#fff;}
+  body.gallery .card-body .sub, body.gallery .price{color:#8a8a8a;}
+  body.gallery .chip{background:transparent;border:1px solid #3a3a3a;border-radius:2px;color:#fff;font-family:'Barlow',sans-serif;font-size:12px;padding:5px 9px;}
+  @media (min-width:769px){
+    body.gallery .wrap{max-width:1400px;}
+    body.gallery .panel{display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:24px;row-gap:0;align-items:start;}
+    body.gallery .panel > *{grid-column:2;}
+    body.gallery .panel > .toolbar{grid-column:1;grid-row:1 / span 40;position:sticky;top:16px;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:0;margin:0;padding:0 0 24px;border:1px solid #2a2a2a;border-radius:3px;background:#000;}
+    body.gallery .toolbar > *{margin:0 24px 14px;width:calc(100% - 48px);flex:none;}
+    body.gallery .side-label{display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;padding:20px 24px;font-size:15px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#fff;border-top:1px solid #2a2a2a;margin:0;width:100%;}
+    body.gallery .side-label:not(.closed){padding-bottom:12px;}
+    body.gallery .side-label::after{content:'';width:10px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-135deg);margin-top:4px;transition:transform .15s;flex:none;}
+    body.gallery .side-label.closed::after{transform:rotate(45deg);margin-top:-4px;}
+    body.gallery #lblSort{order:1;border-top:none;}
+    body.gallery #sortBy, body.gallery #statusFilter, body.gallery #ownerFilter, body.gallery #platformFilter{display:none !important;}
+    body.gallery #sortBy{order:2;}
+    body.gallery #listSort{order:3;}
+    body.gallery #lblStatus{order:4;}
+    body.gallery #statusFilter{order:5;}
+    body.gallery #listStatus{order:6;}
+    body.gallery #lblOwner{order:7;}
+    body.gallery #ownerFilter{order:8;}
+    body.gallery #listOwner{order:9;}
+    body.gallery #lblPlat{order:10;}
+    body.gallery #platformFilter{order:11;}
+    body.gallery #platSide{order:12;}
+    body.gallery .side-list{display:block;margin:0 24px 10px;width:calc(100% - 48px);}
+    body.gallery .side-label.closed + select + .side-list{display:none;}
+    body.gallery select[style*="none"] + .side-list{display:none;}
+    body.gallery .side-label:has(+ select[style*="none"]){display:none;}
+    body.gallery #toolbarEditBtn{order:20;margin-top:10px;}
+    body.gallery #toolbarExtra{order:21;}
+    body.gallery #completedBtn{order:22;}
+    body.gallery #addBtn{order:23;}
+    body.gallery .toolbar select{appearance:none;-webkit-appearance:none;padding:14px 40px 14px 16px;font-size:16px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23fff' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+    body.gallery .plat-row{display:flex;align-items:center;gap:14px;padding:7px 0;cursor:pointer;color:#fff;font-size:16px;}
+    body.gallery .plat-box{width:20px;height:20px;border:1px solid #444;border-radius:3px;flex:none;display:inline-flex;align-items:center;justify-content:center;}
+    body.gallery .plat-row.on .plat-box{background:#fff;border-color:#fff;}
+    body.gallery .plat-row.on .plat-box::after{content:'';width:9px;height:5px;border-left:2px solid #000;border-bottom:2px solid #000;transform:rotate(-45deg) translate(1px,-1px);}
+    body.gallery .plat-name{flex:1;}
+    body.gallery .plat-n{color:#777;font-size:13px;}
+    body.gallery .plat-row:hover .plat-name{color:#ddd;}
+    body.gallery .grid-cards{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;}
+    body.gallery .grid-cards.cat-music, body.gallery .grid-cards.cat-consoles, body.gallery .grid-cards.cat-figures, body.gallery .grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;}
+    body.gallery .card.has-cover .cover-area{height:auto;}
+    body.gallery .card-overlay{position:static;opacity:1;background:none;padding:18px 18px 20px;border-top:1px solid #2a2a2a;}
+    body.gallery .card-overlay .sub{text-transform:uppercase;letter-spacing:.3px;font-size:13px;color:#8a8a8a;}
+  }
+
+  body.gallery{background-color:#000 !important;}
+  body.gallery .cover-area.placeholder, body.gallery .cover-area.placeholder.games, body.gallery .cover-area.placeholder.music, body.gallery .cover-area.placeholder.books, body.gallery .cover-area.placeholder.consoles, body.gallery .cover-area.placeholder.artbooks, body.gallery .cover-area.placeholder.figures, body.gallery .cover-area.placeholder.boardgames{background:#111;}
+  body.gallery .placeholder-title{background:none;}
+  body.gallery .placeholder-title h4{font-family:'Barlow',sans-serif;font-weight:400;text-shadow:none;}
+  @media (min-width:769px){
+  }
+
+  /* ---- Gallery: top bar + hero banner ---- */
+  .gal-actions, .gal-hero{display:none;}
+  body.gallery .tabs{gap:26px;flex-wrap:wrap;margin-bottom:18px;}
+  body.gallery .tab{border:none;border-radius:0;background:transparent;color:#9a9aa0;font-family:'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:15px;font-weight:500;padding:6px 0;}
+  body.gallery .tab .dot, body.gallery .tab-count{display:none;}
+  body.gallery .tab:not(.active):hover{color:#fff;}
+  body.gallery .tab[data-cat].active{background:transparent;color:#fff;border:none;}
+  body.gallery .gal-hero{display:block;position:relative;width:100vw;margin:0 calc(50% - 50vw) 34px;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;min-height:150px;overflow:hidden;background:#000;}
+  body.gallery .gal-hero-bg{position:absolute;inset:0;display:flex;opacity:.3;}
+  body.gallery .gh-col{flex:1 1 0;background-size:cover;background-position:center;transform:skewX(-7deg);margin:0 -12px;}
+  body.gallery .gal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.7) 100%);}
+  body.gallery .gal-hero-in{position:relative;z-index:1;max-width:min(1400px,calc(100vw - 40px));margin:0 auto;padding:44px 0 36px;}
+  body.gallery .gal-hero-in h2{font-family:'Barlow',sans-serif;font-weight:500;font-size:44px;line-height:1.1;margin:0 0 8px;color:#fff;letter-spacing:-.5px;}
+  body.gallery .gal-hero-in p{margin:0;color:#bdbdc2;font-size:17px;}
+  .gal-search-btn{background:none;border:none;color:#fff;cursor:pointer;padding:6px;display:inline-flex;}
+  .gal-btn{font-family:'Barlow',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.3px;background:#fff;color:#000;border:1px solid #fff;border-radius:3px;padding:13px 24px;font-size:15px;cursor:pointer;}
+  .gal-btn.ghost{background:transparent;color:#fff;border-color:#333;}
+  .gal-btn:hover{filter:brightness(.9);}
+  body.guest #galAddBtn{display:none !important;}
+  @media (min-width:769px){
+    body.gallery{padding-top:0;}
+    body.gallery .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:36px;align-items:center;}
+    body.gallery .wrap > header{grid-column:1;grid-row:1;margin:0;padding:12px 0;position:relative;flex-wrap:nowrap;align-items:center;}
+    body.gallery .wrap > .tabs{grid-column:2;grid-row:1;margin:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+    body.gallery .gal-actions{display:flex;align-items:center;gap:18px;grid-column:3;grid-row:1;}
+    body.gallery .wrap > .search-row{display:none;}
+    body.gallery .wrap > .search-row.open{display:block;grid-column:1 / -1;grid-row:2;margin:0 0 12px;}
+    body.gallery .wrap > .gal-hero{grid-column:1 / -1;grid-row:3;min-height:230px;}
+    body.gallery .gal-hero-in{padding:78px 0 62px;}
+    body.gallery .gal-hero-in h2{font-size:64px;}
+    body.gallery .gal-hero-in p{font-size:20px;}
+    body.gallery .wrap > .panel{grid-column:1 / -1;grid-row:4;}
+    body.gallery .title-block h1{font-size:22px !important;gap:12px !important;}
+    body.gallery .title-icon{width:40px !important;height:40px !important;font-size:26px !important;}
+    body.gallery #titleText{display:none;}
+    body.gallery .title-row{flex-wrap:nowrap;gap:22px;}
+    body.gallery .details-toggle{padding:6px 0;font-family:'Barlow',sans-serif;font-size:15px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:#9a9aa0 !important;white-space:nowrap;}
+    body.gallery .details-toggle:hover{color:#fff !important;filter:none;}
+    body.gallery .details-toggle .burger{width:18px;gap:4px;}
+    body.gallery .account-bar.open{position:absolute;top:100%;left:0;z-index:50;background:#000;border:1px solid #2a2a2a;padding:12px 16px;margin:0;white-space:nowrap;}
+    body.gallery .stats.open{position:absolute;top:100%;left:0;z-index:40;background:#000;border:1px solid #2a2a2a;padding:16px 24px;margin-top:46px;}
+    body.gallery #completedBtn, body.gallery #addBtn{display:none !important;}
+  }
 </style>
 </head>
 <body>
@@ -1006,7 +1123,7 @@
     <div class="title-block">
       <div class="title-row">
       <h1><span class="title-icon" id="titleIcon" onclick="toggleIconPicker()" title="Click to pick an emoji instead">🏠</span><span id="titleText">The Home Collection</span></h1>
-      <button type="button" class="details-toggle" id="detailsToggle" onclick="toggleDetails()" aria-expanded="false" aria-controls="accountBar"><span id="detailsLabel">Show Details</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button type="button" class="details-toggle" id="detailsToggle" title="Details" onclick="toggleDetails()" aria-expanded="false" aria-controls="accountBar"><span id="detailsLabel">Show Details</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
       </div>
       <div class="account-bar" id="accountBar"></div>
       <div class="icon-picker" id="iconPicker"></div>
@@ -1048,11 +1165,29 @@
     <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games<span class="tab-count" data-count="boardgames">0</span></div>
   </div>
 
+  <div class="gal-actions" id="galActions">
+    <button type="button" class="gal-search-btn" onclick="toggleGalSearch()" aria-label="Search" title="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5L16.5 16.5"/></svg></button>
+    <button type="button" class="gal-btn ghost" onclick="openDone()">✓ Completed</button>
+    <button type="button" class="gal-btn" id="galAddBtn" onclick="openSlip()">+ Add</button>
+  </div>
+
+  <div class="gal-hero" id="galHero">
+    <div class="gal-hero-bg" id="galHeroBg"></div>
+    <div class="gal-hero-in"><h2 id="galTitle">Games</h2><p id="galCount"></p></div>
+  </div>
+
   <div class="panel">
     <div class="toolbar">
+      <div class="side-label closed" id="lblStatus">Status</div>
       <select id="statusFilter" onchange="onStatusChange()"></select>
+      <div class="side-list" id="listStatus"></div>
+      <div class="side-label closed" id="lblOwner">Owner</div>
       <select id="ownerFilter" onchange="onOwnerChange()" title="Show only one person's items"></select>
+      <div class="side-list" id="listOwner"></div>
+      <div class="side-label" id="lblPlat">Platforms</div>
       <select id="platformFilter" onchange="onPlatformChange()" title="Show only one platform"></select>
+      <div class="side-list" id="platSide"></div>
+      <div class="side-label" id="lblSort">Sort by</div>
       <select id="sortBy" onchange="onSortChange()">
         <option value="added">Sort: Recently added</option>
         <option value="title">Sort: Title A–Z</option>
@@ -1062,6 +1197,7 @@
         <option value="platform" id="sortPlatformOpt" selected>Sort: Platform</option>
         <option value="custom">Sort: My order</option>
       </select>
+      <div class="side-list" id="listSort"></div>
       <button class="btn btn-ghost" id="toolbarEditBtn" onclick="toggleToolbarExtra()" title="Show import/export, select, size and storage options">⚙ Edit</button>
       <div class="toolbar-extra" id="toolbarExtra">
         <div class="scale-slider-wrap" title="Card size">
@@ -1198,6 +1334,17 @@
       <div class="gh-modal">
         <h3>Customize the site</h3>
         <p class="gh-desc">Changes apply to everyone who opens the site.</p>
+
+        <div class="look-section">
+          <div class="field full">
+            <label>Ready-made themes</label>
+            <div class="look-row">
+              <button type="button" class="btn btn-ghost" onclick="applyPresetTheme('forest')">🌲 Forest Study</button>
+              <button type="button" class="btn btn-ghost" onclick="applyPresetTheme('gallery')">🖼 Gallery</button>
+            </div>
+            <p class="gh-desc" style="margin-top:6px;">Sets the background, title and all category colors in one tap. You can still tweak anything below.</p>
+          </div>
+        </div>
 
         <div class="look-section">
           <div class="field full">
@@ -2133,11 +2280,77 @@ function populatePlatformFilter(){
     options.map(([k,l])=>`<option value="${escapeHtml(k)}">${escapeHtml(l)}</option>`).join('');
   sel.value = platformFilter;
   sel.style.display = options.length ? 'block' : 'none';
+  buildPlatSide();
 }
+function updateGalHead(n){
+  const names = { games:'Games', music:'Music', books:'Books', consoles:'Consoles', artbooks:'Artbooks', figures:'Figures', boardgames:'Board Games' };
+  const t = document.getElementById('galTitle'), c = document.getElementById('galCount');
+  if(t) t.textContent = names[activeCat] || '';
+  const total = (data[activeCat]||[]).length;
+  const nouns = { games:['game','games'], music:['album','albums'], books:['book','books'], consoles:['console','consoles'], artbooks:['artbook','artbooks'], figures:['figure','figures'], boardgames:['board game','board games'] }[activeCat] || ['item','items'];
+  if(c) c.textContent = total + ' ' + (total===1 ? nouns[0] : nouns[1]) + ' in the collection';
+  buildGalHero();
+  buildSideLists();
+}
+// Gallery look: Sort / Status / Owner / Platforms shown as collapsible checkbox lists with counts.
+function buildSideLists(){
+  const make = (selId, listId, allVal, countFn, show)=>{
+    const sel = document.getElementById(selId), box = document.getElementById(listId);
+    if(!sel || !box) return;
+    if(show===false){ box.innerHTML = ''; return; }
+    box.innerHTML = [...sel.options].filter(o=>!o.hidden && !o.disabled && o.value!==allVal).map(o=>{
+      const on = sel.value===o.value;
+      const label = o.textContent.replace(/^Sort:\s*/,'');
+      const n = countFn ? String(countFn(o.value)).padStart(2,'0') : '';
+      return `<div class="plat-row${on?' on':''}" role="checkbox" aria-checked="${on}" tabindex="0" data-sel="${selId}" data-v="${escapeHtml(o.value)}" data-all="${allVal===null?'':escapeHtml(allVal)}"><span class="plat-box"></span><span class="plat-name">${escapeHtml(label)}</span><span class="plat-n">${n}</span></div>`;
+    }).join('');
+  };
+  const list = data[activeCat] || [];
+  make('sortBy', 'listSort', null, null);
+  make('statusFilter', 'listStatus', 'All', v=>list.filter(e=>e.status===v).length, activeCat==='games' || activeCat==='books');
+  make('ownerFilter', 'listOwner', 'all', v=>list.filter(e=>ownerKeys(e.owner).includes(v)).length);
+  make('platformFilter', 'platSide', 'All', v=>data.games.filter(e=>platformKeys(e.platform).includes(v)).length, activeCat==='games');
+}
+let galHeroKey = '';
+function buildGalHero(){
+  const bg = document.getElementById('galHeroBg');
+  if(!bg) return;
+  const covers = (data[activeCat]||[]).map(e=>e.cover).filter(c=>c && typeof c==='string').slice(0,8);
+  const key = activeCat + '|' + covers.join('|');
+  if(key===galHeroKey) return;
+  galHeroKey = key;
+  bg.innerHTML = covers.map(c=>`<div class="gh-col" style="background-image:url('${c.replace(/['"()\\\s]/g, ch=>encodeURIComponent(ch))}')"></div>`).join('');
+}
+function toggleGalSearch(){
+  const row = document.querySelector('.search-row');
+  const inp = document.getElementById('search');
+  if(!row || !inp) return;
+  const open = row.classList.toggle('open');
+  if(open){ inp.focus(); }
+  else if(inp.value){ inp.value = ''; render(); }
+}
+function buildPlatSide(){ buildSideLists(); }
+function sideRowPick(row){
+  const sel = document.getElementById(row.dataset.sel);
+  if(!sel) return;
+  const v = row.dataset.v, all = row.dataset.all;
+  sel.value = (all && sel.value===v) ? all : v;
+  sel.dispatchEvent(new Event('change'));
+}
+document.addEventListener('click', e=>{
+  const t = e.target;
+  if(!t || !t.closest) return;
+  const row = t.closest('.plat-row');
+  if(row){ sideRowPick(row); return; }
+  const lab = t.closest('.side-label');
+  if(lab) lab.classList.toggle('closed');
+});
+document.addEventListener('keydown', e=>{ if((e.key==='Enter'||e.key===' ') && e.target.classList && e.target.classList.contains('plat-row')){ e.preventDefault(); sideRowPick(e.target); } });
 
 function onPlatformChange(){
   platformFilter = document.getElementById('platformFilter').value;
   render();
+  buildPlatSide();
   rememberView();
 }
 
@@ -3260,6 +3473,7 @@ function render(){
   const cardsEl = document.getElementById('cards');
   const emptyEl = document.getElementById('emptyMsg');
   cardsEl.className = 'grid-cards cat-' + activeCat;
+  updateGalHead(filtered.length);
   cardsEl.style.zoom = (layoutScale[activeCat]/100);
   buildAlphaBar(filtered);
 
@@ -4034,6 +4248,7 @@ function safeImageUrl(u){
 const TITLE_FONTS = {
   fraunces: ['Fraunces', "'Fraunces', serif"],
   inter: ['Inter', "'Inter', sans-serif"],
+  barlow: ['Barlow', "'Barlow', sans-serif"],
   mono: ['JetBrains Mono', "'JetBrains Mono', monospace"],
   playfair: ['Playfair Display', "'Playfair Display', serif"],
   bebas: ['Bebas Neue', "'Bebas Neue', sans-serif"],
@@ -4091,6 +4306,7 @@ function applyTheme(){
     }
   }
   document.body.classList.toggle('has-bg-image', !!img);
+  document.body.classList.toggle('gallery', t.layout==='gallery');
   // Light backgrounds need dark heading text (the cards/panel keep their own colours).
   document.body.classList.toggle('theme-light', !img && !!color && lookLuminance(color) > 0.55);
   const meta = document.querySelector('meta[name="theme-color"]');
@@ -4306,6 +4522,43 @@ function clearLookColor(){
   siteTheme = { ...(siteTheme || {}), color: '' };
   applyTheme(); syncLookControls();
   saveSiteLookSoon();
+}
+const THEME_PRESETS = {
+  gallery: {
+    name: 'Gallery',
+    color: '#000000',
+    layout: 'gallery',
+    titleFont: 'barlow',
+    titleColor: '#ffffff',
+    detailsColor: '#9a9aa0',
+    accents: {
+      games:'#2f3340', music:'#2f4040', books:'#40303a', consoles:'#2f3a4d',
+      artbooks:'#3d3350', figures:'#2f4535', boardgames:'#4a4330'
+    }
+  },
+  forest: {
+    name: 'Forest Study',
+    color: '#14261c',
+    layout: '',
+    titleFont: 'fraunces',
+    titleColor: '#e8d9a8',
+    detailsColor: '#d6a24a',
+    accents: {
+      games:'#D6A24A', music:'#8FB08A', books:'#C9B88A', consoles:'#5F8F7A',
+      artbooks:'#B58A6A', figures:'#A3C585', boardgames:'#E0C36A'
+    }
+  }
+};
+function applyPresetTheme(key){
+  const p = THEME_PRESETS[key];
+  if(!p || !requireAuth()) return;
+  siteTheme = { ...(siteTheme || {}),
+    color: p.color, image: '',
+    layout: p.layout || '', titleFont: p.titleFont, titleColor: p.titleColor, detailsColor: p.detailsColor,
+    accents: { ...p.accents } };
+  applyTheme(); syncLookControls();
+  saveSiteLookSoon();
+  lookNote(p.name + ' applied.');
 }
 const ACCENTS = {
   games:    ['Games',    'cart',    '#C9622A'],
