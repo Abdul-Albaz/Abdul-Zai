@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Yakuza Kiwami 2",
+      "owner": "Zai",
+      "platform": "Nintendo Switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "30",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1795535820326-cover.jpg",
+      "id": "mwuvok7z84nh4",
+      "addedAt": 1795535844191
+    },
+    {
       "title": "Marvel's Wolverine",
       "owner": "Abdul",
       "platform": "Playstation 5",
@@ -13357,7 +13375,7 @@
     "dim": 66,
     "titleFont": "barlow",
     "titleSize": 53,
-    "picSize": 109,
+    "picSize": 107,
     "titleGap": 28,
     "detailsColor": "#9a9aa0",
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif",
@@ -13391,5 +13409,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795527499040
+  "savedAt": 1795535844896
 }
