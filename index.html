@@ -1011,9 +1011,7 @@
   body.gallery .scale-slider-wrap{background:#000;border-color:#333;border-radius:3px;}
   body.gallery .card{background:#000;color:var(--paper);border:1px solid #2a2a2a;border-radius:3px;box-shadow:none;transition:border-color .15s ease;}
   body.gallery .card:hover{border-color:#6a6a6a;}
-  body.gallery .cover-area{aspect-ratio:3/4;background:#0a0a0a;}
-  body.gallery .cover-area.music, body.gallery .cover-area.consoles, body.gallery .cover-area.figures, body.gallery .cover-area.boardgames{aspect-ratio:1/1;}
-  body.gallery .cover-area img{object-fit:cover;}
+  body.gallery .cover-area{background:#141415;}
   body.gallery .card-overlay{background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 55%, transparent 100%);}
   body.gallery .card-overlay h4, body.gallery .card-body h4{font-family:'Barlow',sans-serif;font-weight:400;font-size:20px;color:#fff;}
   body.gallery .card-body .sub, body.gallery .price{color:#8a8a8a;}
@@ -1057,8 +1055,6 @@
     body.gallery .plat-name{flex:1;}
     body.gallery .plat-n{color:#777;font-size:13px;}
     body.gallery .plat-row:hover .plat-name{color:#ddd;}
-    body.gallery .grid-cards{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;}
-    body.gallery .grid-cards.cat-music, body.gallery .grid-cards.cat-consoles, body.gallery .grid-cards.cat-figures, body.gallery .grid-cards.cat-boardgames{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;}
     body.gallery .card.has-cover .cover-area{height:auto;}
     body.gallery .card-overlay{position:static;opacity:1;background:none;padding:18px 18px 20px;border-top:1px solid #2a2a2a;}
     body.gallery .card-overlay .sub{text-transform:uppercase;letter-spacing:.3px;font-size:13px;color:#8a8a8a;}
@@ -1409,6 +1405,7 @@
           <div class="field full">
             <label>Ready-made themes</label>
             <div class="look-row">
+              <button type="button" class="btn btn-ghost" onclick="applyPresetTheme('original')">↩ Original</button>
               <button type="button" class="btn btn-ghost" onclick="applyPresetTheme('forest')">🌲 Forest Study</button>
               <button type="button" class="btn btn-ghost" onclick="applyPresetTheme('gallery')">🖼 Gallery</button>
             </div>
@@ -4624,6 +4621,16 @@ function clearLookColor(){
   saveSiteLookSoon();
 }
 const THEME_PRESETS = {
+  original: {
+    name: 'Original look',
+    keepImage: true,
+    color: '',
+    layout: '',
+    titleFont: '',
+    titleColor: '',
+    detailsColor: '',
+    accents: {}
+  },
   gallery: {
     name: 'Gallery',
     color: '#000000',
@@ -4653,7 +4660,7 @@ function applyPresetTheme(key){
   const p = THEME_PRESETS[key];
   if(!p || !requireAuth()) return;
   siteTheme = { ...(siteTheme || {}),
-    color: p.color, image: '',
+    color: p.color, image: p.keepImage ? ((siteTheme && siteTheme.image) || '') : '',
     layout: p.layout || '', titleFont: p.titleFont, titleColor: p.titleColor, detailsColor: p.detailsColor,
     accents: { ...p.accents } };
   applyTheme(); syncLookControls();
