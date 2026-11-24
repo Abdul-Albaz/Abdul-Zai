@@ -1052,15 +1052,15 @@
     body.gallery .plat-box{width:20px;height:20px;border:1px solid #444;border-radius:3px;flex:none;display:inline-flex;align-items:center;justify-content:center;}
     body.gallery .plat-row.on .plat-box{background:#fff;border-color:#fff;}
     body.gallery .plat-row.on .plat-box::after{content:'';width:9px;height:5px;border-left:2px solid #000;border-bottom:2px solid #000;transform:rotate(-45deg) translate(1px,-1px);}
-    body.gallery .plat-name{flex:1;}
-    body.gallery .plat-n{color:#777;font-size:13px;}
+    body.gallery .plat-name{flex:1;min-width:0;padding-right:18px;text-transform:capitalize;line-height:1.2;}
+    body.gallery .plat-n{color:#777;font-size:13px;min-width:36px;text-align:right;flex:none;}
     body.gallery .plat-row:hover .plat-name{color:#ddd;}
     body.gallery .card.has-cover .cover-area{height:auto;}
     body.gallery .card-overlay{position:static;opacity:1;background:none;padding:18px 18px 20px;border-top:1px solid #2a2a2a;}
     body.gallery .card-overlay .sub{text-transform:uppercase;letter-spacing:.3px;font-size:13px;color:#8a8a8a;}
   }
 
-  body.gallery{background-color:#000 !important;}
+  body.gallery{background-color:#000;}
   body.gallery .cover-area.placeholder, body.gallery .cover-area.placeholder.games, body.gallery .cover-area.placeholder.music, body.gallery .cover-area.placeholder.books, body.gallery .cover-area.placeholder.consoles, body.gallery .cover-area.placeholder.artbooks, body.gallery .cover-area.placeholder.figures, body.gallery .cover-area.placeholder.boardgames{background:#111;}
   body.gallery .placeholder-title{background:none;}
   body.gallery .placeholder-title h4{font-family:'Barlow',sans-serif;font-weight:400;text-shadow:none;}
@@ -1069,7 +1069,7 @@
 
   /* ---- Gallery: top bar + hero banner ---- */
   .gal-actions, .gal-hero{display:none;}
-  body.gallery .tabs{gap:26px;flex-wrap:wrap;margin-bottom:18px;}
+  body.gallery .tabs{gap:calc(var(--tab-gap,26) * 1px);flex-wrap:wrap;margin-bottom:18px;}
   body.gallery .tab{border:none;border-radius:0;background:transparent;color:#9a9aa0;font-family:'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:15px;font-weight:500;padding:6px 0;}
   body.gallery .tab .dot, body.gallery .tab-count{display:none;}
   body.gallery .tab:not(.active):hover{color:#fff;}
@@ -1079,7 +1079,7 @@
   body.gallery .gh-col{flex:1 1 0;background-size:cover;background-position:center;transform:skewX(-7deg);margin:0 -12px;}
   body.gallery .gal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.7) 100%);}
   body.gallery .gal-hero-in{position:relative;z-index:1;max-width:min(1400px,calc(100vw - 40px));margin:0 auto;padding:44px 0 36px;}
-  body.gallery .gal-hero-in h2{font-family:'Barlow',sans-serif;font-weight:500;font-size:44px;line-height:1.1;margin:0 0 8px;color:#fff;letter-spacing:-.5px;}
+  body.gallery .gal-hero-in h2{font-family:var(--title-font,'Barlow',sans-serif);font-weight:500;font-size:calc(var(--title-size,44) * 1px);line-height:1.1;margin:0 0 8px;color:var(--title-color,#fff);letter-spacing:-.5px;}
   body.gallery .gal-hero-in p{margin:0;color:#bdbdc2;font-size:17px;}
   .gal-search-btn{background:none;border:none;color:#fff;cursor:pointer;padding:6px;display:inline-flex;}
   .gal-btn{font-family:'Barlow',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.3px;background:#fff;color:#000;border:1px solid #fff;border-radius:3px;padding:13px 24px;font-size:15px;cursor:pointer;}
@@ -1096,11 +1096,13 @@
     body.gallery .wrap > .search-row.open{display:block;grid-column:1 / -1;grid-row:2;margin:0 0 12px;}
     body.gallery .wrap > .gal-hero{grid-column:1 / -1;grid-row:3;min-height:230px;}
     body.gallery .gal-hero-in{padding:78px 0 62px;}
-    body.gallery .gal-hero-in h2{font-size:64px;}
+    body.gallery .gal-hero-in h2{font-size:calc(var(--title-size,64) * 1px);}
+    body.gallery .wrap{padding-top:calc(var(--space-above,0) * .4px);}
+    body.gallery .wrap > .gal-hero{margin-top:calc(var(--space-below,0) * 1px);}
     body.gallery .gal-hero-in p{font-size:20px;}
     body.gallery .wrap > .panel{grid-column:1 / -1;grid-row:4;}
     body.gallery .title-block h1{font-size:22px !important;gap:12px !important;}
-    body.gallery .title-icon{width:40px !important;height:40px !important;font-size:26px !important;}
+    body.gallery .title-icon{width:calc(var(--pic-size,96) * .42px) !important;height:calc(var(--pic-size,96) * .42px) !important;font-size:calc(var(--pic-size,96) * .26px) !important;}
     body.gallery #titleText{display:none;}
     body.gallery .title-row{flex-wrap:nowrap;gap:22px;}
     body.gallery .details-toggle{padding:6px 0;font-family:'Barlow',sans-serif;font-size:15px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:#9a9aa0 !important;white-space:nowrap;}
@@ -1160,12 +1162,43 @@
   body.gallery .alpha-btn:hover:not(:disabled){background:#fff;border-color:#fff;color:#000;}
   body.gallery .bulk-bar{background:#0a0a0a;border-color:#2a2a2a;border-radius:3px;}
   body.gallery .empty{font-family:'Barlow',sans-serif;font-style:normal;color:#8a8a8a;}
-  body.gallery .done-popup .done-num{font-family:'Barlow',sans-serif;color:#fff;}
+  body.gallery .done-popup .done-num{font-family:'Barlow',sans-serif;color:var(--done-color,#fff);}
+  body.gallery .done-popup .done-box{color:var(--done-color,#9a9aa0);}
   body.gallery .done-popup .done-lbl, body.gallery .done-popup .done-of{font-family:'Barlow',sans-serif;color:#9a9aa0;}
   body.gallery .done-popup.gal-details-popup{padding:16px 18px 18px;}
   body.gallery .done-popup.gal-details-popup .done-title{margin:0 30px 12px 0;}
   body.gallery{overflow-x:clip;}
   body.gallery .card .card-meta, body.gallery .card .card-overlay .sub{display:none;}
+  body.gallery .tab[data-cat="games"].active{box-shadow:0 2px 0 var(--cart);}
+  .gal-btn.games{background:var(--cart);border-color:var(--cart);color:var(--on-cart,#1a1a1a);}
+  body.gallery .tab[data-cat="music"].active{box-shadow:0 2px 0 var(--tape);}
+  .gal-btn.music{background:var(--tape);border-color:var(--tape);color:var(--on-tape,#1a1a1a);}
+  body.gallery .tab[data-cat="books"].active{box-shadow:0 2px 0 var(--book);}
+  .gal-btn.books{background:var(--book);border-color:var(--book);color:var(--on-book,#1a1a1a);}
+  body.gallery .tab[data-cat="consoles"].active{box-shadow:0 2px 0 var(--console);}
+  .gal-btn.consoles{background:var(--console);border-color:var(--console);color:var(--on-console,#1a1a1a);}
+  body.gallery .tab[data-cat="artbooks"].active{box-shadow:0 2px 0 var(--artbook);}
+  .gal-btn.artbooks{background:var(--artbook);border-color:var(--artbook);color:var(--on-artbook,#1a1a1a);}
+  body.gallery .tab[data-cat="figures"].active{box-shadow:0 2px 0 var(--figure);}
+  .gal-btn.figures{background:var(--figure);border-color:var(--figure);color:var(--on-figure,#1a1a1a);}
+  body.gallery .tab[data-cat="boardgames"].active{box-shadow:0 2px 0 var(--boardgame);}
+  .gal-btn.boardgames{background:var(--boardgame);border-color:var(--boardgame);color:var(--on-boardgame,#1a1a1a);}
+  body.gallery #galDetailsBtn{color:var(--details-color,#fff);}
+  @media (min-width:769px){
+    body.gallery .toolbar-extra{flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:8px;border-top:none;padding-top:0;margin-top:0;}
+    body.gallery .toolbar-extra > *{width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin:0;}
+    body.gallery .toolbar-extra .btn{justify-content:center;text-align:center;white-space:normal;}
+    body.gallery .scale-slider-wrap{gap:8px;padding:0 10px;}
+    body.gallery .scale-slider-wrap input[type=range]{flex:1;width:auto;min-width:0;}
+    body.gallery .toolbar-extra.open{display:flex;}
+  }
+  .float-dock{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:90;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s,transform .2s;}
+  .float-dock.show{opacity:1;pointer-events:auto;transform:none;}
+  .float-btn{font-family:'Barlow','Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border-radius:3px;padding:13px 20px;box-shadow:0 6px 18px rgba(0,0,0,.45);}
+  #floatTop{background:#111;color:#fff;border:1px solid #3a3a3a;width:48px;height:48px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;}
+  #floatTop:hover{background:#fff;color:#000;}
+  body.guest #floatAdd{display:none !important;}
+  @media (max-width:768px){ .float-dock{right:12px;bottom:12px;} .float-btn{padding:11px 16px;font-size:14px;} #floatTop{width:44px;height:44px;} }
 </style>
 </head>
 <body>
@@ -1229,9 +1262,14 @@
     <div class="tab" data-cat="boardgames" onclick="switchTab('boardgames')"><span class="dot"></span>Board Games<span class="tab-count" data-count="boardgames">0</span></div>
   </div>
 
+  <div class="float-dock" id="floatDock">
+    <button type="button" class="float-btn" id="floatTop" onclick="scrollToTop()" aria-label="Go to the top" title="Go to the top">↑</button>
+    <button type="button" class="float-btn gal-btn games" id="floatAdd" onclick="openSlip()" title="Add something from anywhere">+ Add</button>
+  </div>
+
   <div class="gal-actions" id="galActions">
     <button type="button" class="gal-search-btn" onclick="toggleGalSearch()" aria-label="Search" title="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5L16.5 16.5"/></svg></button>
-    <button type="button" class="gal-btn" id="galAddBtn" onclick="openSlip()">+ Add</button>
+    <button type="button" class="gal-btn games" id="galAddBtn" onclick="openSlip()">+ Add</button>
   </div>
 
   <div class="gal-hero" id="galHero">
@@ -2212,6 +2250,7 @@ function switchTab(cat){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.cat===cat));
   document.getElementById('addBtn').className = 'btn btn-primary ' + cat;
   document.getElementById('addBtn').textContent = ADD_LABELS[cat];
+  { const g = document.getElementById('galAddBtn'); if(g) g.className = 'gal-btn ' + cat; const f = document.getElementById('floatAdd'); if(f) f.className = 'float-btn gal-btn ' + cat; }
   document.getElementById('saveBtn').className = 'btn btn-primary ' + cat;
   closeSlip();
   exitSelectMode();
@@ -2380,6 +2419,14 @@ function buildSideLists(){
   make('ownerFilter', 'listOwner', 'all', v=>list.filter(e=>ownerKeys(e.owner).includes(v)).length);
   make('platformFilter', 'platSide', 'All', v=>data.games.filter(e=>platformKeys(e.platform).includes(v)).length, activeCat==='games');
 }
+function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+(function(){
+  const dock = document.getElementById('floatDock');
+  if(!dock) return;
+  const check = ()=>dock.classList.toggle('show', window.scrollY > 320);
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+})();
 function toggleGalDetails(){
   const ov = document.getElementById('galDetailsOverlay');
   if(ov) ov.classList.toggle('open');
@@ -4641,10 +4688,10 @@ const THEME_PRESETS = {
     layout: 'gallery',
     titleFont: 'barlow',
     titleColor: '#ffffff',
-    detailsColor: '#9a9aa0',
+    detailsColor: '#ffffff',
     accents: {
-      games:'#2f3340', music:'#2f4040', books:'#40303a', consoles:'#2f3a4d',
-      artbooks:'#3d3350', figures:'#2f4535', boardgames:'#4a4330'
+      games:'#f2f2f2', music:'#f2f2f2', books:'#f2f2f2', consoles:'#f2f2f2',
+      artbooks:'#f2f2f2', figures:'#f2f2f2', boardgames:'#f2f2f2'
     }
   },
   forest: {
