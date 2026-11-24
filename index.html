@@ -1110,10 +1110,64 @@
     body.gallery .details-toggle{padding:6px 0;font-family:'Barlow',sans-serif;font-size:15px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:#9a9aa0 !important;white-space:nowrap;}
     body.gallery .details-toggle:hover{color:#fff !important;filter:none;}
     body.gallery .details-toggle .burger{width:18px;gap:4px;}
-    body.gallery .account-bar.open{position:absolute;top:100%;left:0;z-index:50;background:#000;border:1px solid #2a2a2a;padding:12px 16px;margin:0;white-space:nowrap;}
-    body.gallery .stats.open{position:absolute;top:100%;left:0;z-index:40;background:#000;border:1px solid #2a2a2a;padding:16px 24px;margin-top:46px;}
     body.gallery #completedBtn, body.gallery #addBtn{display:none !important;}
   }
+
+  /* ---- Gallery: details box in the hero + everything dark ---- */
+  .gal-hero-side{display:none;}
+  body.gallery .acct-link{border:1px solid #333;background:transparent;color:#c9c9ce;text-decoration:none;text-transform:uppercase;letter-spacing:.4px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;border-radius:3px;cursor:pointer;}
+  body.gallery .acct-link:hover{background:#fff;border-color:#fff;color:#000;}
+  body.gallery .acct-name{color:#fff;font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.5px;}
+  body.gallery .account-bar{font-family:'Barlow',sans-serif;font-size:14px;color:#fff;}
+  body.gallery .stats, body.gallery .stats *{font-family:'Barlow',sans-serif;}
+  @media (min-width:769px){
+    body.gallery .details-toggle{display:none;}
+    body.gallery .gal-hero-in{display:flex;justify-content:space-between;align-items:center;gap:40px;}
+    body.gallery .gal-hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex:none;}
+    body.gallery .gal-card{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:290px;max-width:100%;background:none;border:none;}
+    body.gallery #galSideAcct, body.gallery #galSideStats, body.gallery .gal-card #accountBar{display:contents !important;}
+    body.gallery .gal-card #accountBar > span{grid-column:1 / -1;order:0;background:#1c1b18;border:1px solid #2c2b27;border-radius:10px;padding:12px 16px;font-size:16px;}
+    body.gallery .gal-card .acct-link{width:100%;text-align:left;border:1px solid #2c2b27;border-radius:10px;background:#1c1b18;padding:13px 16px;font-size:12px;order:2;}
+    body.gallery .gal-card .acct-link:hover{background:#fff;border-color:#fff;color:#000;}
+    body.gallery .gal-card #statsToggle{order:1;}
+    body.gallery .gal-card [onclick*="openLook"]{order:3;}
+    body.gallery .gal-card [onclick*="openChangePassword"]{order:4;}
+    body.gallery .gal-card [onclick*="logout"], body.gallery .gal-card [onclick*="openLogin"]{order:5;grid-column:1 / -1;}
+    body.gallery .gal-card .stats.open{display:flex;order:6;grid-column:1 / -1;flex-wrap:wrap;gap:12px 26px;margin:0;padding:14px 16px;background:#1c1b18;border:1px solid #2c2b27;border-radius:10px;position:static;}
+  }
+  body.gallery .slip, body.gallery .gh-modal, body.gallery .detail-modal, body.gallery .done-popup{
+    --paper:#0a0a0a;--ink:#fff;--ink-soft:#9a9aa0;--line:#2a2a2a;
+    background:#0a0a0a;color:#fff;border:1px solid #2a2a2a;border-radius:3px;box-shadow:none;font-family:'Barlow',sans-serif;}
+  body.gallery .slip-overlay, body.gallery .gh-overlay, body.gallery .detail-overlay, body.gallery .done-overlay{background:rgba(0,0,0,.85);}
+  body.gallery .slip .slip-actions{background:#0a0a0a;border-top-color:#2a2a2a;}
+  body.gallery .slip h3, body.gallery .gh-modal h3, body.gallery .detail-body h3{font-family:'Barlow',sans-serif;font-style:normal;font-weight:500;font-size:22px;color:#fff;}
+  body.gallery .field label, body.gallery .detail-row .k, body.gallery .done-popup .done-title{font-family:'Barlow',sans-serif;font-size:12px;letter-spacing:.8px;color:#9a9aa0;}
+  body.gallery .field input, body.gallery .field select, body.gallery .field textarea{background:#000;border:1px solid #333;color:#fff;border-radius:3px;font-family:'Barlow',sans-serif;font-size:15px;}
+  body.gallery .field input:focus, body.gallery .field select:focus, body.gallery .field textarea:focus{border-color:#fff;}
+  body.gallery .look-section{border-top-color:#2a2a2a;}
+  body.gallery .gh-modal .btn-ghost{color:#c9c9ce;border-color:#333;}
+  body.gallery .gh-modal .btn-ghost:hover{color:#fff;border-color:#777;}
+  body.gallery #lookColor{background:#000;border-color:#333;}
+  body.gallery .gh-desc code{background:rgba(255,255,255,.1);}
+  body.gallery .gh-status.err{color:#ff8a7a;}
+  body.gallery .gh-status.ok{color:#8fd6a8;}
+  body.gallery .detail-notes{background:rgba(255,255,255,.06);}
+  body.gallery .detail-row select.quick, body.gallery .detail-row input.quick{background:#000;border:1px solid #333;color:#fff;border-radius:3px;}
+  body.gallery .progress-bar{background:rgba(255,255,255,.14);}
+  body.gallery .progress-fill, body.gallery .detail-stars{color:#fff;}
+  body.gallery .progress-fill{background:#fff;}
+  body.gallery .plat-chip{border-color:#333;color:#c9c9ce;border-radius:3px;}
+  body.gallery .plat-chip:hover{border-color:#fff;color:#fff;}
+  body.gallery .plat-chip.on{background:#fff;border-color:#fff;color:#000;}
+  body.gallery .alpha-bar{background:#000;border-color:#2a2a2a;border-radius:3px;}
+  body.gallery .alpha-btn{font-family:'Barlow',sans-serif;background:#000;border-color:#2a2a2a;border-radius:3px;}
+  body.gallery .alpha-btn:hover:not(:disabled){background:#fff;border-color:#fff;color:#000;}
+  body.gallery .bulk-bar{background:#0a0a0a;border-color:#2a2a2a;border-radius:3px;}
+  body.gallery .empty{font-family:'Barlow',sans-serif;font-style:normal;color:#8a8a8a;}
+  body.gallery .done-popup .done-num{font-family:'Barlow',sans-serif;color:#fff;}
+  body.gallery .done-popup .done-lbl, body.gallery .done-popup .done-of{font-family:'Barlow',sans-serif;color:#9a9aa0;}
+  body.gallery .done-popup.gal-details-popup{padding:16px 18px 18px;}
+  body.gallery .done-popup.gal-details-popup .done-title{margin:0 30px 12px 0;}
 </style>
 </head>
 <body>
@@ -1139,6 +1193,18 @@
       <div class="stat price-only"><span class="num" id="statSpent">$0</span><span class="lbl">Spent</span></div>
     </div>
   </header>
+
+  <div class="done-overlay" id="galDetailsOverlay" onclick="if(event.target===this)toggleGalDetails()">
+    <div class="done-popup gal-details-popup" role="dialog" aria-label="Details">
+      <button class="done-x" type="button" onclick="toggleGalDetails()" aria-label="Close">✕</button>
+      <div class="done-title">Details</div>
+      <div class="gal-card open" id="galCard">
+        <div id="galSideAcct"></div>
+        <button type="button" class="acct-link" onclick="closeGalDetailsThen(openDone)">✓ Completed</button>
+        <div id="galSideStats"></div>
+      </div>
+    </div>
+  </div>
 
   <div class="done-overlay" id="doneOverlay" onclick="if(event.target===this)closeDone()">
     <div class="done-popup" role="dialog" aria-label="Completed">
@@ -1167,13 +1233,17 @@
 
   <div class="gal-actions" id="galActions">
     <button type="button" class="gal-search-btn" onclick="toggleGalSearch()" aria-label="Search" title="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5L16.5 16.5"/></svg></button>
-    <button type="button" class="gal-btn ghost" onclick="openDone()">✓ Completed</button>
     <button type="button" class="gal-btn" id="galAddBtn" onclick="openSlip()">+ Add</button>
   </div>
 
   <div class="gal-hero" id="galHero">
     <div class="gal-hero-bg" id="galHeroBg"></div>
-    <div class="gal-hero-in"><h2 id="galTitle">Games</h2><p id="galCount"></p></div>
+    <div class="gal-hero-in">
+      <div class="gal-hero-text"><h2 id="galTitle">Games</h2><p id="galCount"></p></div>
+      <div class="gal-hero-side" id="galHeroSide">
+        <button type="button" class="gal-btn ghost" id="galDetailsBtn" onclick="toggleGalDetails()" aria-expanded="false">☰ Show details</button>
+      </div>
+    </div>
   </div>
 
   <div class="panel">
@@ -2311,6 +2381,35 @@ function buildSideLists(){
   make('ownerFilter', 'listOwner', 'all', v=>list.filter(e=>ownerKeys(e.owner).includes(v)).length);
   make('platformFilter', 'platSide', 'All', v=>data.games.filter(e=>platformKeys(e.platform).includes(v)).length, activeCat==='games');
 }
+function toggleGalDetails(){
+  const ov = document.getElementById('galDetailsOverlay');
+  if(ov) ov.classList.toggle('open');
+}
+function closeGalDetailsThen(fn){
+  const ov = document.getElementById('galDetailsOverlay');
+  if(ov) ov.classList.remove('open');
+  if(typeof fn==='function') fn();
+}
+document.addEventListener('click', e=>{
+  const b = e.target.closest && e.target.closest('#galCard .acct-link');
+  if(b && b.id!=='statsToggle'){ const ov = document.getElementById('galDetailsOverlay'); if(ov) ov.classList.remove('open'); }
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ const ov = document.getElementById('galDetailsOverlay'); if(ov) ov.classList.remove('open'); } });
+function placeGalSide(){
+  const acct = document.getElementById('accountBar'), stats = document.getElementById('statsBox');
+  const slotA = document.getElementById('galSideAcct'), slotS = document.getElementById('galSideStats');
+  const picker = document.getElementById('iconPicker'), header = document.querySelector('header');
+  if(!acct || !stats || !slotA || !slotS || !picker || !header) return;
+  const desk = document.body.classList.contains('gallery') && window.matchMedia('(min-width:769px)').matches;
+  if(desk){
+    if(acct.parentNode!==slotA) slotA.appendChild(acct);
+    if(stats.parentNode!==slotS) slotS.appendChild(stats);
+  } else {
+    if(acct.parentNode!==picker.parentNode) picker.parentNode.insertBefore(acct, picker);
+    if(stats.parentNode!==header) header.appendChild(stats);
+  }
+}
+window.addEventListener('resize', placeGalSide);
 let galHeroKey = '';
 function buildGalHero(){
   const bg = document.getElementById('galHeroBg');
@@ -4307,6 +4406,7 @@ function applyTheme(){
   }
   document.body.classList.toggle('has-bg-image', !!img);
   document.body.classList.toggle('gallery', t.layout==='gallery');
+  placeGalSide();
   // Light backgrounds need dark heading text (the cards/panel keep their own colours).
   document.body.classList.toggle('theme-light', !img && !!color && lookLuminance(color) > 0.55);
   const meta = document.querySelector('meta[name="theme-color"]');
