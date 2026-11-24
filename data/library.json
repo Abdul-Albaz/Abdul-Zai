@@ -1,6 +1,24 @@
 {
   "games": [
     {
+      "title": "Outbound",
+      "owner": "Zai",
+      "platform": "Nintendo Switch 2",
+      "publisher": "",
+      "genre": "",
+      "sealed": "Not sealed",
+      "rarity": "",
+      "status": "Backlog",
+      "quantity": "",
+      "price": "20",
+      "purchaseDate": "",
+      "notes": "",
+      "rating": 0,
+      "cover": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/1795535978820-cover.jpg",
+      "id": "mwuvrndqwroes",
+      "addedAt": 1795535988254
+    },
+    {
       "title": "Yakoza like dragon",
       "owner": "Zai",
       "platform": "Playstation 5",
@@ -13427,5 +13445,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795535931172
+  "savedAt": 1795535988956
 }
