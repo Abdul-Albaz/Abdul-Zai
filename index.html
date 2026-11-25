@@ -1074,11 +1074,11 @@
   body.gallery .tab .dot, body.gallery .tab-count{display:none;}
   body.gallery .tab:not(.active):hover{color:#fff;}
   body.gallery .tab[data-cat].active{background:transparent;color:#fff;border:none;}
-  body.gallery .gal-hero{display:block;position:relative;width:100vw;margin:0 calc(50% - 50vw) 34px;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;min-height:150px;overflow:hidden;background:#000;}
+  body.gallery .gal-hero{display:block;position:relative;width:var(--bleed-w,100vw);margin:0 calc(50% - var(--bleed-w,100vw) / 2) 34px;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;min-height:150px;overflow:hidden;background:#000;}
   body.gallery .gal-hero-bg{position:absolute;inset:0;display:flex;opacity:.3;}
   body.gallery .gh-col{flex:1 1 0;background-size:cover;background-position:center;transform:skewX(-7deg);margin:0 -12px;}
   body.gallery .gal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.7) 100%);}
-  body.gallery .gal-hero-in{position:relative;z-index:1;max-width:min(1400px,calc(100vw - 40px));margin:0 auto;padding:44px 0 36px;}
+  body.gallery .gal-hero-in{position:relative;z-index:1;max-width:min(1400px,calc(var(--bleed-w,100vw) - 40px));margin:0 auto;padding:44px 0 36px;}
   body.gallery .gal-hero-in h2{font-family:var(--title-font,'Barlow',sans-serif);font-weight:500;font-size:calc(var(--title-size,44) * 1px);line-height:1.1;margin:0 0 8px;color:var(--title-color,#fff);letter-spacing:-.5px;}
   body.gallery .gal-hero-in p{margin:0;color:#bdbdc2;font-size:17px;}
   .gal-search-btn{background:none;border:none;color:#fff;cursor:pointer;padding:6px;display:inline-flex;}
@@ -1121,7 +1121,7 @@
   @media (min-width:769px){
     body.gallery .details-toggle{display:none;}
     body.gallery .gal-hero-in{display:flex;justify-content:space-between;align-items:center;gap:40px;}
-    body.gallery .gal-hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex:none;}
+    body.gallery .gal-hero-side{display:flex;flex-direction:row;align-items:center;gap:10px;flex:none;}
     body.gallery .gal-card{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:290px;max-width:100%;background:none;border:none;}
     body.gallery #galSideAcct, body.gallery #galSideStats, body.gallery .gal-card #accountBar{display:contents !important;}
     body.gallery .gal-card #accountBar > span{grid-column:1 / -1;order:0;background:#1c1b18;border:1px solid #2c2b27;border-radius:10px;padding:12px 16px;font-size:16px;}
@@ -1227,6 +1227,14 @@
     #lookOverlay{align-items:flex-end;justify-content:center;padding:0;}
     #lookOverlay .gh-modal{width:100%;height:50vh;border-radius:14px 14px 0 0;}
   }
+  .gal-gear{font-size:19px;line-height:1;padding:11px 14px;}
+  body.guest #galGearBtn{display:none !important;}
+  /* Customize open: the page makes room for the panel instead of sitting under it */
+  @media (min-width:769px){
+    body.look-open-right{padding-right:412px;--bleed-w:calc(100vw - 392px);}
+    body.look-open-left{padding-left:412px;--bleed-w:calc(100vw - 392px);}
+    body.look-open-right .float-dock{right:410px;}
+  }
 </style>
 </head>
 <body>
@@ -1305,6 +1313,7 @@
     <div class="gal-hero-in">
       <div class="gal-hero-text"><h2 id="galTitle">Games</h2><p id="galCount"></p></div>
       <div class="gal-hero-side" id="galHeroSide">
+        <button type="button" class="gal-btn ghost gal-gear" id="galGearBtn" onclick="openLook()" title="Customize the site" aria-label="Customize the site">⚙</button>
         <button type="button" class="gal-btn ghost" id="galDetailsBtn" onclick="toggleGalDetails()" aria-expanded="false">☰ Show details</button>
       </div>
     </div>
@@ -5012,6 +5021,7 @@ function openLook(){
   lookNote(ghConfig && ghConfig.token ? '' : 'Colours work right away. To upload images, connect GitHub first (⚙ Edit → ⚙ Image storage).');
   applyLookDock();
   document.getElementById('lookOverlay').classList.add('open');
+  syncLookBody();
 }
 function applyLookDock(){
   let left = false;
@@ -5025,10 +5035,19 @@ function toggleLookDock(){
   const left = !o.classList.contains('dock-left');
   try{ localStorage.setItem('lookDock', left ? 'left' : 'right'); }catch(e){}
   applyLookDock();
+  syncLookBody();
 }
 function closeLook(){
   const o = document.getElementById('lookOverlay');
   if(o) o.classList.remove('open');
+  syncLookBody();
+}
+function syncLookBody(){
+  const o = document.getElementById('lookOverlay');
+  const open = !!(o && o.classList.contains('open'));
+  const left = !!(o && o.classList.contains('dock-left'));
+  document.body.classList.toggle('look-open-right', open && !left);
+  document.body.classList.toggle('look-open-left', open && left);
 }
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape' && document.getElementById('lookOverlay').classList.contains('open')) closeLook();
