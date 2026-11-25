@@ -13454,7 +13454,7 @@
     "spaceBelow": 4,
     "spaceAbove": 54,
     "tabGap": 27,
-    "titleBelow": 24,
+    "titleBelow": 19,
     "priceColors": {
       "games": "#ffb22e",
       "music": "#ffb433",
@@ -13483,5 +13483,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795586752321
+  "savedAt": 1795586756418
 }
