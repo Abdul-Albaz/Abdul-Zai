@@ -13442,14 +13442,14 @@
   ],
   "icon": "🏠",
   "theme": {
-    "color": "",
+    "color": "#000000",
     "image": "",
     "dim": 66,
-    "titleFont": "",
+    "titleFont": "barlow",
     "titleSize": 53,
     "picSize": 107,
     "titleGap": 30,
-    "detailsColor": "",
+    "detailsColor": "#ffffff",
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif",
     "spaceBelow": 4,
     "spaceAbove": 54,
@@ -13464,9 +13464,17 @@
       "figures": "#f0a728",
       "boardgames": "#f8ad2a"
     },
-    "layout": "",
-    "titleColor": "",
-    "accents": {},
+    "layout": "gallery",
+    "titleColor": "#ffffff",
+    "accents": {
+      "games": "#f2f2f2",
+      "music": "#f2f2f2",
+      "books": "#f2f2f2",
+      "consoles": "#f2f2f2",
+      "artbooks": "#f2f2f2",
+      "figures": "#f2f2f2",
+      "boardgames": "#f2f2f2"
+    },
     "padLeft": 0,
     "padRight": 0
   },
@@ -13475,5 +13483,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795609624572
+  "savedAt": 1795609632780
 }
