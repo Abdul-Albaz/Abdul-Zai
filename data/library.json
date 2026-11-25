@@ -13475,13 +13475,13 @@
       "figures": "#2f4535",
       "boardgames": "#4a4330"
     },
-    "padLeft": 0,
-    "padRight": 0
+    "padLeft": 50,
+    "padRight": 42
   },
   "iconImage": "",
   "iconImages": {
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795586624506
+  "savedAt": 1795586640906
 }
