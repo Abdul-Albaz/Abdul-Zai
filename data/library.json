@@ -13448,13 +13448,13 @@
     "titleFont": "barlow",
     "titleSize": 53,
     "picSize": 107,
-    "titleGap": 28,
+    "titleGap": 30,
     "detailsColor": "#9a9aa0",
     "guestImage": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/site-guest-1792392645592.gif",
     "spaceBelow": 4,
     "spaceAbove": 54,
     "tabGap": 27,
-    "titleBelow": 20,
+    "titleBelow": 24,
     "priceColors": {
       "games": "#ffb22e",
       "music": "#ffb433",
@@ -13483,5 +13483,5 @@
     "abdul": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/abdul/site-icon-1793615721897.png",
     "zai": "https://raw.githubusercontent.com/Abdul-Albaz/Abdul-Zai/main/imges/zai/site-icon-1793624346707.png"
   },
-  "savedAt": 1795586741941
+  "savedAt": 1795586752321
 }
